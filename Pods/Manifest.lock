@@ -1,0 +1,12 @@
+PODS:
+  - SCFadeSlideView (0.0.1)
+
+DEPENDENCIES:
+  - SCFadeSlideView (= 0.0.1)
+
+SPEC CHECKSUMS:
+  SCFadeSlideView: c5a5cc4bc0d39adaedefb4736960ce15a3f041e2
+
+PODFILE CHECKSUM: ded03410d215556e93b5b9482135c73ec7100d15
+
+COCOAPODS: 1.0.0
