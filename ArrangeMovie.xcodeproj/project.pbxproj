@@ -14,6 +14,9 @@
 		C886B0E01DA8FC0500240283 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C886B0DE1DA8FC0500240283 /* Main.storyboard */; };
 		C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C886B0E11DA8FC0500240283 /* Assets.xcassets */; };
 		C886B0E51DA8FC0500240283 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C886B0E31DA8FC0500240283 /* LaunchScreen.storyboard */; };
+		C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651321DA9D5DF00400ABC /* MeViewController.m */; };
+		C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651361DA9D62C00400ABC /* EMIBaseViewController.m */; };
+		C8E6513B1DA9D65D00400ABC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6513A1DA9D65D00400ABC /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,12 @@
 		C886B0E11DA8FC0500240283 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C886B0E41DA8FC0500240283 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C886B0E61DA8FC0500240283 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8E651311DA9D5DF00400ABC /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeViewController.h; path = viewcontrollers/me/MeViewController.h; sourceTree = "<group>"; };
+		C8E651321DA9D5DF00400ABC /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeViewController.m; path = viewcontrollers/me/MeViewController.m; sourceTree = "<group>"; };
+		C8E651351DA9D62C00400ABC /* EMIBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMIBaseViewController.h; path = viewcontrollers/base/EMIBaseViewController.h; sourceTree = "<group>"; };
+		C8E651361DA9D62C00400ABC /* EMIBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMIBaseViewController.m; path = viewcontrollers/base/EMIBaseViewController.m; sourceTree = "<group>"; };
+		C8E651391DA9D65D00400ABC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = models/User.h; sourceTree = "<group>"; };
+		C8E6513A1DA9D65D00400ABC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = models/User.m; sourceTree = "<group>"; };
 		E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +91,12 @@
 		C886B0D41DA8FC0500240283 /* ArrangeMovie */ = {
 			isa = PBXGroup;
 			children = (
+				C8E651381DA9D63800400ABC /* models */,
+				C8E6512E1DA9D52000400ABC /* src */,
+				C8E6512D1DA9D46A00400ABC /* viewcontrollers */,
+				C8E6512C1DA9D44D00400ABC /* views */,
+				C8E6512B1DA9D44300400ABC /* net */,
+				C8E6512A1DA9D43900400ABC /* utils */,
 				C886B0D81DA8FC0500240283 /* AppDelegate.h */,
 				C886B0D91DA8FC0500240283 /* AppDelegate.m */,
 				C886B0DB1DA8FC0500240283 /* ViewController.h */,
@@ -101,6 +116,78 @@
 				C886B0D61DA8FC0500240283 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C8E6512A1DA9D43900400ABC /* utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		C8E6512B1DA9D44300400ABC /* net */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = net;
+			sourceTree = "<group>";
+		};
+		C8E6512C1DA9D44D00400ABC /* views */ = {
+			isa = PBXGroup;
+			children = (
+				C8E6512F1DA9D56900400ABC /* me */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		C8E6512D1DA9D46A00400ABC /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				C8E651341DA9D60F00400ABC /* base */,
+				C8E651301DA9D5B500400ABC /* me */,
+			);
+			name = viewcontrollers;
+			sourceTree = "<group>";
+		};
+		C8E6512E1DA9D52000400ABC /* src */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		C8E6512F1DA9D56900400ABC /* me */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = me;
+			sourceTree = "<group>";
+		};
+		C8E651301DA9D5B500400ABC /* me */ = {
+			isa = PBXGroup;
+			children = (
+				C8E651311DA9D5DF00400ABC /* MeViewController.h */,
+				C8E651321DA9D5DF00400ABC /* MeViewController.m */,
+			);
+			name = me;
+			sourceTree = "<group>";
+		};
+		C8E651341DA9D60F00400ABC /* base */ = {
+			isa = PBXGroup;
+			children = (
+				C8E651351DA9D62C00400ABC /* EMIBaseViewController.h */,
+				C8E651361DA9D62C00400ABC /* EMIBaseViewController.m */,
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
+		C8E651381DA9D63800400ABC /* models */ = {
+			isa = PBXGroup;
+			children = (
+				C8E651391DA9D65D00400ABC /* User.h */,
+				C8E6513A1DA9D65D00400ABC /* User.m */,
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +313,9 @@
 			files = (
 				C886B0DD1DA8FC0500240283 /* ViewController.m in Sources */,
 				C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */,
+				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
+				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
+				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
