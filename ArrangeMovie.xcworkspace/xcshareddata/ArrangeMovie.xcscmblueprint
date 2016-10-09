@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "19021955B1B1ABA8FCE0F49751871B3B5093ED44",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "19021955B1B1ABA8FCE0F49751871B3B5093ED44" : 0,
+    "92B8F2DB189F6138E4AB8DC3C6FB098169D2284F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5717AD48-C1F3-4BCE-A3A1-E2007775D7F0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "19021955B1B1ABA8FCE0F49751871B3B5093ED44" : "ArrangeMovie\/",
+    "92B8F2DB189F6138E4AB8DC3C6FB098169D2284F" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ArrangeMovie",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ArrangeMovie.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/JS-EMI\/ArrangeMovie.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "19021955B1B1ABA8FCE0F49751871B3B5093ED44"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/WongSuechang\/Emi.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "92B8F2DB189F6138E4AB8DC3C6FB098169D2284F"
+    }
+  ]
+}
