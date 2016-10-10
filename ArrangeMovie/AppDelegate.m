@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "EMINavigationController.h"
+#import "CRGradientNavigationBar.h"
+#import "UIColor+Hex.h"
+#import "UIImage+SCUtil.h"
+#import "MeViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +22,48 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+//    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"all_bg"]]];
+    self.window.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"all_bg"].CGImage);
+    [self.window makeKeyAndVisible];
+    
+    
+    UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
+    
+    MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
+    EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+    
+    UIImage *image = [UIImage imageNamed:@"navigation"];
+    CGSize titleSize = nav.navigationBar.bounds.size;
+    titleSize.height = titleSize.height+20;
+    NSLog(@"导航栏宽度%f",titleSize.height);
+    image = [self scaleToSize:image size:titleSize];
+    [[UINavigationBar appearance] setBackgroundImage:image
+                       forBarPosition:UIBarPositionAny
+                           barMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    
+    
+    
+    
+    
+    
+    
+    
+    [self.window setRootViewController:nav];
+    
     return YES;
+}
+
+//图片缩放
+- (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
+    UIGraphicsBeginImageContext(size);
+    [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return scaledImage;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
