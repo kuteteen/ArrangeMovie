@@ -22,6 +22,9 @@
 		C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8E6513C1DA9E6CC00400ABC /* me.storyboard */; };
 		C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6513E1DA9E77000400ABC /* EMINavigationController.m */; };
 		C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651491DA9EAF100400ABC /* UIColor+Hex.m */; };
+		D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A064B1DAB5CA8003832A8 /* login.storyboard */; };
+		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
+		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,11 @@
 		C8E6513F1DA9E77000400ABC /* EMINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMINavigationController.h; path = viewcontrollers/base/EMINavigationController.h; sourceTree = "<group>"; };
 		C8E651481DA9EAF100400ABC /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "utils/category/UIColor+Hex.h"; sourceTree = "<group>"; };
 		C8E651491DA9EAF100400ABC /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "utils/category/UIColor+Hex.m"; sourceTree = "<group>"; };
+		D62A064B1DAB5CA8003832A8 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = login.storyboard; path = src/login.storyboard; sourceTree = "<group>"; };
+		D62A064E1DAB63D1003832A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewcontrollers/login/LoginViewController.h; sourceTree = "<group>"; };
+		D62A064F1DAB63D1003832A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontrollers/login/LoginViewController.m; sourceTree = "<group>"; };
+		D62A06551DAB7D5F003832A8 /* ValidateMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ValidateMobile.h; path = utils/regex/ValidateMobile.h; sourceTree = "<group>"; };
+		D62A06561DAB7D5F003832A8 /* ValidateMobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ValidateMobile.m; path = utils/regex/ValidateMobile.m; sourceTree = "<group>"; };
 		E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +154,7 @@
 		C8E6512A1DA9D43900400ABC /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				D62A06511DAB7CE4003832A8 /* regex */,
 				C8E651441DA9EA8800400ABC /* category */,
 			);
 			name = utils;
@@ -170,6 +179,7 @@
 		C8E6512D1DA9D46A00400ABC /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				D62A064D1DAB637C003832A8 /* login */,
 				C8E651341DA9D60F00400ABC /* base */,
 				C8E651301DA9D5B500400ABC /* me */,
 			);
@@ -180,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				C8E6513C1DA9E6CC00400ABC /* me.storyboard */,
+				D62A064B1DAB5CA8003832A8 /* login.storyboard */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -231,6 +242,24 @@
 			name = category;
 			sourceTree = "<group>";
 		};
+		D62A064D1DAB637C003832A8 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				D62A064E1DAB63D1003832A8 /* LoginViewController.h */,
+				D62A064F1DAB63D1003832A8 /* LoginViewController.m */,
+			);
+			name = login;
+			sourceTree = "<group>";
+		};
+		D62A06511DAB7CE4003832A8 /* regex */ = {
+			isa = PBXGroup;
+			children = (
+				D62A06551DAB7D5F003832A8 /* ValidateMobile.h */,
+				D62A06561DAB7D5F003832A8 /* ValidateMobile.m */,
+			);
+			name = regex;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -265,6 +294,7 @@
 				TargetAttributes = {
 					C886B0D11DA8FC0500240283 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9347E67WRC;
 					};
 				};
 			};
@@ -291,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */,
 				C886B0E51DA8FC0500240283 /* LaunchScreen.storyboard in Resources */,
 				C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */,
 				C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */,
@@ -353,10 +384,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */,
+				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
+				D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */,
 				C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */,
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
 				C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */,
@@ -467,10 +500,13 @@
 			baseConfigurationReference = E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emi365.ArrangeMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -479,10 +515,13 @@
 			baseConfigurationReference = BF27F5CCD964E066166A1E8C /* Pods-ArrangeMovie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emi365.ArrangeMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
