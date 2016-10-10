@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>CRGradientNavigationBar.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -37,12 +42,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0E29AFF6DA4BF543FCCE28B698826C01</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0FFB914DE5B4BEA38014CA524D969BD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>132F73CACFEF8821849F373E2936AA70</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5381E23ED095C4010DAAD9D9D1394513</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +93,11 @@
 			<true/>
 		</dict>
 		<key>DEB268F506CF8E872D04CDE020729962</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8EA8CF7DBD213B202A2C6A39F104B27</key>
 		<dict>
 			<key>primary</key>
 			<true/>
