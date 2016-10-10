@@ -20,6 +20,8 @@
 		C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6513E1DA9E77000400ABC /* EMINavigationController.m */; };
 		C8E651471DA9EAC800400ABC /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651461DA9EAC800400ABC /* UIBarButtonItem+Extension.m */; };
 		C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651491DA9EAF100400ABC /* UIColor+Hex.m */; };
+		D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A064B1DAB5CA8003832A8 /* login.storyboard */; };
+		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,9 @@
 		C8E651461DA9EAC800400ABC /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Extension.m"; path = "utils/category/UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		C8E651481DA9EAF100400ABC /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "utils/category/UIColor+Hex.h"; sourceTree = "<group>"; };
 		C8E651491DA9EAF100400ABC /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "utils/category/UIColor+Hex.m"; sourceTree = "<group>"; };
+		D62A064B1DAB5CA8003832A8 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = login.storyboard; path = src/login.storyboard; sourceTree = "<group>"; };
+		D62A064E1DAB63D1003832A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewcontrollers/login/LoginViewController.h; sourceTree = "<group>"; };
+		D62A064F1DAB63D1003832A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontrollers/login/LoginViewController.m; sourceTree = "<group>"; };
 		E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +155,7 @@
 		C8E6512D1DA9D46A00400ABC /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				D62A064D1DAB637C003832A8 /* login */,
 				C8E651341DA9D60F00400ABC /* base */,
 				C8E651301DA9D5B500400ABC /* me */,
 			);
@@ -160,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				C8E6513C1DA9E6CC00400ABC /* me.storyboard */,
+				D62A064B1DAB5CA8003832A8 /* login.storyboard */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -213,6 +220,15 @@
 			name = category;
 			sourceTree = "<group>";
 		};
+		D62A064D1DAB637C003832A8 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				D62A064E1DAB63D1003832A8 /* LoginViewController.h */,
+				D62A064F1DAB63D1003832A8 /* LoginViewController.m */,
+			);
+			name = login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -247,6 +263,7 @@
 				TargetAttributes = {
 					C886B0D11DA8FC0500240283 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9347E67WRC;
 					};
 				};
 			};
@@ -273,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */,
 				C886B0E51DA8FC0500240283 /* LaunchScreen.storyboard in Resources */,
 				C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */,
 				C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */,
@@ -338,6 +356,7 @@
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
+				D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */,
 				C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */,
 				C8E651471DA9EAC800400ABC /* UIBarButtonItem+Extension.m in Sources */,
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
@@ -447,10 +466,13 @@
 			baseConfigurationReference = E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emi365.ArrangeMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -459,10 +481,13 @@
 			baseConfigurationReference = BF27F5CCD964E066166A1E8C /* Pods-ArrangeMovie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emi365.ArrangeMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
