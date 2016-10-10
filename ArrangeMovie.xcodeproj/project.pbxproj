@@ -23,6 +23,7 @@
 		C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651491DA9EAF100400ABC /* UIColor+Hex.m */; };
 		D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A064B1DAB5CA8003832A8 /* login.storyboard */; };
 		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
+		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		D62A064B1DAB5CA8003832A8 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = login.storyboard; path = src/login.storyboard; sourceTree = "<group>"; };
 		D62A064E1DAB63D1003832A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewcontrollers/login/LoginViewController.h; sourceTree = "<group>"; };
 		D62A064F1DAB63D1003832A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontrollers/login/LoginViewController.m; sourceTree = "<group>"; };
+		D62A06551DAB7D5F003832A8 /* ValidateMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ValidateMobile.h; path = utils/regex/ValidateMobile.h; sourceTree = "<group>"; };
+		D62A06561DAB7D5F003832A8 /* ValidateMobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ValidateMobile.m; path = utils/regex/ValidateMobile.m; sourceTree = "<group>"; };
 		E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +149,7 @@
 		C8E6512A1DA9D43900400ABC /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				D62A06511DAB7CE4003832A8 /* regex */,
 				C8E651441DA9EA8800400ABC /* category */,
 			);
 			name = utils;
@@ -240,6 +244,15 @@
 				D62A064F1DAB63D1003832A8 /* LoginViewController.m */,
 			);
 			name = login;
+			sourceTree = "<group>";
+		};
+		D62A06511DAB7CE4003832A8 /* regex */ = {
+			isa = PBXGroup;
+			children = (
+				D62A06551DAB7D5F003832A8 /* ValidateMobile.h */,
+				D62A06561DAB7D5F003832A8 /* ValidateMobile.m */,
+			);
+			name = regex;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */,
+				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
