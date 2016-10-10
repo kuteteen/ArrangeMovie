@@ -26,7 +26,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
 //    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"all_bg"]]];
-    self.window.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"all_bg"].CGImage);
+    self.window.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
     [self.window makeKeyAndVisible];
     
     

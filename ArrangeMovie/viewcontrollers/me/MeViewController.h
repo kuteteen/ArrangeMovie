@@ -8,6 +8,6 @@
 
 #import "EMIBaseViewController.h"
 
-@interface MeViewController : EMIBaseViewController
+@interface MeViewController : EMIBaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @end
