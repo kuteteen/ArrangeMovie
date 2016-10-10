@@ -44,14 +44,7 @@
                        forBarPosition:UIBarPositionAny
                            barMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-    
-    
-    
-    
-    
-    
-    
-    
+        
     [self.window setRootViewController:nav];
     
     return YES;

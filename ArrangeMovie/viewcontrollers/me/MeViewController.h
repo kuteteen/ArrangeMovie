@@ -6,8 +6,8 @@
 //  Copyright © 2016年 EMI. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "EMIBaseViewController.h"
 
-@interface MeViewController : UIViewController
+@interface MeViewController : EMIBaseViewController
 
 @end

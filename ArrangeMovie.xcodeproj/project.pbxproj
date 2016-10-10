@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		131A47533821D17EA144C864 /* libPods-ArrangeMovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23006BE2A8191D3C9E4103 /* libPods-ArrangeMovie.a */; };
 		C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */; };
+		C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */; };
+		C8329BA41DAB352100B14075 /* UIImageView+EMIShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA31DAB352100B14075 /* UIImageView+EMIShadow.m */; };
 		C886B0D71DA8FC0500240283 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D61DA8FC0500240283 /* main.m */; };
 		C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D91DA8FC0500240283 /* AppDelegate.m */; };
 		C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C886B0E11DA8FC0500240283 /* Assets.xcassets */; };
@@ -18,7 +20,6 @@
 		C8E6513B1DA9D65D00400ABC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6513A1DA9D65D00400ABC /* User.m */; };
 		C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8E6513C1DA9E6CC00400ABC /* me.storyboard */; };
 		C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6513E1DA9E77000400ABC /* EMINavigationController.m */; };
-		C8E651471DA9EAC800400ABC /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651461DA9EAC800400ABC /* UIBarButtonItem+Extension.m */; };
 		C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651491DA9EAF100400ABC /* UIColor+Hex.m */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,10 @@
 		BF27F5CCD964E066166A1E8C /* Pods-ArrangeMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.release.xcconfig"; sourceTree = "<group>"; };
 		C81371111DAA2BAE006479D6 /* UIImage+SCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+SCUtil.h"; path = "utils/category/UIImage+SCUtil.h"; sourceTree = "<group>"; };
 		C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SCUtil.m"; path = "utils/category/UIImage+SCUtil.m"; sourceTree = "<group>"; };
+		C8329B9F1DAB34F200B14075 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Extension.h"; path = "views/base/UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Extension.m"; path = "views/base/UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		C8329BA21DAB352100B14075 /* UIImageView+EMIShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+EMIShadow.h"; path = "views/base/UIImageView+EMIShadow.h"; sourceTree = "<group>"; };
+		C8329BA31DAB352100B14075 /* UIImageView+EMIShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+EMIShadow.m"; path = "views/base/UIImageView+EMIShadow.m"; sourceTree = "<group>"; };
 		C886B0D21DA8FC0500240283 /* ArrangeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArrangeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C886B0D61DA8FC0500240283 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C886B0D81DA8FC0500240283 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -43,8 +48,6 @@
 		C8E6513C1DA9E6CC00400ABC /* me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = me.storyboard; path = src/me.storyboard; sourceTree = "<group>"; };
 		C8E6513E1DA9E77000400ABC /* EMINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMINavigationController.m; path = viewcontrollers/base/EMINavigationController.m; sourceTree = "<group>"; };
 		C8E6513F1DA9E77000400ABC /* EMINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMINavigationController.h; path = viewcontrollers/base/EMINavigationController.h; sourceTree = "<group>"; };
-		C8E651451DA9EAC800400ABC /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Extension.h"; path = "utils/category/UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
-		C8E651461DA9EAC800400ABC /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Extension.m"; path = "utils/category/UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		C8E651481DA9EAF100400ABC /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "utils/category/UIColor+Hex.h"; sourceTree = "<group>"; };
 		C8E651491DA9EAF100400ABC /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "utils/category/UIColor+Hex.m"; sourceTree = "<group>"; };
 		E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +80,17 @@
 				BE23006BE2A8191D3C9E4103 /* libPods-ArrangeMovie.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8329B9B1DAB2FF600B14075 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				C8329B9F1DAB34F200B14075 /* UIBarButtonItem+Extension.h */,
+				C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */,
+				C8329BA21DAB352100B14075 /* UIImageView+EMIShadow.h */,
+				C8329BA31DAB352100B14075 /* UIImageView+EMIShadow.m */,
+			);
+			name = base;
 			sourceTree = "<group>";
 		};
 		C886B0C91DA8FC0500240283 = {
@@ -142,6 +156,7 @@
 		C8E6512C1DA9D44D00400ABC /* views */ = {
 			isa = PBXGroup;
 			children = (
+				C8329B9B1DAB2FF600B14075 /* base */,
 				C8E6512F1DA9D56900400ABC /* me */,
 			);
 			name = views;
@@ -205,8 +220,6 @@
 			children = (
 				C8E651481DA9EAF100400ABC /* UIColor+Hex.h */,
 				C8E651491DA9EAF100400ABC /* UIColor+Hex.m */,
-				C8E651451DA9EAC800400ABC /* UIBarButtonItem+Extension.h */,
-				C8E651461DA9EAC800400ABC /* UIBarButtonItem+Extension.m */,
 				C81371111DAA2BAE006479D6 /* UIImage+SCUtil.h */,
 				C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */,
 			);
@@ -339,8 +352,9 @@
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
 				C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */,
-				C8E651471DA9EAC800400ABC /* UIBarButtonItem+Extension.m in Sources */,
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
+				C8329BA41DAB352100B14075 /* UIImageView+EMIShadow.m in Sources */,
+				C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */,
 				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
 			);
