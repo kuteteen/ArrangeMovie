@@ -30,10 +30,7 @@
     [self.window makeKeyAndVisible];
     
     
-    UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
     
-    MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
-    EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
     
     UIImage *image = [UIImage imageNamed:@"navigation"];
     CGSize titleSize = nav.navigationBar.bounds.size;
