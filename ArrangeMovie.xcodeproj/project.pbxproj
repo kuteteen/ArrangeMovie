@@ -10,7 +10,7 @@
 		131A47533821D17EA144C864 /* libPods-ArrangeMovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23006BE2A8191D3C9E4103 /* libPods-ArrangeMovie.a */; };
 		C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */; };
 		C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */; };
-		C8329BA41DAB352100B14075 /* UIImageView+EMIShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA31DAB352100B14075 /* UIImageView+EMIShadow.m */; };
+		C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */; };
 		C886B0D71DA8FC0500240283 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D61DA8FC0500240283 /* main.m */; };
 		C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D91DA8FC0500240283 /* AppDelegate.m */; };
 		C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C886B0E11DA8FC0500240283 /* Assets.xcassets */; };
@@ -30,8 +30,8 @@
 		C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SCUtil.m"; path = "utils/category/UIImage+SCUtil.m"; sourceTree = "<group>"; };
 		C8329B9F1DAB34F200B14075 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Extension.h"; path = "views/base/UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Extension.m"; path = "views/base/UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
-		C8329BA21DAB352100B14075 /* UIImageView+EMIShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+EMIShadow.h"; path = "views/base/UIImageView+EMIShadow.h"; sourceTree = "<group>"; };
-		C8329BA31DAB352100B14075 /* UIImageView+EMIShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+EMIShadow.m"; path = "views/base/UIImageView+EMIShadow.m"; sourceTree = "<group>"; };
+		C8329BA51DAB6C6100B14075 /* EMIShadowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMIShadowImageView.h; path = views/base/EMIShadowImageView.h; sourceTree = "<group>"; };
+		C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMIShadowImageView.m; path = views/base/EMIShadowImageView.m; sourceTree = "<group>"; };
 		C886B0D21DA8FC0500240283 /* ArrangeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArrangeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C886B0D61DA8FC0500240283 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C886B0D81DA8FC0500240283 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -87,8 +87,8 @@
 			children = (
 				C8329B9F1DAB34F200B14075 /* UIBarButtonItem+Extension.h */,
 				C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */,
-				C8329BA21DAB352100B14075 /* UIImageView+EMIShadow.h */,
-				C8329BA31DAB352100B14075 /* UIImageView+EMIShadow.m */,
+				C8329BA51DAB6C6100B14075 /* EMIShadowImageView.h */,
+				C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -350,10 +350,10 @@
 				C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
+				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
 				C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */,
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
-				C8329BA41DAB352100B14075 /* UIImageView+EMIShadow.m in Sources */,
 				C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */,
 				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
