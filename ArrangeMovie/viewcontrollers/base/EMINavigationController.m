@@ -48,6 +48,15 @@
     [self setupBarButtonItemTheme];
 }
 
+//图片缩放
+//+ (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
+//    UIGraphicsBeginImageContext(size);
+//    [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
+//    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    return scaledImage;
+//}
+
 /**
  *  设置UINavigationBarTheme的主题
  */
@@ -60,6 +69,18 @@
     // 设置导航栏背景
     
     UIImage *image = [UIImage imageNamed:@"navigation"];
+    
+////    UIImage *image = [UIImage imageNamed:@"navigation"];
+//    CGSize titleSize = appearance.bounds.size;
+//    titleSize.height = titleSize.height+20;
+//    NSLog(@"导航栏宽度%f",titleSize.height);
+//    image = [self scaleToSize:image size:titleSize];
+//    [appearance setBackgroundImage:image
+//                    forBarPosition:UIBarPositionAny
+//                        barMetrics:UIBarMetricsDefault];
+//    [appearance setShadowImage:[UIImage new]];
+    
+    
     UIColor *color = [UIColor colorWithPatternImage:image];
     appearance.barTintColor = color;
     
