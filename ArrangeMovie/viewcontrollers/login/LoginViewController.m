@@ -20,7 +20,10 @@
     
     [self initView];
     
-    if (iPhone4S) {
+    
+    if (iPhonePlus) {
+       
+    }else{
         //键盘弹出收起的通知事件
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
         
@@ -43,7 +46,7 @@
 //    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
 //    CGFloat height = keyboardFrame.origin.y;
     CGRect frame = self.view.frame;
-    frame.origin.y = -115;
+    frame.origin.y = -140;
     self.view.frame = frame;
 }
 
@@ -58,7 +61,7 @@
 - (void)initView{
     
     //加载头像
-    [self.headImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.5 shadowRadius:5 image:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580"];
+    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.5 shadowRadius:5 image:@"miller" placeholder:@"miller"];
     
     //outTFView阴影
     [self.outTFView setShadowWithshadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.3 shadowRadius:10];
@@ -122,6 +125,7 @@
 }
 //忘记密码
 - (IBAction)forgetPwd:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"toFgetPwdVC" sender:self];
 }
 //立即注册
 - (IBAction)toRegister:(UITapGestureRecognizer *)sender {
