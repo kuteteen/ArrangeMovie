@@ -24,6 +24,7 @@
 		D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A064B1DAB5CA8003832A8 /* login.storyboard */; };
 		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
+		D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06591DAB88F7003832A8 /* UIView+Shadow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		D62A064F1DAB63D1003832A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontrollers/login/LoginViewController.m; sourceTree = "<group>"; };
 		D62A06551DAB7D5F003832A8 /* ValidateMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ValidateMobile.h; path = utils/regex/ValidateMobile.h; sourceTree = "<group>"; };
 		D62A06561DAB7D5F003832A8 /* ValidateMobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ValidateMobile.m; path = utils/regex/ValidateMobile.m; sourceTree = "<group>"; };
+		D62A06581DAB88F7003832A8 /* UIView+Shadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Shadow.h"; path = "views/base/UIView+Shadow.h"; sourceTree = "<group>"; };
+		D62A06591DAB88F7003832A8 /* UIView+Shadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Shadow.m"; path = "views/base/UIView+Shadow.m"; sourceTree = "<group>"; };
 		E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +100,8 @@
 				C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */,
 				C8329BA51DAB6C6100B14075 /* EMIShadowImageView.h */,
 				C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */,
+				D62A06581DAB88F7003832A8 /* UIView+Shadow.h */,
+				D62A06591DAB88F7003832A8 /* UIView+Shadow.m */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 				D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */,
 				C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */,
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
+				D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */,
 				C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */,
 				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
