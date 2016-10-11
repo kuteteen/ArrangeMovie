@@ -9,12 +9,20 @@
 #import "EMIBaseViewController.h"
 #import "ValidateMobile.h"
 #import "UIImageView+WebCache.h"
+#import "EMIShadowImageView.h"
+#import "UIView+Shadow.h"
+#import "UIColor+Hex.h"
 
 
 @interface LoginViewController : EMIBaseViewController
-@property (weak, nonatomic) IBOutlet UIImageView *headImg;
+@property (weak, nonatomic) IBOutlet EMIShadowImageView *headImgView;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 @property (weak, nonatomic) IBOutlet UITextField *pwdTF;
+//输入框外层view
+@property (weak, nonatomic) IBOutlet UIView *outTFView;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (weak, nonatomic) IBOutlet UIView *leftLineView;
+@property (weak, nonatomic) IBOutlet UIView *rightLineView;
+@property (weak, nonatomic) IBOutlet UIButton *forgetBtn;
 
 @end
