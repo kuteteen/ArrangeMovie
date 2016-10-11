@@ -19,6 +19,13 @@
     // Do any additional setup after loading the view.
     
     [self initView];
+    
+    if (iPhone4S) {
+        //键盘弹出收起的通知事件
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,6 +33,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    //移除通知
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+//    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    CGFloat height = keyboardFrame.origin.y;
+    CGRect frame = self.view.frame;
+    frame.origin.y = -115;
+    self.view.frame = frame;
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    //恢复到默认y为0的状态，有时候要考虑导航栏要+64
+    CGRect frame = self.view.frame;
+    frame.origin.y = 0;
+    self.view.frame = frame;
+}
 
 //初始化视图
 - (void)initView{
@@ -67,9 +94,6 @@
     gradientLayer2.colors = [NSArray arrayWithObjects:
                              (id)[[UIColor colorWithHexString:@"#3C4F87"] CGColor],
                              (id)[[UIColor colorWithHexString:@"#42568A"] CGColor],(id)[[UIColor colorWithHexString:@"#516195"] CGColor], nil];
-//    [NSArray arrayWithObjects:
-//     (id)[[UIColor colorWithHexString:@"#465485"] CGColor],
-//     (id)[[UIColor colorWithHexString:@"#4E5D8A"] CGColor],(id)[[UIColor colorWithHexString:@"#54628F"] CGColor], nil]
     gradientLayer2.startPoint = CGPointMake(1, 0);
     gradientLayer2.endPoint = CGPointMake(0, 0);
     [self.rightLineView.layer addSublayer:gradientLayer2];
@@ -90,7 +114,7 @@
 //监测手机号，当合法时，请求头像，登录按钮可点击
 - (IBAction)checkTelphoneNum:(UITextField *)sender {
     if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
-        
+        self.loginBtn.enabled = YES;
     }
 }
 //登录首页

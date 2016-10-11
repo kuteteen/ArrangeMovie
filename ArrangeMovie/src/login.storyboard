@@ -61,7 +61,7 @@
                                                     <constraint firstAttribute="width" constant="30" id="qCx-4V-6b7"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RfZ-xB-0Fu">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RfZ-xB-0Fu">
                                                 <rect key="frame" x="58" y="3" width="496" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="vFZ-nh-hGP"/>
@@ -70,7 +70,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="checkTelphoneNum:" destination="lwx-xz-TJC" eventType="valueChanged" id="z4P-sb-dGA"/>
+                                                    <action selector="checkTelphoneNum:" destination="lwx-xz-TJC" eventType="editingChanged" id="yO9-L0-weD"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -93,7 +93,7 @@
                                                     <constraint firstAttribute="width" constant="30" id="lG0-oX-QRf"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVe-S8-lHo">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVe-S8-lHo">
                                                 <rect key="frame" x="58" y="2" width="496" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="R9G-YZ-xrP"/>
@@ -258,6 +258,24 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="621" y="271.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XKY-zO-aj2">
+            <objects>
+                <viewController id="u65-rD-WZ0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WZd-Xd-SXI"/>
+                        <viewControllerLayoutGuide type="bottom" id="QoO-G8-Iei"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tWB-yS-g17">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tpX-oR-q37" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1263" y="271"/>
         </scene>
     </scenes>
     <resources>

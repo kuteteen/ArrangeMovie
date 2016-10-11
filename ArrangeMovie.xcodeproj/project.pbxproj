@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		131A47533821D17EA144C864 /* libPods-ArrangeMovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23006BE2A8191D3C9E4103 /* libPods-ArrangeMovie.a */; };
-		A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		A5AC117B1DABA57D00CBBE05 /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC117D1DABA5E200CBBE05 /* MePointRecordTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		A5AC11801DABA5E200CBBE05 /* MePointRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC117E1DABA5E200CBBE05 /* MePointRecordTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11821DABA63300CBBE05 /* MeSettingTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */; };
+		A5AC117B1DABA57D00CBBE05 /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */; };
+		A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC117D1DABA5E200CBBE05 /* MePointRecordTableViewCell.m */; };
+		A5AC11801DABA5E200CBBE05 /* MePointRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC117E1DABA5E200CBBE05 /* MePointRecordTableViewCell.xib */; };
+		A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11821DABA63300CBBE05 /* MeSettingTableViewCell.m */; };
+		A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */; };
+		A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */; };
+		A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */; };
 		C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */; };
 		C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */; };
 		C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */; };
@@ -34,6 +34,7 @@
 		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
 		D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06591DAB88F7003832A8 /* UIView+Shadow.m */; };
+		D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,9 @@
 		D62A06561DAB7D5F003832A8 /* ValidateMobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ValidateMobile.m; path = utils/regex/ValidateMobile.m; sourceTree = "<group>"; };
 		D62A06581DAB88F7003832A8 /* UIView+Shadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Shadow.h"; path = "views/base/UIView+Shadow.h"; sourceTree = "<group>"; };
 		D62A06591DAB88F7003832A8 /* UIView+Shadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Shadow.m"; path = "views/base/UIView+Shadow.m"; sourceTree = "<group>"; };
+		D62A065C1DAC817A003832A8 /* am.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = am.pch; path = config/am.pch; sourceTree = "<group>"; };
+		D62A065E1DACADAA003832A8 /* FgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FgetPwdViewController.h; path = viewcontrollers/login/FgetPwdViewController.h; sourceTree = "<group>"; };
+		D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FgetPwdViewController.m; path = viewcontrollers/login/FgetPwdViewController.m; sourceTree = "<group>"; };
 		E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +156,7 @@
 		C886B0D41DA8FC0500240283 /* ArrangeMovie */ = {
 			isa = PBXGroup;
 			children = (
+				D62A065B1DAC813C003832A8 /* config */,
 				C8E651381DA9D63800400ABC /* models */,
 				C8E6512E1DA9D52000400ABC /* src */,
 				C8E6512D1DA9D46A00400ABC /* viewcontrollers */,
@@ -284,6 +289,8 @@
 			children = (
 				D62A064E1DAB63D1003832A8 /* LoginViewController.h */,
 				D62A064F1DAB63D1003832A8 /* LoginViewController.m */,
+				D62A065E1DACADAA003832A8 /* FgetPwdViewController.h */,
+				D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -295,6 +302,14 @@
 				D62A06561DAB7D5F003832A8 /* ValidateMobile.m */,
 			);
 			name = regex;
+			sourceTree = "<group>";
+		};
+		D62A065B1DAC813C003832A8 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				D62A065C1DAC817A003832A8 /* am.pch */,
+			);
+			name = config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,6 +457,7 @@
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
 				C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */,
 				A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */,
+				D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +564,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = ArrangeMovie/config/am.pch;
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emi365.ArrangeMovie;
@@ -563,6 +580,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = ArrangeMovie/config/am.pch;
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emi365.ArrangeMovie;
