@@ -11,7 +11,8 @@
 @interface EMIShadowImageView : UIImageView
 typedef enum {
     EMIShadowPathRectangle = 0,//矩形图片四周阴影
-    EMIShadowPathRound
+    EMIShadowPathCircle = 1,//带圆环的阴影
+    EMIShadowPathRound//普通圆形图片的阴影
 }EMIShadowPathType;
 
 -(void) setShadowWithType:(EMIShadowPathType)pathType
@@ -19,7 +20,8 @@ typedef enum {
              shadowOffset:(CGSize)offset
             shadowOpacity:(float)opacity
              shadowRadius:(CGFloat)radius
-                    image:(NSString *)image;
+                    image:(NSString *)image
+              placeholder:(NSString *)placeholder;
 
 
 @end

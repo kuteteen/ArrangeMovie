@@ -6,8 +6,11 @@
 //  Copyright © 2016年 EMI. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SCTableViewCell.h"
 
-@interface MeTableViewCell : UITableViewCell
+@interface MeTableViewCell : SCTableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *meImgView;
+@property (weak, nonatomic) IBOutlet UILabel *meTitleLabel;
 
 @end
