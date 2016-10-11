@@ -8,18 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		131A47533821D17EA144C864 /* libPods-ArrangeMovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23006BE2A8191D3C9E4103 /* libPods-ArrangeMovie.a */; };
-		A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		A5AC117B1DABA57D00CBBE05 /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC117D1DABA5E200CBBE05 /* MePointRecordTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		A5AC11801DABA5E200CBBE05 /* MePointRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC117E1DABA5E200CBBE05 /* MePointRecordTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11821DABA63300CBBE05 /* MeSettingTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */; };
+		A5AC117B1DABA57D00CBBE05 /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */; };
+		A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC117D1DABA5E200CBBE05 /* MePointRecordTableViewCell.m */; };
+		A5AC11801DABA5E200CBBE05 /* MePointRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC117E1DABA5E200CBBE05 /* MePointRecordTableViewCell.xib */; };
+		A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11821DABA63300CBBE05 /* MeSettingTableViewCell.m */; };
+		A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */; };
+		A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */; };
+		A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */; };
 		C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */; };
 		C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */; };
 		C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */; };
 		C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA91DABA44100B14075 /* SCTableViewCell.m */; };
+		C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BAC1DACA62700B14075 /* MeProfileViewController.m */; };
 		C886B0D71DA8FC0500240283 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D61DA8FC0500240283 /* main.m */; };
 		C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D91DA8FC0500240283 /* AppDelegate.m */; };
 		C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C886B0E11DA8FC0500240283 /* Assets.xcassets */; };
@@ -58,6 +59,8 @@
 		C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMIShadowImageView.m; path = views/base/EMIShadowImageView.m; sourceTree = "<group>"; };
 		C8329BA81DABA44100B14075 /* SCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCTableViewCell.h; path = views/base/SCTableViewCell.h; sourceTree = "<group>"; };
 		C8329BA91DABA44100B14075 /* SCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCTableViewCell.m; path = views/base/SCTableViewCell.m; sourceTree = "<group>"; };
+		C8329BAB1DACA62700B14075 /* MeProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeProfileViewController.h; path = viewcontrollers/me/MeProfileViewController.h; sourceTree = "<group>"; };
+		C8329BAC1DACA62700B14075 /* MeProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeProfileViewController.m; path = viewcontrollers/me/MeProfileViewController.m; sourceTree = "<group>"; };
 		C886B0D21DA8FC0500240283 /* ArrangeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArrangeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C886B0D61DA8FC0500240283 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C886B0D81DA8FC0500240283 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 			children = (
 				C8E651311DA9D5DF00400ABC /* MeViewController.h */,
 				C8E651321DA9D5DF00400ABC /* MeViewController.m */,
+				C8329BAB1DACA62700B14075 /* MeProfileViewController.h */,
+				C8329BAC1DACA62700B14075 /* MeProfileViewController.m */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
 				A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
+				C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */,
 				D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */,
 				C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */,
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,

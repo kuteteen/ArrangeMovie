@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "UIColor+Hex.h"
+#import "EMIShadowImageView.h"
 
 @interface EMIBaseViewController : UIViewController
 
