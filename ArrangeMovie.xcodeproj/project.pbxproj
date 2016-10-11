@@ -8,9 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		131A47533821D17EA144C864 /* libPods-ArrangeMovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23006BE2A8191D3C9E4103 /* libPods-ArrangeMovie.a */; };
+		A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		A5AC117B1DABA57D00CBBE05 /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC117D1DABA5E200CBBE05 /* MePointRecordTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		A5AC11801DABA5E200CBBE05 /* MePointRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC117E1DABA5E200CBBE05 /* MePointRecordTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11821DABA63300CBBE05 /* MeSettingTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */; };
 		C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */; };
 		C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */; };
+		C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA91DABA44100B14075 /* SCTableViewCell.m */; };
 		C886B0D71DA8FC0500240283 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D61DA8FC0500240283 /* main.m */; };
 		C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D91DA8FC0500240283 /* AppDelegate.m */; };
 		C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C886B0E11DA8FC0500240283 /* Assets.xcassets */; };
@@ -28,6 +37,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5AC11771DABA57D00CBBE05 /* MeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeTableViewCell.h; path = views/me/MeTableViewCell.h; sourceTree = "<group>"; };
+		A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeTableViewCell.m; path = views/me/MeTableViewCell.m; sourceTree = "<group>"; };
+		A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeTableViewCell.xib; path = views/me/MeTableViewCell.xib; sourceTree = "<group>"; };
+		A5AC117C1DABA5E200CBBE05 /* MePointRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MePointRecordTableViewCell.h; path = views/me/MePointRecordTableViewCell.h; sourceTree = "<group>"; };
+		A5AC117D1DABA5E200CBBE05 /* MePointRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MePointRecordTableViewCell.m; path = views/me/MePointRecordTableViewCell.m; sourceTree = "<group>"; };
+		A5AC117E1DABA5E200CBBE05 /* MePointRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MePointRecordTableViewCell.xib; path = views/me/MePointRecordTableViewCell.xib; sourceTree = "<group>"; };
+		A5AC11811DABA63300CBBE05 /* MeSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeSettingTableViewCell.h; path = views/me/MeSettingTableViewCell.h; sourceTree = "<group>"; };
+		A5AC11821DABA63300CBBE05 /* MeSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeSettingTableViewCell.m; path = views/me/MeSettingTableViewCell.m; sourceTree = "<group>"; };
+		A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeSettingTableViewCell.xib; path = views/me/MeSettingTableViewCell.xib; sourceTree = "<group>"; };
+		A5AC11861DABA69100CBBE05 /* MeBankCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeBankCardTableViewCell.h; path = views/me/MeBankCardTableViewCell.h; sourceTree = "<group>"; };
+		A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeBankCardTableViewCell.m; path = views/me/MeBankCardTableViewCell.m; sourceTree = "<group>"; };
+		A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeBankCardTableViewCell.xib; path = views/me/MeBankCardTableViewCell.xib; sourceTree = "<group>"; };
 		BE23006BE2A8191D3C9E4103 /* libPods-ArrangeMovie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArrangeMovie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF27F5CCD964E066166A1E8C /* Pods-ArrangeMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.release.xcconfig"; sourceTree = "<group>"; };
 		C81371111DAA2BAE006479D6 /* UIImage+SCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+SCUtil.h"; path = "utils/category/UIImage+SCUtil.h"; sourceTree = "<group>"; };
@@ -36,6 +57,8 @@
 		C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Extension.m"; path = "views/base/UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		C8329BA51DAB6C6100B14075 /* EMIShadowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMIShadowImageView.h; path = views/base/EMIShadowImageView.h; sourceTree = "<group>"; };
 		C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMIShadowImageView.m; path = views/base/EMIShadowImageView.m; sourceTree = "<group>"; };
+		C8329BA81DABA44100B14075 /* SCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCTableViewCell.h; path = views/base/SCTableViewCell.h; sourceTree = "<group>"; };
+		C8329BA91DABA44100B14075 /* SCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCTableViewCell.m; path = views/base/SCTableViewCell.m; sourceTree = "<group>"; };
 		C886B0D21DA8FC0500240283 /* ArrangeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArrangeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C886B0D61DA8FC0500240283 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C886B0D81DA8FC0500240283 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -96,6 +119,8 @@
 		C8329B9B1DAB2FF600B14075 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				C8329BA81DABA44100B14075 /* SCTableViewCell.h */,
+				C8329BA91DABA44100B14075 /* SCTableViewCell.m */,
 				C8329B9F1DAB34F200B14075 /* UIBarButtonItem+Extension.h */,
 				C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */,
 				C8329BA51DAB6C6100B14075 /* EMIShadowImageView.h */,
@@ -198,6 +223,18 @@
 		C8E6512F1DA9D56900400ABC /* me */ = {
 			isa = PBXGroup;
 			children = (
+				A5AC11771DABA57D00CBBE05 /* MeTableViewCell.h */,
+				A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */,
+				A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */,
+				A5AC117C1DABA5E200CBBE05 /* MePointRecordTableViewCell.h */,
+				A5AC117D1DABA5E200CBBE05 /* MePointRecordTableViewCell.m */,
+				A5AC117E1DABA5E200CBBE05 /* MePointRecordTableViewCell.xib */,
+				A5AC11811DABA63300CBBE05 /* MeSettingTableViewCell.h */,
+				A5AC11821DABA63300CBBE05 /* MeSettingTableViewCell.m */,
+				A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */,
+				A5AC11861DABA69100CBBE05 /* MeBankCardTableViewCell.h */,
+				A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */,
+				A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -321,10 +358,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5AC117B1DABA57D00CBBE05 /* MeTableViewCell.xib in Resources */,
+				A5AC11801DABA5E200CBBE05 /* MePointRecordTableViewCell.xib in Resources */,
 				D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */,
 				C886B0E51DA8FC0500240283 /* LaunchScreen.storyboard in Resources */,
 				C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */,
 				C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */,
+				A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */,
+				A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,14 +429,19 @@
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
+				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
+				A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
 				D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */,
 				C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */,
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
 				D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */,
 				C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */,
+				A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */,
 				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
+				C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */,
+				A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

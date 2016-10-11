@@ -34,16 +34,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RTe-dp-wFJ" customClass="EMIShadowImageView">
-                                <rect key="frame" x="127" y="196" width="120" height="120"/>
-                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xst-g7-1gL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="acs-18-H10" firstAttribute="top" secondItem="xst-g7-1gL" secondAttribute="bottom" id="MsV-mj-MAp"/>
+                            <constraint firstAttribute="trailing" secondItem="xst-g7-1gL" secondAttribute="trailing" id="W1A-IV-IPk"/>
+                            <constraint firstItem="xst-g7-1gL" firstAttribute="top" secondItem="pJ8-EN-2rg" secondAttribute="bottom" id="m27-qL-3Jy"/>
+                            <constraint firstItem="xst-g7-1gL" firstAttribute="leading" secondItem="7x8-mu-COY" secondAttribute="leading" id="myp-lU-mX7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sSJ-CJ-vJ5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="headImgView" destination="RTe-dp-wFJ" id="NrL-Bf-qFA"/>
+                        <outlet property="tableView" destination="xst-g7-1gL" id="pkW-aQ-6jo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDK-xK-b40" userLabel="First Responder" sceneMemberID="firstResponder"/>

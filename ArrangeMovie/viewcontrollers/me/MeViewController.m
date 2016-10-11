@@ -11,7 +11,9 @@
 //#import "SDWebImage.h"
 
 @interface MeViewController ()
-@property (strong, nonatomic) IBOutlet EMIShadowImageView *headImgView;
+@property (nonatomic, strong) NSArray *array;//存放列表item
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -21,13 +23,38 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"我的";
-    [self.headImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.5 shadowRadius:10 image:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580"];
-    //
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    
+}
+
+-(NSArray *)array {
+    if (!_array) {
+        if(self.user.usertype==0){
+            _array = @[@"我的资料",@"任务历史",@"我的积分",@"我的银行卡",@"修改密码",@"资料审核",@"设置"];
+        }else{
+            _array = @[@"我的资料",@"我的积分",@"我的银行卡",@"修改密码",@"资料审核",@"设置"];
+        }
+    }
+    return _array;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - tableView delegate
+
+#pragma mark - tableView datasource
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.array.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UITableViewCell *cell
 }
 
 /*
