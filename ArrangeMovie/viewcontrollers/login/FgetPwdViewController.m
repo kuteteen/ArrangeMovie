@@ -1,30 +1,36 @@
 //
-//  EMIBaseViewController.m
+//  FgetPwdViewController.m
 //  ArrangeMovie
 //
-//  Created by WongSuechang on 2016/10/9.
+//  Created by 陈凯 on 16/10/11.
 //  Copyright © 2016年 EMI. All rights reserved.
 //
 
-#import "EMIBaseViewController.h"
+#import "FgetPwdViewController.h"
 
-@interface EMIBaseViewController ()
+@interface FgetPwdViewController ()
 
 @end
 
-@implementation EMIBaseViewController
+@implementation FgetPwdViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    self.view.backgroundColor = [UIColor clearColor];
-    self.view.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
-    self.automaticallyAdjustsScrollViewInsets = NO;
+
+    
+    [self initView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)initView{
+    
+    self.title = @"忘记密码";
+    
 }
 
 /*

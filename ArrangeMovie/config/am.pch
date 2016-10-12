@@ -1,0 +1,15 @@
+//
+//  am.pch
+//  ArrangeMovie
+//
+//  Created by 陈凯 on 16/10/11.
+//  Copyright © 2016年 EMI. All rights reserved.
+//
+
+#ifndef am_pch
+#define am_pch
+
+//判断是否是Plus
+#define iPhonePlus [[UIScreen mainScreen] bounds].size.width == 414.0f && [[UIScreen mainScreen] bounds].size.height == 736.0f
+
+#endif /* am_pch */
