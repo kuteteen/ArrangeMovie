@@ -9,7 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CRGradientNavigationBar.xcscheme</key>
+		<key>BEMCheckBox.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,12 +42,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E29AFF6DA4BF543FCCE28B698826C01</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>132F73CACFEF8821849F373E2936AA70</key>
+		<key>3B817C1CD5C4C16C35CEDA7A0F882294</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,7 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5381E23ED095C4010DAAD9D9D1394513</key>
+		<key>64088B501E266F747D618A02EB34B52C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
+		<key>8C80F913EE213FA1EE3801FF8CEF0DD4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F8EA8CF7DBD213B202A2C6A39F104B27</key>
+		<key>9B3AA32386E1DB4818847C4C2824D2EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

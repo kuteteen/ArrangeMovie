@@ -8,7 +8,6 @@
 
 #import "EMINavigationController.h"
 #import "UIColor+Hex.h"
-#import "CRGradientNavigationBar.h"
 //#import "RDVTabBarController.h"
 
 @interface EMINavigationController ()

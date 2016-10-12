@@ -6,5 +6,5 @@ target :'ArrangeMovie' do
    pod 'SDWebImage','~>3.8'
    pod 'MJRefresh'
    pod 'MJExtension'
-   pod 'CRGradientNavigationBar'
+   pod 'BEMCheckBox'
 end

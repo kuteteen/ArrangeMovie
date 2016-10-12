@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '132F73CACFEF8821849F373E2936AA70'
-               BlueprintName = 'CRGradientNavigationBar'
+               BlueprintIdentifier = '8C80F913EE213FA1EE3801FF8CEF0DD4'
+               BlueprintName = 'BEMCheckBox'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libCRGradientNavigationBar.a'>
+               BuildableName = 'libBEMCheckBox.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

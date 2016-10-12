@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "EMINavigationController.h"
-#import "CRGradientNavigationBar.h"
 #import "UIColor+Hex.h"
 #import "UIImage+SCUtil.h"
 #import "MeViewController.h"

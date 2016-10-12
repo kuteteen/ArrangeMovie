@@ -16,6 +16,9 @@
 		A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */; };
 		A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */; };
 		A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */; };
+		C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F06461DACFDA600BB75BE /* MePointViewController.m */; };
+		C80F064A1DACFDCD00BB75BE /* MeBankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F06491DACFDCD00BB75BE /* MeBankCardViewController.m */; };
+		C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F064C1DACFDED00BB75BE /* MeNewCardViewController.m */; };
 		C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */; };
 		C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */; };
 		C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */; };
@@ -52,6 +55,12 @@
 		A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeBankCardTableViewCell.xib; path = views/me/MeBankCardTableViewCell.xib; sourceTree = "<group>"; };
 		BE23006BE2A8191D3C9E4103 /* libPods-ArrangeMovie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArrangeMovie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF27F5CCD964E066166A1E8C /* Pods-ArrangeMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.release.xcconfig"; sourceTree = "<group>"; };
+		C80F06451DACFDA600BB75BE /* MePointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MePointViewController.h; path = viewcontrollers/me/MePointViewController.h; sourceTree = "<group>"; };
+		C80F06461DACFDA600BB75BE /* MePointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MePointViewController.m; path = viewcontrollers/me/MePointViewController.m; sourceTree = "<group>"; };
+		C80F06481DACFDCD00BB75BE /* MeBankCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeBankCardViewController.h; path = viewcontrollers/me/MeBankCardViewController.h; sourceTree = "<group>"; };
+		C80F06491DACFDCD00BB75BE /* MeBankCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeBankCardViewController.m; path = viewcontrollers/me/MeBankCardViewController.m; sourceTree = "<group>"; };
+		C80F064B1DACFDED00BB75BE /* MeNewCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeNewCardViewController.h; path = viewcontrollers/me/MeNewCardViewController.h; sourceTree = "<group>"; };
+		C80F064C1DACFDED00BB75BE /* MeNewCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeNewCardViewController.m; path = viewcontrollers/me/MeNewCardViewController.m; sourceTree = "<group>"; };
 		C81371111DAA2BAE006479D6 /* UIImage+SCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+SCUtil.h"; path = "utils/category/UIImage+SCUtil.h"; sourceTree = "<group>"; };
 		C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SCUtil.m"; path = "utils/category/UIImage+SCUtil.m"; sourceTree = "<group>"; };
 		C8329B9F1DAB34F200B14075 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Extension.h"; path = "views/base/UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
@@ -249,6 +258,12 @@
 				C8E651321DA9D5DF00400ABC /* MeViewController.m */,
 				C8329BAB1DACA62700B14075 /* MeProfileViewController.h */,
 				C8329BAC1DACA62700B14075 /* MeProfileViewController.m */,
+				C80F06451DACFDA600BB75BE /* MePointViewController.h */,
+				C80F06461DACFDA600BB75BE /* MePointViewController.m */,
+				C80F06481DACFDCD00BB75BE /* MeBankCardViewController.h */,
+				C80F06491DACFDCD00BB75BE /* MeBankCardViewController.m */,
+				C80F064B1DACFDED00BB75BE /* MeNewCardViewController.h */,
+				C80F064C1DACFDED00BB75BE /* MeNewCardViewController.m */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -430,11 +445,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */,
+				C80F064A1DACFDCD00BB75BE /* MeBankCardViewController.m in Sources */,
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
+				C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */,
 				A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
 				C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */,
@@ -446,6 +463,7 @@
 				A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */,
 				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
+				C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */,
 				C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */,
 				A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */,
 			);

@@ -64,7 +64,7 @@
     MeTableViewCell *cell = [MeTableViewCell cellWithTableView:tableView];
 //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     UIView *backview = [[UIView alloc] init];
-    backview.backgroundColor = [UIColor colorWithHexString:@"5970A6"];
+    backview.backgroundColor = [UIColor colorWithHexString:@"5473aa" alpha:0.7];
     cell.selectedBackgroundView = backview;
     
     NSString *title = self.array[indexPath.row];
