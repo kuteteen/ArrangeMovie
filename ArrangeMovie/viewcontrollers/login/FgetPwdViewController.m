@@ -120,6 +120,8 @@
 
 //提交
 - (IBAction)submit:(UIButton *)sender {
+    //返回登录界面
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

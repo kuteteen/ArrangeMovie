@@ -20,8 +20,8 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CRGradientNavigationBar (0.3.2)
   - BEMCheckBox (1.2.1)
+  - CRGradientNavigationBar (0.3.2)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
   - SCFadeSlideView (0.0.1)
@@ -29,28 +29,31 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - Toast (3.0)
   - ZYCornerRadius (1.0.1)
 
 DEPENDENCIES:
   - AFNetworking (= 2.6.3)
   - BEMCheckBox
+  - CRGradientNavigationBar
   - MJExtension
   - MJRefresh
   - SCFadeSlideView (= 0.0.1)
   - SDAutoLayout (~> 1.31)
   - SDWebImage (~> 3.8)
+  - Toast (~> 3.0)
   - ZYCornerRadius
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BEMCheckBox: 264b8b72aa92adbfefa265cc58a0cdb86b207b9f
+  CRGradientNavigationBar: ee6fa0398e3d64af32a792b63336e094bb55402e
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SCFadeSlideView: c5a5cc4bc0d39adaedefb4736960ce15a3f041e2
   SDAutoLayout: ea6e2ae9fbb438aa2feb0c4363dba9297e98638a
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  Toast: 32c59229abfcf41850162b83bb9259dc84372473
   ZYCornerRadius: 94720e8722acf30de5b73ae185ffe56a2240f6a3
 
-PODFILE CHECKSUM: 0d46957d3a5114c741ae2bde42ff35441f3b1cba
-
-COCOAPODS: 1.0.0
+COCOAPODS: 0.39.0

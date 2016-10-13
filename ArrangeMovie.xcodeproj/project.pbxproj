@@ -16,8 +16,8 @@
 		A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */; };
 		A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */; };
 		A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */; };
-		A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B85DDB1DAF310D000DD644 /* MeBankAddTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		A5B85DDE1DAF310D000DD644 /* MeBankAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5B85DDC1DAF310D000DD644 /* MeBankAddTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B85DDB1DAF310D000DD644 /* MeBankAddTableViewCell.m */; };
+		A5B85DDE1DAF310D000DD644 /* MeBankAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5B85DDC1DAF310D000DD644 /* MeBankAddTableViewCell.xib */; };
 		C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F06461DACFDA600BB75BE /* MePointViewController.m */; };
 		C80F064A1DACFDCD00BB75BE /* MeBankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F06491DACFDCD00BB75BE /* MeBankCardViewController.m */; };
 		C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F064C1DACFDED00BB75BE /* MeNewCardViewController.m */; };
@@ -43,6 +43,7 @@
 		D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06591DAB88F7003832A8 /* UIView+Shadow.m */; };
 		D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */; };
 		D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A171DAF2FEE00F2849E /* YZMButton.m */; };
+		D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A1B1DAF6D2900F2849E /* RegViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,8 @@
 		D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FgetPwdViewController.m; path = viewcontrollers/login/FgetPwdViewController.m; sourceTree = "<group>"; };
 		D6B43A161DAF2FEE00F2849E /* YZMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZMButton.h; path = views/login/YZMButton.h; sourceTree = "<group>"; };
 		D6B43A171DAF2FEE00F2849E /* YZMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZMButton.m; path = views/login/YZMButton.m; sourceTree = "<group>"; };
+		D6B43A1A1DAF6D2900F2849E /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegViewController.h; path = viewcontrollers/login/RegViewController.h; sourceTree = "<group>"; };
+		D6B43A1B1DAF6D2900F2849E /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegViewController.m; path = viewcontrollers/login/RegViewController.m; sourceTree = "<group>"; };
 		E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -328,6 +331,8 @@
 				D62A064F1DAB63D1003832A8 /* LoginViewController.m */,
 				D62A065E1DACADAA003832A8 /* FgetPwdViewController.h */,
 				D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */,
+				D6B43A1A1DAF6D2900F2849E /* RegViewController.h */,
+				D6B43A1B1DAF6D2900F2849E /* RegViewController.m */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -525,6 +530,7 @@
 				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
 				C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */,
+				D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */,
 				C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */,
 				A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */,
 				D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */,

@@ -132,6 +132,7 @@
 }
 //立即注册
 - (IBAction)toRegister:(UITapGestureRecognizer *)sender {
+    [self performSegueWithIdentifier:@"toRegVC" sender:self];
 }
 
 /*
