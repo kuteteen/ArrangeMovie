@@ -16,6 +16,8 @@
 		A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */; };
 		A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */; };
 		A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */; };
+		A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B85DDB1DAF310D000DD644 /* MeBankAddTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		A5B85DDE1DAF310D000DD644 /* MeBankAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5B85DDC1DAF310D000DD644 /* MeBankAddTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F06461DACFDA600BB75BE /* MePointViewController.m */; };
 		C80F064A1DACFDCD00BB75BE /* MeBankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F06491DACFDCD00BB75BE /* MeBankCardViewController.m */; };
 		C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F064C1DACFDED00BB75BE /* MeNewCardViewController.m */; };
@@ -55,6 +57,9 @@
 		A5AC11861DABA69100CBBE05 /* MeBankCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeBankCardTableViewCell.h; path = views/me/MeBankCardTableViewCell.h; sourceTree = "<group>"; };
 		A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeBankCardTableViewCell.m; path = views/me/MeBankCardTableViewCell.m; sourceTree = "<group>"; };
 		A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeBankCardTableViewCell.xib; path = views/me/MeBankCardTableViewCell.xib; sourceTree = "<group>"; };
+		A5B85DDA1DAF310D000DD644 /* MeBankAddTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeBankAddTableViewCell.h; path = views/me/MeBankAddTableViewCell.h; sourceTree = "<group>"; };
+		A5B85DDB1DAF310D000DD644 /* MeBankAddTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeBankAddTableViewCell.m; path = views/me/MeBankAddTableViewCell.m; sourceTree = "<group>"; };
+		A5B85DDC1DAF310D000DD644 /* MeBankAddTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeBankAddTableViewCell.xib; path = views/me/MeBankAddTableViewCell.xib; sourceTree = "<group>"; };
 		BE23006BE2A8191D3C9E4103 /* libPods-ArrangeMovie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArrangeMovie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF27F5CCD964E066166A1E8C /* Pods-ArrangeMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.release.xcconfig"; sourceTree = "<group>"; };
 		C80F06451DACFDA600BB75BE /* MePointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MePointViewController.h; path = viewcontrollers/me/MePointViewController.h; sourceTree = "<group>"; };
@@ -245,6 +250,9 @@
 		C8E6512F1DA9D56900400ABC /* me */ = {
 			isa = PBXGroup;
 			children = (
+				A5B85DDA1DAF310D000DD644 /* MeBankAddTableViewCell.h */,
+				A5B85DDB1DAF310D000DD644 /* MeBankAddTableViewCell.m */,
+				A5B85DDC1DAF310D000DD644 /* MeBankAddTableViewCell.xib */,
 				A5AC11771DABA57D00CBBE05 /* MeTableViewCell.h */,
 				A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */,
 				A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */,
@@ -399,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5AC117B1DABA57D00CBBE05 /* MeTableViewCell.xib in Resources */,
+				A5B85DDE1DAF310D000DD644 /* MeBankAddTableViewCell.xib in Resources */,
 				A5AC11801DABA5E200CBBE05 /* MePointRecordTableViewCell.xib in Resources */,
 				D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */,
 				C886B0E51DA8FC0500240283 /* LaunchScreen.storyboard in Resources */,
@@ -473,6 +482,7 @@
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
 				C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */,
 				A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */,
+				A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
 				C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */,
 				D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */,
