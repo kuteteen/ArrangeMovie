@@ -9,4 +9,6 @@ target :'ArrangeMovie' do
    pod 'CRGradientNavigationBar'
    pod 'SDAutoLayout','~>1.31'
    pod 'Toast', '~>3.0'
+   pod 'BEMCheckBox'
+   pod 'ZYCornerRadius'
 end

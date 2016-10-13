@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "EMINavigationController.h"
-#import "CRGradientNavigationBar.h"
 #import "UIColor+Hex.h"
 #import "UIImage+SCUtil.h"
 #import "MeViewController.h"
@@ -26,20 +25,23 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
 //    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"all_bg"]]];
-//    self.window.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
+    self.window.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
+    self.window.backgroundColor = [UIColor whiteColor];
+//
+//    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     
     
-//     UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
-//     MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
-//     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+     UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
+     MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
+     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
     
     
     //CK--LoginNav为根视图
     
-    UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
-    EMINavigationController *nav = [login instantiateViewControllerWithIdentifier:@"loginnav"];
+//    UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+//    EMINavigationController *nav = [login instantiateViewControllerWithIdentifier:@"loginnav"];
     
     UIImage *image = [UIImage imageNamed:@"navigation"];
     CGSize titleSize = nav.navigationBar.bounds.size;

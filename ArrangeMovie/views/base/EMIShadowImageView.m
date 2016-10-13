@@ -9,6 +9,7 @@
 #import "EMIShadowImageView.h"
 #import "UIColor+Hex.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+CornerRadius.h"
 
 @implementation EMIShadowImageView
 
@@ -30,15 +31,24 @@
               placeholder:(NSString *)placeholder {
     switch (pathType) {
         case EMIShadowPathRectangle:
+            self.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
             self.layer.shadowColor = color.CGColor;//阴影颜色
             self.layer.shadowOffset = offset;//偏移距离
             self.layer.shadowOpacity = opacity;//不透明度
             self.layer.shadowRadius = radius;//半径
-            if ([image hasPrefix:@"http"]) {
-                [self sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder]];
-            }else{
-                self.image = [UIImage imageNamed:image];
+            if(image){
+                if ([image hasPrefix:@"http"]) {
+                    [self sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder]];
+                }else if(image.length>0){
+                    self.image = [UIImage imageNamed:image];
+                }else if(placeholder.length>0){
+                    self.image = [UIImage imageNamed:placeholder];
+                }
+            }else if(placeholder.length>0){
+                self.image = [UIImage imageNamed:placeholder];
             }
+            
+            
             break;
         case EMIShadowPathCircle:
             //            CGRect selfFrame = self.frame;
@@ -46,14 +56,22 @@
                 //新图片
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
                 
-
-                if ([image hasPrefix:@"http"]) {
-                    [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder]];
-                }else{
-                    imageView.image = [UIImage imageNamed:image];
+                [imageView zy_cornerRadiusRoundingRect];
+                if(image){
+                    if ([image hasPrefix:@"http"]) {
+                        [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder]];
+                    }else if(image.length>0){
+                        imageView.image = [UIImage imageNamed:image];
+                    }else if(placeholder.length>0){
+                        imageView.image = [UIImage imageNamed:placeholder];
+                    }
+                }else if(placeholder.length>0){
+                    imageView.image = [UIImage imageNamed:placeholder];
                 }
-                imageView.layer.masksToBounds = YES;
-                imageView.layer.cornerRadius = imageView.frame.size.width/2;
+//                imageView.layer.masksToBounds = YES;
+//                imageView.layer.cornerRadius = imageView.frame.size.width/2;
+                
+                
                 
                 //添加圆形边框
                 CAGradientLayer *borderLayer = [CAGradientLayer layer];
@@ -82,15 +100,22 @@
         case EMIShadowPathRound:
             if (self.frame.size.width==self.frame.size.height) {
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-                
-                
-                if ([image hasPrefix:@"http"]) {
-                    [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder]];
-                }else{
-                    imageView.image = [UIImage imageNamed:image];
+                [imageView zy_cornerRadiusRoundingRect];
+                if(image){
+                    if ([image hasPrefix:@"http"]) {
+                        [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder]];
+                    }else if(image.length>0){
+                        imageView.image = [UIImage imageNamed:image];
+                    }else if(placeholder.length>0){
+                        imageView.image = [UIImage imageNamed:placeholder];
+                    }
+                }else if(placeholder.length>0){
+                    imageView.image = [UIImage imageNamed:placeholder];
                 }
-                imageView.layer.masksToBounds = YES;
-                imageView.layer.cornerRadius = imageView.frame.size.width/2;
+                
+//                imageView.layer.masksToBounds = YES;
+//                imageView.layer.cornerRadius = imageView.frame.size.width/2;
+                
                 //描出圆形图片imageView阴影路径
                 
                 CALayer *shadowLayer = [CALayer layer];
@@ -100,7 +125,6 @@
                 shadowLayer.shadowOffset = offset;//偏移距离
                 shadowLayer.shadowOpacity = opacity;//不透明度
                 shadowLayer.shadowRadius = radius;//半径
-//                [self sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder]];
                 
                 [self.layer insertSublayer:shadowLayer atIndex:0];
                 

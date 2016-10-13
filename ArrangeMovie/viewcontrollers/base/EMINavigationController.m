@@ -8,7 +8,6 @@
 
 #import "EMINavigationController.h"
 #import "UIColor+Hex.h"
-#import "CRGradientNavigationBar.h"
 //#import "RDVTabBarController.h"
 
 @interface EMINavigationController ()
@@ -88,7 +87,7 @@
     // 设置文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
-    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:24.f];
+    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:21.f];
     // UIOffsetZero是结构体, 只要包装成NSValue对象, 才能放进字典\数组中
 //    textAttrs[NSShadowAttributeName] = [NSValue valueWithUIOffset:UIOffsetZero];
     [appearance setTitleTextAttributes:textAttrs];
