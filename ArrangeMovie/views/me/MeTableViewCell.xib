@@ -20,17 +20,10 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="qo5-M1-gx2"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOA-tn-1Zk">
-                        <rect key="frame" x="15" y="65" width="290" height="2"/>
-                        <color key="backgroundColor" red="0.29803921568627451" green="0.43137254901960786" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="2" id="hyz-oi-1xZ"/>
-                        </constraints>
-                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xbw-V4-zrm">
                         <rect key="frame" x="20" y="22" width="22" height="22"/>
                         <constraints>
@@ -41,12 +34,9 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="go1-3A-dBJ" firstAttribute="top" secondItem="xbw-V4-zrm" secondAttribute="top" id="3ca-ll-L22"/>
                     <constraint firstItem="go1-3A-dBJ" firstAttribute="leading" secondItem="xbw-V4-zrm" secondAttribute="trailing" constant="25" id="9Ah-yb-20w"/>
-                    <constraint firstAttribute="trailing" secondItem="gOA-tn-1Zk" secondAttribute="trailing" constant="15" id="e1d-OH-J3H"/>
-                    <constraint firstItem="gOA-tn-1Zk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="f9d-zO-sx8"/>
-                    <constraint firstAttribute="bottom" secondItem="gOA-tn-1Zk" secondAttribute="bottom" constant="0.5" id="fcq-7W-TeU"/>
-                    <constraint firstItem="xbw-V4-zrm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="fsd-gb-3ZC"/>
+                    <constraint firstItem="go1-3A-dBJ" firstAttribute="centerY" secondItem="xbw-V4-zrm" secondAttribute="centerY" id="EBT-fe-Ved"/>
+                    <constraint firstItem="xbw-V4-zrm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="br8-st-dqg"/>
                     <constraint firstItem="xbw-V4-zrm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="hF9-g9-97R"/>
                     <constraint firstAttribute="trailing" secondItem="go1-3A-dBJ" secondAttribute="trailing" constant="20" id="sdq-VA-Hsp"/>
                 </constraints>

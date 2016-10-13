@@ -19,6 +19,7 @@
 		C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F06461DACFDA600BB75BE /* MePointViewController.m */; };
 		C80F064A1DACFDCD00BB75BE /* MeBankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F06491DACFDCD00BB75BE /* MeBankCardViewController.m */; };
 		C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F064C1DACFDED00BB75BE /* MeNewCardViewController.m */; };
+		C80F06501DAE282D00BB75BE /* EMIPointButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F064F1DAE282D00BB75BE /* EMIPointButton.m */; };
 		C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */; };
 		C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */; };
 		C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */; };
@@ -62,6 +63,8 @@
 		C80F06491DACFDCD00BB75BE /* MeBankCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeBankCardViewController.m; path = viewcontrollers/me/MeBankCardViewController.m; sourceTree = "<group>"; };
 		C80F064B1DACFDED00BB75BE /* MeNewCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeNewCardViewController.h; path = viewcontrollers/me/MeNewCardViewController.h; sourceTree = "<group>"; };
 		C80F064C1DACFDED00BB75BE /* MeNewCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeNewCardViewController.m; path = viewcontrollers/me/MeNewCardViewController.m; sourceTree = "<group>"; };
+		C80F064E1DAE282D00BB75BE /* EMIPointButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMIPointButton.h; path = views/base/EMIPointButton.h; sourceTree = "<group>"; };
+		C80F064F1DAE282D00BB75BE /* EMIPointButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMIPointButton.m; path = views/base/EMIPointButton.m; sourceTree = "<group>"; };
 		C81371111DAA2BAE006479D6 /* UIImage+SCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+SCUtil.h"; path = "utils/category/UIImage+SCUtil.h"; sourceTree = "<group>"; };
 		C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SCUtil.m"; path = "utils/category/UIImage+SCUtil.m"; sourceTree = "<group>"; };
 		C8329B9F1DAB34F200B14075 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Extension.h"; path = "views/base/UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */,
 				D62A06581DAB88F7003832A8 /* UIView+Shadow.h */,
 				D62A06591DAB88F7003832A8 /* UIView+Shadow.m */,
+				C80F064E1DAE282D00BB75BE /* EMIPointButton.h */,
+				C80F064F1DAE282D00BB75BE /* EMIPointButton.m */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -366,7 +371,7 @@
 				TargetAttributes = {
 					C886B0D11DA8FC0500240283 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 9347E67WRC;
+						DevelopmentTeam = B64XF2DPWJ;
 					};
 				};
 			};
@@ -471,6 +476,7 @@
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
 				C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */,
 				D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */,
+				C80F06501DAE282D00BB75BE /* EMIPointButton.m in Sources */,
 				C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */,
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
 				D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */,

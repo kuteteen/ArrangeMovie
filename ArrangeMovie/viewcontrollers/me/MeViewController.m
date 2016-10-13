@@ -23,8 +23,9 @@
     // Do any additional setup after loading the view.
     self.title = @"我的";
     
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
+    self.tableView.separatorColor = [UIColor colorWithHexString:@"4C6EAB"];
     
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -76,8 +77,14 @@
     NSString *title = self.array[indexPath.row];
     NSLog(@"点击了:%@",title);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中
+    if([title isEqualToString:@"我的资料"]){
+        [self performSegueWithIdentifier:@"metoprofile" sender:nil];
+    }else if([title isEqualToString:@"我的积分"]){
+        [self performSegueWithIdentifier:@"metopoint" sender:nil];
+    }else if([title isEqualToString:@"我的银行卡"]){
+        
+    }
     
-    [self performSegueWithIdentifier:@"metoprofile" sender:nil];
 }
 
 /*

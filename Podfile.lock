@@ -27,6 +27,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - ZYCornerRadius (1.0.1)
 
 DEPENDENCIES:
   - AFNetworking (= 2.6.3)
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - MJRefresh
   - SCFadeSlideView (= 0.0.1)
   - SDWebImage (~> 3.8)
+  - ZYCornerRadius
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -43,7 +45,8 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SCFadeSlideView: c5a5cc4bc0d39adaedefb4736960ce15a3f041e2
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  ZYCornerRadius: 94720e8722acf30de5b73ae185ffe56a2240f6a3
 
-PODFILE CHECKSUM: 6320d041f4723cc990df5c9c349d5fbcfbd06691
+PODFILE CHECKSUM: 0d46957d3a5114c741ae2bde42ff35441f3b1cba
 
 COCOAPODS: 1.0.0

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F55A522DEE7B77FC13BAF5D5F1C57C1E'
-               BlueprintName = 'SDWebImage'
+               BlueprintIdentifier = '0B8D33A9349FA62BB171F35EDC25542E'
+               BlueprintName = 'ZYCornerRadius'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libSDWebImage.a'>
+               BuildableName = 'libZYCornerRadius.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

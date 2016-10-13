@@ -7,4 +7,5 @@ target :'ArrangeMovie' do
    pod 'MJRefresh'
    pod 'MJExtension'
    pod 'BEMCheckBox'
+   pod 'ZYCornerRadius'
 end
