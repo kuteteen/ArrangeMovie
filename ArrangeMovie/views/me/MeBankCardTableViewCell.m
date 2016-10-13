@@ -19,5 +19,16 @@
 
     // Configure the view for the selected state
 }
++ (instancetype)cellWithTableView:(UITableView *)tableView {
+    static NSString *ID = @"MeBankCardTableViewCell";
+    MeBankCardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if(cell == nil){
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"MeBankCardTableViewCell" owner:nil options:nil] firstObject];
+    }
+    return cell;
+}
 
+-(void)setValue:(id)value {
+    
+}
 @end

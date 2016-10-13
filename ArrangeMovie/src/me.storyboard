@@ -55,7 +55,7 @@
                         <outlet property="tableView" destination="xst-g7-1gL" id="pkW-aQ-6jo"/>
                         <segue destination="gDQ-57-LuU" kind="push" identifier="metoprofile" id="cYB-gJ-ZYh"/>
                         <segue destination="rpS-R7-VOY" kind="push" identifier="metopoint" id="F5w-dr-NPZ"/>
-                        <segue destination="Qo5-PZ-tNj" kind="push" id="hMR-F2-aDR"/>
+                        <segue destination="Qo5-PZ-tNj" kind="push" identifier="metobank" id="hMR-F2-aDR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDK-xK-b40" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,12 +173,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tY0-Cl-zab">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="tY0-Cl-zab">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tY0-Cl-zab" firstAttribute="leading" secondItem="b5T-25-C22" secondAttribute="leading" id="709-f2-HSj"/>
                             <constraint firstAttribute="trailing" secondItem="tY0-Cl-zab" secondAttribute="trailing" id="ATc-bU-jVQ"/>
@@ -188,6 +189,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Vfd-YJ-9mF"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="tY0-Cl-zab" id="ofF-Bj-bNe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaV-ws-m5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

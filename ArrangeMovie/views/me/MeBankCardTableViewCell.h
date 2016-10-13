@@ -6,8 +6,8 @@
 //  Copyright © 2016年 EMI. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SCTableViewCell.h"
 
-@interface MeBankCardTableViewCell : UITableViewCell
+@interface MeBankCardTableViewCell : SCTableViewCell
 
 @end

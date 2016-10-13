@@ -82,7 +82,7 @@
     }else if([title isEqualToString:@"我的积分"]){
         [self performSegueWithIdentifier:@"metopoint" sender:nil];
     }else if([title isEqualToString:@"我的银行卡"]){
-        
+        [self performSegueWithIdentifier:@"metobank" sender:nil];
     }
     
 }
