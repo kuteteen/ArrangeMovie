@@ -7,4 +7,6 @@ target :'ArrangeMovie' do
    pod 'MJRefresh'
    pod 'MJExtension'
    pod 'CRGradientNavigationBar'
+   pod 'SDAutoLayout','~>1.31'
+   pod 'Toast', '~>3.0'
 end
