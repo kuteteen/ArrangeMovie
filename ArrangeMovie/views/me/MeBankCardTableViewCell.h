@@ -9,5 +9,6 @@
 #import "SCTableViewCell.h"
 
 @interface MeBankCardTableViewCell : SCTableViewCell
+@property (weak, nonatomic) IBOutlet UIView *mainView;
 
 @end

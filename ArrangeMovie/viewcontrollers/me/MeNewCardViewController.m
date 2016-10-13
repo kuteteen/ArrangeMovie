@@ -8,6 +8,18 @@
 
 #import "MeNewCardViewController.h"
 
+@interface MeNewCardViewController ()
+
+@end
+
 @implementation MeNewCardViewController
+
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.title = @"绑定银行卡";
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+}
 
 @end

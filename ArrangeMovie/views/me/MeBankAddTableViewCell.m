@@ -20,4 +20,12 @@
     // Configure the view for the selected state
 }
 
++ (instancetype)cellWithTableView:(UITableView *)tableView {
+    static NSString *ID = @"MeBankAddTableViewCell";
+    MeBankAddTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if(cell == nil){
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"MeBankAddTableViewCell" owner:nil options:nil] firstObject];
+    }
+    return cell;
+}
 @end
