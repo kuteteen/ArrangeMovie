@@ -12,6 +12,10 @@
 #import "YZMButton.h"
 #import "UIView+SDAutoLayout.h"
 #import "LFLUISegmentedControl.h"
+#import "LCActionSheet.h"
+#import "TZImagePickerController.h"
+#import "EMICamera.h"
+
 
 @interface RegViewController : EMIBaseViewController
 @property (weak, nonatomic) IBOutlet UIImageView *headImg;
@@ -28,4 +32,6 @@
 
 //滑动菜单
 @property (strong,nonatomic) LFLUISegmentedControl *mainSegView;
+//拍照
+@property (strong,nonatomic) EMICamera *camera;
 @end

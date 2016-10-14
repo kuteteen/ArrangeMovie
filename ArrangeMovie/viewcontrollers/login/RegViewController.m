@@ -8,7 +8,7 @@
 
 #import "RegViewController.h"
 
-@interface RegViewController ()<LFLUISegmentedControlDelegate>
+@interface RegViewController ()<LFLUISegmentedControlDelegate,LCActionSheetDelegate>
 
 @end
 
@@ -57,6 +57,9 @@
 - (void)initView{
     self.title = @"注册";
     
+    //头像
+    self.headImg.userInteractionEnabled = YES;
+    
     //滑动菜单
     self.mainSegView = [[LFLUISegmentedControl alloc] initWithFrame:CGRectMake(0,0,  screenWidth, self.segmentView.frame.size.height)];
     self.mainSegView.delegate = self;
@@ -71,8 +74,8 @@
     self.yzmBtn = [[YZMButton alloc] initWithTime:60];
     
     [self.yzmView addSubview:self.yzmBtn];
-    self.yzmBtn.sd_layout.centerYEqualToView(self.yzmView).rightSpaceToView(self.yzmView,0).heightRatioToView(self.yzmView,0.41).widthRatioToView(self.yzmView,0.27);
-    self.yzmBtn.layer.cornerRadius = (screenWidth-34)*0.27/9;
+    self.yzmBtn.sd_layout.centerYEqualToView(self.yzmView).rightSpaceToView(self.yzmView,0).heightRatioToView(self.yzmView,0.6).widthRatioToView(self.yzmView,0.27);
+    self.yzmBtn.layer.cornerRadius = (screenWidth-34)*0.27/7;
     //    __unsafe_unretained typeof(self) weakSelf = self;
     self.yzmBtn.clickBlock = ^(){
         
@@ -122,6 +125,35 @@
 }
 //拍照选头像
 - (IBAction)takePhoto:(UITapGestureRecognizer *)sender {
+
+    LCActionSheet *actionAlert = [LCActionSheet sheetWithTitle:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从手机相册选择", nil];
+    [actionAlert show];
+}
+
+//弹出框点击事件代理
+- (void)actionSheet:(LCActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        //拍照
+        self.camera = [[EMICamera alloc] init];
+        [self.camera takePhoto:self];
+        //获的照片的回调
+        __unsafe_unretained typeof(self) weakSelf = self;
+        [self.camera setBlock:^(UIImagePickerController *picker, NSDictionary<NSString *,id> *info) {
+            NSLog(@"%@",info);
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+        }];
+    }
+    if (buttonIndex == 2) {
+        //从相册选
+        TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:nil];
+        //隐藏内部拍照按钮
+        imagePicker.allowTakePicture = NO;
+        [imagePicker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL flag) {
+            NSLog(@"%@",photos[0]);
+        }];
+        
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
 }
 //检测手机号是否合法
 - (IBAction)checkTelphone:(UITextField *)sender {

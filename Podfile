@@ -11,4 +11,6 @@ target :'ArrangeMovie' do
    pod 'Toast', '~>3.0'
    pod 'BEMCheckBox'
    pod 'ZYCornerRadius'
+   pod 'LCActionSheet','2.5.2'
+   pod 'TZImagePickerController'
 end
