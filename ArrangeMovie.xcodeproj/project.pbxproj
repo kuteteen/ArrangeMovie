@@ -44,6 +44,7 @@
 		D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */; };
 		D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A171DAF2FEE00F2849E /* YZMButton.m */; };
 		D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A1B1DAF6D2900F2849E /* RegViewController.m */; };
+		D6D94BB81DB06053004666BC /* LFLUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BB71DB06053004666BC /* LFLUISegmentedControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,8 @@
 		D6B43A171DAF2FEE00F2849E /* YZMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZMButton.m; path = views/login/YZMButton.m; sourceTree = "<group>"; };
 		D6B43A1A1DAF6D2900F2849E /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegViewController.h; path = viewcontrollers/login/RegViewController.h; sourceTree = "<group>"; };
 		D6B43A1B1DAF6D2900F2849E /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegViewController.m; path = viewcontrollers/login/RegViewController.m; sourceTree = "<group>"; };
+		D6D94BB61DB06053004666BC /* LFLUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFLUISegmentedControl.h; path = views/base/LFLUISegmentedControl.h; sourceTree = "<group>"; };
+		D6D94BB71DB06053004666BC /* LFLUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFLUISegmentedControl.m; path = views/base/LFLUISegmentedControl.m; sourceTree = "<group>"; };
 		E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +152,8 @@
 		C8329B9B1DAB2FF600B14075 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				D6D94BB61DB06053004666BC /* LFLUISegmentedControl.h */,
+				D6D94BB71DB06053004666BC /* LFLUISegmentedControl.m */,
 				C8329BA81DABA44100B14075 /* SCTableViewCell.h */,
 				C8329BA91DABA44100B14075 /* SCTableViewCell.m */,
 				C8329B9F1DAB34F200B14075 /* UIBarButtonItem+Extension.h */,
@@ -510,6 +515,7 @@
 				C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */,
 				C80F064A1DACFDCD00BB75BE /* MeBankCardViewController.m in Sources */,
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
+				D6D94BB81DB06053004666BC /* LFLUISegmentedControl.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */,

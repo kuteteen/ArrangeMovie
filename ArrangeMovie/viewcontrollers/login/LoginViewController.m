@@ -69,7 +69,7 @@
     [self.outTFView setShadowWithshadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.3 shadowRadius:10];
     
     //登录按钮圆角
-    self.loginBtn.layer.cornerRadius = 20;
+//    self.loginBtn.layer.cornerRadius = 15;
     [self.loginBtn setShadowWithshadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.3 shadowRadius:5];
     
     

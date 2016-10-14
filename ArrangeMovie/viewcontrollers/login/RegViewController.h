@@ -7,7 +7,25 @@
 //
 
 #import "EMIBaseViewController.h"
+#import "UIView+Shadow.h"
+#import "ValidateMobile.h"
+#import "YZMButton.h"
+#import "UIView+SDAutoLayout.h"
+#import "LFLUISegmentedControl.h"
 
 @interface RegViewController : EMIBaseViewController
+@property (weak, nonatomic) IBOutlet UIImageView *headImg;
 
+@property (weak, nonatomic) IBOutlet UIView *segmentView;//滑动菜单父视图
+@property (weak, nonatomic) IBOutlet UITextField *phoneTF;
+@property (weak, nonatomic) IBOutlet UITextField *yzmTF;
+@property (weak, nonatomic) IBOutlet UITextField *npwdTF;
+@property (weak, nonatomic) IBOutlet UITextField *anpwdTF;
+@property (weak, nonatomic) IBOutlet UIButton *regBtn;
+@property (weak, nonatomic) IBOutlet UIView *yzmView;
+//获取验证码按钮
+@property (strong,nonatomic) YZMButton *yzmBtn;
+
+//滑动菜单
+@property (strong,nonatomic) LFLUISegmentedControl *mainSegView;
 @end

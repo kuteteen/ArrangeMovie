@@ -70,7 +70,7 @@
     
     [self.yzmView addSubview:self.yzmBtn];
     self.yzmBtn.sd_layout.centerYEqualToView(self.yzmView).rightSpaceToView(self.yzmView,0).heightRatioToView(self.yzmView,0.41).widthRatioToView(self.yzmView,0.27);
-    self.yzmBtn.layer.cornerRadius = (screenWidth-34)*0.27/8;
+    self.yzmBtn.layer.cornerRadius = (screenWidth-34)*0.27/9;
 //    __unsafe_unretained typeof(self) weakSelf = self;
     self.yzmBtn.clickBlock = ^(){
         
