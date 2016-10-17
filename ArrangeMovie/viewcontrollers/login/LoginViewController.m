@@ -18,17 +18,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    
     [self initView];
     
     
-    if (iPhonePlus) {
-       
-    }else{
+//    if (iPhonePlus) {
+//       
+//    }else{
         //键盘弹出收起的通知事件
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    }
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,8 +69,7 @@
     [self.outTFView setShadowWithshadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.3 shadowRadius:10];
     
     //登录按钮圆角
-//    self.loginBtn.layer.masksToBounds = YES;
-    self.loginBtn.layer.cornerRadius = 20;
+//    self.loginBtn.layer.cornerRadius = 15;
     [self.loginBtn setShadowWithshadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.3 shadowRadius:5];
     
     
@@ -118,6 +119,8 @@
 - (IBAction)checkTelphoneNum:(UITextField *)sender {
     if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
         self.loginBtn.enabled = YES;
+    }else{
+        self.loginBtn.enabled = NO;
     }
 }
 //登录首页
@@ -129,6 +132,7 @@
 }
 //立即注册
 - (IBAction)toRegister:(UITapGestureRecognizer *)sender {
+    [self performSegueWithIdentifier:@"toRegVC" sender:self];
 }
 
 /*

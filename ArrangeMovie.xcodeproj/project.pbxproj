@@ -49,6 +49,13 @@
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
 		D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06591DAB88F7003832A8 /* UIView+Shadow.m */; };
 		D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */; };
+		D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A171DAF2FEE00F2849E /* YZMButton.m */; };
+		D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A1B1DAF6D2900F2849E /* RegViewController.m */; };
+		D6D94BB81DB06053004666BC /* LFLUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BB71DB06053004666BC /* LFLUISegmentedControl.m */; };
+		D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BBB1DB0AB62004666BC /* EMICamera.m */; };
+		D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BC61DB0B705004666BC /* SCHttpOperation.m */; };
+		D6D94BCA1DB0B705004666BC /* SCHttpOperationMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */; };
+		D6D94BCC1DB0BDA6004666BC /* pfhome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D94BCB1DB0BDA6004666BC /* pfhome.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +135,19 @@
 		D62A065C1DAC817A003832A8 /* am.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = am.pch; path = config/am.pch; sourceTree = "<group>"; };
 		D62A065E1DACADAA003832A8 /* FgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FgetPwdViewController.h; path = viewcontrollers/login/FgetPwdViewController.h; sourceTree = "<group>"; };
 		D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FgetPwdViewController.m; path = viewcontrollers/login/FgetPwdViewController.m; sourceTree = "<group>"; };
+		D6B43A161DAF2FEE00F2849E /* YZMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZMButton.h; path = views/login/YZMButton.h; sourceTree = "<group>"; };
+		D6B43A171DAF2FEE00F2849E /* YZMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZMButton.m; path = views/login/YZMButton.m; sourceTree = "<group>"; };
+		D6B43A1A1DAF6D2900F2849E /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegViewController.h; path = viewcontrollers/login/RegViewController.h; sourceTree = "<group>"; };
+		D6B43A1B1DAF6D2900F2849E /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegViewController.m; path = viewcontrollers/login/RegViewController.m; sourceTree = "<group>"; };
+		D6D94BB61DB06053004666BC /* LFLUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFLUISegmentedControl.h; path = views/base/LFLUISegmentedControl.h; sourceTree = "<group>"; };
+		D6D94BB71DB06053004666BC /* LFLUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFLUISegmentedControl.m; path = views/base/LFLUISegmentedControl.m; sourceTree = "<group>"; };
+		D6D94BBA1DB0AB62004666BC /* EMICamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMICamera.h; path = views/base/EMICamera.h; sourceTree = "<group>"; };
+		D6D94BBB1DB0AB62004666BC /* EMICamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMICamera.m; path = views/base/EMICamera.m; sourceTree = "<group>"; };
+		D6D94BC51DB0B705004666BC /* SCHttpOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHttpOperation.h; sourceTree = "<group>"; };
+		D6D94BC61DB0B705004666BC /* SCHttpOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCHttpOperation.m; sourceTree = "<group>"; };
+		D6D94BC71DB0B705004666BC /* SCHttpOperationMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHttpOperationMgr.h; sourceTree = "<group>"; };
+		D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCHttpOperationMgr.m; sourceTree = "<group>"; };
+		D6D94BCB1DB0BDA6004666BC /* pfhome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = pfhome.storyboard; path = src/pfhome.storyboard; sourceTree = "<group>"; };
 		E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +183,8 @@
 		C8329B9B1DAB2FF600B14075 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				D6D94BB61DB06053004666BC /* LFLUISegmentedControl.h */,
+				D6D94BB71DB06053004666BC /* LFLUISegmentedControl.m */,
 				C8329BA81DABA44100B14075 /* SCTableViewCell.h */,
 				C8329BA91DABA44100B14075 /* SCTableViewCell.m */,
 				C8329B9F1DAB34F200B14075 /* UIBarButtonItem+Extension.h */,
@@ -173,6 +195,8 @@
 				D62A06591DAB88F7003832A8 /* UIView+Shadow.m */,
 				C80F064E1DAE282D00BB75BE /* EMIPointButton.h */,
 				C80F064F1DAE282D00BB75BE /* EMIPointButton.m */,
+				D6D94BBA1DB0AB62004666BC /* EMICamera.h */,
+				D6D94BBB1DB0AB62004666BC /* EMICamera.m */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -198,12 +222,12 @@
 		C886B0D41DA8FC0500240283 /* ArrangeMovie */ = {
 			isa = PBXGroup;
 			children = (
+				D6D94BC41DB0B705004666BC /* net */,
 				D62A065B1DAC813C003832A8 /* config */,
 				C8E651381DA9D63800400ABC /* models */,
 				C8E6512E1DA9D52000400ABC /* src */,
 				C8E6512D1DA9D46A00400ABC /* viewcontrollers */,
 				C8E6512C1DA9D44D00400ABC /* views */,
-				C8E6512B1DA9D44300400ABC /* net */,
 				C8E6512A1DA9D43900400ABC /* utils */,
 				C886B0D81DA8FC0500240283 /* AppDelegate.h */,
 				C886B0D91DA8FC0500240283 /* AppDelegate.m */,
@@ -232,16 +256,10 @@
 			name = utils;
 			sourceTree = "<group>";
 		};
-		C8E6512B1DA9D44300400ABC /* net */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = net;
-			sourceTree = "<group>";
-		};
 		C8E6512C1DA9D44D00400ABC /* views */ = {
 			isa = PBXGroup;
 			children = (
+				D6B43A151DAF2FBE00F2849E /* login */,
 				C8329B9B1DAB2FF600B14075 /* base */,
 				C8E6512F1DA9D56900400ABC /* me */,
 			);
@@ -263,6 +281,7 @@
 			children = (
 				C8E6513C1DA9E6CC00400ABC /* me.storyboard */,
 				D62A064B1DAB5CA8003832A8 /* login.storyboard */,
+				D6D94BCB1DB0BDA6004666BC /* pfhome.storyboard */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -357,6 +376,8 @@
 				D62A064F1DAB63D1003832A8 /* LoginViewController.m */,
 				D62A065E1DACADAA003832A8 /* FgetPwdViewController.h */,
 				D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */,
+				D6B43A1A1DAF6D2900F2849E /* RegViewController.h */,
+				D6B43A1B1DAF6D2900F2849E /* RegViewController.m */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -378,6 +399,26 @@
 			name = config;
 			sourceTree = "<group>";
 		};
+		D6B43A151DAF2FBE00F2849E /* login */ = {
+			isa = PBXGroup;
+			children = (
+				D6B43A161DAF2FEE00F2849E /* YZMButton.h */,
+				D6B43A171DAF2FEE00F2849E /* YZMButton.m */,
+			);
+			name = login;
+			sourceTree = "<group>";
+		};
+		D6D94BC41DB0B705004666BC /* net */ = {
+			isa = PBXGroup;
+			children = (
+				D6D94BC51DB0B705004666BC /* SCHttpOperation.h */,
+				D6D94BC61DB0B705004666BC /* SCHttpOperation.m */,
+				D6D94BC71DB0B705004666BC /* SCHttpOperationMgr.h */,
+				D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */,
+			);
+			path = net;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -391,6 +432,7 @@
 				C886B0D01DA8FC0500240283 /* Resources */,
 				7C0C12AA3DBEC3E375DA9B15 /* 📦 Embed Pods Frameworks */,
 				BCAAF15CF7D608F8DFE58926 /* 📦 Copy Pods Resources */,
+				386C4789DA748967F5C47A1B /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -412,7 +454,7 @@
 				TargetAttributes = {
 					C886B0D11DA8FC0500240283 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = B64XF2DPWJ;
+						DevelopmentTeam = 9347E67WRC;
 					};
 				};
 			};
@@ -449,12 +491,28 @@
 				C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */,
 				A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */,
 				A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */,
+				D6D94BCC1DB0BDA6004666BC /* pfhome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		386C4789DA748967F5C47A1B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7C0C12AA3DBEC3E375DA9B15 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -514,12 +572,17 @@
 				C889D9581DAF7429008156B2 /* MePwdViewController.m in Sources */,
 				C889D95E1DB0742E008156B2 /* MeSettingViewController.m in Sources */,
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
+				D6D94BB81DB06053004666BC /* LFLUISegmentedControl.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
+				D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */,
+				D6D94BCA1DB0B705004666BC /* SCHttpOperationMgr.m in Sources */,
+				D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */,
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
 				C889D95B1DAF83F3008156B2 /* MeAuthViewController.m in Sources */,
 				C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */,
+				D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */,
 				A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */,
 				C889D9611DB07DEB008156B2 /* MeFeedbackViewController.m in Sources */,
 				A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */,
@@ -535,6 +598,7 @@
 				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
 				C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */,
+				D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */,
 				C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */,
 				A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */,
 				D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */,
