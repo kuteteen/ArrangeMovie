@@ -50,9 +50,9 @@
 		D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06591DAB88F7003832A8 /* UIView+Shadow.m */; };
 		D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */; };
 		D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CC61DB45025004D6C8B /* PFHomeViewController.m */; };
+		D6950CCA1DB459BF004D6C8B /* LFLUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CC91DB459BF004D6C8B /* LFLUISegmentedControl.m */; };
 		D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A171DAF2FEE00F2849E /* YZMButton.m */; };
 		D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A1B1DAF6D2900F2849E /* RegViewController.m */; };
-		D6D94BB81DB06053004666BC /* LFLUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BB71DB06053004666BC /* LFLUISegmentedControl.m */; };
 		D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BBB1DB0AB62004666BC /* EMICamera.m */; };
 		D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BC61DB0B705004666BC /* SCHttpOperation.m */; };
 		D6D94BCA1DB0B705004666BC /* SCHttpOperationMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */; };
@@ -138,12 +138,12 @@
 		D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FgetPwdViewController.m; path = viewcontrollers/login/FgetPwdViewController.m; sourceTree = "<group>"; };
 		D6950CC51DB45025004D6C8B /* PFHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFHomeViewController.h; path = viewcontrollers/pfhome/PFHomeViewController.h; sourceTree = "<group>"; };
 		D6950CC61DB45025004D6C8B /* PFHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFHomeViewController.m; path = viewcontrollers/pfhome/PFHomeViewController.m; sourceTree = "<group>"; };
+		D6950CC81DB459BF004D6C8B /* LFLUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFLUISegmentedControl.h; path = views/base/LFLUISegmentedControl.h; sourceTree = "<group>"; };
+		D6950CC91DB459BF004D6C8B /* LFLUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFLUISegmentedControl.m; path = views/base/LFLUISegmentedControl.m; sourceTree = "<group>"; };
 		D6B43A161DAF2FEE00F2849E /* YZMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZMButton.h; path = views/login/YZMButton.h; sourceTree = "<group>"; };
 		D6B43A171DAF2FEE00F2849E /* YZMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZMButton.m; path = views/login/YZMButton.m; sourceTree = "<group>"; };
 		D6B43A1A1DAF6D2900F2849E /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegViewController.h; path = viewcontrollers/login/RegViewController.h; sourceTree = "<group>"; };
 		D6B43A1B1DAF6D2900F2849E /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegViewController.m; path = viewcontrollers/login/RegViewController.m; sourceTree = "<group>"; };
-		D6D94BB61DB06053004666BC /* LFLUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFLUISegmentedControl.h; path = views/base/LFLUISegmentedControl.h; sourceTree = "<group>"; };
-		D6D94BB71DB06053004666BC /* LFLUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFLUISegmentedControl.m; path = views/base/LFLUISegmentedControl.m; sourceTree = "<group>"; };
 		D6D94BBA1DB0AB62004666BC /* EMICamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMICamera.h; path = views/base/EMICamera.h; sourceTree = "<group>"; };
 		D6D94BBB1DB0AB62004666BC /* EMICamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMICamera.m; path = views/base/EMICamera.m; sourceTree = "<group>"; };
 		D6D94BC51DB0B705004666BC /* SCHttpOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHttpOperation.h; sourceTree = "<group>"; };
@@ -186,8 +186,8 @@
 		C8329B9B1DAB2FF600B14075 /* base */ = {
 			isa = PBXGroup;
 			children = (
-				D6D94BB61DB06053004666BC /* LFLUISegmentedControl.h */,
-				D6D94BB71DB06053004666BC /* LFLUISegmentedControl.m */,
+				D6950CC81DB459BF004D6C8B /* LFLUISegmentedControl.h */,
+				D6950CC91DB459BF004D6C8B /* LFLUISegmentedControl.m */,
 				C8329BA81DABA44100B14075 /* SCTableViewCell.h */,
 				C8329BA91DABA44100B14075 /* SCTableViewCell.m */,
 				C8329B9F1DAB34F200B14075 /* UIBarButtonItem+Extension.h */,
@@ -585,7 +585,6 @@
 				C889D9581DAF7429008156B2 /* MePwdViewController.m in Sources */,
 				C889D95E1DB0742E008156B2 /* MeSettingViewController.m in Sources */,
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
-				D6D94BB81DB06053004666BC /* LFLUISegmentedControl.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */,
@@ -594,6 +593,7 @@
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
 				C889D95B1DAF83F3008156B2 /* MeAuthViewController.m in Sources */,
+				D6950CCA1DB459BF004D6C8B /* LFLUISegmentedControl.m in Sources */,
 				C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */,
 				D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */,
 				A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */,
