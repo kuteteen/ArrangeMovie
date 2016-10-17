@@ -31,7 +31,7 @@
         [button addTarget:self action:@selector(changeTheSegument:) forControlEvents:UIControlEventTouchUpInside];
         if (i==0) {
             //            默认下划线高  3
-            buttonDown=[[UIView alloc]initWithFrame:CGRectMake(i*widthFloat, self.bounds.size.height-2, widthFloat, 3)];
+            buttonDown=[[UIView alloc]initWithFrame:CGRectMake(i*widthFloat, self.bounds.size.height-3, widthFloat, 3)];
             
 #pragma mark -----buttonDown 设置下划线颜色
             [buttonDown setBackgroundColor:self.lineColor];
@@ -55,7 +55,7 @@
         [self.ButtonArray[segument] setSelected:YES];
         [((UIButton *)self.ButtonArray[segument]).titleLabel setFont:self.selectFont];
         [UIView animateWithDuration:0.1 animations:^{
-            [buttonDown setFrame:CGRectMake(segument*widthFloat,self.bounds.size.height-2, widthFloat, 2)];
+            [buttonDown setFrame:CGRectMake(segument*widthFloat,self.bounds.size.height-3, widthFloat, 3)];
         }];
         self.selectSeugment=segument;
         [self.delegate uisegumentSelectionChange:self.selectSeugment];

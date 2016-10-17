@@ -8,7 +8,7 @@
 
 #import "PFHomeViewController.h"
 
-@interface PFHomeViewController ()
+@interface PFHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
@@ -40,7 +40,9 @@
     //片方姓名
     self.nameLab.text = @"王小二";
     
-    //
+    //tabelview尾部视图
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;//无分割线
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 //新增拍片任务
@@ -51,6 +53,35 @@
 - (void)leftNavBtnClicked:(UIBarButtonItem *)sender{
     
 }
+
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    
+//}
+//
+//
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//
+//}
+//
+//
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return 106;
+//}
+//
+//- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//
+//}
+//
+//
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//
+//}
 /*
 #pragma mark - Navigation
 
