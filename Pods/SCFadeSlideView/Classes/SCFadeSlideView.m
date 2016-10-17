@@ -9,7 +9,7 @@
 #import "SCFadeSlideView.h"
 #import "SCSlidePageView.h"
 
-@interface SCFadeSlideView ()
+@interface SCFadeSlideView ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign, readwrite) NSInteger currentPageIndex;
 /**
@@ -33,21 +33,21 @@
 #pragma mark - Private Method
 - (void) initialize {
     self.clipsToBounds = YES;
-    
+
     self.needsReload = YES;
     self.pageSize = self.bounds.size;
     self.pageCount = 0;
     _currentPageIndex = 0;
-    
+
     _minimumPageAlpha = 1.0;
     _minimumPageScale = 1.0;
-    
+
     self.visibleRange = NSMakeRange(0, 0);
-    
+
     self.reusableCells = [[NSMutableArray alloc] initWithCapacity:0];
     self.cells = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    
+
+
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     self.scrollView.scrollsToTop = NO;
     self.scrollView.delegate = self;
@@ -55,8 +55,8 @@
     self.scrollView.clipsToBounds = NO;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
-    
-    
+
+
     /*由于UIScrollView在滚动之后会调用自己的layoutSubviews以及父View的layoutSubviews
      这里为了避免scrollview滚动带来自己layoutSubviews的调用,所以给scrollView加了一层父View
      */
@@ -65,7 +65,7 @@
     [superViewOfScrollView setBackgroundColor:[UIColor clearColor]];
     [superViewOfScrollView addSubview:self.scrollView];
     [self addSubview:superViewOfScrollView];
-    
+
 }
 
 - (void)queueReusableCell:(UIView *)cell{
@@ -77,18 +77,18 @@
     if ((NSObject *)cell == [NSNull null]) {
         return;
     }
-    
+
     [self queueReusableCell:cell];
-    
+
     if (cell.superview) {
         [cell removeFromSuperview];
     }
-    
+
     [_cells replaceObjectAtIndex:index withObject:[NSNull null]];
 }
 
 - (void)refreshVisibleCellAppearance{
-    
+
     if (_minimumPageAlpha == 1.0 && _minimumPageScale == 1.0) {
         return;//无需更新
     }
@@ -100,43 +100,43 @@
                 SCSlidePageView *cell = [_cells objectAtIndex:i];
                 CGFloat origin = cell.frame.origin.x;
                 CGFloat delta = fabs(origin - offset);
-                
+
                 CGRect originCellFrame = CGRectMake(_pageSize.width * i, 0, _pageSize.width, _pageSize.height);//如果没有缩小效果的情况下的本该的Frame
-                
+
                 if (delta < _pageSize.width) {
-                    
+
                     cell.coverView.alpha = (delta / _pageSize.width) * (1 - _minimumPageAlpha);
-                    
+
                     CGFloat inset = (_pageSize.width * (1 - _minimumPageScale)) * (delta / _pageSize.width)/2.0;
                     cell.frame = UIEdgeInsetsInsetRect(originCellFrame, UIEdgeInsetsMake(inset, inset, inset, inset));
-                    
+
 //  TODO 2016/09/30                  cell.mainImageView.frame = cell.bounds;
                     cell.coverView.frame = cell.bounds;
                 } else {
-                    
+
                     cell.coverView.alpha = _minimumPageAlpha;
                     CGFloat inset = _pageSize.width * (1 - _minimumPageScale) / 2.0 ;
                     cell.frame = UIEdgeInsetsInsetRect(originCellFrame, UIEdgeInsetsMake(inset, inset, inset, inset));
 //  TODO 2016/09/30                  cell.mainImageView.frame = cell.bounds;
                     cell.coverView.frame = cell.bounds;
                 }
-                
+
             }
             break;
         }
         case SCFadeSlideViewOrientationVertical:{
             CGFloat offset = _scrollView.contentOffset.y;
-            
+
             for (int i = (int)self.visibleRange.location; i < self.visibleRange.location + _visibleRange.length; i++) {
                 SCSlidePageView *cell = [_cells objectAtIndex:i];
                 CGFloat origin = cell.frame.origin.y;
                 CGFloat delta = fabs(origin - offset);
-                
+
                 CGRect originCellFrame = CGRectMake(0, _pageSize.height * i, _pageSize.width, _pageSize.height);//如果没有缩小效果的情况下的本该的Frame
-                
+
                 if (delta < _pageSize.height) {
                     cell.coverView.alpha = 1 - (delta / _pageSize.height) * (1 - _minimumPageAlpha);
-                    
+
                     CGFloat inset = (_pageSize.height * (1 - _minimumPageScale)) * (delta / _pageSize.height)/2.0;
                     cell.frame = UIEdgeInsetsInsetRect(originCellFrame, UIEdgeInsetsMake(inset, inset, inset, inset));
 //  TODO 2016/09/30                  cell.mainImageView.frame = cell.bounds;
@@ -148,30 +148,31 @@
 //  TODO 2016/09/30                  cell.mainImageView.frame = cell.bounds;
                     cell.coverView.frame = cell.bounds;
                 }
-                
+
             }
         }
         default:
             break;
     }
-    
+
 }
 
 -(void)setPageAtIndex:(NSInteger)pageIndex{
     NSParameterAssert(pageIndex >= 0 && pageIndex < [_cells count]);
-    
+
     UIView *cell = [_cells objectAtIndex:pageIndex];
-    
+
     if ((NSObject *)cell == [NSNull null]) {
         cell = [_datasource slideView:self cellForPageAtIndex:pageIndex % self.orginPageCount];
         NSAssert(cell!=nil, @"datasource must not return nil");
         [_cells replaceObjectAtIndex:pageIndex withObject:cell];
-        
+
         //添加点击手势
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleCellTapAction:)];
+        singleTap.delegate = self;
         [cell addGestureRecognizer:singleTap];
         cell.tag = pageIndex % self.orginPageCount;
-        
+
         switch (self.orientation) {
             case SCFadeSlideViewOrientationHorizontal:
                 cell.frame = CGRectMake(_pageSize.width * pageIndex, 0, _pageSize.width, _pageSize.height);
@@ -182,7 +183,7 @@
             default:
                 break;
         }
-        
+
         if (!cell.superview) {
             [_scrollView addSubview:cell];
         }
@@ -194,8 +195,8 @@
     //计算_visibleRange
     CGPoint startPoint = CGPointMake(offset.x - _scrollView.frame.origin.x, offset.y - _scrollView.frame.origin.y);
     CGPoint endPoint = CGPointMake(startPoint.x + self.bounds.size.width, startPoint.y + self.bounds.size.height);
-    
-    
+
+
     switch (self.orientation) {
         case SCFadeSlideViewOrientationHorizontal:{
             int startIndex = 0;
@@ -205,7 +206,7 @@
                     break;
                 }
             }
-            
+
             int endIndex = startIndex;
             for (int i = startIndex; i < [_cells count]; i++) {
                 //如果都不超过则取最后一个
@@ -214,22 +215,22 @@
                     break;
                 }
             }
-            
+
             //可见页分别向前向后扩展一个，提高效率
             startIndex = MAX(startIndex - 1, 0);
             endIndex = MIN(endIndex + 1, (int)[_cells count] - 1);
-            
+
             //            self.visibleRange.location = startIndex;
             //            self.visibleRange.length = endIndex - startIndex + 1;
             self.visibleRange = NSMakeRange(startIndex, endIndex - startIndex + 1);
             for (int i = startIndex; i <= endIndex; i++) {
                 [self setPageAtIndex:i];
             }
-            
+
             for (int i = 0; i < startIndex; i ++) {
                 [self removeCellAtIndex:i];
             }
-            
+
             for (int i = endIndex + 1; i < [_cells count]; i ++) {
                 [self removeCellAtIndex:i];
             }
@@ -243,7 +244,7 @@
                     break;
                 }
             }
-            
+
             int endIndex = startIndex;
             for (int i = startIndex; i < [_cells count]; i++) {
                 //如果都不超过则取最后一个
@@ -252,22 +253,22 @@
                     break;
                 }
             }
-            
+
             //可见页分别向前向后扩展一个，提高效率
             startIndex = MAX(startIndex - 1, 0);
             endIndex = MIN(endIndex + 1, (int)[_cells count] - 1);
-            
+
             _visibleRange.location = startIndex;
             _visibleRange.length = endIndex - startIndex + 1;
-            
+
             for (int i = startIndex; i <= endIndex; i++) {
                 [self setPageAtIndex:i];
             }
-            
+
             for (int i = 0; i < startIndex; i ++) {
                 [self removeCellAtIndex:i];
             }
-            
+
             for (int i = endIndex + 1; i < [_cells count]; i ++) {
                 [self removeCellAtIndex:i];
             }
@@ -276,9 +277,9 @@
         default:
             break;
     }
-    
-    
-    
+
+
+
 }
 
 
@@ -310,42 +311,42 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
-    
+
+
     if (_needsReload) {
         //如果需要重新加载数据，则需要清空相关数据全部重新加载
-        
-        
+
+
         //重置pageCount
         if (_datasource && [_datasource respondsToSelector:@selector(numberOfPagesInSlideView:)]) {
-            
+
             //原始页数
             self.orginPageCount = [_datasource numberOfPagesInSlideView:self];
-            
+
             //总页数
             int a = (int)[_datasource numberOfPagesInSlideView:self];
             _pageCount = self.orginPageCount == 1 ? 1: a * 3;
-            
+
 //            if (self.pageControl && [self.pageControl respondsToSelector:@selector(setNumberOfPages:)]) {
 //                [self.pageControl setNumberOfPages:self.orginPageCount];
 //            }
         }
-        
+
         //重置pageWidth
         if (_delegate && [_delegate respondsToSelector:@selector(sizeForPageInSlideView:)]) {
             _pageSize = [_delegate sizeForPageInSlideView:self];
         }
-        
+
         [_reusableCells removeAllObjects];
         _visibleRange = NSMakeRange(0, 0);
-        
+
         //填充cells数组
         [_cells removeAllObjects];
         for (NSInteger index=0; index<_pageCount; index++)
         {
             [_cells addObject:[NSNull null]];
         }
-        
+
         // 重置_scrollView的contentSize
         switch (self.orientation) {
             case SCFadeSlideViewOrientationHorizontal://横向
@@ -353,48 +354,48 @@
                 _scrollView.contentSize = CGSizeMake(_pageSize.width * _pageCount,_pageSize.height);
                 CGPoint theCenter = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
                 _scrollView.center = theCenter;
-                
+
                 if (self.orginPageCount > 1) {
                     //滚到第二组
                     [_scrollView setContentOffset:CGPointMake(_pageSize.width * self.orginPageCount, 0) animated:NO];
-                    
+
                     self.page = self.orginPageCount;
-                    
+
                     //启动自动轮播
 //                    [self startTimer];
                 }
-                
+
                 break;
             case SCFadeSlideViewOrientationVertical:{
                 _scrollView.frame = CGRectMake(0, 0, _pageSize.width, _pageSize.height);
                 _scrollView.contentSize = CGSizeMake(_pageSize.width ,_pageSize.height * _pageCount);
                 CGPoint theCenter = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
                 _scrollView.center = theCenter;
-                
+
                 if (self.orginPageCount > 1) {
                     //滚到第二组
                     [_scrollView setContentOffset:CGPointMake(0, _pageSize.height * self.orginPageCount) animated:NO];
-                    
+
                     self.page = self.orginPageCount;
-                    
+
                     //启动自动轮播
 //                    [self startTimer];
                 }
-                
+
                 break;
             }
             default:
                 break;
         }
-        
+
         _needsReload = NO;
     }
-    
-    
+
+
     [self setPagesAtContentOffset:_scrollView.contentOffset];//根据当前scrollView的offset设置cell
-    
+
     [self refreshVisibleCellAppearance];//更新各个可见Cell的显示外貌
-    
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -404,14 +405,14 @@
 - (void)reloadData
 {
     _needsReload = YES;
-    
+
     //移除所有self.scrollView的子控件
     for (UIView *view in self.scrollView.subviews) {
         if ([NSStringFromClass(view.class) isEqualToString:@"SCSlidePageView"]) {
             [view removeFromSuperview];
         }
     }
-    
+
 //    [self stopTimer];
     [self setNeedsLayout];
 }
@@ -423,17 +424,17 @@
     {
         [_reusableCells removeLastObject];
     }
-    
+
     return cell;
 }
 
 - (void)scrollToPage:(NSUInteger)pageNumber {
     if (pageNumber < _pageCount) {
-        
+
         //首先停止定时器
 //        [self stopTimer];
         self.page = pageNumber + self.orginPageCount;
-        
+
         switch (self.orientation) {
             case SCFadeSlideViewOrientationHorizontal:
                 [_scrollView setContentOffset:CGPointMake(_pageSize.width * (pageNumber + self.orginPageCount), 0) animated:YES];
@@ -444,7 +445,7 @@
         }
         [self setPagesAtContentOffset:_scrollView.contentOffset];
         [self refreshVisibleCellAppearance];
-        
+
 //        [self startTimer];
     }
 }
@@ -461,10 +462,10 @@
         if ([_scrollView pointInside:newPoint withEvent:event]) {
             return [_scrollView hitTest:newPoint withEvent:event];
         }
-        
+
         return _scrollView;
     }
-    
+
     return nil;
 }
 
@@ -473,15 +474,15 @@
 #pragma mark UIScrollView Delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
+
     //    NSLog(@"%f",scrollView.contentOffset.x / _pageSize.width);
-    
+
     if (self.orginPageCount == 0) {
         return;
     }
-    
+
     NSInteger pageIndex;
-    
+
     switch (self.orientation) {
         case SCFadeSlideViewOrientationHorizontal:
             pageIndex = (int)floor(_scrollView.contentOffset.x / _pageSize.width) % self.orginPageCount;
@@ -492,82 +493,82 @@
         default:
             break;
     }
-    
+
     if (self.orginPageCount > 1) {
         switch (self.orientation) {
             case SCFadeSlideViewOrientationHorizontal:
             {
                 if (scrollView.contentOffset.x / _pageSize.width >= 2 * self.orginPageCount) {
-                    
+
                     [scrollView setContentOffset:CGPointMake(_pageSize.width * self.orginPageCount, 0) animated:NO];
-                    
+
                     self.page = self.orginPageCount;
-                    
+
                 }
-                
+
                 if (scrollView.contentOffset.x / _pageSize.width <= self.orginPageCount - 1) {
                     [scrollView setContentOffset:CGPointMake((2 * self.orginPageCount - 1) * _pageSize.width, 0) animated:NO];
-                    
+
                     self.page = 2 * self.orginPageCount;
                 }
-                
+
             }
                 break;
             case SCFadeSlideViewOrientationVertical:
             {
                 if (scrollView.contentOffset.y / _pageSize.height >= 2 * self.orginPageCount) {
-                    
+
                     [scrollView setContentOffset:CGPointMake(_pageSize.height * self.orginPageCount, 0) animated:NO];
-                    
-//                    self.page = self.orginPageCount;
-                    
+
+                    self.page = self.orginPageCount;
+
                 }
-                
+
                 if (scrollView.contentOffset.y / _pageSize.height <= self.orginPageCount - 1) {
                     [scrollView setContentOffset:CGPointMake((2 * self.orginPageCount - 1) * _pageSize.height, 0) animated:NO];
-//                    self.page = 2 * self.orginPageCount;
+                    self.page = 2 * self.orginPageCount;
                 }
-                
+
             }
                 break;
             default:
                 break;
         }
-        
-        
+
+
     }else {
-        
+
         pageIndex = 0;
-        
-        
+
+
     }
-    
-    
+
+
     [self setPagesAtContentOffset:scrollView.contentOffset];
     [self refreshVisibleCellAppearance];
-    
+
 //    if (self.pageControl && [self.pageControl respondsToSelector:@selector(setCurrentPage:)]) {
-//        
+//
 //        [self.pageControl setCurrentPage:pageIndex];
 //    }
-//    
+//
     if ([_delegate respondsToSelector:@selector(didScrollToPage:inSlideView:)] && _currentPageIndex != pageIndex) {
         [_delegate didScrollToPage:pageIndex inSlideView:self];
     }
-    
+
     _currentPageIndex = pageIndex;
 }
 
 #pragma mark --将要开始拖拽
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    
+
 //    [self.timer invalidate];
-    
+
 }
 
 #pragma mark --将要结束拖拽
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    
+
 //    if (self.orginPageCount > 1 && self.isOpenAutoScroll) {
         if (self.orginPageCount > 1) {
 //        self.timer = [NSTimer scheduledTimerWithTimeInterval:self.autoTime target:self selector:@selector(autoNextPage) userInfo:nil repeats:YES];
@@ -575,11 +576,11 @@
             case SCFadeSlideViewOrientationHorizontal:
             {
                 if (self.page == floor(_scrollView.contentOffset.x / _pageSize.width)) {
-                    
+
                     self.page = floor(_scrollView.contentOffset.x / _pageSize.width) + 1;
-                    
+
                 }else {
-                    
+
                     self.page = floor(_scrollView.contentOffset.x / _pageSize.width);
                 }
             }
@@ -587,11 +588,11 @@
             case SCFadeSlideViewOrientationVertical:
             {
                 if (self.page == floor(_scrollView.contentOffset.y / _pageSize.height)) {
-                    
+
                     self.page = floor(_scrollView.contentOffset.y / _pageSize.height) + 1;
-                    
+
                 }else {
-                    
+
                     self.page = floor(_scrollView.contentOffset.y / _pageSize.height);
                 }
             }
@@ -599,19 +600,24 @@
             default:
                 break;
         }
-        
+
     }
 }
 
 //点击了cell
 - (void)singleCellTapAction:(UIGestureRecognizer *)gesture {
-    
+
     if ([self.delegate respondsToSelector:@selector(didSelectCell:withSubViewIndex:)]) {
-        
+
         [self.delegate didSelectCell:gesture.view withSubViewIndex:gesture.view.tag];
-        
+
     }
 }
-
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([touch.view isKindOfClass:[UIButton class]]){
+        return NO;
+    }
+    return YES;
+}
 
 @end
