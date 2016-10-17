@@ -42,6 +42,7 @@
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
 		D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06591DAB88F7003832A8 /* UIView+Shadow.m */; };
 		D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */; };
+		D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CC61DB45025004D6C8B /* PFHomeViewController.m */; };
 		D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A171DAF2FEE00F2849E /* YZMButton.m */; };
 		D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A1B1DAF6D2900F2849E /* RegViewController.m */; };
 		D6D94BB81DB06053004666BC /* LFLUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BB71DB06053004666BC /* LFLUISegmentedControl.m */; };
@@ -115,6 +116,8 @@
 		D62A065C1DAC817A003832A8 /* am.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = am.pch; path = config/am.pch; sourceTree = "<group>"; };
 		D62A065E1DACADAA003832A8 /* FgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FgetPwdViewController.h; path = viewcontrollers/login/FgetPwdViewController.h; sourceTree = "<group>"; };
 		D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FgetPwdViewController.m; path = viewcontrollers/login/FgetPwdViewController.m; sourceTree = "<group>"; };
+		D6950CC51DB45025004D6C8B /* PFHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFHomeViewController.h; path = viewcontrollers/pfhome/PFHomeViewController.h; sourceTree = "<group>"; };
+		D6950CC61DB45025004D6C8B /* PFHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFHomeViewController.m; path = viewcontrollers/pfhome/PFHomeViewController.m; sourceTree = "<group>"; };
 		D6B43A161DAF2FEE00F2849E /* YZMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZMButton.h; path = views/login/YZMButton.h; sourceTree = "<group>"; };
 		D6B43A171DAF2FEE00F2849E /* YZMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZMButton.m; path = views/login/YZMButton.m; sourceTree = "<group>"; };
 		D6B43A1A1DAF6D2900F2849E /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegViewController.h; path = viewcontrollers/login/RegViewController.h; sourceTree = "<group>"; };
@@ -249,6 +252,7 @@
 		C8E6512D1DA9D46A00400ABC /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				D6950CC41DB44FED004D6C8B /* pfhome */,
 				D62A064D1DAB637C003832A8 /* login */,
 				C8E651341DA9D60F00400ABC /* base */,
 				C8E651301DA9D5B500400ABC /* me */,
@@ -364,6 +368,15 @@
 				D62A065C1DAC817A003832A8 /* am.pch */,
 			);
 			name = config;
+			sourceTree = "<group>";
+		};
+		D6950CC41DB44FED004D6C8B /* pfhome */ = {
+			isa = PBXGroup;
+			children = (
+				D6950CC51DB45025004D6C8B /* PFHomeViewController.h */,
+				D6950CC61DB45025004D6C8B /* PFHomeViewController.m */,
+			);
+			name = pfhome;
 			sourceTree = "<group>";
 		};
 		D6B43A151DAF2FBE00F2849E /* login */ = {
@@ -546,6 +559,7 @@
 				D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */,
 				A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */,
 				A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */,
+				D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
 				C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */,
 				D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */,

@@ -32,7 +32,7 @@
     //normal状态
     [self setTitle:@"获取验证码" forState:UIControlStateNormal];
     self.titleLabel.textColor = [UIColor colorWithHexString:@"#c3c8d7"];
-    self.titleLabel.font = [UIFont systemFontOfSize:11.f];
+    self.titleLabel.font = [UIFont systemFontOfSize:12.f];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self setBackgroundColor:[UIColor clearColor]];//colorWithHexString:@"#475A90"]
     
