@@ -134,8 +134,7 @@
         case EMIShadowPathRoundRectangle:
             if(1==1){
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-                imageView.layer.masksToBounds = YES;
-                imageView.layer.cornerRadius = 2;
+                
                 if(image){
                     if ([image hasPrefix:@"http"]) {
                         [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder]];
@@ -147,6 +146,9 @@
                 }else if(placeholder.length>0){
                     imageView.image = [UIImage imageNamed:placeholder];
                 }
+                imageView.backgroundColor = [UIColor whiteColor];
+                imageView.layer.masksToBounds = YES;
+                imageView.layer.cornerRadius = 2;
     
                 //                imageView.layer.masksToBounds = YES;
                 //                imageView.layer.cornerRadius = imageView.frame.size.width/2;
@@ -165,8 +167,6 @@
                 
                 [self addSubview:imageView];
             }
-            
-
             break;
         default:
             break;
