@@ -177,6 +177,14 @@
 }
 //立即注册
 - (IBAction)registerClicked:(UIButton *)sender {
+    //片方跳至首页
+    if (self.mainSegView.selectSeugment == 0) {
+        
+    }
+    //院线经理跳至认证院线经理
+    if (self.mainSegView.selectSeugment == 1) {
+        
+    }
 }
 /*
 #pragma mark - Navigation

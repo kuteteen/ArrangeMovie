@@ -46,6 +46,9 @@
 		D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A1B1DAF6D2900F2849E /* RegViewController.m */; };
 		D6D94BB81DB06053004666BC /* LFLUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BB71DB06053004666BC /* LFLUISegmentedControl.m */; };
 		D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BBB1DB0AB62004666BC /* EMICamera.m */; };
+		D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BC61DB0B705004666BC /* SCHttpOperation.m */; };
+		D6D94BCA1DB0B705004666BC /* SCHttpOperationMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */; };
+		D6D94BCC1DB0BDA6004666BC /* pfhome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D94BCB1DB0BDA6004666BC /* pfhome.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +123,11 @@
 		D6D94BB71DB06053004666BC /* LFLUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFLUISegmentedControl.m; path = views/base/LFLUISegmentedControl.m; sourceTree = "<group>"; };
 		D6D94BBA1DB0AB62004666BC /* EMICamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMICamera.h; path = views/base/EMICamera.h; sourceTree = "<group>"; };
 		D6D94BBB1DB0AB62004666BC /* EMICamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMICamera.m; path = views/base/EMICamera.m; sourceTree = "<group>"; };
+		D6D94BC51DB0B705004666BC /* SCHttpOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHttpOperation.h; sourceTree = "<group>"; };
+		D6D94BC61DB0B705004666BC /* SCHttpOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCHttpOperation.m; sourceTree = "<group>"; };
+		D6D94BC71DB0B705004666BC /* SCHttpOperationMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHttpOperationMgr.h; sourceTree = "<group>"; };
+		D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCHttpOperationMgr.m; sourceTree = "<group>"; };
+		D6D94BCB1DB0BDA6004666BC /* pfhome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = pfhome.storyboard; path = src/pfhome.storyboard; sourceTree = "<group>"; };
 		E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,12 +202,12 @@
 		C886B0D41DA8FC0500240283 /* ArrangeMovie */ = {
 			isa = PBXGroup;
 			children = (
+				D6D94BC41DB0B705004666BC /* net */,
 				D62A065B1DAC813C003832A8 /* config */,
 				C8E651381DA9D63800400ABC /* models */,
 				C8E6512E1DA9D52000400ABC /* src */,
 				C8E6512D1DA9D46A00400ABC /* viewcontrollers */,
 				C8E6512C1DA9D44D00400ABC /* views */,
-				C8E6512B1DA9D44300400ABC /* net */,
 				C8E6512A1DA9D43900400ABC /* utils */,
 				C886B0D81DA8FC0500240283 /* AppDelegate.h */,
 				C886B0D91DA8FC0500240283 /* AppDelegate.m */,
@@ -228,13 +236,6 @@
 			name = utils;
 			sourceTree = "<group>";
 		};
-		C8E6512B1DA9D44300400ABC /* net */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = net;
-			sourceTree = "<group>";
-		};
 		C8E6512C1DA9D44D00400ABC /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +261,7 @@
 			children = (
 				C8E6513C1DA9E6CC00400ABC /* me.storyboard */,
 				D62A064B1DAB5CA8003832A8 /* login.storyboard */,
+				D6D94BCB1DB0BDA6004666BC /* pfhome.storyboard */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -373,6 +375,17 @@
 			name = login;
 			sourceTree = "<group>";
 		};
+		D6D94BC41DB0B705004666BC /* net */ = {
+			isa = PBXGroup;
+			children = (
+				D6D94BC51DB0B705004666BC /* SCHttpOperation.h */,
+				D6D94BC61DB0B705004666BC /* SCHttpOperation.m */,
+				D6D94BC71DB0B705004666BC /* SCHttpOperationMgr.h */,
+				D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */,
+			);
+			path = net;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -444,6 +457,7 @@
 				C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */,
 				A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */,
 				A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */,
+				D6D94BCC1DB0BDA6004666BC /* pfhome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,10 +538,12 @@
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */,
+				D6D94BCA1DB0B705004666BC /* SCHttpOperationMgr.m in Sources */,
 				D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */,
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
 				C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */,
+				D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */,
 				A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */,
 				A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
