@@ -17,7 +17,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2b-M9-8EV">
                         <rect key="frame" x="15" y="26" width="290" height="100"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wUI-vZ-Dqe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank_agriculture" translatesAutoresizingMaskIntoConstraints="NO" id="wUI-vZ-Dqe">
                                 <rect key="frame" x="15" y="15" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="2Bx-Yh-AC3"/>
@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="height" constant="17" id="weE-9N-iow"/>
                                     <constraint firstAttribute="width" constant="16" id="zN3-CA-DZT"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="miller"/>
+                                <state key="normal" title="Button" image="del_normal"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**** **** **** 789" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C37-Ua-ajh">
                                 <rect key="frame" x="62" y="61" width="218" height="25"/>
@@ -88,6 +88,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="miller" width="280" height="280"/>
+        <image name="bank_agriculture" width="32" height="32"/>
+        <image name="del_normal" width="16" height="17"/>
     </resources>
 </document>

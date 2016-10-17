@@ -39,7 +39,7 @@
         if(self.user.usertype==0){
             _array = @[@"我的资料",@"任务历史",@"我的积分",@"我的银行卡",@"修改密码",@"资料审核",@"设置"];
         }else{
-            _array = @[@"我的资料",@"我的积分",@"我的银行卡",@"修改密码",@"资料审核",@"设置"];
+            _array = @[@"我的资料",@"我的积分",@"我的银行卡",@"修改密码",@"认证院线经理",@"设置"];
         }
     }
     return _array;
@@ -75,7 +75,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *title = self.array[indexPath.row];
-    NSLog(@"点击了:%@",title);
+//    NSLog(@"点击了:%@",title);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中
     if([title isEqualToString:@"我的资料"]){
         [self performSegueWithIdentifier:@"metoprofile" sender:nil];
@@ -83,6 +83,12 @@
         [self performSegueWithIdentifier:@"metopoint" sender:nil];
     }else if([title isEqualToString:@"我的银行卡"]){
         [self performSegueWithIdentifier:@"metobank" sender:nil];
+    }else if([title isEqualToString:@"修改密码"]){
+        [self performSegueWithIdentifier:@"metopwd" sender:nil];
+    }else if([title isEqualToString:@"设置"]){
+        [self performSegueWithIdentifier:@"metosetting" sender:nil];
+    }else if([title isEqualToString:@"资料审核"]||[title isEqualToString:@"认证院线经理"]){
+        [self performSegueWithIdentifier:@"metoauth" sender:nil];
     }
     
 }

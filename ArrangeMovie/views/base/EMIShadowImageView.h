@@ -12,7 +12,8 @@
 typedef enum {
     EMIShadowPathRectangle = 0,//矩形图片四周阴影
     EMIShadowPathCircle = 1,//带圆环的阴影
-    EMIShadowPathRound//普通圆形图片的阴影
+    EMIShadowPathRound = 2,//普通圆形图片的阴影
+    EMIShadowPathRoundRectangle//圆角矩形,2016-10-17 所有带阴影的圆角矩形半径为2
 }EMIShadowPathType;
 
 -(void) setShadowWithType:(EMIShadowPathType)pathType
