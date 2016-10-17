@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="miller" translatesAutoresizingMaskIntoConstraints="NO" id="miy-a7-kuh">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank_add" translatesAutoresizingMaskIntoConstraints="NO" id="miy-a7-kuh">
                         <rect key="frame" x="28" y="35" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="7yj-ZM-iaq"/>
@@ -52,6 +52,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="miller" width="280" height="280"/>
+        <image name="bank_add" width="25" height="25"/>
     </resources>
 </document>

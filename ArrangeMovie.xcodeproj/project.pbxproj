@@ -31,6 +31,13 @@
 		C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D91DA8FC0500240283 /* AppDelegate.m */; };
 		C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C886B0E11DA8FC0500240283 /* Assets.xcassets */; };
 		C886B0E51DA8FC0500240283 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C886B0E31DA8FC0500240283 /* LaunchScreen.storyboard */; };
+		C889D9581DAF7429008156B2 /* MePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C889D9571DAF7429008156B2 /* MePwdViewController.m */; };
+		C889D95B1DAF83F3008156B2 /* MeAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C889D95A1DAF83F3008156B2 /* MeAuthViewController.m */; };
+		C889D95E1DB0742E008156B2 /* MeSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C889D95D1DB0742E008156B2 /* MeSettingViewController.m */; };
+		C889D9611DB07DEB008156B2 /* MeFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C889D9601DB07DEB008156B2 /* MeFeedbackViewController.m */; };
+		C889D9641DB07E90008156B2 /* MeAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C889D9631DB07E90008156B2 /* MeAboutViewController.m */; };
+		C889D9681DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C889D9661DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m */; };
+		C889D9691DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C889D9671DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib */; };
 		C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651321DA9D5DF00400ABC /* MeViewController.m */; };
 		C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651361DA9D62C00400ABC /* EMIBaseViewController.m */; };
 		C8E6513B1DA9D65D00400ABC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6513A1DA9D65D00400ABC /* User.m */; };
@@ -95,6 +102,19 @@
 		C886B0E11DA8FC0500240283 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C886B0E41DA8FC0500240283 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C886B0E61DA8FC0500240283 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C889D9561DAF7429008156B2 /* MePwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MePwdViewController.h; path = viewcontrollers/me/MePwdViewController.h; sourceTree = "<group>"; };
+		C889D9571DAF7429008156B2 /* MePwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MePwdViewController.m; path = viewcontrollers/me/MePwdViewController.m; sourceTree = "<group>"; };
+		C889D9591DAF83F3008156B2 /* MeAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeAuthViewController.h; path = viewcontrollers/me/MeAuthViewController.h; sourceTree = "<group>"; };
+		C889D95A1DAF83F3008156B2 /* MeAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeAuthViewController.m; path = viewcontrollers/me/MeAuthViewController.m; sourceTree = "<group>"; };
+		C889D95C1DB0742E008156B2 /* MeSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeSettingViewController.h; path = viewcontrollers/me/MeSettingViewController.h; sourceTree = "<group>"; };
+		C889D95D1DB0742E008156B2 /* MeSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeSettingViewController.m; path = viewcontrollers/me/MeSettingViewController.m; sourceTree = "<group>"; };
+		C889D95F1DB07DEB008156B2 /* MeFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeFeedbackViewController.h; path = viewcontrollers/me/MeFeedbackViewController.h; sourceTree = "<group>"; };
+		C889D9601DB07DEB008156B2 /* MeFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeFeedbackViewController.m; path = viewcontrollers/me/MeFeedbackViewController.m; sourceTree = "<group>"; };
+		C889D9621DB07E90008156B2 /* MeAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeAboutViewController.h; path = viewcontrollers/me/MeAboutViewController.h; sourceTree = "<group>"; };
+		C889D9631DB07E90008156B2 /* MeAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeAboutViewController.m; path = viewcontrollers/me/MeAboutViewController.m; sourceTree = "<group>"; };
+		C889D9651DB0AC59008156B2 /* MeSettingSignOutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeSettingSignOutTableViewCell.h; path = views/me/MeSettingSignOutTableViewCell.h; sourceTree = "<group>"; };
+		C889D9661DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeSettingSignOutTableViewCell.m; path = views/me/MeSettingSignOutTableViewCell.m; sourceTree = "<group>"; };
+		C889D9671DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeSettingSignOutTableViewCell.xib; path = views/me/MeSettingSignOutTableViewCell.xib; sourceTree = "<group>"; };
 		C8E651311DA9D5DF00400ABC /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeViewController.h; path = viewcontrollers/me/MeViewController.h; sourceTree = "<group>"; };
 		C8E651321DA9D5DF00400ABC /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeViewController.m; path = viewcontrollers/me/MeViewController.m; sourceTree = "<group>"; };
 		C8E651351DA9D62C00400ABC /* EMIBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMIBaseViewController.h; path = viewcontrollers/base/EMIBaseViewController.h; sourceTree = "<group>"; };
@@ -285,6 +305,9 @@
 				A5AC11811DABA63300CBBE05 /* MeSettingTableViewCell.h */,
 				A5AC11821DABA63300CBBE05 /* MeSettingTableViewCell.m */,
 				A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */,
+				C889D9651DB0AC59008156B2 /* MeSettingSignOutTableViewCell.h */,
+				C889D9661DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m */,
+				C889D9671DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib */,
 				A5AC11861DABA69100CBBE05 /* MeBankCardTableViewCell.h */,
 				A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */,
 				A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */,
@@ -305,6 +328,16 @@
 				C80F06491DACFDCD00BB75BE /* MeBankCardViewController.m */,
 				C80F064B1DACFDED00BB75BE /* MeNewCardViewController.h */,
 				C80F064C1DACFDED00BB75BE /* MeNewCardViewController.m */,
+				C889D9561DAF7429008156B2 /* MePwdViewController.h */,
+				C889D9571DAF7429008156B2 /* MePwdViewController.m */,
+				C889D9591DAF83F3008156B2 /* MeAuthViewController.h */,
+				C889D95A1DAF83F3008156B2 /* MeAuthViewController.m */,
+				C889D95C1DB0742E008156B2 /* MeSettingViewController.h */,
+				C889D95D1DB0742E008156B2 /* MeSettingViewController.m */,
+				C889D95F1DB07DEB008156B2 /* MeFeedbackViewController.h */,
+				C889D9601DB07DEB008156B2 /* MeFeedbackViewController.m */,
+				C889D9621DB07E90008156B2 /* MeAboutViewController.h */,
+				C889D9631DB07E90008156B2 /* MeAboutViewController.m */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -467,6 +500,7 @@
 				D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */,
 				C886B0E51DA8FC0500240283 /* LaunchScreen.storyboard in Resources */,
 				C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */,
+				C889D9691DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib in Resources */,
 				C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */,
 				A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */,
 				A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */,
@@ -544,8 +578,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C889D9681DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m in Sources */,
 				C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */,
 				C80F064A1DACFDCD00BB75BE /* MeBankCardViewController.m in Sources */,
+				C889D9641DB07E90008156B2 /* MeAboutViewController.m in Sources */,
+				C889D9581DAF7429008156B2 /* MePwdViewController.m in Sources */,
+				C889D95E1DB0742E008156B2 /* MeSettingViewController.m in Sources */,
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
 				D6D94BB81DB06053004666BC /* LFLUISegmentedControl.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
@@ -555,9 +593,11 @@
 				D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */,
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
+				C889D95B1DAF83F3008156B2 /* MeAuthViewController.m in Sources */,
 				C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */,
 				D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */,
 				A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */,
+				C889D9611DB07DEB008156B2 /* MeFeedbackViewController.m in Sources */,
 				A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */,
 				D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,

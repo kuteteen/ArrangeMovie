@@ -131,6 +131,43 @@
                 [self addSubview:imageView];
             }
             break;
+        case EMIShadowPathRoundRectangle:
+            if(1==1){
+                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+                imageView.layer.masksToBounds = YES;
+                imageView.layer.cornerRadius = 2;
+                if(image){
+                    if ([image hasPrefix:@"http"]) {
+                        [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder]];
+                    }else if(image.length>0){
+                        imageView.image = [UIImage imageNamed:image];
+                    }else if(placeholder.length>0){
+                        imageView.image = [UIImage imageNamed:placeholder];
+                    }
+                }else if(placeholder.length>0){
+                    imageView.image = [UIImage imageNamed:placeholder];
+                }
+    
+                //                imageView.layer.masksToBounds = YES;
+                //                imageView.layer.cornerRadius = imageView.frame.size.width/2;
+    
+                //描出圆角图片imageView阴影路径
+    
+                CALayer *shadowLayer = [CALayer layer];
+    
+                shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0-4, 0-4, self.frame.size.width+8, self.frame.size.width+8) cornerRadius:2].CGPath;
+                shadowLayer.shadowColor = color.CGColor;//阴影颜色
+                shadowLayer.shadowOffset = offset;//偏移距离
+                shadowLayer.shadowOpacity = opacity;//不透明度
+                shadowLayer.shadowRadius = radius;//半径
+                
+                [self.layer insertSublayer:shadowLayer atIndex:0];
+                
+                [self addSubview:imageView];
+            }
+            
+
+            break;
         default:
             break;
     }

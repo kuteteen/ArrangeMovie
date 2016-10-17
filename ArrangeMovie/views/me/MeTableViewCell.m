@@ -33,9 +33,23 @@
     self.meTitleLabel.text = value;
     NSString *title = value;
     
+    NSString *imgname;
     if([title isEqualToString:@"我的资料"]){
-        
+        imgname = @"my_profile";
+    }else if([title isEqualToString:@"任务历史"]){
+        imgname = @"my_task";
+    }else if([title isEqualToString:@"我的积分"]){
+        imgname = @"my_integral";
+    }else if([title isEqualToString:@"我的银行卡"]){
+        imgname = @"bank_card_number";
+    }else if([title isEqualToString:@"修改密码"]){
+        imgname = @"login_imput_-password";
+    }else if([title isEqualToString:@"资料审核"]){
+        imgname = @"my_review";
+    }else if([title isEqualToString:@"设置"]){
+        imgname = @"my_set_up";
     }
+    self.meImgView.image = [UIImage imageNamed:imgname];
 }
 
 

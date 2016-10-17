@@ -20,6 +20,7 @@
     self.title = @"绑定银行卡";
     
     self.view.backgroundColor = [UIColor whiteColor];
+    self.view.layer.contents = [UIColor whiteColor];
 }
 
 @end
