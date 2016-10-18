@@ -52,6 +52,10 @@
 		D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CC61DB45025004D6C8B /* PFHomeViewController.m */; };
 		D6950CCA1DB459BF004D6C8B /* LFLUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CC91DB459BF004D6C8B /* LFLUISegmentedControl.m */; };
 		D6950CCD1DB45D51004D6C8B /* TableWithNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CCC1DB45D51004D6C8B /* TableWithNoDataView.m */; };
+		D6950CD11DB476F4004D6C8B /* LoginAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CD01DB476F4004D6C8B /* LoginAuthViewController.m */; };
+		D6950CD71DB4BF06004D6C8B /* PFHomeSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CD61DB4BF06004D6C8B /* PFHomeSectionView.m */; };
+		D6950CD91DB4C0AB004D6C8B /* PFHomeSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6950CD81DB4C0AB004D6C8B /* PFHomeSectionView.xib */; };
+		D6950CDD1DB4CAC1004D6C8B /* UILabel+StringFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CDC1DB4CAC1004D6C8B /* UILabel+StringFrame.m */; };
 		D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A171DAF2FEE00F2849E /* YZMButton.m */; };
 		D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A1B1DAF6D2900F2849E /* RegViewController.m */; };
 		D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BBB1DB0AB62004666BC /* EMICamera.m */; };
@@ -143,6 +147,13 @@
 		D6950CC91DB459BF004D6C8B /* LFLUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFLUISegmentedControl.m; path = views/base/LFLUISegmentedControl.m; sourceTree = "<group>"; };
 		D6950CCB1DB45D51004D6C8B /* TableWithNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableWithNoDataView.h; path = views/base/TableWithNoDataView.h; sourceTree = "<group>"; };
 		D6950CCC1DB45D51004D6C8B /* TableWithNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableWithNoDataView.m; path = views/base/TableWithNoDataView.m; sourceTree = "<group>"; };
+		D6950CCF1DB476F4004D6C8B /* LoginAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginAuthViewController.h; path = viewcontrollers/login/LoginAuthViewController.h; sourceTree = "<group>"; };
+		D6950CD01DB476F4004D6C8B /* LoginAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginAuthViewController.m; path = viewcontrollers/login/LoginAuthViewController.m; sourceTree = "<group>"; };
+		D6950CD51DB4BF06004D6C8B /* PFHomeSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFHomeSectionView.h; path = views/pfhome/PFHomeSectionView.h; sourceTree = "<group>"; };
+		D6950CD61DB4BF06004D6C8B /* PFHomeSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFHomeSectionView.m; path = views/pfhome/PFHomeSectionView.m; sourceTree = "<group>"; };
+		D6950CD81DB4C0AB004D6C8B /* PFHomeSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFHomeSectionView.xib; path = views/pfhome/PFHomeSectionView.xib; sourceTree = "<group>"; };
+		D6950CDB1DB4CAC1004D6C8B /* UILabel+StringFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+StringFrame.h"; path = "utils/category/UILabel+StringFrame.h"; sourceTree = "<group>"; };
+		D6950CDC1DB4CAC1004D6C8B /* UILabel+StringFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+StringFrame.m"; path = "utils/category/UILabel+StringFrame.m"; sourceTree = "<group>"; };
 		D6B43A161DAF2FEE00F2849E /* YZMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZMButton.h; path = views/login/YZMButton.h; sourceTree = "<group>"; };
 		D6B43A171DAF2FEE00F2849E /* YZMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZMButton.m; path = views/login/YZMButton.m; sourceTree = "<group>"; };
 		D6B43A1A1DAF6D2900F2849E /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegViewController.h; path = viewcontrollers/login/RegViewController.h; sourceTree = "<group>"; };
@@ -267,6 +278,7 @@
 		C8E6512C1DA9D44D00400ABC /* views */ = {
 			isa = PBXGroup;
 			children = (
+				D6950CD41DB4BEB9004D6C8B /* pfhome */,
 				D6B43A151DAF2FBE00F2849E /* login */,
 				C8329B9B1DAB2FF600B14075 /* base */,
 				C8E6512F1DA9D56900400ABC /* me */,
@@ -370,6 +382,8 @@
 		C8E651441DA9EA8800400ABC /* category */ = {
 			isa = PBXGroup;
 			children = (
+				D6950CDB1DB4CAC1004D6C8B /* UILabel+StringFrame.h */,
+				D6950CDC1DB4CAC1004D6C8B /* UILabel+StringFrame.m */,
 				C8E651481DA9EAF100400ABC /* UIColor+Hex.h */,
 				C8E651491DA9EAF100400ABC /* UIColor+Hex.m */,
 				C81371111DAA2BAE006479D6 /* UIImage+SCUtil.h */,
@@ -387,6 +401,8 @@
 				D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */,
 				D6B43A1A1DAF6D2900F2849E /* RegViewController.h */,
 				D6B43A1B1DAF6D2900F2849E /* RegViewController.m */,
+				D6950CCF1DB476F4004D6C8B /* LoginAuthViewController.h */,
+				D6950CD01DB476F4004D6C8B /* LoginAuthViewController.m */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -413,6 +429,16 @@
 			children = (
 				D6950CC51DB45025004D6C8B /* PFHomeViewController.h */,
 				D6950CC61DB45025004D6C8B /* PFHomeViewController.m */,
+			);
+			name = pfhome;
+			sourceTree = "<group>";
+		};
+		D6950CD41DB4BEB9004D6C8B /* pfhome */ = {
+			isa = PBXGroup;
+			children = (
+				D6950CD51DB4BF06004D6C8B /* PFHomeSectionView.h */,
+				D6950CD61DB4BF06004D6C8B /* PFHomeSectionView.m */,
+				D6950CD81DB4C0AB004D6C8B /* PFHomeSectionView.xib */,
 			);
 			name = pfhome;
 			sourceTree = "<group>";
@@ -508,6 +534,7 @@
 				C889D9691DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib in Resources */,
 				C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */,
 				A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */,
+				D6950CD91DB4C0AB004D6C8B /* PFHomeSectionView.xib in Resources */,
 				A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */,
 				D6D94BCC1DB0BDA6004666BC /* pfhome.storyboard in Resources */,
 			);
@@ -591,12 +618,14 @@
 				C889D95E1DB0742E008156B2 /* MeSettingViewController.m in Sources */,
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
+				D6950CD71DB4BF06004D6C8B /* PFHomeSectionView.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */,
 				D6D94BCA1DB0B705004666BC /* SCHttpOperationMgr.m in Sources */,
 				D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */,
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
+				D6950CD11DB476F4004D6C8B /* LoginAuthViewController.m in Sources */,
 				C889D95B1DAF83F3008156B2 /* MeAuthViewController.m in Sources */,
 				D6950CCA1DB459BF004D6C8B /* LFLUISegmentedControl.m in Sources */,
 				C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */,
@@ -620,6 +649,7 @@
 				C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */,
 				D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */,
 				C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */,
+				D6950CDD1DB4CAC1004D6C8B /* UILabel+StringFrame.m in Sources */,
 				A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */,
 				D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */,
 			);

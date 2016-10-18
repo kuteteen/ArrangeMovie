@@ -43,16 +43,16 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPA-RN-1IZ">
-                                <rect key="frame" x="120" y="217" width="360" height="40"/>
+                                <rect key="frame" x="120" y="214" width="360" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="NTT-YL-LpO"/>
+                                    <constraint firstAttribute="height" constant="30" id="NTT-YL-LpO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1sR-ET-XEJ">
-                                <rect key="frame" x="0.0" y="287" width="600" height="313"/>
+                                <rect key="frame" x="0.0" y="274" width="600" height="326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="eYG-SH-P6J" id="SJT-mw-jkH"/>
@@ -68,7 +68,7 @@
                             <constraint firstAttribute="trailing" secondItem="1sR-ET-XEJ" secondAttribute="trailing" id="iJy-cG-XEt"/>
                             <constraint firstItem="1sR-ET-XEJ" firstAttribute="leading" secondItem="FgS-ev-QHZ" secondAttribute="leading" id="jMA-nu-de3"/>
                             <constraint firstItem="exx-nU-pyN" firstAttribute="top" secondItem="SuQ-9v-dwr" secondAttribute="bottom" constant="20" id="nOI-iA-ka5"/>
-                            <constraint firstItem="SPA-RN-1IZ" firstAttribute="top" secondItem="exx-nU-pyN" secondAttribute="bottom" constant="23" id="olV-fK-mN4"/>
+                            <constraint firstItem="SPA-RN-1IZ" firstAttribute="top" secondItem="exx-nU-pyN" secondAttribute="bottom" constant="20" id="olV-fK-mN4"/>
                             <constraint firstItem="1sR-ET-XEJ" firstAttribute="top" secondItem="SPA-RN-1IZ" secondAttribute="bottom" constant="30" id="uoX-fD-AnN"/>
                             <constraint firstItem="SPA-RN-1IZ" firstAttribute="width" secondItem="FgS-ev-QHZ" secondAttribute="width" multiplier="0.6" id="zN4-OU-Yi8"/>
                         </constraints>

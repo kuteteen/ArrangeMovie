@@ -8,7 +8,7 @@
 
 #import "PFHomeViewController.h"
 
-@interface PFHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface PFHomeViewController ()
 
 @end
 
@@ -33,8 +33,8 @@
     
     UIBarButtonItem *rightNavBtn = [UIBarButtonItem itemWithImageName:@"film_index_add" highImageName:@"film_index_add" target:self action:@selector(rightNavBtnClicked:)];
     UIBarButtonItem *leftNavBtn = [UIBarButtonItem itemWithImageName:@"film_index_my" highImageName:@"film_index_my" target:self action:@selector(leftNavBtnClicked:)];
-    self.navigationController.navigationItem.rightBarButtonItem = rightNavBtn;
-    self.navigationController.navigationItem.leftBarButtonItem = leftNavBtn;
+    self.navigationItem.rightBarButtonItem = rightNavBtn;
+    self.navigationItem.leftBarButtonItem = leftNavBtn;
     //加载头像
     [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.5 shadowRadius:5 image:@"miller" placeholder:@"miller"];
     //片方姓名
@@ -54,34 +54,35 @@
     
 }
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-//    
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    
-//}
-//
-//
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//
-//}
-//
-//
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    return 106;
-//}
-//
-//- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//
-//}
-//
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//
-//}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 0;
+}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return nil;
+}
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 101;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    PFHomeSectionView *sectionView = [[PFHomeSectionView alloc] initWithType:@"0" imageName:@"http://img5.imgtn.bdimg.com/it/u=366044408,2479143471&fm=21&gp=0.jpg" titleStr:@"《让子弹飞》排片任务" bigNumStr:@"58" smallNumStr:@"10.5"];
+    return sectionView;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+}
 /*
 #pragma mark - Navigation
 

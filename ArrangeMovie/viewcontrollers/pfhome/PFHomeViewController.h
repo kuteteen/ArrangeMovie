@@ -9,6 +9,7 @@
 #import "EMIBaseViewController.h"
 #import "UIBarButtonItem+Extension.h"
 #import "TableWithNoDataView.h"
+#import "PFHomeSectionView.h"
 
 @interface PFHomeViewController : EMIBaseViewController
 @property (weak, nonatomic) IBOutlet EMIShadowImageView *headImgView;

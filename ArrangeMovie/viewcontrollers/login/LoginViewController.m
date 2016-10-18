@@ -63,11 +63,11 @@
 - (void)initView{
     
     //加载头像
-    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.5 shadowRadius:5 image:@"miller" placeholder:@"miller"];
+    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.5 shadowRadius:8 image:@"miller" placeholder:@"miller"];
     
     //outTFView阴影,及圆角4px
     [self.outTFView setShadowWithshadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.3 shadowRadius:10];
-    self.outTFView.layer.cornerRadius = 4;
+    self.outTFView.layer.cornerRadius = 2;
     
     //登录按钮圆角
 //    self.loginBtn.layer.cornerRadius = 15;

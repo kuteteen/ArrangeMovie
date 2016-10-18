@@ -59,6 +59,7 @@
     
     //头像
     self.headImg.userInteractionEnabled = YES;
+    [self.headImg setImage:[UIImage imageNamed:@"register_head"]];
     
     //滑动菜单
     self.mainSegView = [[LFLUISegmentedControl alloc] initWithFrame:CGRectMake(0,0,  screenWidth, self.segmentView.frame.size.height)];
@@ -132,15 +133,26 @@
 
 //弹出框点击事件代理
 - (void)actionSheet:(LCActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    __unsafe_unretained typeof(self) weakSelf = self;
     if (buttonIndex == 1) {
         //拍照
         self.camera = [[EMICamera alloc] init];
         [self.camera takePhoto:self];
         //获的照片的回调
-        __unsafe_unretained typeof(self) weakSelf = self;
+        
         [self.camera setBlock:^(UIImagePickerController *picker, NSDictionary<NSString *,id> *info) {
-            NSLog(@"%@",info);
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
+            //获取图片
+            UIImage *currentimage = [info objectForKey:UIImagePickerControllerOriginalImage];
+            //相机需要把图片存进相蒲
+        
+            if (currentimage != nil) {
+                //存进相蒲
+//                UIImageWriteToSavedPhotosAlbum(currentimage, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+                weakSelf.headImg.image = nil;
+                [weakSelf.headImg setCircleBorder:currentimage];
+            }
+            
         }];
     }
     if (buttonIndex == 2) {
@@ -149,7 +161,8 @@
         //隐藏内部拍照按钮
         imagePicker.allowTakePicture = NO;
         [imagePicker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL flag) {
-            NSLog(@"%@",photos[0]);
+            weakSelf.headImg.image = nil;
+            [weakSelf.headImg setCircleBorder:photos[0]];
         }];
         
         [self presentViewController:imagePicker animated:YES completion:nil];
@@ -179,11 +192,14 @@
 - (IBAction)registerClicked:(UIButton *)sender {
     //片方跳至首页
     if (self.mainSegView.selectSeugment == 0) {
+        UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
+        PFHomeViewController *pfhomenav = [pfhome instantiateViewControllerWithIdentifier:@"pfhomenav"];
         
+        [self presentViewController:pfhomenav animated:YES completion:nil];
     }
     //院线经理跳至认证院线经理
     if (self.mainSegView.selectSeugment == 1) {
-        
+        [self performSegueWithIdentifier:@"toLoginAuthVC" sender:self];
     }
 }
 /*

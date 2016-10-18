@@ -15,10 +15,13 @@
 #import "LCActionSheet.h"
 #import "TZImagePickerController.h"
 #import "EMICamera.h"
+#import "UIView+Shadow.h"
+#import "PFHomeViewController.h"
 
 
 @interface RegViewController : EMIBaseViewController
-@property (weak, nonatomic) IBOutlet UIImageView *headImg;
+
+@property (weak, nonatomic) IBOutlet EMIShadowImageView *headImg;
 
 @property (weak, nonatomic) IBOutlet UIView *segmentView;//滑动菜单父视图
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
