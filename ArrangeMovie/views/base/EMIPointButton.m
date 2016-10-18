@@ -53,7 +53,7 @@
     // 高亮的时候不需要调整内部的图片为灰色
     self.adjustsImageWhenHighlighted = NO;
     [self.layer setMasksToBounds:YES];//设置按钮的圆角半径不会被遮挡
-    [self.layer setCornerRadius:10];
+    [self.layer setCornerRadius:5];
     [self.layer setBorderWidth:0.5];//设置边界的宽度
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     

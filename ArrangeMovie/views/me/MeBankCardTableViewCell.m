@@ -19,6 +19,7 @@
 
     // Configure the view for the selected state
 }
+
 + (instancetype)cellWithTableView:(UITableView *)tableView {
     static NSString *ID = @"MeBankCardTableViewCell";
     MeBankCardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];

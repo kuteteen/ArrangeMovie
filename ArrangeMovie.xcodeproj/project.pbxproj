@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		131A47533821D17EA144C864 /* libPods-ArrangeMovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE23006BE2A8191D3C9E4103 /* libPods-ArrangeMovie.a */; };
+		5917661FE101563580D7CE6A /* libPods-ArrangeMovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E72BE63C5D03AA00A487AFB /* libPods-ArrangeMovie.a */; };
 		A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */; };
 		A5AC117B1DABA57D00CBBE05 /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */; };
 		A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC117D1DABA5E200CBBE05 /* MePointRecordTableViewCell.m */; };
@@ -38,6 +38,9 @@
 		C889D9641DB07E90008156B2 /* MeAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C889D9631DB07E90008156B2 /* MeAboutViewController.m */; };
 		C889D9681DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C889D9661DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m */; };
 		C889D9691DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C889D9671DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib */; };
+		C8B64E7B1DB475AC00B4311D /* MeMissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B64E7A1DB475AC00B4311D /* MeMissionViewController.m */; };
+		C8B64E7F1DB49C8900B4311D /* MeMissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B64E7D1DB49C8900B4311D /* MeMissionTableViewCell.m */; };
+		C8B64E801DB49C8900B4311D /* MeMissionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8B64E7E1DB49C8900B4311D /* MeMissionTableViewCell.xib */; };
 		C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651321DA9D5DF00400ABC /* MeViewController.m */; };
 		C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651361DA9D62C00400ABC /* EMIBaseViewController.m */; };
 		C8E6513B1DA9D65D00400ABC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6513A1DA9D65D00400ABC /* User.m */; };
@@ -65,6 +68,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29BE89E321714AEAE3A3772D /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
+		3E72BE63C5D03AA00A487AFB /* libPods-ArrangeMovie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArrangeMovie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AC11771DABA57D00CBBE05 /* MeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeTableViewCell.h; path = views/me/MeTableViewCell.h; sourceTree = "<group>"; };
 		A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeTableViewCell.m; path = views/me/MeTableViewCell.m; sourceTree = "<group>"; };
 		A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeTableViewCell.xib; path = views/me/MeTableViewCell.xib; sourceTree = "<group>"; };
@@ -80,8 +85,6 @@
 		A5B85DDA1DAF310D000DD644 /* MeBankAddTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeBankAddTableViewCell.h; path = views/me/MeBankAddTableViewCell.h; sourceTree = "<group>"; };
 		A5B85DDB1DAF310D000DD644 /* MeBankAddTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeBankAddTableViewCell.m; path = views/me/MeBankAddTableViewCell.m; sourceTree = "<group>"; };
 		A5B85DDC1DAF310D000DD644 /* MeBankAddTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeBankAddTableViewCell.xib; path = views/me/MeBankAddTableViewCell.xib; sourceTree = "<group>"; };
-		BE23006BE2A8191D3C9E4103 /* libPods-ArrangeMovie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArrangeMovie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF27F5CCD964E066166A1E8C /* Pods-ArrangeMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.release.xcconfig"; sourceTree = "<group>"; };
 		C80F06451DACFDA600BB75BE /* MePointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MePointViewController.h; path = viewcontrollers/me/MePointViewController.h; sourceTree = "<group>"; };
 		C80F06461DACFDA600BB75BE /* MePointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MePointViewController.m; path = viewcontrollers/me/MePointViewController.m; sourceTree = "<group>"; };
 		C80F06481DACFDCD00BB75BE /* MeBankCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeBankCardViewController.h; path = viewcontrollers/me/MeBankCardViewController.h; sourceTree = "<group>"; };
@@ -120,6 +123,11 @@
 		C889D9651DB0AC59008156B2 /* MeSettingSignOutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeSettingSignOutTableViewCell.h; path = views/me/MeSettingSignOutTableViewCell.h; sourceTree = "<group>"; };
 		C889D9661DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeSettingSignOutTableViewCell.m; path = views/me/MeSettingSignOutTableViewCell.m; sourceTree = "<group>"; };
 		C889D9671DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeSettingSignOutTableViewCell.xib; path = views/me/MeSettingSignOutTableViewCell.xib; sourceTree = "<group>"; };
+		C8B64E791DB475AC00B4311D /* MeMissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionViewController.h; path = viewcontrollers/me/MeMissionViewController.h; sourceTree = "<group>"; };
+		C8B64E7A1DB475AC00B4311D /* MeMissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionViewController.m; path = viewcontrollers/me/MeMissionViewController.m; sourceTree = "<group>"; };
+		C8B64E7C1DB49C8900B4311D /* MeMissionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionTableViewCell.h; path = views/me/MeMissionTableViewCell.h; sourceTree = "<group>"; };
+		C8B64E7D1DB49C8900B4311D /* MeMissionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionTableViewCell.m; path = views/me/MeMissionTableViewCell.m; sourceTree = "<group>"; };
+		C8B64E7E1DB49C8900B4311D /* MeMissionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionTableViewCell.xib; path = views/me/MeMissionTableViewCell.xib; sourceTree = "<group>"; };
 		C8E651311DA9D5DF00400ABC /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeViewController.h; path = viewcontrollers/me/MeViewController.h; sourceTree = "<group>"; };
 		C8E651321DA9D5DF00400ABC /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeViewController.m; path = viewcontrollers/me/MeViewController.m; sourceTree = "<group>"; };
 		C8E651351DA9D62C00400ABC /* EMIBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMIBaseViewController.h; path = viewcontrollers/base/EMIBaseViewController.h; sourceTree = "<group>"; };
@@ -165,7 +173,7 @@
 		D6D94BC71DB0B705004666BC /* SCHttpOperationMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHttpOperationMgr.h; sourceTree = "<group>"; };
 		D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCHttpOperationMgr.m; sourceTree = "<group>"; };
 		D6D94BCB1DB0BDA6004666BC /* pfhome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = pfhome.storyboard; path = src/pfhome.storyboard; sourceTree = "<group>"; };
-		E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
+		E9C16908C004B81AAB38D5B7 /* Pods-ArrangeMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,28 +181,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				131A47533821D17EA144C864 /* libPods-ArrangeMovie.a in Frameworks */,
+				5917661FE101563580D7CE6A /* libPods-ArrangeMovie.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9E782CE3BFB2CD49939C0FF6 /* Pods */ = {
+		658A9E7EDEBB91C433247696 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */,
-				BF27F5CCD964E066166A1E8C /* Pods-ArrangeMovie.release.xcconfig */,
+				29BE89E321714AEAE3A3772D /* Pods-ArrangeMovie.debug.xcconfig */,
+				E9C16908C004B81AAB38D5B7 /* Pods-ArrangeMovie.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		B0E02B813A312B29BE38AD01 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BE23006BE2A8191D3C9E4103 /* libPods-ArrangeMovie.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C8329B9B1DAB2FF600B14075 /* base */ = {
@@ -225,8 +225,8 @@
 			children = (
 				C886B0D41DA8FC0500240283 /* ArrangeMovie */,
 				C886B0D31DA8FC0500240283 /* Products */,
-				9E782CE3BFB2CD49939C0FF6 /* Pods */,
-				B0E02B813A312B29BE38AD01 /* Frameworks */,
+				658A9E7EDEBB91C433247696 /* Pods */,
+				E32681DABCAA357731BD6627 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -328,6 +328,9 @@
 				A5AC11861DABA69100CBBE05 /* MeBankCardTableViewCell.h */,
 				A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */,
 				A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */,
+				C8B64E7C1DB49C8900B4311D /* MeMissionTableViewCell.h */,
+				C8B64E7D1DB49C8900B4311D /* MeMissionTableViewCell.m */,
+				C8B64E7E1DB49C8900B4311D /* MeMissionTableViewCell.xib */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -355,6 +358,8 @@
 				C889D9601DB07DEB008156B2 /* MeFeedbackViewController.m */,
 				C889D9621DB07E90008156B2 /* MeAboutViewController.h */,
 				C889D9631DB07E90008156B2 /* MeAboutViewController.m */,
+				C8B64E791DB475AC00B4311D /* MeMissionViewController.h */,
+				C8B64E7A1DB475AC00B4311D /* MeMissionViewController.m */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -463,6 +468,14 @@
 			path = net;
 			sourceTree = "<group>";
 		};
+		E32681DABCAA357731BD6627 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E72BE63C5D03AA00A487AFB /* libPods-ArrangeMovie.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -470,13 +483,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C886B0E91DA8FC0500240283 /* Build configuration list for PBXNativeTarget "ArrangeMovie" */;
 			buildPhases = (
-				AF370A382D409AA324112668 /* 📦 Check Pods Manifest.lock */,
+				7854C5629C2BC7BAEBE0A967 /* 📦 Check Pods Manifest.lock */,
 				C886B0CE1DA8FC0500240283 /* Sources */,
 				C886B0CF1DA8FC0500240283 /* Frameworks */,
 				C886B0D01DA8FC0500240283 /* Resources */,
-				7C0C12AA3DBEC3E375DA9B15 /* 📦 Embed Pods Frameworks */,
-				BCAAF15CF7D608F8DFE58926 /* 📦 Copy Pods Resources */,
-				386C4789DA748967F5C47A1B /* Embed Pods Frameworks */,
+				0243FA4F299398DDF4E66894 /* 📦 Embed Pods Frameworks */,
+				DDF5DB2102756B9ECE83B629 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -536,6 +548,7 @@
 				A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */,
 				D6950CD91DB4C0AB004D6C8B /* PFHomeSectionView.xib in Resources */,
 				A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */,
+				C8B64E801DB49C8900B4311D /* MeMissionTableViewCell.xib in Resources */,
 				D6D94BCC1DB0BDA6004666BC /* pfhome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,22 +556,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		386C4789DA748967F5C47A1B /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7C0C12AA3DBEC3E375DA9B15 /* 📦 Embed Pods Frameworks */ = {
+		0243FA4F299398DDF4E66894 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -573,7 +571,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AF370A382D409AA324112668 /* 📦 Check Pods Manifest.lock */ = {
+		7854C5629C2BC7BAEBE0A967 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -588,7 +586,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		BCAAF15CF7D608F8DFE58926 /* 📦 Copy Pods Resources */ = {
+		DDF5DB2102756B9ECE83B629 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -616,6 +614,7 @@
 				C889D9641DB07E90008156B2 /* MeAboutViewController.m in Sources */,
 				C889D9581DAF7429008156B2 /* MePwdViewController.m in Sources */,
 				C889D95E1DB0742E008156B2 /* MeSettingViewController.m in Sources */,
+				C8B64E7F1DB49C8900B4311D /* MeMissionTableViewCell.m in Sources */,
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				D6950CD71DB4BF06004D6C8B /* PFHomeSectionView.m in Sources */,
@@ -635,6 +634,7 @@
 				A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */,
 				D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
+				C8B64E7B1DB475AC00B4311D /* MeMissionViewController.m in Sources */,
 				C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */,
 				D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */,
 				C80F06501DAE282D00BB75BE /* EMIPointButton.m in Sources */,
@@ -753,7 +753,7 @@
 		};
 		C886B0EA1DA8FC0500240283 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E113C2194AC4AE46C9630207 /* Pods-ArrangeMovie.debug.xcconfig */;
+			baseConfigurationReference = 29BE89E321714AEAE3A3772D /* Pods-ArrangeMovie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -769,7 +769,7 @@
 		};
 		C886B0EB1DA8FC0500240283 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF27F5CCD964E066166A1E8C /* Pods-ArrangeMovie.release.xcconfig */;
+			baseConfigurationReference = E9C16908C004B81AAB38D5B7 /* Pods-ArrangeMovie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

@@ -89,6 +89,8 @@
         [self performSegueWithIdentifier:@"metosetting" sender:nil];
     }else if([title isEqualToString:@"资料审核"]||[title isEqualToString:@"认证院线经理"]){
         [self performSegueWithIdentifier:@"metoauth" sender:nil];
+    }else if([title isEqualToString:@"任务历史"]){
+        [self performSegueWithIdentifier:@"metomission" sender:nil];
     }
     
 }
