@@ -75,7 +75,7 @@
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    PFHomeSectionView *sectionView = [[PFHomeSectionView alloc] initWithType:@"0" imageName:@"http://img5.imgtn.bdimg.com/it/u=366044408,2479143471&fm=21&gp=0.jpg" titleStr:@"《让子弹飞》排片任务" bigNumStr:@"58" smallNumStr:@"10.5"];
+    PFHomeSectionView *sectionView = [[PFHomeSectionView alloc] initWithType:@"1" imageName:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" titleStr:@"《让子弹飞》排片任务" bigNumStr:@"100" smallNumStr:@"90.5"];
     return sectionView;
 }
 
