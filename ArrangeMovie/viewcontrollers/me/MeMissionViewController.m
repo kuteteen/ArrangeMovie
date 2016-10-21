@@ -60,6 +60,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //任务详情
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中
+    
+    
+    [self performSegueWithIdentifier:@"metomissiondetail" sender:nil];
 }
 
 #pragma mark - UITableView dataSource

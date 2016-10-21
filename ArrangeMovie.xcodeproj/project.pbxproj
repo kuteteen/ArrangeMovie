@@ -25,10 +25,21 @@
 		C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F064C1DACFDED00BB75BE /* MeNewCardViewController.m */; };
 		C80F06501DAE282D00BB75BE /* EMIPointButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F064F1DAE282D00BB75BE /* EMIPointButton.m */; };
 		C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */; };
+		C82AF8E41DB70A0600882DB6 /* MissionNoAuthTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C82AF8E21DB70A0600882DB6 /* MissionNoAuthTableViewCell.m */; };
+		C82AF8E51DB70A0600882DB6 /* MissionNoAuthTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C82AF8E31DB70A0600882DB6 /* MissionNoAuthTableViewCell.xib */; };
+		C82AF8E81DB7170600882DB6 /* SCTopLeftAlignLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C82AF8E71DB7170600882DB6 /* SCTopLeftAlignLabel.m */; };
+		C82AF8EB1DB75BAC00882DB6 /* MeMissionCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C82AF8EA1DB75BAC00882DB6 /* MeMissionCheckViewController.m */; };
 		C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */; };
 		C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */; };
 		C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA91DABA44100B14075 /* SCTableViewCell.m */; };
 		C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BAC1DACA62700B14075 /* MeProfileViewController.m */; };
+		C86DE7531DB5B63600374734 /* MissionActorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */; };
+		C86DE7541DB5B63600374734 /* MissionActorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */; };
+		C86DE7581DB5BD5300374734 /* MissionRequireTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE7561DB5BD5300374734 /* MissionRequireTableViewCell.m */; };
+		C86DE7591DB5BD5300374734 /* MissionRequireTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86DE7571DB5BD5300374734 /* MissionRequireTableViewCell.xib */; };
+		C86DE75C1DB5C7F500374734 /* MeMissionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE75B1DB5C7F500374734 /* MeMissionDetailViewController.m */; };
+		C86DE7601DB61A6C00374734 /* MissionRowPieceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE75E1DB61A6C00374734 /* MissionRowPieceTableViewCell.m */; };
+		C86DE7611DB61A6C00374734 /* MissionRowPieceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86DE75F1DB61A6C00374734 /* MissionRowPieceTableViewCell.xib */; };
 		C886B0D71DA8FC0500240283 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D61DA8FC0500240283 /* main.m */; };
 		C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D91DA8FC0500240283 /* AppDelegate.m */; };
 		C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C886B0E11DA8FC0500240283 /* Assets.xcassets */; };
@@ -100,6 +111,13 @@
 		C80F064F1DAE282D00BB75BE /* EMIPointButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMIPointButton.m; path = views/base/EMIPointButton.m; sourceTree = "<group>"; };
 		C81371111DAA2BAE006479D6 /* UIImage+SCUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+SCUtil.h"; path = "utils/category/UIImage+SCUtil.h"; sourceTree = "<group>"; };
 		C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SCUtil.m"; path = "utils/category/UIImage+SCUtil.m"; sourceTree = "<group>"; };
+		C82AF8E11DB70A0600882DB6 /* MissionNoAuthTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionNoAuthTableViewCell.h; path = views/me/MissionNoAuthTableViewCell.h; sourceTree = "<group>"; };
+		C82AF8E21DB70A0600882DB6 /* MissionNoAuthTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionNoAuthTableViewCell.m; path = views/me/MissionNoAuthTableViewCell.m; sourceTree = "<group>"; };
+		C82AF8E31DB70A0600882DB6 /* MissionNoAuthTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MissionNoAuthTableViewCell.xib; path = views/me/MissionNoAuthTableViewCell.xib; sourceTree = "<group>"; };
+		C82AF8E61DB7170600882DB6 /* SCTopLeftAlignLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCTopLeftAlignLabel.h; path = views/base/SCTopLeftAlignLabel.h; sourceTree = "<group>"; };
+		C82AF8E71DB7170600882DB6 /* SCTopLeftAlignLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCTopLeftAlignLabel.m; path = views/base/SCTopLeftAlignLabel.m; sourceTree = "<group>"; };
+		C82AF8E91DB75BAC00882DB6 /* MeMissionCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionCheckViewController.h; path = viewcontrollers/me/MeMissionCheckViewController.h; sourceTree = "<group>"; };
+		C82AF8EA1DB75BAC00882DB6 /* MeMissionCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionCheckViewController.m; path = viewcontrollers/me/MeMissionCheckViewController.m; sourceTree = "<group>"; };
 		C8329B9F1DAB34F200B14075 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Extension.h"; path = "views/base/UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Extension.m"; path = "views/base/UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		C8329BA51DAB6C6100B14075 /* EMIShadowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMIShadowImageView.h; path = views/base/EMIShadowImageView.h; sourceTree = "<group>"; };
@@ -108,6 +126,17 @@
 		C8329BA91DABA44100B14075 /* SCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCTableViewCell.m; path = views/base/SCTableViewCell.m; sourceTree = "<group>"; };
 		C8329BAB1DACA62700B14075 /* MeProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeProfileViewController.h; path = viewcontrollers/me/MeProfileViewController.h; sourceTree = "<group>"; };
 		C8329BAC1DACA62700B14075 /* MeProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeProfileViewController.m; path = viewcontrollers/me/MeProfileViewController.m; sourceTree = "<group>"; };
+		C86DE7501DB5B63600374734 /* MissionActorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionActorTableViewCell.h; path = views/me/MissionActorTableViewCell.h; sourceTree = "<group>"; };
+		C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionActorTableViewCell.m; path = views/me/MissionActorTableViewCell.m; sourceTree = "<group>"; };
+		C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MissionActorTableViewCell.xib; path = views/me/MissionActorTableViewCell.xib; sourceTree = "<group>"; };
+		C86DE7551DB5BD5300374734 /* MissionRequireTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionRequireTableViewCell.h; path = views/me/MissionRequireTableViewCell.h; sourceTree = "<group>"; };
+		C86DE7561DB5BD5300374734 /* MissionRequireTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionRequireTableViewCell.m; path = views/me/MissionRequireTableViewCell.m; sourceTree = "<group>"; };
+		C86DE7571DB5BD5300374734 /* MissionRequireTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MissionRequireTableViewCell.xib; path = views/me/MissionRequireTableViewCell.xib; sourceTree = "<group>"; };
+		C86DE75A1DB5C7F500374734 /* MeMissionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionDetailViewController.h; path = viewcontrollers/me/MeMissionDetailViewController.h; sourceTree = "<group>"; };
+		C86DE75B1DB5C7F500374734 /* MeMissionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionDetailViewController.m; path = viewcontrollers/me/MeMissionDetailViewController.m; sourceTree = "<group>"; };
+		C86DE75D1DB61A6C00374734 /* MissionRowPieceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionRowPieceTableViewCell.h; path = views/me/MissionRowPieceTableViewCell.h; sourceTree = "<group>"; };
+		C86DE75E1DB61A6C00374734 /* MissionRowPieceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionRowPieceTableViewCell.m; path = views/me/MissionRowPieceTableViewCell.m; sourceTree = "<group>"; };
+		C86DE75F1DB61A6C00374734 /* MissionRowPieceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MissionRowPieceTableViewCell.xib; path = views/me/MissionRowPieceTableViewCell.xib; sourceTree = "<group>"; };
 		C886B0D21DA8FC0500240283 /* ArrangeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArrangeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C886B0D61DA8FC0500240283 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C886B0D81DA8FC0500240283 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -221,6 +250,8 @@
 				D6D94BBB1DB0AB62004666BC /* EMICamera.m */,
 				D6950CCB1DB45D51004D6C8B /* TableWithNoDataView.h */,
 				D6950CCC1DB45D51004D6C8B /* TableWithNoDataView.m */,
+				C82AF8E61DB7170600882DB6 /* SCTopLeftAlignLabel.h */,
+				C82AF8E71DB7170600882DB6 /* SCTopLeftAlignLabel.m */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -339,6 +370,18 @@
 				C80EB32B1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.h */,
 				C80EB32C1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.m */,
 				C80EB32D1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.xib */,
+				C86DE7501DB5B63600374734 /* MissionActorTableViewCell.h */,
+				C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */,
+				C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */,
+				C86DE7551DB5BD5300374734 /* MissionRequireTableViewCell.h */,
+				C86DE7561DB5BD5300374734 /* MissionRequireTableViewCell.m */,
+				C86DE7571DB5BD5300374734 /* MissionRequireTableViewCell.xib */,
+				C86DE75D1DB61A6C00374734 /* MissionRowPieceTableViewCell.h */,
+				C86DE75E1DB61A6C00374734 /* MissionRowPieceTableViewCell.m */,
+				C86DE75F1DB61A6C00374734 /* MissionRowPieceTableViewCell.xib */,
+				C82AF8E11DB70A0600882DB6 /* MissionNoAuthTableViewCell.h */,
+				C82AF8E21DB70A0600882DB6 /* MissionNoAuthTableViewCell.m */,
+				C82AF8E31DB70A0600882DB6 /* MissionNoAuthTableViewCell.xib */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -368,6 +411,10 @@
 				C889D9631DB07E90008156B2 /* MeAboutViewController.m */,
 				C8B64E791DB475AC00B4311D /* MeMissionViewController.h */,
 				C8B64E7A1DB475AC00B4311D /* MeMissionViewController.m */,
+				C86DE75A1DB5C7F500374734 /* MeMissionDetailViewController.h */,
+				C86DE75B1DB5C7F500374734 /* MeMissionDetailViewController.m */,
+				C82AF8E91DB75BAC00882DB6 /* MeMissionCheckViewController.h */,
+				C82AF8EA1DB75BAC00882DB6 /* MeMissionCheckViewController.m */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -545,13 +592,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C86DE7611DB61A6C00374734 /* MissionRowPieceTableViewCell.xib in Resources */,
 				A5AC117B1DABA57D00CBBE05 /* MeTableViewCell.xib in Resources */,
 				A5B85DDE1DAF310D000DD644 /* MeBankAddTableViewCell.xib in Resources */,
+				C86DE7591DB5BD5300374734 /* MissionRequireTableViewCell.xib in Resources */,
 				A5AC11801DABA5E200CBBE05 /* MePointRecordTableViewCell.xib in Resources */,
 				D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */,
 				C886B0E51DA8FC0500240283 /* LaunchScreen.storyboard in Resources */,
+				C82AF8E51DB70A0600882DB6 /* MissionNoAuthTableViewCell.xib in Resources */,
 				C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */,
 				C80EB32F1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.xib in Resources */,
+				C86DE7541DB5B63600374734 /* MissionActorTableViewCell.xib in Resources */,
 				C889D9691DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib in Resources */,
 				C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */,
 				A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */,
@@ -617,21 +668,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C86DE75C1DB5C7F500374734 /* MeMissionDetailViewController.m in Sources */,
 				C889D9681DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m in Sources */,
 				C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */,
 				C80F064A1DACFDCD00BB75BE /* MeBankCardViewController.m in Sources */,
 				C889D9641DB07E90008156B2 /* MeAboutViewController.m in Sources */,
 				C889D9581DAF7429008156B2 /* MePwdViewController.m in Sources */,
+				C86DE7601DB61A6C00374734 /* MissionRowPieceTableViewCell.m in Sources */,
 				C889D95E1DB0742E008156B2 /* MeSettingViewController.m in Sources */,
 				C8B64E7F1DB49C8900B4311D /* MeMissionTableViewCell.m in Sources */,
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
+				C82AF8EB1DB75BAC00882DB6 /* MeMissionCheckViewController.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				D6950CD71DB4BF06004D6C8B /* PFHomeSectionView.m in Sources */,
+				C86DE7531DB5B63600374734 /* MissionActorTableViewCell.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */,
 				D6D94BCA1DB0B705004666BC /* SCHttpOperationMgr.m in Sources */,
 				D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */,
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
+				C82AF8E81DB7170600882DB6 /* SCTopLeftAlignLabel.m in Sources */,
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
 				D6950CD11DB476F4004D6C8B /* LoginAuthViewController.m in Sources */,
 				C889D95B1DAF83F3008156B2 /* MeAuthViewController.m in Sources */,
@@ -657,9 +713,11 @@
 				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
 				C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */,
+				C86DE7581DB5BD5300374734 /* MissionRequireTableViewCell.m in Sources */,
 				D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */,
 				C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */,
 				D6950CDD1DB4CAC1004D6C8B /* UILabel+StringFrame.m in Sources */,
+				C82AF8E41DB70A0600882DB6 /* MissionNoAuthTableViewCell.m in Sources */,
 				A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */,
 				D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */,
 			);

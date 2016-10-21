@@ -33,15 +33,15 @@
     
     
     
-//     UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
-//     MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
-//     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+     UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
+     MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
+     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
     
     
     //CK--LoginNav为根视图
 //    
-    UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
-    EMINavigationController *nav = [login instantiateViewControllerWithIdentifier:@"loginnav"];
+//    UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+//    EMINavigationController *nav = [login instantiateViewControllerWithIdentifier:@"loginnav"];
     
     UIImage *image = [UIImage imageNamed:@"navigation"];
     CGSize titleSize = nav.navigationBar.bounds.size;

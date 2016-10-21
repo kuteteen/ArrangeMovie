@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2548a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MissionNoAuthTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="134"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="133.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row_piece_move" translatesAutoresizingMaskIntoConstraints="NO" id="Yhd-qd-htH">
+                        <rect key="frame" x="120" y="17" width="80" height="65"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="4M9-VI-jNM"/>
+                            <constraint firstAttribute="height" constant="65" id="Fv9-io-sYX"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务审核中,暂无排片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWE-Nj-Oad">
+                        <rect key="frame" x="96" y="94" width="128" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="128" id="XJ6-R5-rQU"/>
+                            <constraint firstAttribute="height" constant="15" id="tiN-tZ-30k"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                        <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bWE-Nj-Oad" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Erc-Ra-bJG"/>
+                    <constraint firstItem="Yhd-qd-htH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="GSJ-gg-tBo"/>
+                    <constraint firstAttribute="bottom" secondItem="bWE-Nj-Oad" secondAttribute="bottom" constant="24.5" id="HOK-IA-fs7"/>
+                    <constraint firstItem="Yhd-qd-htH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="MTT-Mh-oos"/>
+                    <constraint firstItem="bWE-Nj-Oad" firstAttribute="top" secondItem="Yhd-qd-htH" secondAttribute="bottom" constant="12" id="cex-Dq-Sm0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="271" y="386.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="row_piece_move" width="120" height="100"/>
+    </resources>
+</document>
