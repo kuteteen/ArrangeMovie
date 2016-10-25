@@ -50,7 +50,7 @@
     for (NSInteger i=0; i<100; i++) {
         FilmInfo *film = [[FilmInfo alloc] init];
         film.imagename = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg";
-        film.title = [NSString stringWithFormat:@"%ld",i];
+        film.title = [NSString stringWithFormat:@"%ld",(long)i];
         film.daoyan = @"导演：陈凯";
         film.yanyuan = @"演员：陈凯";
         [self.dataList addObject:film];
