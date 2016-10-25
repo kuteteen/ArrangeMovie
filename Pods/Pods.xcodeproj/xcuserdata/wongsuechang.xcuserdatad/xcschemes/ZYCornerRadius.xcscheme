@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BE2D0344F5A3D4B204DF1EBDBB9FCC45'
-               BlueprintName = 'ZYCornerRadius'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libZYCornerRadius.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F9A3C5B19C19642260C2D4EC5B5AAF44"
+               BlueprintName = "ZYCornerRadius"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libZYCornerRadius.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

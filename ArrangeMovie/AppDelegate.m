@@ -22,14 +22,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
-    NSString *isFirstUse = [OperateNSUserDefault readUserDefaultWithKey:@"isFirstUse"];
-    
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
 //    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"all_bg"]]];
-//    self.window.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
+    self.window.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
     self.window.backgroundColor = [UIColor whiteColor];
 //
 //    self.window.backgroundColor = [UIColor whiteColor];
@@ -37,30 +33,15 @@
     
     
     
-//     UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
-//     MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
-//     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+     UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
+     MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
+     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
     
     
     //CK--LoginNav为根视图
-//
-    EMINavigationController *nav;
-    
-    
-    if (isFirstUse != nil && [isFirstUse isEqualToString:@"0"]) {
-        UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
-        nav = [login instantiateViewControllerWithIdentifier:@"loginnav"];
-    }else{
-        //不是第一次使用，首页为launch
-        UIStoryboard *launch = [UIStoryboard storyboardWithName:@"launch" bundle:nil];
-        nav = [launch instantiateViewControllerWithIdentifier:@"launchnav"];
-    }
-    
-    
-    
-    //CK--PFHomeNav为根视图
-//    UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
-//    EMINavigationController *nav = [pfhome instantiateViewControllerWithIdentifier:@"pfhomenav"];
+//    
+//    UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+//    EMINavigationController *nav = [login instantiateViewControllerWithIdentifier:@"loginnav"];
     
     UIImage *image = [UIImage imageNamed:@"navigation"];
     CGSize titleSize = nav.navigationBar.bounds.size;

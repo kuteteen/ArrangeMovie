@@ -161,6 +161,7 @@
     }
     return pageView;
 }
+
 -(void)delPhoto:(id)sender {
     UIButton *btn = sender;
     NSInteger tag = btn.tag;

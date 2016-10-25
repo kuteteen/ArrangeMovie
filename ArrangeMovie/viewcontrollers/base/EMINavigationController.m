@@ -21,7 +21,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-//        [self initWithNavigationBarClass:[CRGradientNavigationBar class] toolbarClass:nil];
     }
     return self;
 }
