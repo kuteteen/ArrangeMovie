@@ -75,7 +75,7 @@
 
 //蓝色完成圆勾点击事件
 - (void)okImgClicked:(UITapGestureRecognizer *)sender{
-    NSLog(@"%@",@"okClicked");
+    //上传完图片后到院方首页
 }
 
 
@@ -85,14 +85,10 @@
     return CGSizeMake(slideView.frame.size.width-84, slideView.frame.size.height);
 }
 
-- (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
-    NSLog(@"点击了第%ld项",(long)subIndex);
-    //点击了最后一个加图的按钮
-    if (subIndex == self.array.count) {
-        LCActionSheet *actionAlert = [LCActionSheet sheetWithTitle:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从手机相册选择", nil];
-        [actionAlert show];
-    }
-}
+//- (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
+//    NSLog(@"点击了第%ld项",(long)subIndex);
+//    
+//}
 
 //弹出框点击事件代理
 - (void)actionSheet:(LCActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -156,8 +152,7 @@
             
             [shadowImageView setRectangleBorder:self.array[index]];
             
-            
-            pageView.userInteractionEnabled = NO;
+            [pageView addSubview:shadowImageView];
             //删除按钮
             UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake(slideView.frame.size.width-84-36, 10, 26, 30)];
             delBtn.tag = index;
@@ -167,10 +162,12 @@
             
         }else{
             [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:@"" placeholder:@""];
+            [pageView addSubview:shadowImageView];
             //添加"上传公司证件审核"图片
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((pageView.frame.size.width-120)/2, (pageView.frame.size.height-110)/2, 120, 110)];
-            imageView.image = [UIImage imageNamed:@"row_piece_upload_photo"];
-            [shadowImageView addSubview:imageView];
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((pageView.frame.size.width-120)/2, (pageView.frame.size.height-110)/2, 120, 110)];
+            [button setImage:[UIImage imageNamed:@"row_piece_upload_photo"] forState:UIControlStateNormal];
+            [button addTarget:self action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
+            [pageView addSubview:button];
             //添加"上传公司证件审核"Label
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.slideView.frame)-60, pageView.frame.size.width, 40)];
             label.textAlignment = NSTextAlignmentCenter;
@@ -178,7 +175,7 @@
             label.textColor = [UIColor colorWithHexString:@"#CBCBCB"];
             [shadowImageView addSubview:label];
         }
-        [pageView addSubview:shadowImageView];
+        
         
         
         
@@ -186,6 +183,14 @@
     return pageView;
 }
 
+
+//新增照片
+- (void)takePicture{
+    //点击了最后一个加图的按钮
+    LCActionSheet *actionAlert = [LCActionSheet sheetWithTitle:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从手机相册选择", nil];
+    [actionAlert show];
+    
+}
 
 //删除照片
 - (void)delPhoto:(UIButton *)sender{

@@ -22,11 +22,10 @@ typedef  void (^tabBlock)(void);
 /**
  *  初始化
  *
- *  @param text 无数据提示
  *
  *  @return 返回self
  */
-- (instancetype)initWithText:(NSString *)text;
+- (instancetype)initGesture;
 
 /**
  *  给label赋值，需用在父视图位置以确定的情况下
