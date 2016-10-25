@@ -9,13 +9,19 @@
 #import "MeAuthViewController.h"
 #import "SCFadeSlideView.h"
 #import "SCSlidePageView.h"
+#import "LCActionSheet.h"
+#import "TZImagePickerController.h"
+#import "EMICamera.h"
 //#import "EMIShadowImageView.h"
 
 #define Width [UIScreen mainScreen].bounds.size.width
 #define Height [UIScreen mainScreen].bounds.size.height
 
-@interface MeAuthViewController ()<SCFadeSlideViewDelegate,SCFadeSlideViewDataSource>
+@interface MeAuthViewController ()<SCFadeSlideViewDelegate,SCFadeSlideViewDataSource,LCActionSheetDelegate> {
+    SCFadeSlideView *slideView;
+}
 
+@property(nonatomic,strong)UIImagePickerController *camera;
 @property (nonatomic,strong) NSMutableArray *array;//数据源
 
 @end
@@ -39,7 +45,7 @@
 
 -(void)initViewsWithUserType:(int)type {
     //添加滑动的图片浏览
-    SCFadeSlideView *slideView = [[SCFadeSlideView alloc] initWithFrame:CGRectMake(0, 0, Width, Height-143-104)];
+    slideView = [[SCFadeSlideView alloc] initWithFrame:CGRectMake(0, 0, Width, Height-143-104)];
     slideView.backgroundColor = [UIColor clearColor];
     slideView.delegate = self;
     slideView.datasource = self;
@@ -99,9 +105,10 @@
     return CGSizeMake(slideView.frame.size.width-84, slideView.frame.size.height);
 }
 
-- (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
-    NSLog(@"点击了第%ld项",(long)subIndex);
-}
+//- (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
+//    NSLog(@"点击了第%ld项",(long)subIndex);
+////    [self takePicture];
+//}
 
 #pragma mark SCFadeSlideView datasource
 -(NSInteger)numberOfPagesInSlideView:(SCFadeSlideView *)slideView {
@@ -124,23 +131,80 @@
         if(self.array.count>0&&index<self.array.count){
             
             [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:self.array[index] placeholder:@""];
+            
+            //添加删除按钮
+            UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake(pageView.frame.size.width-36, 10, 26, 30)];
+            delBtn.tag = index;
+            [delBtn addTarget:self action:@selector(delPhoto:) forControlEvents:UIControlEventTouchUpInside];
+            [delBtn setBackgroundImage:[UIImage imageNamed:@"del_normal"] forState:UIControlStateNormal];
+            
+            
+            //todo
+            [pageView addSubview:shadowImageView];
+            [pageView addSubview:delBtn];
         }else{
             [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:@"" placeholder:@""];
             //添加"上传公司证件审核"图片
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((pageView.frame.size.width-120)/2, (pageView.frame.size.height-110)/2, 120, 110)];
-            imageView.image = [UIImage imageNamed:@"row_piece_upload_photo"];
-            [shadowImageView addSubview:imageView];
+            [pageView addSubview:shadowImageView];
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((pageView.frame.size.width-120)/2, (pageView.frame.size.height-110)/2, 120, 110)];
+            [button setImage:[UIImage imageNamed:@"row_piece_upload_photo"] forState:UIControlStateNormal];
+            [button addTarget:self action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
+            [pageView addSubview:button];
+            
             //添加"上传公司证件审核"Label
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, imageView.frame.origin.y+120+30, pageView.frame.size.width, 40)];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, button.frame.origin.y+120+30, pageView.frame.size.width, 40)];
             label.textAlignment = NSTextAlignmentCenter;
             label.text = @"上传公司证件审核";
             [shadowImageView addSubview:label];
         }
-        [pageView addSubview:shadowImageView];
+        
     }
     return pageView;
 }
 
+-(void)delPhoto:(id)sender {
+    UIButton *btn = sender;
+    NSInteger tag = btn.tag;
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    for(int i = 0;i<self.array.count;i++){
+        if(i!=tag){
+            [tempArray addObject:self.array[i]];
+        }
+    }
+    self.array = [[NSMutableArray alloc] initWithArray:tempArray];
+    [slideView reloadData];
+}
+
+-(void)takePicture {
+    LCActionSheet *actionAlert = [LCActionSheet sheetWithTitle:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从手机相册选择", nil];
+    [actionAlert show];
+}
+
+//弹出框点击事件代理
+- (void)actionSheet:(LCActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        //拍照
+//        self.camera = [[EMICamera alloc] init];
+//        [self.camera takePhoto:self];
+//        //获的照片的回调
+//        __unsafe_unretained typeof(self) weakSelf = self;
+//        [self.camera setBlock:^(UIImagePickerController *picker, NSDictionary<NSString *,id> *info) {
+//            NSLog(@"%@",info);
+//            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+//        }];
+    }
+    if (buttonIndex == 2) {
+        //从相册选
+        TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:nil];
+        //隐藏内部拍照按钮
+        imagePicker.allowTakePicture = NO;
+        [imagePicker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL flag) {
+            NSLog(@"%@",photos[0]);
+        }];
+        
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+}
 /*
 #pragma mark - Navigation
 

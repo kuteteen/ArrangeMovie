@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A022307D610B408D123B1DBCFADF76F6"
+               BlueprintIdentifier = "0C57D7FFFDE7A117BC70D91EC9DC2431"
                BuildableName = "libSCFadeSlideView.a"
                BlueprintName = "SCFadeSlideView"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A022307D610B408D123B1DBCFADF76F6"
+            BlueprintIdentifier = "0C57D7FFFDE7A117BC70D91EC9DC2431"
             BuildableName = "libSCFadeSlideView.a"
             BlueprintName = "SCFadeSlideView"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A022307D610B408D123B1DBCFADF76F6"
+            BlueprintIdentifier = "0C57D7FFFDE7A117BC70D91EC9DC2431"
             BuildableName = "libSCFadeSlideView.a"
             BlueprintName = "SCFadeSlideView"
             ReferencedContainer = "container:Pods.xcodeproj">

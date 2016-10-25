@@ -77,7 +77,9 @@ const char kProcessedImage;
     [self drawBorder:cornerPath];
     UIImage *processedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    objc_setAssociatedObject(processedImage, &kProcessedImage, @(1), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (processedImage) {
+        objc_setAssociatedObject(processedImage, &kProcessedImage, @(1), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
     self.image = processedImage;
 }
 
@@ -103,7 +105,9 @@ const char kProcessedImage;
     [self drawBorder:cornerPath];
     UIImage *processedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    objc_setAssociatedObject(processedImage, &kProcessedImage, @(1), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (processedImage) {
+        objc_setAssociatedObject(processedImage, &kProcessedImage, @(1), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
     self.image = processedImage;
 }
 
@@ -114,12 +118,13 @@ const char kProcessedImage;
     self.zyRadius = cornerRadius;
     self.roundingCorners = rectCornerType;
     self.zyIsRounding = NO;
-    
     if (!self.zyHadAddObserver) {
         [[self class] swizzleDealloc];
         [self addObserver:self forKeyPath:@"image" options:NSKeyValueObservingOptionNew context:nil];
         self.zyHadAddObserver = YES;
     }
+    //Xcode 8 xib 删除了控件的Frame信息，需要主动创造
+    [self layoutIfNeeded];
 }
 
 /**
@@ -127,12 +132,13 @@ const char kProcessedImage;
  */
 - (void)zy_cornerRadiusRoundingRect {
     self.zyIsRounding = YES;
-    
     if (!self.zyHadAddObserver) {
         [[self class] swizzleDealloc];
         [self addObserver:self forKeyPath:@"image" options:NSKeyValueObservingOptionNew context:nil];
         self.zyHadAddObserver = YES;
     }
+    //Xcode 8 xib 删除了控件的Frame信息，需要主动创造
+    [self layoutIfNeeded];
 }
 
 #pragma mark - Private

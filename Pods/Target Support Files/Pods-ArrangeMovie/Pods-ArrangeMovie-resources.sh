@@ -60,11 +60,13 @@ install_resource()
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "LCActionSheet/LCActionSheet/LCActionSheet.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "PYPhotoBrowser/PYPhotoBrowser/PYPhotosView.bundle"
   install_resource "TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "LCActionSheet/LCActionSheet/LCActionSheet.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "PYPhotoBrowser/PYPhotoBrowser/PYPhotosView.bundle"
   install_resource "TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
 fi
 

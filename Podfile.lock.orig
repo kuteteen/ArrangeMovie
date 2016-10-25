@@ -20,37 +20,65 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CRGradientNavigationBar (0.3.2)
   - BEMCheckBox (1.2.1)
+  - DACircularProgress (2.3.1)
+  - LCActionSheet (2.5.2):
+    - Masonry (~> 1.0.1)
+  - Masonry (1.0.2)
+  - MBProgressHUD (1.0.0)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
-  - SCFadeSlideView (0.0.1)
+  - PYPhotoBrowser (1.0.4):
+    - DACircularProgress
+    - MBProgressHUD
+    - SDWebImage
+  - SCFadeSlideView (0.0.2)
   - SDAutoLayout (1.53)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - Toast (3.0)
+  - TZImagePickerController (1.7.1)
+  - UITableView+FDTemplateLayoutCell (1.4)
   - ZYCornerRadius (1.0.1)
 
 DEPENDENCIES:
   - AFNetworking (= 2.6.3)
   - BEMCheckBox
+  - LCActionSheet (= 2.5.2)
   - MJExtension
   - MJRefresh
-  - SCFadeSlideView (= 0.0.1)
+  - PYPhotoBrowser
+  - SCFadeSlideView (= 0.0.2)
   - SDAutoLayout (~> 1.31)
   - SDWebImage (~> 3.8)
+  - Toast (~> 3.0)
+  - TZImagePickerController
+  - UITableView+FDTemplateLayoutCell
   - ZYCornerRadius
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BEMCheckBox: 264b8b72aa92adbfefa265cc58a0cdb86b207b9f
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  LCActionSheet: 92aa29e2c0a12e771e334193a5129288817e69e8
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  SCFadeSlideView: c5a5cc4bc0d39adaedefb4736960ce15a3f041e2
+  PYPhotoBrowser: 909d0182de5ec5cc818cc296194e8155a311d08d
+  SCFadeSlideView: 5c3d48e168380e3a3cc0b55c8d0a28f6363baa28
   SDAutoLayout: ea6e2ae9fbb438aa2feb0c4363dba9297e98638a
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  Toast: 32c59229abfcf41850162b83bb9259dc84372473
+  TZImagePickerController: cbfd57ba947263759b860f74132dd1bc33125afc
+  UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   ZYCornerRadius: 94720e8722acf30de5b73ae185ffe56a2240f6a3
 
-PODFILE CHECKSUM: 0d46957d3a5114c741ae2bde42ff35441f3b1cba
+<<<<<<< HEAD
+COCOAPODS: 0.39.0
+=======
+PODFILE CHECKSUM: 04861861629f54ac71f2fcd513c73f8781d52f0a
 
 COCOAPODS: 1.0.0
+>>>>>>> 95aefcd59d9815ef7e1adfb8f269190258ed6bf1

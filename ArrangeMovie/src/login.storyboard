@@ -301,7 +301,7 @@
                                     <constraint firstAttribute="height" constant="160" id="wui-lJ-kXV"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_head" translatesAutoresizingMaskIntoConstraints="NO" id="etQ-Ye-W0B">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="etQ-Ye-W0B" customClass="EMIShadowImageView">
                                 <rect key="frame" x="245" y="84" width="110" height="110"/>
                                 <animations/>
                                 <gestureRecognizers/>
@@ -309,11 +309,6 @@
                                     <constraint firstAttribute="width" constant="110" id="1OO-xT-sQo"/>
                                     <constraint firstAttribute="width" secondItem="etQ-Ye-W0B" secondAttribute="height" multiplier="1:1" id="L8J-0g-h1i"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="55"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="BGv-dB-mAc" appends="YES" id="H7s-mY-KUF"/>
                                 </connections>
@@ -586,13 +581,14 @@
                     </view>
                     <connections>
                         <outlet property="anpwdTF" destination="K8f-fQ-TAE" id="G4T-9Z-1Bw"/>
-                        <outlet property="headImg" destination="etQ-Ye-W0B" id="KbC-em-ra8"/>
+                        <outlet property="headImg" destination="etQ-Ye-W0B" id="aVL-Z7-QN7"/>
                         <outlet property="npwdTF" destination="Y1J-Qt-UXb" id="tRA-nG-g6u"/>
                         <outlet property="phoneTF" destination="LYF-f8-GXu" id="j5f-1Z-Djw"/>
                         <outlet property="regBtn" destination="jKt-1p-oQr" id="48x-8w-0g7"/>
                         <outlet property="segmentView" destination="KIY-rA-QVe" id="O7t-gW-4bo"/>
                         <outlet property="yzmTF" destination="aAL-8v-vr0" id="kPd-iB-zwA"/>
                         <outlet property="yzmView" destination="6tg-fD-82L" id="7x4-H3-R7g"/>
+                        <segue destination="d9b-Zf-ifZ" kind="show" identifier="toLoginAuthVC" id="X0Z-Qd-rk5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cqf-Ia-XO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -618,6 +614,24 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="621" y="976"/>
+        </scene>
+        <!--Login Auth View Controller-->
+        <scene sceneID="vpz-pp-8wb">
+            <objects>
+                <viewController id="d9b-Zf-ifZ" customClass="LoginAuthViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TTn-jO-Bc0"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Nq-NW-gIM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IlI-UW-013">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O3G-cS-ha7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1263" y="976"/>
         </scene>
         <!--Fget Pwd View Controller-->
         <scene sceneID="XKY-zO-aj2">
@@ -913,7 +927,6 @@
         <image name="login_btn_normal" width="343" height="45"/>
         <image name="login_imput_-password" width="20" height="23"/>
         <image name="login_input_tel" width="20" height="23"/>
-        <image name="register_head" width="110" height="110"/>
         <image name="register_verification_code" width="20" height="23"/>
     </resources>
 </document>

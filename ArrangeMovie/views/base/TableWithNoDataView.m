@@ -10,10 +10,11 @@
 
 @implementation TableWithNoDataView
 
-- (instancetype)initWithText:(NSString *)text{
+- (instancetype)initGesture{
     self = [super init];
     if (self) {
         
+        self.backgroundColor = [UIColor whiteColor];
         
         self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSelf:)];
         
@@ -35,7 +36,17 @@
     self.txtLab.textColor = [UIColor grayColor];
     self.txtLab.font = [UIFont systemFontOfSize:23.f];
     //自动布局
-    self.txtLab.sd_layout.centerXEqualToView(self).centerYEqualToView(self).heightIs(60).widthRatioToView(self,0.8);
+    self.txtLab.sd_layout.centerXEqualToView(self).centerYEqualToView(self).heightIs(30).widthRatioToView(self,0.8);
+    
+    //点击刷新的提示
+    UILabel *refLab = [[UILabel alloc] init];
+    [self addSubview:refLab];
+    refLab.text = @"点击刷新";
+    refLab.textAlignment = NSTextAlignmentCenter;
+    refLab.textColor = [UIColor grayColor];
+    refLab.font = [UIFont systemFontOfSize:18.f];
+    //自动布局
+    refLab.sd_layout.centerXEqualToView(self).topSpaceToView(self.txtLab,15).heightIs(20).widthRatioToView(self,0.8);
     
 }
 
