@@ -19,9 +19,9 @@
     self = [super init];
     if (self) {
         UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(disMissView:)];
-        UIView *darkView = [[UIView alloc] initWithFrame:CGRectMake(-10, -44, screenWidth+20, screenHeight+44)];
+        UIView *darkView = [[UIView alloc] initWithFrame:CGRectMake(0, -64, screenWidth, screenHeight+64)];
         darkView.backgroundColor = [UIColor blackColor];
-        darkView.alpha = 0.3;
+        darkView.alpha = 0.7;
         [self.view addSubview:darkView];
         [darkView addGestureRecognizer:gesture];
         [self.view addSubview:alertView];
@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//    self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 //    self.view.backgroundColor = [UIColor clearColor];
     
     

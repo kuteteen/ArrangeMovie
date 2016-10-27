@@ -22,26 +22,40 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
 //    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"all_bg"]]];
-    self.window.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
-    self.window.backgroundColor = [UIColor whiteColor];
+//    self.window.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
+    self.window.backgroundColor = [UIColor clearColor];
 //
 //    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     
     
-     UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
-     MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
-     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+//     UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
+//     MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
+//     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+    
+    EMINavigationController *nav;
+    
+    NSString *isFirstUse = [OperateNSUserDefault readUserDefaultWithKey:@"isFirstUse"];
+    
+    if ([isFirstUse isEqualToString:@"0"]) {
+        //不是第一次登录，首页为登录页
+        //CK--LoginNav为根视图
+        
+        UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+        nav = [login instantiateViewControllerWithIdentifier:@"loginnav"];
+    }else{
+        //欢迎页为根视图
+        UIStoryboard *launch = [UIStoryboard storyboardWithName:@"launch" bundle:nil];
+        nav = [launch instantiateViewControllerWithIdentifier:@"launchnav"];
+    }
     
     
-    //CK--LoginNav为根视图
-//    
-//    UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
-//    EMINavigationController *nav = [login instantiateViewControllerWithIdentifier:@"loginnav"];
     
     UIImage *image = [UIImage imageNamed:@"navigation"];
     CGSize titleSize = nav.navigationBar.bounds.size;
