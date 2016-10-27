@@ -91,7 +91,7 @@
     }else {
         MeBankAddTableViewCell *cell = [MeBankAddTableViewCell cellWithTableView:tableView];
         UIView *backview = [[UIView alloc] init];
-        backview.backgroundColor = [UIColor colorWithHexString:@"5473aa" alpha:0.7];
+        backview.backgroundColor = [UIColor clearColor];
         cell.selectedBackgroundView = backview;
         return cell;
     }

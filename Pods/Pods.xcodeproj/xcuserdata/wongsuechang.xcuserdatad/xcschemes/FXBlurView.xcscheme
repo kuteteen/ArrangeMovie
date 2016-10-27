@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '01CDA71A2069459ADD774339'
-               BlueprintName = 'DACircularProgress'
+               BlueprintIdentifier = '17392667E38E4938ACA525E988BB433B'
+               BlueprintName = 'FXBlurView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libDACircularProgress.a'>
+               BuildableName = 'libFXBlurView.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

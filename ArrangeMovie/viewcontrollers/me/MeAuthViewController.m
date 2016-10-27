@@ -21,7 +21,7 @@
     SCFadeSlideView *slideView;
 }
 
-@property(nonatomic,strong)UIImagePickerController *camera;
+@property(nonatomic,strong) EMICamera *camera;
 @property (nonatomic,strong) NSMutableArray *array;//数据源
 
 @end
@@ -184,14 +184,14 @@
 - (void)actionSheet:(LCActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
         //拍照
-//        self.camera = [[EMICamera alloc] init];
-//        [self.camera takePhoto:self];
-//        //获的照片的回调
-//        __unsafe_unretained typeof(self) weakSelf = self;
-//        [self.camera setBlock:^(UIImagePickerController *picker, NSDictionary<NSString *,id> *info) {
-//            NSLog(@"%@",info);
-//            [weakSelf dismissViewControllerAnimated:YES completion:nil];
-//        }];
+        self.camera = [[EMICamera alloc] init];
+        [self.camera takePhoto:self];
+        //获的照片的回调
+        __unsafe_unretained typeof(self) weakSelf = self;
+        [self.camera setBlock:^(UIImagePickerController *picker, NSDictionary<NSString *,id> *info) {
+            NSLog(@"%@",info);
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+        }];
     }
     if (buttonIndex == 2) {
         //从相册选

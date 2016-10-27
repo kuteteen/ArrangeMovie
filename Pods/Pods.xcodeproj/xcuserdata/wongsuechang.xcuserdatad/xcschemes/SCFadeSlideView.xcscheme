@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0C57D7FFFDE7A117BC70D91EC9DC2431"
-               BlueprintName = "SCFadeSlideView"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libSCFadeSlideView.a">
+               BuildableIdentifier = 'primary'
+               BlueprintIdentifier = 'DBBEFDA7097F75CA0B22B70DC4CD2EE7'
+               BlueprintName = 'SCFadeSlideView'
+               ReferencedContainer = 'container:Pods.xcodeproj'
+               BuildableName = 'libSCFadeSlideView.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
