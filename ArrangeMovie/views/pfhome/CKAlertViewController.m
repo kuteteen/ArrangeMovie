@@ -7,9 +7,11 @@
 //
 
 #import "CKAlertViewController.h"
+#import "FXBlurView.h"
+
 
 @interface CKAlertViewController ()
-
+@property(nonatomic,strong)FXBlurView *darkView;
 @end
 
 @implementation CKAlertViewController
@@ -25,6 +27,16 @@
         [self.view addSubview:darkView];
         [darkView addGestureRecognizer:gesture];
         [self.view addSubview:alertView];
+        
+        
+        //初始化一个模态视图以备使用
+        self.darkView = [[FXBlurView alloc] initWithFrame:CGRectMake(0, -64, screenWidth, screenHeight+64)];
+        self.darkView.tintColor = [UIColor blackColor];
+        self.darkView.blurEnabled = YES;
+        self.darkView.blurRadius = 3;
+        self.darkView.dynamic = YES;
+        self.darkView.iterations = 2;
+        self.darkView.updateInterval =2.0;
     }
     return self;
 }
@@ -36,6 +48,24 @@
 //    self.view.backgroundColor = [UIColor clearColor];
     
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    UIViewController *VC = self.presentingViewController;
+    //添加毛玻璃效果
+    [VC.view addSubview:self.darkView];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    UIViewController *VC = self.presentingViewController;
+    if (self.darkView != nil) {
+        //判断是否是子势图
+        if ([self.darkView isDescendantOfView:VC.view]) {
+            [self.darkView removeFromSuperview];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -24,7 +24,7 @@
 }
 
 - (void)setChildView:(UIView *)childView{
-    
+    [self.contentView addSubview:childView];
 }
 
 //关闭当前视图

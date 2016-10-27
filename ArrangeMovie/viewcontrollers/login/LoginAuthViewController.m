@@ -9,6 +9,8 @@
 #import "LoginAuthViewController.h"
 #import "SCFadeSlideView.h"
 #import "SCSlidePageView.h"
+#import "UIView+SDAutoLayout.h"
+#import "UIView+Toast.h"
 
 @interface LoginAuthViewController ()<SCFadeSlideViewDelegate,SCFadeSlideViewDataSource,LCActionSheetDelegate>
 @property (nonatomic,strong) NSMutableArray *array;//数据源
@@ -50,6 +52,7 @@
     
     //注
     UILabel *zhuLabel = [[UILabel alloc] initWithFrame:CGRectMake(17, bottomScrollView.frame.size.height+10+104, screenWidth-34, 60)];
+    zhuLabel.font = [UIFont systemFontOfSize:14];
     zhuLabel.textAlignment = NSTextAlignmentCenter;
     zhuLabel.numberOfLines = 0;
     zhuLabel.text = @"注:认证院线等级越高，可以接到奖励更高的任务";
@@ -169,11 +172,12 @@
             [button addTarget:self action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
             [pageView addSubview:button];
             //添加"上传公司证件审核"Label
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.slideView.frame)-60, pageView.frame.size.width, 40)];
+            UILabel *label = [[UILabel alloc] init];
             label.textAlignment = NSTextAlignmentCenter;
             label.text = @"上传认证资质材料";
-            label.textColor = [UIColor colorWithHexString:@"#CBCBCB"];
-            [shadowImageView addSubview:label];
+            label.textColor = [UIColor colorWithHexString:@"#999999"];
+            [pageView addSubview:label];
+            label.sd_layout.topSpaceToView(button,15).widthRatioToView(pageView,1).leftSpaceToView(pageView,0).heightIs(40);
         }
         
         
@@ -186,9 +190,14 @@
 
 //新增照片
 - (void)takePicture{
-    //点击了最后一个加图的按钮
-    LCActionSheet *actionAlert = [LCActionSheet sheetWithTitle:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从手机相册选择", nil];
-    [actionAlert show];
+    if (self.array.count == 9) {
+        [self.view makeToast:@"最多只能选择九张图片!" duration:2.0 position:CSToastPositionCenter];
+    }else{
+        //点击了最后一个加图的按钮
+        LCActionSheet *actionAlert = [LCActionSheet sheetWithTitle:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从手机相册选择", nil];
+        [actionAlert show];
+    }
+    
     
 }
 
