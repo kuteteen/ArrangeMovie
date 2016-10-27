@@ -9,5 +9,6 @@
 #import "SCTableViewCell.h"
 
 @interface ManagerMissionRequireTableViewCell : SCTableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *requireLabel;
 
 @end
