@@ -503,7 +503,7 @@
                                     <outletCollection property="gestureRecognizers" destination="NT6-Oc-Gti" appends="YES" id="OAV-Cn-cwT"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKt-1p-oQr">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKt-1p-oQr">
                                 <rect key="frame" x="17" y="473" width="566" height="39"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>

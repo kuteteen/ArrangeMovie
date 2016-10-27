@@ -79,6 +79,12 @@
 //蓝色完成圆勾点击事件
 - (void)okImgClicked:(UITapGestureRecognizer *)sender{
     //上传完图片后到院方首页
+    
+    //
+    UIStoryboard *manager = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
+    EMINavigationController *managernav = [manager instantiateViewControllerWithIdentifier:@"manageindexnav"];
+    
+    [self presentViewController:managernav animated:YES completion:nil];
 }
 
 

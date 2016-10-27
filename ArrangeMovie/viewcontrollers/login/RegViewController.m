@@ -179,7 +179,7 @@
         self.regBtn.enabled = YES;
     }else{
         self.yzmBtn.enabled = NO;
-        self.regBtn.enabled = NO;
+//        self.regBtn.enabled = NO;
     }
 }
 //检测密码是否一致
@@ -193,7 +193,7 @@
     //片方跳至首页
     if (self.mainSegView.selectSeugment == 0) {
         UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
-        PFHomeViewController *pfhomenav = [pfhome instantiateViewControllerWithIdentifier:@"pfhomenav"];
+        EMINavigationController *pfhomenav = [pfhome instantiateViewControllerWithIdentifier:@"pfhomenav"];
         
         [self presentViewController:pfhomenav animated:YES completion:nil];
     }
