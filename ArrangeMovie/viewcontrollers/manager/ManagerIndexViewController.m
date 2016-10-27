@@ -55,6 +55,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中
+    [self performSegueWithIdentifier:@"tomissiondetail" sender:nil];
 }
 
 /*
@@ -69,7 +70,7 @@
 
 
 -(void)toMyMission {
-    
+    [self performSegueWithIdentifier:@"tomanagermission" sender:nil];
 }
 
 -(void)toMyProfile {

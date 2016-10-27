@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		5917661FE101563580D7CE6A /* libPods-ArrangeMovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E72BE63C5D03AA00A487AFB /* libPods-ArrangeMovie.a */; };
-		A5A5083C1DBF2CF800CB2491 /* manager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A5083B1DBF2CF800CB2491 /* manager.storyboard */; settings = {ASSET_TAGS = (); }; };
-		A5A508401DBF2FE500CB2491 /* ManagerIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A5083F1DBF2FE500CB2491 /* ManagerIndexViewController.m */; settings = {ASSET_TAGS = (); }; };
-		A5A508431DBF386900CB2491 /* ManagerMissionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A508421DBF386900CB2491 /* ManagerMissionDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
-		A5A508481DBF466900CB2491 /* ManagerNewMissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A508461DBF466900CB2491 /* ManagerNewMissionTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		A5A508491DBF466900CB2491 /* ManagerNewMissionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5A508471DBF466900CB2491 /* ManagerNewMissionTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		A5A5084D1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A5084B1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		A5A5084E1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5A5084C1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		A5A5083C1DBF2CF800CB2491 /* manager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A5083B1DBF2CF800CB2491 /* manager.storyboard */; };
+		A5A508401DBF2FE500CB2491 /* ManagerIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A5083F1DBF2FE500CB2491 /* ManagerIndexViewController.m */; };
+		A5A508431DBF386900CB2491 /* ManagerMissionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A508421DBF386900CB2491 /* ManagerMissionDetailViewController.m */; };
+		A5A508481DBF466900CB2491 /* ManagerNewMissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A508461DBF466900CB2491 /* ManagerNewMissionTableViewCell.m */; };
+		A5A508491DBF466900CB2491 /* ManagerNewMissionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5A508471DBF466900CB2491 /* ManagerNewMissionTableViewCell.xib */; };
+		A5A5084D1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A5084B1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.m */; };
+		A5A5084E1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5A5084C1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.xib */; };
 		A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */; };
 		A5AC117B1DABA57D00CBBE05 /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */; };
 		A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC117D1DABA5E200CBBE05 /* MePointRecordTableViewCell.m */; };
@@ -25,6 +25,7 @@
 		A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */; };
 		A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B85DDB1DAF310D000DD644 /* MeBankAddTableViewCell.m */; };
 		A5B85DDE1DAF310D000DD644 /* MeBankAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5B85DDC1DAF310D000DD644 /* MeBankAddTableViewCell.xib */; };
+		C8001CDF1DC075570092696C /* Grade.m in Sources */ = {isa = PBXBuildFile; fileRef = C8001CDE1DC075570092696C /* Grade.m */; };
 		C80EB32E1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C80EB32C1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.m */; };
 		C80EB32F1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80EB32D1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.xib */; };
 		C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80F06461DACFDA600BB75BE /* MePointViewController.m */; };
@@ -40,6 +41,9 @@
 		C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */; };
 		C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA91DABA44100B14075 /* SCTableViewCell.m */; };
 		C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BAC1DACA62700B14075 /* MeProfileViewController.m */; };
+		C859974F1DC04C1E0057C417 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = C859974E1DC04C1E0057C417 /* Task.m */; };
+		C85997521DC0565F0057C417 /* TakeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997511DC0565F0057C417 /* TakeTask.m */; };
+		C85997551DC058560057C417 /* Film.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997541DC058560057C417 /* Film.m */; };
 		C86DE7531DB5B63600374734 /* MissionActorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */; };
 		C86DE7541DB5B63600374734 /* MissionActorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */; };
 		C86DE7581DB5BD5300374734 /* MissionRequireTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE7561DB5BD5300374734 /* MissionRequireTableViewCell.m */; };
@@ -66,6 +70,15 @@
 		C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8E6513C1DA9E6CC00400ABC /* me.storyboard */; };
 		C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6513E1DA9E77000400ABC /* EMINavigationController.m */; };
 		C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651491DA9EAF100400ABC /* UIColor+Hex.m */; };
+		C8EB79AA1DC07D4E005599BC /* OptDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79A91DC07D4E005599BC /* OptDetail.m */; };
+		C8EB79AD1DC07F2C005599BC /* BankCard.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79AC1DC07F2C005599BC /* BankCard.m */; };
+		C8EB79B11DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79AF1DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m */; };
+		C8EB79B21DC0A09D005599BC /* ManagerMissionBtnTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8EB79B01DC0A09D005599BC /* ManagerMissionBtnTableViewCell.xib */; };
+		C8EB79B51DC0A677005599BC /* ManagerMissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79B41DC0A677005599BC /* ManagerMissionViewController.m */; };
+		C8EB79B91DC0AD2A005599BC /* ManagerMissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79B71DC0AD2A005599BC /* ManagerMissionTableViewCell.m */; };
+		C8EB79BA1DC0AD2A005599BC /* ManagerMissionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8EB79B81DC0AD2A005599BC /* ManagerMissionTableViewCell.xib */; };
+		C8EB79BD1DC0B719005599BC /* SCWebInterfaceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79BC1DC0B719005599BC /* SCWebInterfaceBase.m */; };
+		C8EB79C31DC0BAEA005599BC /* UpdateProfileWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79C21DC0BAEA005599BC /* UpdateProfileWebInterface.m */; };
 		D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A064B1DAB5CA8003832A8 /* login.storyboard */; };
 		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
@@ -132,6 +145,8 @@
 		A5B85DDA1DAF310D000DD644 /* MeBankAddTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeBankAddTableViewCell.h; path = views/me/MeBankAddTableViewCell.h; sourceTree = "<group>"; };
 		A5B85DDB1DAF310D000DD644 /* MeBankAddTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeBankAddTableViewCell.m; path = views/me/MeBankAddTableViewCell.m; sourceTree = "<group>"; };
 		A5B85DDC1DAF310D000DD644 /* MeBankAddTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeBankAddTableViewCell.xib; path = views/me/MeBankAddTableViewCell.xib; sourceTree = "<group>"; };
+		C8001CDD1DC075570092696C /* Grade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Grade.h; path = models/Grade.h; sourceTree = "<group>"; };
+		C8001CDE1DC075570092696C /* Grade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Grade.m; path = models/Grade.m; sourceTree = "<group>"; };
 		C80EB32B1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionTitleTableViewCell.h; path = views/me/MissionTitleTableViewCell.h; sourceTree = "<group>"; };
 		C80EB32C1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionTitleTableViewCell.m; path = views/me/MissionTitleTableViewCell.m; sourceTree = "<group>"; };
 		C80EB32D1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MissionTitleTableViewCell.xib; path = views/me/MissionTitleTableViewCell.xib; sourceTree = "<group>"; };
@@ -160,6 +175,12 @@
 		C8329BA91DABA44100B14075 /* SCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCTableViewCell.m; path = views/base/SCTableViewCell.m; sourceTree = "<group>"; };
 		C8329BAB1DACA62700B14075 /* MeProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeProfileViewController.h; path = viewcontrollers/me/MeProfileViewController.h; sourceTree = "<group>"; };
 		C8329BAC1DACA62700B14075 /* MeProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeProfileViewController.m; path = viewcontrollers/me/MeProfileViewController.m; sourceTree = "<group>"; };
+		C859974D1DC04C1E0057C417 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = models/Task.h; sourceTree = "<group>"; };
+		C859974E1DC04C1E0057C417 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = models/Task.m; sourceTree = "<group>"; };
+		C85997501DC0565F0057C417 /* TakeTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TakeTask.h; path = models/TakeTask.h; sourceTree = "<group>"; };
+		C85997511DC0565F0057C417 /* TakeTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TakeTask.m; path = models/TakeTask.m; sourceTree = "<group>"; };
+		C85997531DC058560057C417 /* Film.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Film.h; path = models/Film.h; sourceTree = "<group>"; };
+		C85997541DC058560057C417 /* Film.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Film.m; path = models/Film.m; sourceTree = "<group>"; };
 		C86DE7501DB5B63600374734 /* MissionActorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionActorTableViewCell.h; path = views/me/MissionActorTableViewCell.h; sourceTree = "<group>"; };
 		C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionActorTableViewCell.m; path = views/me/MissionActorTableViewCell.m; sourceTree = "<group>"; };
 		C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MissionActorTableViewCell.xib; path = views/me/MissionActorTableViewCell.xib; sourceTree = "<group>"; };
@@ -206,6 +227,22 @@
 		C8E6513F1DA9E77000400ABC /* EMINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMINavigationController.h; path = viewcontrollers/base/EMINavigationController.h; sourceTree = "<group>"; };
 		C8E651481DA9EAF100400ABC /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "utils/category/UIColor+Hex.h"; sourceTree = "<group>"; };
 		C8E651491DA9EAF100400ABC /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "utils/category/UIColor+Hex.m"; sourceTree = "<group>"; };
+		C8EB79A81DC07D4E005599BC /* OptDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptDetail.h; path = models/OptDetail.h; sourceTree = "<group>"; };
+		C8EB79A91DC07D4E005599BC /* OptDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptDetail.m; path = models/OptDetail.m; sourceTree = "<group>"; };
+		C8EB79AB1DC07F2C005599BC /* BankCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BankCard.h; path = models/BankCard.h; sourceTree = "<group>"; };
+		C8EB79AC1DC07F2C005599BC /* BankCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BankCard.m; path = models/BankCard.m; sourceTree = "<group>"; };
+		C8EB79AE1DC0A09D005599BC /* ManagerMissionBtnTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerMissionBtnTableViewCell.h; path = views/manager/ManagerMissionBtnTableViewCell.h; sourceTree = "<group>"; };
+		C8EB79AF1DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagerMissionBtnTableViewCell.m; path = views/manager/ManagerMissionBtnTableViewCell.m; sourceTree = "<group>"; };
+		C8EB79B01DC0A09D005599BC /* ManagerMissionBtnTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagerMissionBtnTableViewCell.xib; path = views/manager/ManagerMissionBtnTableViewCell.xib; sourceTree = "<group>"; };
+		C8EB79B31DC0A677005599BC /* ManagerMissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerMissionViewController.h; path = viewcontrollers/manager/ManagerMissionViewController.h; sourceTree = "<group>"; };
+		C8EB79B41DC0A677005599BC /* ManagerMissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagerMissionViewController.m; path = viewcontrollers/manager/ManagerMissionViewController.m; sourceTree = "<group>"; };
+		C8EB79B61DC0AD2A005599BC /* ManagerMissionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerMissionTableViewCell.h; path = views/manager/ManagerMissionTableViewCell.h; sourceTree = "<group>"; };
+		C8EB79B71DC0AD2A005599BC /* ManagerMissionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagerMissionTableViewCell.m; path = views/manager/ManagerMissionTableViewCell.m; sourceTree = "<group>"; };
+		C8EB79B81DC0AD2A005599BC /* ManagerMissionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ManagerMissionTableViewCell.xib; path = views/manager/ManagerMissionTableViewCell.xib; sourceTree = "<group>"; };
+		C8EB79BB1DC0B719005599BC /* SCWebInterfaceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCWebInterfaceBase.h; sourceTree = "<group>"; };
+		C8EB79BC1DC0B719005599BC /* SCWebInterfaceBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWebInterfaceBase.m; sourceTree = "<group>"; };
+		C8EB79C11DC0BAEA005599BC /* UpdateProfileWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateProfileWebInterface.h; path = me/UpdateProfileWebInterface.h; sourceTree = "<group>"; };
+		C8EB79C21DC0BAEA005599BC /* UpdateProfileWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateProfileWebInterface.m; path = me/UpdateProfileWebInterface.m; sourceTree = "<group>"; };
 		D62A064B1DAB5CA8003832A8 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = login.storyboard; path = src/login.storyboard; sourceTree = "<group>"; };
 		D62A064E1DAB63D1003832A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewcontrollers/login/LoginViewController.h; sourceTree = "<group>"; };
 		D62A064F1DAB63D1003832A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontrollers/login/LoginViewController.m; sourceTree = "<group>"; };
@@ -299,6 +336,8 @@
 				A5A5083F1DBF2FE500CB2491 /* ManagerIndexViewController.m */,
 				A5A508411DBF386900CB2491 /* ManagerMissionDetailViewController.h */,
 				A5A508421DBF386900CB2491 /* ManagerMissionDetailViewController.m */,
+				C8EB79B31DC0A677005599BC /* ManagerMissionViewController.h */,
+				C8EB79B41DC0A677005599BC /* ManagerMissionViewController.m */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -312,6 +351,12 @@
 				A5A5084A1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.h */,
 				A5A5084B1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.m */,
 				A5A5084C1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.xib */,
+				C8EB79AE1DC0A09D005599BC /* ManagerMissionBtnTableViewCell.h */,
+				C8EB79AF1DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m */,
+				C8EB79B01DC0A09D005599BC /* ManagerMissionBtnTableViewCell.xib */,
+				C8EB79B61DC0AD2A005599BC /* ManagerMissionTableViewCell.h */,
+				C8EB79B71DC0AD2A005599BC /* ManagerMissionTableViewCell.m */,
+				C8EB79B81DC0AD2A005599BC /* ManagerMissionTableViewCell.xib */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -527,6 +572,18 @@
 				D6C490021DBEEAE8009EB672 /* FilmInfo.m */,
 				C8E651391DA9D65D00400ABC /* User.h */,
 				C8E6513A1DA9D65D00400ABC /* User.m */,
+				C859974D1DC04C1E0057C417 /* Task.h */,
+				C859974E1DC04C1E0057C417 /* Task.m */,
+				C85997501DC0565F0057C417 /* TakeTask.h */,
+				C85997511DC0565F0057C417 /* TakeTask.m */,
+				C85997531DC058560057C417 /* Film.h */,
+				C85997541DC058560057C417 /* Film.m */,
+				C8001CDD1DC075570092696C /* Grade.h */,
+				C8001CDE1DC075570092696C /* Grade.m */,
+				C8EB79A81DC07D4E005599BC /* OptDetail.h */,
+				C8EB79A91DC07D4E005599BC /* OptDetail.m */,
+				C8EB79AB1DC07F2C005599BC /* BankCard.h */,
+				C8EB79AC1DC07F2C005599BC /* BankCard.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -542,6 +599,22 @@
 				C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */,
 			);
 			name = category;
+			sourceTree = "<group>";
+		};
+		C8EB79BE1DC0B939005599BC /* me */ = {
+			isa = PBXGroup;
+			children = (
+				C8EB79C11DC0BAEA005599BC /* UpdateProfileWebInterface.h */,
+				C8EB79C21DC0BAEA005599BC /* UpdateProfileWebInterface.m */,
+			);
+			name = me;
+			sourceTree = "<group>";
+		};
+		C8EB79BF1DC0B93F005599BC /* manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = manager;
 			sourceTree = "<group>";
 		};
 		D62A064D1DAB637C003832A8 /* login */ = {
@@ -652,6 +725,10 @@
 				D6D94BC61DB0B705004666BC /* SCHttpOperation.m */,
 				D6D94BC71DB0B705004666BC /* SCHttpOperationMgr.h */,
 				D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */,
+				C8EB79BB1DC0B719005599BC /* SCWebInterfaceBase.h */,
+				C8EB79BC1DC0B719005599BC /* SCWebInterfaceBase.m */,
+				C8EB79BE1DC0B939005599BC /* me */,
+				C8EB79BF1DC0B93F005599BC /* manager */,
 			);
 			path = net;
 			sourceTree = "<group>";
@@ -750,7 +827,9 @@
 				A5A5083C1DBF2CF800CB2491 /* manager.storyboard in Resources */,
 				D6C490001DBEEABD009EB672 /* launch.storyboard in Resources */,
 				A5A508491DBF466900CB2491 /* ManagerNewMissionTableViewCell.xib in Resources */,
+				C8EB79BA1DC0AD2A005599BC /* ManagerMissionTableViewCell.xib in Resources */,
 				D6D94BCC1DB0BDA6004666BC /* pfhome.storyboard in Resources */,
+				C8EB79B21DC0A09D005599BC /* ManagerMissionBtnTableViewCell.xib in Resources */,
 				D6C4901D1DBEEB0D009EB672 /* TaskCellNormal.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -827,7 +906,9 @@
 			files = (
 				D6C4901A1DBEEB0D009EB672 /* PFHomeCell.m in Sources */,
 				D6C48FF41DBEEA5F009EB672 /* OperateNSUserDefault.m in Sources */,
+				C8EB79B51DC0A677005599BC /* ManagerMissionViewController.m in Sources */,
 				A5A508481DBF466900CB2491 /* ManagerNewMissionTableViewCell.m in Sources */,
+				C8EB79AD1DC07F2C005599BC /* BankCard.m in Sources */,
 				C86DE75C1DB5C7F500374734 /* MeMissionDetailViewController.m in Sources */,
 				C889D9681DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m in Sources */,
 				D6C48FFE1DBEEA9F009EB672 /* LaunchViewController.m in Sources */,
@@ -838,6 +919,7 @@
 				C889D9641DB07E90008156B2 /* MeAboutViewController.m in Sources */,
 				C889D9581DAF7429008156B2 /* MePwdViewController.m in Sources */,
 				C86DE7601DB61A6C00374734 /* MissionRowPieceTableViewCell.m in Sources */,
+				C8EB79BD1DC0B719005599BC /* SCWebInterfaceBase.m in Sources */,
 				C889D95E1DB0742E008156B2 /* MeSettingViewController.m in Sources */,
 				C8B64E7F1DB49C8900B4311D /* MeMissionTableViewCell.m in Sources */,
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
@@ -853,10 +935,13 @@
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
 				C82AF8E81DB7170600882DB6 /* SCTopLeftAlignLabel.m in Sources */,
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
+				C8EB79AA1DC07D4E005599BC /* OptDetail.m in Sources */,
 				D6950CD11DB476F4004D6C8B /* LoginAuthViewController.m in Sources */,
 				D6C48FF91DBEEA7A009EB672 /* ChooseFilmViewController.m in Sources */,
+				C8001CDF1DC075570092696C /* Grade.m in Sources */,
 				C889D95B1DAF83F3008156B2 /* MeAuthViewController.m in Sources */,
 				D6950CCA1DB459BF004D6C8B /* LFLUISegmentedControl.m in Sources */,
+				C859974F1DC04C1E0057C417 /* Task.m in Sources */,
 				A5A508431DBF386900CB2491 /* ManagerMissionDetailViewController.m in Sources */,
 				C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */,
 				D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */,
@@ -875,12 +960,16 @@
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
 				D6C490031DBEEAE8009EB672 /* FilmInfo.m in Sources */,
 				D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */,
+				C8EB79B11DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m in Sources */,
 				C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */,
 				A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */,
 				D6950CCD1DB45D51004D6C8B /* TableWithNoDataView.m in Sources */,
+				C85997521DC0565F0057C417 /* TakeTask.m in Sources */,
+				C85997551DC058560057C417 /* Film.m in Sources */,
 				D6C490191DBEEB0D009EB672 /* CKAlertViewController.m in Sources */,
 				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
+				C8EB79C31DC0BAEA005599BC /* UpdateProfileWebInterface.m in Sources */,
 				C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */,
 				C86DE7581DB5BD5300374734 /* MissionRequireTableViewCell.m in Sources */,
 				D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */,
@@ -889,6 +978,7 @@
 				D6C490171DBEEB0D009EB672 /* ChooseFilmCell.m in Sources */,
 				D6950CDD1DB4CAC1004D6C8B /* UILabel+StringFrame.m in Sources */,
 				C82AF8E41DB70A0600882DB6 /* MissionNoAuthTableViewCell.m in Sources */,
+				C8EB79B91DC0AD2A005599BC /* ManagerMissionTableViewCell.m in Sources */,
 				D6C490151DBEEB0D009EB672 /* AMAlertView.m in Sources */,
 				A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */,
 				D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */,

@@ -157,7 +157,6 @@
             MissionNoAuthTableViewCell *cell = [MissionNoAuthTableViewCell cellWithTableView:tableView];
             return cell;
         }
-        
     }
 }
 
