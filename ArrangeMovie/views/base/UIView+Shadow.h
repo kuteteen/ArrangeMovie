@@ -21,6 +21,6 @@
 //设置一个环形边框,给头像用的
 - (void)setCircleBorder:(UIImage *)image;
 
-//设置一个方形边框,给图片刘篮球用的（加载相册图片）
-- (void)setRectangleBorder:(UIImage *)image;
+//设置一个方形边框,给图片浏览器用的（加载相册图片）
+- (void)setRectangleBorder:(id)image;
 @end

@@ -22,6 +22,7 @@ PODS:
     - AFNetworking/NSURLSession
   - BEMCheckBox (1.2.1)
   - DACircularProgress (2.3.1)
+  - FXBlurView (1.6.4)
   - LCActionSheet (2.5.2):
     - Masonry (~> 1.0.1)
   - Masonry (1.0.2)
@@ -45,6 +46,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (= 2.6.3)
   - BEMCheckBox
+  - FXBlurView
   - LCActionSheet (= 2.5.2)
   - MJExtension
   - MJRefresh
@@ -61,6 +63,7 @@ SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BEMCheckBox: 264b8b72aa92adbfefa265cc58a0cdb86b207b9f
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
   LCActionSheet: 92aa29e2c0a12e771e334193a5129288817e69e8
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a

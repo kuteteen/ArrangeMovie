@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B0F803E69B532B9A17485614'
+               BlueprintIdentifier = '98F224CBA3835E9F869319FF'
                BlueprintName = 'SCFadeSlideView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libSCFadeSlideView.a'>

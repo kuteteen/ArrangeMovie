@@ -14,4 +14,5 @@ target :'ArrangeMovie' do
    pod 'TZImagePickerController'
    pod 'UITableView+FDTemplateLayoutCell'
    pod 'PYPhotoBrowser'
+   pod 'FXBlurView'
 end

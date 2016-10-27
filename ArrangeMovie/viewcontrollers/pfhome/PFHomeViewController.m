@@ -123,12 +123,15 @@
     switch (indexPath.row) {
         case 0:
             [cell setValues:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" tailImg:@"" title:@"《让子弹飞》拍片任务接收.....dadsaddas"];
+            
             break;
         case 1:
             [cell setValues:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" tailImg:@"film_index_task_finished" title:@"《让子弹飞》拍片任务已完成"];
+            
             break;
         case 2:
             [cell setValues:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" tailImg:@"film_index_task_lost" title:@"《让子弹飞》拍片任务已失败"];
+            
             break;
         default:
             break;
@@ -200,6 +203,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    switch (indexPath.row) {
+        case 0:
+            [self performSegueWithIdentifier:@"toUnDoVC" sender:self];
+            break;
+        case 1:
+            [self performSegueWithIdentifier:@"toDoneVC" sender:self];
+            break;
+        case 2:
+            [self performSegueWithIdentifier:@"toFailedVC" sender:self];
+            break;
+        default:
+            break;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 /*
 #pragma mark - Navigation

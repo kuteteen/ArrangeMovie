@@ -8,6 +8,7 @@
 
 #import "ManagerMissionViewController.h"
 #import "LFLUISegmentedControl.h"
+#import "MeMissionTableViewCell.h"
 
 #define Width [UIScreen mainScreen].bounds.size.width
 

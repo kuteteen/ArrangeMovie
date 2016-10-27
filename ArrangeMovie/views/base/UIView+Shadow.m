@@ -7,6 +7,8 @@
 //
 
 #import "UIView+Shadow.h"
+#import "UIImageView+WebCache.h"
+
 
 @implementation UIView (Shadow)
 
@@ -55,10 +57,15 @@
     }
 }
 
-- (void)setRectangleBorder:(UIImage *)image{
+- (void)setRectangleBorder:(id)image{
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    if ([image isKindOfClass:[UIImage class]]) {
+        imageView.image = image;
+    }
+    if ([image isKindOfClass:[NSString class]]) {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:image]];
+    }
     
-    imageView.image = image;
     
     
     imageView.backgroundColor = [UIColor whiteColor];

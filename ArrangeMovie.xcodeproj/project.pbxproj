@@ -93,6 +93,10 @@
 		D6950CDD1DB4CAC1004D6C8B /* UILabel+StringFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CDC1DB4CAC1004D6C8B /* UILabel+StringFrame.m */; };
 		D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A171DAF2FEE00F2849E /* YZMButton.m */; };
 		D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A1B1DAF6D2900F2849E /* RegViewController.m */; };
+		D6BAC80C1DC188BF00A4EDF6 /* AMDetailUnDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BAC80B1DC188BF00A4EDF6 /* AMDetailUnDoViewController.m */; };
+		D6BAC80F1DC1893D00A4EDF6 /* AMDetailDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BAC80E1DC1893D00A4EDF6 /* AMDetailDoneViewController.m */; };
+		D6BAC8121DC1897E00A4EDF6 /* AMDetailFailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BAC8111DC1897E00A4EDF6 /* AMDetailFailedViewController.m */; };
+		D6BAC8151DC1A36200A4EDF6 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BAC8141DC1A36200A4EDF6 /* ProgressView.m */; };
 		D6C48FF41DBEEA5F009EB672 /* OperateNSUserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C48FF31DBEEA5F009EB672 /* OperateNSUserDefault.m */; };
 		D6C48FF91DBEEA7A009EB672 /* ChooseFilmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C48FF61DBEEA7A009EB672 /* ChooseFilmViewController.m */; };
 		D6C48FFA1DBEEA7A009EB672 /* MakeTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C48FF81DBEEA7A009EB672 /* MakeTaskViewController.m */; };
@@ -270,6 +274,14 @@
 		D6B43A171DAF2FEE00F2849E /* YZMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZMButton.m; path = views/login/YZMButton.m; sourceTree = "<group>"; };
 		D6B43A1A1DAF6D2900F2849E /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegViewController.h; path = viewcontrollers/login/RegViewController.h; sourceTree = "<group>"; };
 		D6B43A1B1DAF6D2900F2849E /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegViewController.m; path = viewcontrollers/login/RegViewController.m; sourceTree = "<group>"; };
+		D6BAC80A1DC188BF00A4EDF6 /* AMDetailUnDoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDetailUnDoViewController.h; path = viewcontrollers/pfhome/AMDetailUnDoViewController.h; sourceTree = "<group>"; };
+		D6BAC80B1DC188BF00A4EDF6 /* AMDetailUnDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDetailUnDoViewController.m; path = viewcontrollers/pfhome/AMDetailUnDoViewController.m; sourceTree = "<group>"; };
+		D6BAC80D1DC1893D00A4EDF6 /* AMDetailDoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDetailDoneViewController.h; path = viewcontrollers/pfhome/AMDetailDoneViewController.h; sourceTree = "<group>"; };
+		D6BAC80E1DC1893D00A4EDF6 /* AMDetailDoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDetailDoneViewController.m; path = viewcontrollers/pfhome/AMDetailDoneViewController.m; sourceTree = "<group>"; };
+		D6BAC8101DC1897E00A4EDF6 /* AMDetailFailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDetailFailedViewController.h; path = viewcontrollers/pfhome/AMDetailFailedViewController.h; sourceTree = "<group>"; };
+		D6BAC8111DC1897E00A4EDF6 /* AMDetailFailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDetailFailedViewController.m; path = viewcontrollers/pfhome/AMDetailFailedViewController.m; sourceTree = "<group>"; };
+		D6BAC8131DC1A36200A4EDF6 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressView.h; path = views/pfhome/ProgressView.h; sourceTree = "<group>"; };
+		D6BAC8141DC1A36200A4EDF6 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressView.m; path = views/pfhome/ProgressView.m; sourceTree = "<group>"; };
 		D6C48FF21DBEEA5F009EB672 /* OperateNSUserDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperateNSUserDefault.h; sourceTree = "<group>"; };
 		D6C48FF31DBEEA5F009EB672 /* OperateNSUserDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperateNSUserDefault.m; sourceTree = "<group>"; };
 		D6C48FF51DBEEA7A009EB672 /* ChooseFilmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseFilmViewController.h; path = viewcontrollers/pfhome/ChooseFilmViewController.h; sourceTree = "<group>"; };
@@ -658,6 +670,12 @@
 				D6C48FF81DBEEA7A009EB672 /* MakeTaskViewController.m */,
 				D6950CC51DB45025004D6C8B /* PFHomeViewController.h */,
 				D6950CC61DB45025004D6C8B /* PFHomeViewController.m */,
+				D6BAC80A1DC188BF00A4EDF6 /* AMDetailUnDoViewController.h */,
+				D6BAC80B1DC188BF00A4EDF6 /* AMDetailUnDoViewController.m */,
+				D6BAC80D1DC1893D00A4EDF6 /* AMDetailDoneViewController.h */,
+				D6BAC80E1DC1893D00A4EDF6 /* AMDetailDoneViewController.m */,
+				D6BAC8101DC1897E00A4EDF6 /* AMDetailFailedViewController.h */,
+				D6BAC8111DC1897E00A4EDF6 /* AMDetailFailedViewController.m */,
 			);
 			name = pfhome;
 			sourceTree = "<group>";
@@ -685,6 +703,8 @@
 				D6950CD51DB4BF06004D6C8B /* PFHomeSectionView.h */,
 				D6950CD61DB4BF06004D6C8B /* PFHomeSectionView.m */,
 				D6950CD81DB4C0AB004D6C8B /* PFHomeSectionView.xib */,
+				D6BAC8131DC1A36200A4EDF6 /* ProgressView.h */,
+				D6BAC8141DC1A36200A4EDF6 /* ProgressView.m */,
 			);
 			name = pfhome;
 			sourceTree = "<group>";
@@ -906,6 +926,7 @@
 			files = (
 				D6C4901A1DBEEB0D009EB672 /* PFHomeCell.m in Sources */,
 				D6C48FF41DBEEA5F009EB672 /* OperateNSUserDefault.m in Sources */,
+				D6BAC8121DC1897E00A4EDF6 /* AMDetailFailedViewController.m in Sources */,
 				C8EB79B51DC0A677005599BC /* ManagerMissionViewController.m in Sources */,
 				A5A508481DBF466900CB2491 /* ManagerNewMissionTableViewCell.m in Sources */,
 				C8EB79AD1DC07F2C005599BC /* BankCard.m in Sources */,
@@ -926,6 +947,7 @@
 				C82AF8EB1DB75BAC00882DB6 /* MeMissionCheckViewController.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				D6950CD71DB4BF06004D6C8B /* PFHomeSectionView.m in Sources */,
+				D6BAC8151DC1A36200A4EDF6 /* ProgressView.m in Sources */,
 				C86DE7531DB5B63600374734 /* MissionActorTableViewCell.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */,
@@ -933,6 +955,7 @@
 				D6C4901E1DBEEB0D009EB672 /* TaskCellTime.m in Sources */,
 				D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */,
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
+				D6BAC80F1DC1893D00A4EDF6 /* AMDetailDoneViewController.m in Sources */,
 				C82AF8E81DB7170600882DB6 /* SCTopLeftAlignLabel.m in Sources */,
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
 				C8EB79AA1DC07D4E005599BC /* OptDetail.m in Sources */,
@@ -968,6 +991,7 @@
 				C85997551DC058560057C417 /* Film.m in Sources */,
 				D6C490191DBEEB0D009EB672 /* CKAlertViewController.m in Sources */,
 				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
+				D6BAC80C1DC188BF00A4EDF6 /* AMDetailUnDoViewController.m in Sources */,
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
 				C8EB79C31DC0BAEA005599BC /* UpdateProfileWebInterface.m in Sources */,
 				C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */,

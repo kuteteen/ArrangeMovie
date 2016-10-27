@@ -10,9 +10,11 @@
 #import "AMAlertView.h"
 #import "CKAlertViewController.h"
 
+
 @interface MakeTaskViewController ()<UICollectionViewDelegateFlowLayout>
 @property(nonatomic,strong)NSMutableArray *titleArray;
 @property(nonatomic,strong)NSMutableArray *contentArray;
+
 @end
 
 @implementation MakeTaskViewController
@@ -25,6 +27,8 @@
     [self initView];
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -33,6 +37,9 @@
 
 
 - (void)initView{
+    
+    
+    
     self.title = @"创建任务";
     
     self.titleArray = @[@[@"任务名称",@"任务发放数"],@[@"任务积分",@"任务时间"],@[@"影院级别",@"任务类型"]];
