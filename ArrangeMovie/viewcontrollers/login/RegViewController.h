@@ -16,7 +16,7 @@
 #import "TZImagePickerController.h"
 #import "EMICamera.h"
 #import "UIView+Shadow.h"
-#import "PFHomeViewController.h"
+#import "EMINavigationController.h"
 
 
 @interface RegViewController : EMIBaseViewController
