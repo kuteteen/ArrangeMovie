@@ -59,9 +59,6 @@
                 <constraint firstAttribute="trailing" secondItem="jpL-KB-SJU" secondAttribute="trailing" id="k9U-CL-Mc3"/>
                 <constraint firstAttribute="bottom" secondItem="jpL-KB-SJU" secondAttribute="bottom" id="zQA-YO-OJL"/>
             </constraints>
-            <nil key="simulatedStatusBarMetrics"/>
-            <nil key="simulatedTopBarMetrics"/>
-            <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

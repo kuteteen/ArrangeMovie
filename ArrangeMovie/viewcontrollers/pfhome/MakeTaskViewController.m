@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    self.definesPresentationContext = YES;
+    
     [self initView];
 }
 

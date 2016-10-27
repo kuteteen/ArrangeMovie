@@ -30,6 +30,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+   
+    //因为UISearchController在searchBar获得焦点事件后，相当于弹出来了，需要先让它消失
+    
+    if ([self.presentedViewController isKindOfClass:[UISearchController class]] ) {
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }
+    
+    [super viewWillDisappear:animated];
+}
 
 - (void)initView{
     self.title = @"选择电影名称";
