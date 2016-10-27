@@ -48,16 +48,16 @@ DEPENDENCIES:
   - BEMCheckBox
   - FXBlurView
   - LCActionSheet (= 2.5.2)
-  - MJExtension
-  - MJRefresh
-  - PYPhotoBrowser
+  - MJExtension (= 3.0.13)
+  - MJRefresh (= 3.1.12)
+  - PYPhotoBrowser (= 1.0.5)
   - SCFadeSlideView (= 0.0.2)
   - SDAutoLayout (~> 1.31)
   - SDWebImage (~> 3.8)
   - Toast (~> 3.0)
-  - TZImagePickerController
-  - UITableView+FDTemplateLayoutCell
-  - ZYCornerRadius
+  - TZImagePickerController (= 1.7.1)
+  - UITableView+FDTemplateLayoutCell (= 1.4)
+  - ZYCornerRadius (= 1.0.2)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60

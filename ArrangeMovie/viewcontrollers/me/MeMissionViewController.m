@@ -93,14 +93,14 @@
     NSInteger select = segmentControl.selectSeugment;
     switch (direction) {
         case UISwipeGestureRecognizerDirectionLeft:
-            if(segmentControl.selectSeugment!=3){
+            if(segmentControl.selectSeugment<3){
                 select ++;
                 [segmentControl selectTheSegument:select];
             }
-            segmentControl.selectSeugment++;
+            
             break;
         case UISwipeGestureRecognizerDirectionRight:
-            if(segmentControl.selectSeugment!=0){
+            if(segmentControl.selectSeugment>0){
                 select --;
                 [segmentControl selectTheSegument:select];
             }

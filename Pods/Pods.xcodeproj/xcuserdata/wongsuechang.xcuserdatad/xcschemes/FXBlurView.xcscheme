@@ -7,33 +7,35 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
+            buildForAnalyzing = "YES"
             buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9775596B3CA16905FC8F66DA8E2A3C67"
-               BuildableName = "libDACircularProgress.a"
-               BlueprintName = "DACircularProgress"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BuildableIdentifier = 'primary'
+<<<<<<< HEAD:Pods/Pods.xcodeproj/xcuserdata/chenkai.xcuserdatad/xcschemes/BEMCheckBox.xcscheme
+               BlueprintIdentifier = '8A32B37671014AFDB7B5BC1F'
+               BlueprintName = 'BEMCheckBox'
+=======
+               BlueprintIdentifier = '17392667E38E4938ACA525E988BB433B'
+               BlueprintName = 'FXBlurView'
+>>>>>>> 9c89f8f8f31e2c47e188ba635a355bc87ea7d6e0:Pods/Pods.xcodeproj/xcuserdata/wongsuechang.xcuserdatad/xcschemes/FXBlurView.xcscheme
+               ReferencedContainer = 'container:Pods.xcodeproj'
+               BuildableName = 'libFXBlurView.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <Testables>
-      </Testables>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -41,34 +43,17 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
+      buildConfiguration = "Debug"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9775596B3CA16905FC8F66DA8E2A3C67"
-            BuildableName = "libDACircularProgress.a"
-            BlueprintName = "DACircularProgress"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release"
-      shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9775596B3CA16905FC8F66DA8E2A3C67"
-            BuildableName = "libDACircularProgress.a"
-            BlueprintName = "DACircularProgress"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
+      debugDocumentVersioning = "YES"
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES">
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
