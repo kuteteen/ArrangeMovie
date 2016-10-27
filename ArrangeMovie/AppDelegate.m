@@ -35,7 +35,6 @@
     
     
     
-<<<<<<< HEAD
 //     UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
 //     MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
 //     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
@@ -55,11 +54,9 @@
         UIStoryboard *launch = [UIStoryboard storyboardWithName:@"launch" bundle:nil];
         nav = [launch instantiateViewControllerWithIdentifier:@"launchnav"];
     }
-=======
-     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
-     ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
-     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
->>>>>>> 07e70d57bd16319d3ab504d551ce48580d67e9f9
+//     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
+//     ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
+//     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
     
     
     

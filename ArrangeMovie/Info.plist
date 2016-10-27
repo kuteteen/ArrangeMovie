@@ -37,13 +37,10 @@
 	<array>
 		<string>armv7</string>
 	</array>
-<<<<<<< HEAD
 	<key>UIRequiresFullScreen</key>
 	<false/>
 	<key>UIStatusBarHidden</key>
 	<false/>
-=======
->>>>>>> 07e70d57bd16319d3ab504d551ce48580d67e9f9
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
