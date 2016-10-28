@@ -10,12 +10,16 @@
 #import "UIBarButtonItem+Extension.h"
 #import "MeViewController.h"
 #import "ManagerNewMissionTableViewCell.h"
+#import "Task.h"
 
 @interface ManagerIndexViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet EMIShadowImageView *headImgView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *cinemaLabel;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+
+@property (strong, nonatomic) NSMutableArray *array;//数据源
 
 @end
 
@@ -39,17 +43,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSMutableArray *)array {
+    if(!_array){
+        _array = [[NSMutableArray alloc] init];
+        for(int i = 0;i<4;i++){
+            Task *task = [[Task alloc] init];
+            task.filmname = @"让子弹飞";
+            task.filmdirector = @"姜文";
+            task.startdate = @"2016/10/28";
+            task.enddate = @"2016/11/28";
+            task.taskpoints = @"200";
+            [_array addObject:task];
+        }
+        
+        _array = [NSMutableArray arrayWithObjects:@"",@"", nil];
+    }
+    return _array;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 101.f;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return self.array.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ManagerNewMissionTableViewCell *cell = [ManagerNewMissionTableViewCell cellWithTableView:tableView];
-    [cell setValue:@""];
+    [cell setValue:self.array[indexPath.row]];
     return cell;
 }
 

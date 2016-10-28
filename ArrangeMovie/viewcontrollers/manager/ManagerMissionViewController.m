@@ -8,7 +8,7 @@
 
 #import "ManagerMissionViewController.h"
 #import "LFLUISegmentedControl.h"
-#import "MeMissionTableViewCell.h"
+#import "ManagerMissionTableViewCell.h"
 
 #define Width [UIScreen mainScreen].bounds.size.width
 
@@ -69,7 +69,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MeMissionTableViewCell *cell = [MeMissionTableViewCell cellWithTableView:tableView];
+    ManagerMissionTableViewCell *cell = [ManagerMissionTableViewCell cellWithTableView:tableView];
     UIView *backview = [[UIView alloc] init];
     backview.backgroundColor = [UIColor colorWithHexString:@"f6f6f6"];
     cell.selectedBackgroundView = backview;
