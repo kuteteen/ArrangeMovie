@@ -185,7 +185,7 @@
         <!--Home View Controller-->
         <scene sceneID="koQ-8a-CtJ">
             <objects>
-                <viewController id="eYG-SH-P6J" customClass="PFHomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pfhome" id="eYG-SH-P6J" customClass="PFHomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SuQ-9v-dwr"/>
                         <viewControllerLayoutGuide type="bottom" id="ECi-qs-A5y"/>

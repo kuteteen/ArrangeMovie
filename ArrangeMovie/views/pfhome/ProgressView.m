@@ -22,7 +22,7 @@
         self.bottomView.backgroundColor = [UIColor colorWithHexString:@"#ffffff"];
         self.bottomView.alpha = 0.4;
         [self addSubview:self.bottomView];
-        self.bottomView.sd_layout.leftSpaceToView(self,0).topSpaceToView(self,0).bottomSpaceToView(self,0).widthRatioToView(self,1);
+        self.bottomView.sd_layout.xIs(0).topSpaceToView(self,0).bottomSpaceToView(self,0).widthRatioToView(self,1);
         [self setCorner:self.bottomView];
         //顶层
         self.topView = [[UIView alloc] init];
@@ -35,9 +35,21 @@
 }
 //设置topView宽度比例
 - (void)setTopViewWithRatio:(CGFloat)ratio{
-    self.topView.sd_layout.widthIs(self.frame.size.width*ratio);
+    [UIView animateWithDuration: 0.35 delay: 0 options: UIViewAnimationOptionCurveEaseInOut animations: ^{
+       self.topView.sd_layout.widthIs(self.frame.size.width*ratio);
+    } completion: ^(BOOL finished) {
+        
+    }];
+    
 }
-
+//设置topView的X
+- (void)setXWithRatio:(CGFloat)ratio{
+    [UIView animateWithDuration: 0.35 delay: 0 options: UIViewAnimationOptionCurveEaseInOut animations: ^{
+        self.topView.sd_layout.xIs(self.frame.size.width*ratio);
+    } completion: ^(BOOL finished) {
+        
+    }];
+}
 //设置圆角
 - (void)setCorner:(UIView *)corView{
     corView.layer.masksToBounds = YES;

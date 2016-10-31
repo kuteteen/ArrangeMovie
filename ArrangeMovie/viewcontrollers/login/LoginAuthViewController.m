@@ -182,6 +182,7 @@
             label.textAlignment = NSTextAlignmentCenter;
             label.text = @"上传认证资质材料";
             label.textColor = [UIColor colorWithHexString:@"#999999"];
+            label.font = [UIFont systemFontOfSize:18.f];
             [pageView addSubview:label];
             label.sd_layout.topSpaceToView(button,15).widthRatioToView(pageView,1).leftSpaceToView(pageView,0).heightIs(40);
         }
