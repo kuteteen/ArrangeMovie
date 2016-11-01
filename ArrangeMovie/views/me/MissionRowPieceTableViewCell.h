@@ -7,7 +7,9 @@
 //
 
 #import "SCTableViewCell.h"
+#import "EMIShadowImageView.h"
 
 @interface MissionRowPieceTableViewCell : SCTableViewCell
+@property (weak, nonatomic) IBOutlet EMIShadowImageView *headImgView;
 
 @end

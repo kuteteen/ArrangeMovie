@@ -40,7 +40,8 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+    //分割线
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10);
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
@@ -94,7 +95,6 @@
                 select ++;
                 [segmentControl selectTheSegument:select];
             }
-            segmentControl.selectSeugment++;
             break;
         case UISwipeGestureRecognizerDirectionRight:
             if(segmentControl.selectSeugment!=0){

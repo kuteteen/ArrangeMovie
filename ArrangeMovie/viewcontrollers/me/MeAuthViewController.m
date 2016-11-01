@@ -69,7 +69,7 @@
     if(type==0){
         //片方,添加圆形打钩按钮
         EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((Width-58)/2, Height-110, 58, 58)];
-        [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
+        [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
 //        OKImgView setHighlightedImage:[UIImage imageNamed:row]
         [self.view addSubview:OKImgView];
     }else if(type ==1){
@@ -130,7 +130,7 @@
         
         if(self.array.count>0&&index<self.array.count){
             
-            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:self.array[index] placeholder:@""];
+            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:self.array[index] placeholder:@""];
             
             //添加删除按钮
             UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake(pageView.frame.size.width-36, 10, 26, 30)];
@@ -143,7 +143,7 @@
             [pageView addSubview:shadowImageView];
             [pageView addSubview:delBtn];
         }else{
-            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:@"" placeholder:@""];
+            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:@"" placeholder:@""];
             //添加"上传公司证件审核"图片
             [pageView addSubview:shadowImageView];
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((pageView.frame.size.width-120)/2, (pageView.frame.size.height-110)/2, 120, 110)];

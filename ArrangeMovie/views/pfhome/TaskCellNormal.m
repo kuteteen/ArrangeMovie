@@ -18,7 +18,7 @@
     TaskCellNormal *cell = (TaskCellNormal *)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
     cell.layer.cornerRadius = 2;
-    [cell setShadowWithshadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:5];
+    [cell setShadowWithshadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:5];
     
     
     //调整字体,根据屏幕大小

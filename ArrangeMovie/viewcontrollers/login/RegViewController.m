@@ -7,6 +7,7 @@
 //
 
 #import "RegViewController.h"
+#import "PFHomeViewController.h"
 
 @interface RegViewController ()<LFLUISegmentedControlDelegate,LCActionSheetDelegate>
 
@@ -68,7 +69,7 @@
     [self.segmentView addSubview:self.mainSegView];
     
     //提交按钮阴影
-    [self.regBtn setShadowWithshadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.3 shadowRadius:5];
+    [self.regBtn setShadowWithshadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.26 shadowRadius:5];
     
     
     //获取验证码按钮
@@ -193,9 +194,10 @@
     //片方跳至首页
     if (self.mainSegView.selectSeugment == 0) {
         UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
-        EMINavigationController *pfhomenav = [pfhome instantiateViewControllerWithIdentifier:@"pfhomenav"];
+        PFHomeViewController *viewController = [pfhome instantiateViewControllerWithIdentifier:@"pfhome"];
+        EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
         
-        [self presentViewController:pfhomenav animated:YES completion:nil];
+        [self presentViewController:nav animated:YES completion:nil];
     }
     //院线经理跳至认证院线经理
     if (self.mainSegView.selectSeugment == 1) {

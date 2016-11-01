@@ -11,6 +11,7 @@
 #import "SCSlidePageView.h"
 #import "UIView+SDAutoLayout.h"
 #import "UIView+Toast.h"
+#import "ManagerIndexViewController.h"
 
 @interface LoginAuthViewController ()<SCFadeSlideViewDelegate,SCFadeSlideViewDataSource,LCActionSheetDelegate>
 @property (nonatomic,strong) NSMutableArray *array;//数据源
@@ -60,7 +61,7 @@
     [self.view addSubview:zhuLabel];
     //片方,添加圆形打钩按钮
     EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((screenWidth-58)/2, screenHeight-75, 58, 58)];
-    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
+    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
     //        OKImgView setHighlightedImage:[UIImage imageNamed:row]
     [self.view addSubview:OKImgView];
     OKImgView.userInteractionEnabled = YES;
@@ -81,10 +82,10 @@
     //上传完图片后到院方首页
     
     //
-    UIStoryboard *manager = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
-    EMINavigationController *managernav = [manager instantiateViewControllerWithIdentifier:@"manageindexnav"];
-    
-    [self presentViewController:managernav animated:YES completion:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
+    ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
+    EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 
@@ -170,7 +171,7 @@
             [pageView addSubview:delBtn];
             
         }else{
-            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:@"" placeholder:@""];
+            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:@"" placeholder:@""];
             [pageView addSubview:shadowImageView];
             //添加"上传公司证件审核"图片
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((pageView.frame.size.width-120)/2, (pageView.frame.size.height-110)/2, 120, 110)];

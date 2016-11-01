@@ -42,7 +42,7 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10);
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
 

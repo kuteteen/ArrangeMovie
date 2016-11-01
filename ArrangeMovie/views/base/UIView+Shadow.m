@@ -48,9 +48,9 @@
         
         //描出圆形图片imageView阴影路径
         self.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.width) cornerRadius:self.frame.size.width/2].CGPath;
-        self.layer.shadowColor = [UIColor blackColor].CGColor;//阴影颜色
+        self.layer.shadowColor = [UIColor colorWithHexString:@"0a0e16"].CGColor;//阴影颜色
         self.layer.shadowOffset = CGSizeMake(0, 0);//偏移距离
-        self.layer.shadowOpacity = 0.5;//不透明度
+        self.layer.shadowOpacity = 0.35;//不透明度
         self.layer.shadowRadius = 8;//半径
         
         [self addSubview:imageView];
@@ -78,9 +78,9 @@
     CALayer *shadowLayer = [CALayer layer];
     
     shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0-4, 0-4, self.frame.size.width+8, self.frame.size.width+8) cornerRadius:2].CGPath;
-    shadowLayer.shadowColor = [UIColor blackColor].CGColor;//阴影颜色
+    shadowLayer.shadowColor = [UIColor colorWithHexString:@"0a0e16"].CGColor;//阴影颜色
     shadowLayer.shadowOffset = CGSizeZero;//偏移距离
-    shadowLayer.shadowOpacity = 0.3;//不透明度
+    shadowLayer.shadowOpacity = 0.26;//不透明度
     shadowLayer.shadowRadius = 10;//半径
     
     [self.layer insertSublayer:shadowLayer atIndex:0];

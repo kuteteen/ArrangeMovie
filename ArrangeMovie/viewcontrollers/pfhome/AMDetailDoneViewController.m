@@ -103,7 +103,7 @@
     
     //片方,添加圆形打钩按钮
     EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((screenWidth-58)/2, screenHeight-76, 58, 58)];
-    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
+    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
     //        OKImgView setHighlightedImage:[UIImage imageNamed:row]
     [self.view addSubview:OKImgView];
     OKImgView.userInteractionEnabled = YES;

@@ -22,5 +22,6 @@
 @property (nonatomic, strong) NSString *searchtext;
 ///页码
 @property (nonatomic, strong) NSString *pageindex;
-
+//电影图片地址
+@property (nonatomic, strong) NSString *filmimgurl;
 @end

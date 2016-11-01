@@ -37,7 +37,7 @@
 }
 
 -(void)setValue:(id)value {
-    [self.postImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:5 image:value placeholder:@"miller"];
+    [self.postImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:5 image:value placeholder:@"miller"];
 }
 
 @end

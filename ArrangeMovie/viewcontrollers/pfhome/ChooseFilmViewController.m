@@ -7,14 +7,14 @@
 //
 
 #import "ChooseFilmViewController.h"
-#import "FilmInfo.h"
+#import "Film.h"
 #import "ChooseFilmCell.h"
 
 @interface ChooseFilmViewController ()<UISearchBarDelegate,UISearchResultsUpdating>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) UISearchController *searchController;
-@property (strong,nonatomic) NSMutableArray<FilmInfo *>  *dataList;
-@property (strong,nonatomic) NSMutableArray<FilmInfo *>  *searchList;
+@property (strong,nonatomic) NSMutableArray<Film *>  *dataList;
+@property (strong,nonatomic) NSMutableArray<Film *>  *searchList;
 @end
 
 @implementation ChooseFilmViewController
@@ -58,11 +58,11 @@
     
     
     for (NSInteger i=0; i<100; i++) {
-        FilmInfo *film = [[FilmInfo alloc] init];
-        film.imagename = @"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg";
-        film.title = [NSString stringWithFormat:@"%ld",(long)i];
-        film.daoyan = @"导演：陈凯";
-        film.yanyuan = @"演员：陈凯";
+        
+        NSDictionary *dic = @{@"filmimgurl":@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg",@"filmname":[NSString stringWithFormat:@"%ld",(long)i],@"filmdirector":@"导演：陈凯",@"filmstars":@"演员：陈凯"};
+        
+        Film *film = [Film mj_objectWithKeyValues:dic];
+        
         [self.dataList addObject:film];
         
     }
@@ -76,11 +76,11 @@
     
     if (self.searchController.active) {
         
-        return [self.searchList count];
+        return self.searchList.count;
         
     }else{
-        
-        return [self.dataList count];
+    
+        return self.dataList.count;
         
     }
     
@@ -96,15 +96,15 @@
     ChooseFilmCell *cell = [ChooseFilmCell cellWithTableView:tableView];
     if (self.searchController.active) {
         
-        FilmInfo *film = (FilmInfo *)self.searchList[indexPath.row];
-        [cell setValues:film.imagename titleStr:film.title centerStr:film.daoyan bottomStr:film.yanyuan];
+        Film *film = (Film *)self.searchList[indexPath.row];
+        [cell setValues:film.filmimgurl titleStr:film.filmname centerStr:film.filmdirector bottomStr:film.filmstars];
         
     }
     
     else{
         
-        FilmInfo *film = (FilmInfo *)self.dataList[indexPath.row];
-        [cell setValues:film.imagename titleStr:film.title centerStr:film.daoyan bottomStr:film.yanyuan];
+        Film *film = (Film *)self.dataList[indexPath.row];
+        [cell setValues:film.filmimgurl titleStr:film.filmname centerStr:film.filmdirector bottomStr:film.filmstars];
         
     }
     
@@ -124,11 +124,11 @@
     
     
     
-    NSPredicate *preicate = [NSPredicate predicateWithFormat:@"title CONTAINS[c] %@", searchString];
+    NSPredicate *preicate = [NSPredicate predicateWithFormat:@"filmname CONTAINS[c] %@", searchString];
     
     
     
-    if (self.searchList!= nil) {
+    if (self.searchList != nil) {
         
         [self.searchList removeAllObjects];
         

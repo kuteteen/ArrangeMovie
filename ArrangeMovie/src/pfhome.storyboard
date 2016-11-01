@@ -76,11 +76,30 @@
                         <outlet property="collectionView" destination="Mns-xv-emZ" id="uMC-Eg-dPc"/>
                         <outlet property="imgBtn" destination="N4z-7M-A21" id="MNt-b9-u9C"/>
                         <segue destination="h0F-4G-ttt" kind="show" identifier="toChooseFilmVC" id="qr4-Ry-OYE"/>
+                        <segue destination="d8H-fX-U0I" kind="show" identifier="toUploadImgVC" id="Aje-XI-pQF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8pG-PY-rxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="512" y="935"/>
+        </scene>
+        <!--Upload Img View Controller-->
+        <scene sceneID="lIk-4N-POS">
+            <objects>
+                <viewController id="d8H-fX-U0I" customClass="PFUploadImgViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oV9-C7-fEf"/>
+                        <viewControllerLayoutGuide type="bottom" id="FvI-gd-Yy1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9hs-sQ-5CN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Oe-Qd-elD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1174" y="935"/>
         </scene>
         <!--Choose Film View Controller-->
         <scene sceneID="yZo-dD-RVg">
