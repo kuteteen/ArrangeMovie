@@ -11,6 +11,8 @@
 #import "LCActionSheet.h"
 #import "TZImagePickerController.h"
 #import "EMICamera.h"
+#import "UpdateProfileWebInterface.h"
+#import "SCHttpOperation.h"
 
 @interface MeProfileViewController()<LCActionSheetDelegate>
 
@@ -52,6 +54,9 @@
     
     [self showUser];
     
+    
+    
+    [self.saveProfileBtn addTarget:self action:@selector(saveUser) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)showUser {
@@ -113,6 +118,21 @@
         
         [self presentViewController:imagePicker animated:YES completion:nil];
     }
+}
+
+-(void)saveUser {
+    UpdateProfileWebInterface *webInterface = [[UpdateProfileWebInterface alloc] init];
+    NSDictionary *param = [webInterface inboxObject:self.user];
+    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:webInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+        if (returnValue) {
+            NSArray *result = [webInterface unboxObject:returnValue];
+            
+        }
+    } WithErrorCodeBlock:^(id errorCode) {
+        
+    } WithFailureBlock:^{
+        
+    }];
 }
 
 @end

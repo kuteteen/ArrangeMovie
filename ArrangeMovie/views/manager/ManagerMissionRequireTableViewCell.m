@@ -7,6 +7,16 @@
 //
 
 #import "ManagerMissionRequireTableViewCell.h"
+#import "Task.h"
+#import "SCDateTools.h"
+
+@interface ManagerMissionRequireTableViewCell ()
+@property (weak, nonatomic) IBOutlet UILabel *taskTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *taskNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *surplusNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
+
+@end
 
 @implementation ManagerMissionRequireTableViewCell
 
@@ -27,6 +37,18 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ManagerMissionRequireTableViewCell" owner:nil options:nil] firstObject];
     }
     return cell;
+}
+
+-(void)setValue:(id)value {
+    Task *task = (Task *)value;
+    self.taskNumLabel.text = [NSString stringWithFormat:@"%@份",task.tasknum];
+    self.surplusNumLabel.text = [NSString stringWithFormat:@"剩余%@份",task.surplusnum];
+    self.gradeLabel.text = task.gradename;
+    
+    NSDate *date1 = [SCDateTools stringToDate:task.startdate];
+    NSDate *date2 = [SCDateTools stringToDate:task.enddate];
+    
+    self.requireLabel.text = [NSString stringWithFormat:@"%@开始为期%@天的任务,每天排片量在%@以上",task.startdate,@"",task.shownum];
 }
 
 @end

@@ -48,6 +48,8 @@
         imgname = @"my_review";
     }else if([title isEqualToString:@"设置"]){
         imgname = @"my_set_up";
+    }else if([title isEqualToString:@"认证院线经理"]){
+        imgname = @"my_review";
     }
     self.meImgView.image = [UIImage imageNamed:imgname];
 }

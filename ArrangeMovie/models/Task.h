@@ -19,14 +19,18 @@
 @property (nonatomic,strong) NSArray<TakeTask*> *data;
 ///任务发布者id
 @property (nonatomic,copy) NSString *userid;
+///任务发布者手机号码
+@property (nonatomic,copy) NSString *dn;
+///任务发布者头像
+@property (nonatomic,copy) NSString *headimg;
 ///电影id
 @property (nonatomic,copy) NSString *filmid;
 ///电影名称
-@property (nonatomic, strong) NSString *filmname;
+@property (nonatomic, copy) NSString *filmname;
 ///导演
-@property (nonatomic, strong) NSString *filmdirector;
+@property (nonatomic, copy) NSString *filmdirector;
 ///主演
-@property (nonatomic, strong) NSString *filmstars;
+@property (nonatomic, copy) NSString *filmstars;
 ///任务份数
 @property (nonatomic,copy) NSString *tasknum;
 ///任务剩余份数
@@ -43,5 +47,7 @@
 @property (nonatomic,copy) NSString *gradename;
 ///任务类型（排片任务、宣传任务）
 @property (nonatomic,copy) NSString *tasktype;
+///排片量
+@property (nonatomic,copy) NSString *shownum;
 
 @end

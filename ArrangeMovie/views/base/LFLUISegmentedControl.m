@@ -45,7 +45,7 @@
 }
 -(void)changeTheSegument:(UIButton*)button
 {
-    [self selectTheSegument:button.tag];
+//    [self selectTheSegument:button.tag];
 }
 -(void)selectTheSegument:(NSInteger)segument
 {

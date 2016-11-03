@@ -155,7 +155,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="gradeLabel" destination="hOA-Gz-ycE" id="Lo6-KQ-78b"/>
                 <outlet property="requireLabel" destination="6tV-nJ-iiQ" id="Iq5-ge-K4r"/>
+                <outlet property="surplusNumLabel" destination="Bct-cT-2Kz" id="ADe-l2-xmn"/>
+                <outlet property="taskNumLabel" destination="IWN-Zq-W8W" id="sA1-hW-7zp"/>
+                <outlet property="taskTypeLabel" destination="9HE-gW-zcX" id="ujG-di-n6v"/>
             </connections>
             <point key="canvasLocation" x="220" y="171"/>
         </tableViewCell>

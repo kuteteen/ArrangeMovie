@@ -7,6 +7,12 @@
 //
 
 #import "MissionActorTableViewCell.h"
+#import "Task.h"
+
+@interface MissionActorTableViewCell ()
+@property (weak, nonatomic) IBOutlet UILabel *actorLabel;
+
+@end
 
 @implementation MissionActorTableViewCell
 
@@ -28,6 +34,11 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"MissionActorTableViewCell" owner:nil options:nil] firstObject];
     }
     return cell;
+}
+
+-(void)setValue:(id)value {
+    Task *task = (Task *)value;
+    self.actorLabel.text = task.filmstars;
 }
 
 @end

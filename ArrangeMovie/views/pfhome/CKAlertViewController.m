@@ -33,7 +33,7 @@
         self.darkView = [[FXBlurView alloc] initWithFrame:CGRectMake(0, -64, screenWidth, screenHeight+64)];
         self.darkView.tintColor = [UIColor blackColor];
         self.darkView.blurEnabled = YES;
-        self.darkView.blurRadius = 3;
+        self.darkView.blurRadius = 5.6;
         self.darkView.dynamic = YES;
         self.darkView.iterations = 2;
         self.darkView.updateInterval =2.0;

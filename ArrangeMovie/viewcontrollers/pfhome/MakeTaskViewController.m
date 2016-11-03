@@ -113,7 +113,7 @@
     if (indexPath.section == 0 && indexPath.row == 1) {
         AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(17, screenHeight/4, screenWidth-34, screenHeight/2)];
         [amalertview setTitle:@"任务发放数"];
-        
+         
         CKAlertViewController *ckAlertVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
         
         [self presentViewController:ckAlertVC animated:NO completion:nil];

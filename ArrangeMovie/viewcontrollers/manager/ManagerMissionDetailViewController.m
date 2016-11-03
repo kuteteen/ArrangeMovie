@@ -11,6 +11,7 @@
 #import "MissionActorTableViewCell.h"
 #import "ManagerMissionRequireTableViewCell.h"
 #import "ManagerMissionBtnTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 #define Width [UIScreen mainScreen].bounds.size.width
 
@@ -26,6 +27,14 @@
     // Do any additional setup after loading the view.
     self.title = @"任务详情";
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    //导航栏右侧按钮为任务发布人的头像
+    UIImageView *headView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
+    headView.layer.masksToBounds = YES;
+    headView.layer.cornerRadius = 14.f;
+    [headView sd_setImageWithURL:[NSURL URLWithString:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:headView];
+    }];
     
     
 }
@@ -107,20 +116,38 @@
     if(section==0){
         MissionTitleTableViewCell *cell = [MissionTitleTableViewCell cellWithTableView:tableView];
         cell.selectedBackgroundView = [[UIView alloc] init];
-        [cell setValue:@""];
+        [cell setValue:self.task];
         return cell;
     }else if(section==1){
         MissionActorTableViewCell *cell = [MissionActorTableViewCell cellWithTableView:tableView];
         cell.selectedBackgroundView = [[UIView alloc] init];
+        [cell setValue:self.task];
         return cell;
     }else if(section==2){
         
         ManagerMissionRequireTableViewCell *cell = [ManagerMissionRequireTableViewCell cellWithTableView:tableView];
         cell.selectedBackgroundView = [[UIView alloc] init];
+        [cell setValue:self.task];
         return cell;
     }else{
         ManagerMissionBtnTableViewCell *cell = [ManagerMissionBtnTableViewCell cellWithTableView:tableView];
         cell.selectedBackgroundView = [[UIView alloc] init];
+        switch (self.flag) {
+            case 0:
+                [cell.btn setTitle:@"领取任务" forState:UIControlStateNormal];
+                break;
+            case 1:
+                [cell.btn setTitle:@"上传排片任务" forState:UIControlStateNormal];
+                break;
+            case 2:
+                [cell.btn setTitle:@"查看排片任务" forState:UIControlStateNormal];
+                break;
+            case 3:
+                
+                break;
+            default:
+                break;
+        }
         return cell;
     }
 }

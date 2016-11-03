@@ -7,7 +7,12 @@
 //
 
 #import "EMIBaseViewController.h"
+#import "Task.h"
 
 @interface ManagerMissionDetailViewController : EMIBaseViewController
+
+@property (nonatomic, strong) Task *task;
+//0,新任务 1,已领取 2,审核中 3,已完成
+@property (nonatomic, assign) NSInteger flag;
 
 @end

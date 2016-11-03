@@ -33,30 +33,37 @@
 //    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+
     
+//    EMINavigationController *nav;
+//    
+//    NSString *isFirstUse = [OperateNSUserDefault readUserDefaultWithKey:@"isFirstUse"];
     
-//     UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
-//     MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
-//     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+//    if ([isFirstUse isEqualToString:@"0"]) {
+//        //不是第一次登录，首页为登录页
+//        //CK--LoginNav为根视图
+//        
+//        UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+//        nav = [login instantiateViewControllerWithIdentifier:@"loginnav"];
+//    }else{
+//        //欢迎页为根视图
+//        UIStoryboard *launch = [UIStoryboard storyboardWithName:@"launch" bundle:nil];
+//        nav = [launch instantiateViewControllerWithIdentifier:@"launchnav"];
+//    }
+     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
+     ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
     
-    EMINavigationController *nav;
+    //假数据 用户
+    User *user = [[User alloc] init];
     
-    NSString *isFirstUse = [OperateNSUserDefault readUserDefaultWithKey:@"isFirstUse"];
-    
-    if ([isFirstUse isEqualToString:@"0"]) {
-        //不是第一次登录，首页为登录页
-        //CK--LoginNav为根视图
-        
-        UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
-        nav = [login instantiateViewControllerWithIdentifier:@"loginnav"];
-    }else{
-        //欢迎页为根视图
-        UIStoryboard *launch = [UIStoryboard storyboardWithName:@"launch" bundle:nil];
-        nav = [launch instantiateViewControllerWithIdentifier:@"launchnav"];
-    }
-//     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
-//     ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
-//     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+    user.name = @"冯小刚";
+    user.dn = @"1577470000";
+    user.usertype = 0;
+    user.sex = 1;
+    user.headimg = @"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580";
+    user.gradename = @"A级影院";
+    viewController.user = user;
+     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
     
     
     

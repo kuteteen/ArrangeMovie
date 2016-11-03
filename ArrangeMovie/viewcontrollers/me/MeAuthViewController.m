@@ -118,19 +118,28 @@
 -(UIView *)slideView:(SCFadeSlideView *)slideView cellForPageAtIndex:(NSInteger)index {
     SCSlidePageView *pageView = (SCSlidePageView *)[slideView dequeueReusableCell];
     if(!pageView){
-        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, slideView.frame.size.width-84, slideView.frame.size.height)];
+        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(2, 2, slideView.frame.size.width-84, slideView.frame.size.height-4)];
         pageView.layer.cornerRadius = 4;
         pageView.layer.masksToBounds = YES;
         pageView.backgroundColor = [UIColor clearColor];
+//        pageView.coverView.backgroundColor = 
         pageView.coverView.backgroundColor = [UIColor clearColor];
         
         EMIShadowImageView *shadowImageView;
-        shadowImageView = [[EMIShadowImageView alloc] initWithFrame:pageView.frame];
+        shadowImageView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(0, 0, pageView.frame.size.width, pageView.frame.size.height)];
         shadowImageView.contentMode = UIViewContentModeScaleAspectFit;
+        CALayer *shadowLayer = [CALayer layer];
         
+        shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, pageView.frame.size.width, pageView.frame.size.width) cornerRadius:2].CGPath;
+        shadowLayer.shadowColor = [UIColor colorWithRed:10/256 green:14/256 blue:22/256 alpha:1].CGColor;//阴影颜色
+        shadowLayer.shadowOffset = CGSizeMake(0, 0);//偏移距离
+        shadowLayer.shadowOpacity = 1;//不透明度
+        shadowLayer.shadowRadius = 40;//半径
+        
+        [pageView.layer insertSublayer:shadowLayer atIndex:1];
         if(self.array.count>0&&index<self.array.count){
             
-            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:self.array[index] placeholder:@""];
+            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:2 image:self.array[index] placeholder:@""];
             
             //添加删除按钮
             UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake(pageView.frame.size.width-36, 10, 26, 30)];

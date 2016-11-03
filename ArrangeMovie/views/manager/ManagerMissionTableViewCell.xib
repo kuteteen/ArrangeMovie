@@ -135,9 +135,15 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="delTaskBtn" destination="hqh-Zw-2lT" id="RA2-SD-43d"/>
+                <outlet property="directorLabel" destination="efZ-3s-U29" id="uK4-w0-nix"/>
+                <outlet property="filmnameLabel" destination="fiD-Pq-FrO" id="ELs-zS-AFG"/>
                 <outlet property="flagLabel" destination="Q2K-No-Qr3" id="6IC-i5-Asv"/>
                 <outlet property="headImgView" destination="Czs-1h-Pob" id="UWd-8o-hbU"/>
                 <outlet property="postImgView" destination="kBS-90-dgZ" id="Cjm-Vt-T5F"/>
+                <outlet property="taskDateLabel" destination="E4y-Ey-zAX" id="AOP-ru-pUe"/>
+                <outlet property="taskPointsLabel" destination="iX6-rI-ykx" id="Ayh-zw-3fQ"/>
+                <outlet property="taskPublishPhoneLabel" destination="Qza-Z7-y4Z" id="INZ-ux-6eb"/>
             </connections>
         </tableViewCell>
     </objects>

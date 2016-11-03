@@ -13,5 +13,5 @@
 @interface ValidateMobile : NSObject
 
 +(BOOL)ValidateMobile:(NSString *)phoneNumber;
-
++(NSString *)hidePhone:(NSString *)phone;
 @end

@@ -10,5 +10,5 @@
 
 @interface ManagerMissionTableViewCell : SCTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *flagLabel;
-
+@property (weak, nonatomic) IBOutlet UIButton *delTaskBtn;
 @end
