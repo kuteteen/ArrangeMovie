@@ -16,4 +16,7 @@
 
 //设置topView宽度比例
 - (void)setTopViewWithRatio:(CGFloat)ratio;
+
+//设置topView的X
+- (void)setXWithRatio:(CGFloat)ratio;
 @end

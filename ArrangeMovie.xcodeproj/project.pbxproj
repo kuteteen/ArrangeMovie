@@ -66,6 +66,9 @@
 		C8B64E801DB49C8900B4311D /* MeMissionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8B64E7E1DB49C8900B4311D /* MeMissionTableViewCell.xib */; };
 		C8BDA63F1DC792EA00ADB4DF /* EMIFilterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BDA63E1DC792EA00ADB4DF /* EMIFilterButton.m */; };
 		C8D55CB01DC34D9C00F2E1E5 /* SCDateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D55CAF1DC34D9C00F2E1E5 /* SCDateTools.m */; };
+		C8B64E7B1DB475AC00B4311D /* MeMissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B64E7A1DB475AC00B4311D /* MeMissionViewController.m */; };
+		C8B64E7F1DB49C8900B4311D /* MeMissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B64E7D1DB49C8900B4311D /* MeMissionTableViewCell.m */; };
+		C8B64E801DB49C8900B4311D /* MeMissionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8B64E7E1DB49C8900B4311D /* MeMissionTableViewCell.xib */; };
 		C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651321DA9D5DF00400ABC /* MeViewController.m */; };
 		C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651361DA9D62C00400ABC /* EMIBaseViewController.m */; };
 		C8E6513B1DA9D65D00400ABC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6513A1DA9D65D00400ABC /* User.m */; };
@@ -104,7 +107,6 @@
 		D6C48FFA1DBEEA7A009EB672 /* MakeTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C48FF81DBEEA7A009EB672 /* MakeTaskViewController.m */; };
 		D6C48FFE1DBEEA9F009EB672 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C48FFD1DBEEA9F009EB672 /* LaunchViewController.m */; };
 		D6C490001DBEEABD009EB672 /* launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C48FFF1DBEEABD009EB672 /* launch.storyboard */; };
-		D6C490031DBEEAE8009EB672 /* FilmInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C490021DBEEAE8009EB672 /* FilmInfo.m */; };
 		D6C490151DBEEB0D009EB672 /* AMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C490051DBEEB0D009EB672 /* AMAlertView.m */; };
 		D6C490161DBEEB0D009EB672 /* AMAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C490061DBEEB0D009EB672 /* AMAlertView.xib */; };
 		D6C490171DBEEB0D009EB672 /* ChooseFilmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C490081DBEEB0D009EB672 /* ChooseFilmCell.m */; };
@@ -120,6 +122,9 @@
 		D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BC61DB0B705004666BC /* SCHttpOperation.m */; };
 		D6D94BCA1DB0B705004666BC /* SCHttpOperationMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */; };
 		D6D94BCC1DB0BDA6004666BC /* pfhome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D94BCB1DB0BDA6004666BC /* pfhome.storyboard */; };
+		D6E6EDD41DC6EC0C00ED6475 /* TaskDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6EDD31DC6EC0C00ED6475 /* TaskDetail.m */; };
+		D6E8691D1DC2E12500BA861B /* PFUploadImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E8691C1DC2E12500BA861B /* PFUploadImgViewController.m */; };
+		D6EE72F91DC86305008D4AD8 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EE72F81DC86305008D4AD8 /* Test.m */; };
 		E39C21A829586ED653E9F439 /* libPods-ArrangeMovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E8D6CFA6C7C07DE492EFF6 /* libPods-ArrangeMovie.a */; };
 /* End PBXBuildFile section */
 
@@ -300,8 +305,6 @@
 		D6C48FFC1DBEEA9F009EB672 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		D6C48FFD1DBEEA9F009EB672 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		D6C48FFF1DBEEABD009EB672 /* launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = launch.storyboard; path = src/launch.storyboard; sourceTree = "<group>"; };
-		D6C490011DBEEAE8009EB672 /* FilmInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilmInfo.h; path = models/FilmInfo.h; sourceTree = "<group>"; };
-		D6C490021DBEEAE8009EB672 /* FilmInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilmInfo.m; path = models/FilmInfo.m; sourceTree = "<group>"; };
 		D6C490041DBEEB0D009EB672 /* AMAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMAlertView.h; path = views/pfhome/AMAlertView.h; sourceTree = "<group>"; };
 		D6C490051DBEEB0D009EB672 /* AMAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMAlertView.m; path = views/pfhome/AMAlertView.m; sourceTree = "<group>"; };
 		D6C490061DBEEB0D009EB672 /* AMAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AMAlertView.xib; path = views/pfhome/AMAlertView.xib; sourceTree = "<group>"; };
@@ -326,6 +329,12 @@
 		D6D94BC71DB0B705004666BC /* SCHttpOperationMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHttpOperationMgr.h; sourceTree = "<group>"; };
 		D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCHttpOperationMgr.m; sourceTree = "<group>"; };
 		D6D94BCB1DB0BDA6004666BC /* pfhome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = pfhome.storyboard; path = src/pfhome.storyboard; sourceTree = "<group>"; };
+		D6E6EDD21DC6EC0C00ED6475 /* TaskDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDetail.h; path = models/TaskDetail.h; sourceTree = "<group>"; };
+		D6E6EDD31DC6EC0C00ED6475 /* TaskDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDetail.m; path = models/TaskDetail.m; sourceTree = "<group>"; };
+		D6E8691B1DC2E12500BA861B /* PFUploadImgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFUploadImgViewController.h; path = viewcontrollers/pfhome/PFUploadImgViewController.h; sourceTree = "<group>"; };
+		D6E8691C1DC2E12500BA861B /* PFUploadImgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFUploadImgViewController.m; path = viewcontrollers/pfhome/PFUploadImgViewController.m; sourceTree = "<group>"; };
+		D6EE72F71DC86305008D4AD8 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Test.h; path = viewcontrollers/login/Test.h; sourceTree = "<group>"; };
+		D6EE72F81DC86305008D4AD8 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Test.m; path = viewcontrollers/login/Test.m; sourceTree = "<group>"; };
 		F38D72B2516F7DA2E417D9E1 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -603,8 +612,6 @@
 		C8E651381DA9D63800400ABC /* models */ = {
 			isa = PBXGroup;
 			children = (
-				D6C490011DBEEAE8009EB672 /* FilmInfo.h */,
-				D6C490021DBEEAE8009EB672 /* FilmInfo.m */,
 				C8E651391DA9D65D00400ABC /* User.h */,
 				C8E6513A1DA9D65D00400ABC /* User.m */,
 				C859974D1DC04C1E0057C417 /* Task.h */,
@@ -619,6 +626,8 @@
 				C8EB79A91DC07D4E005599BC /* OptDetail.m */,
 				C8EB79AB1DC07F2C005599BC /* BankCard.h */,
 				C8EB79AC1DC07F2C005599BC /* BankCard.m */,
+				D6E6EDD21DC6EC0C00ED6475 /* TaskDetail.h */,
+				D6E6EDD31DC6EC0C00ED6475 /* TaskDetail.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -663,6 +672,8 @@
 				D6B43A1B1DAF6D2900F2849E /* RegViewController.m */,
 				D6950CCF1DB476F4004D6C8B /* LoginAuthViewController.h */,
 				D6950CD01DB476F4004D6C8B /* LoginAuthViewController.m */,
+				D6EE72F71DC86305008D4AD8 /* Test.h */,
+				D6EE72F81DC86305008D4AD8 /* Test.m */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -699,6 +710,8 @@
 				D6BAC80E1DC1893D00A4EDF6 /* AMDetailDoneViewController.m */,
 				D6BAC8101DC1897E00A4EDF6 /* AMDetailFailedViewController.h */,
 				D6BAC8111DC1897E00A4EDF6 /* AMDetailFailedViewController.m */,
+				D6E8691B1DC2E12500BA861B /* PFUploadImgViewController.h */,
+				D6E8691C1DC2E12500BA861B /* PFUploadImgViewController.m */,
 			);
 			name = pfhome;
 			sourceTree = "<group>";
@@ -947,6 +960,7 @@
 				C8EB79AD1DC07F2C005599BC /* BankCard.m in Sources */,
 				C86DE75C1DB5C7F500374734 /* MeMissionDetailViewController.m in Sources */,
 				C8D55CB01DC34D9C00F2E1E5 /* SCDateTools.m in Sources */,
+				D6E8691D1DC2E12500BA861B /* PFUploadImgViewController.m in Sources */,
 				C889D9681DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m in Sources */,
 				D6C48FFE1DBEEA9F009EB672 /* LaunchViewController.m in Sources */,
 				C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */,
@@ -992,13 +1006,13 @@
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
 				C8B64E7B1DB475AC00B4311D /* MeMissionViewController.m in Sources */,
 				C80EB32E1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.m in Sources */,
+				D6E6EDD41DC6EC0C00ED6475 /* TaskDetail.m in Sources */,
 				C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */,
 				D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */,
 				A5A508401DBF2FE500CB2491 /* ManagerIndexViewController.m in Sources */,
 				C80F06501DAE282D00BB75BE /* EMIPointButton.m in Sources */,
 				C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */,
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
-				D6C490031DBEEAE8009EB672 /* FilmInfo.m in Sources */,
 				D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */,
 				C8EB79B11DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m in Sources */,
 				C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */,
@@ -1024,6 +1038,9 @@
 				A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */,
 				D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */,
 				C88A0DEE1DC97C3C00B847AF /* MeMissionPageViewController.m in Sources */,
+				D6EE72F91DC86305008D4AD8 /* Test.m in Sources */,
+				A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */,
+				D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

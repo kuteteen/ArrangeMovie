@@ -47,7 +47,7 @@
     self.navigationItem.rightBarButtonItem = rightNavBtn;
     self.navigationItem.leftBarButtonItem = leftNavBtn;
     //加载头像
-    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.5 shadowRadius:5 image:@"miller" placeholder:@"miller"];
+    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.35 shadowRadius:5 image:@"miller" placeholder:@"miller"];
     //片方姓名
     self.nameLab.text = @"王小二";
     
@@ -122,7 +122,7 @@
     
     switch (indexPath.row) {
         case 0:
-            [cell setValues:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" tailImg:@"" title:@"《让子弹飞》拍片任务接收.....dadsaddas"];
+            [cell setValues:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" tailImg:@"" title:@"《让子弹飞》拍片任务接收"];
             
             break;
         case 1:
@@ -148,7 +148,7 @@
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    PFHomeSectionView *sectionView = [[PFHomeSectionView alloc] initWithType:@"1" imageName:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" titleStr:@"《让子弹飞得特别高特别远，特别特别的快噢噢噢噢》排片任务" bigNumStr:@"100" smallNumStr:@"90.5"];
+    PFHomeSectionView *sectionView = [[PFHomeSectionView alloc] initWithType:@"1" imageName:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" titleStr:@"《让子弹飞》排片任务" bigNumStr:@"100" smallNumStr:@"90.5"];
     
     
     //背景色

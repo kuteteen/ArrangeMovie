@@ -7,6 +7,10 @@
 //
 
 #import "LoginViewController.h"
+#import "PFHomeViewController.h"
+#import "EMINavigationController.h"
+#import "ManagerIndexViewController.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 
@@ -38,6 +42,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    
+    //确保在autolayout后再执行
+//    dispatch_async(dispatch_get_main_queue(), ^{
+        [AppDelegate storyBoradAutoLay:self.view];
+        
+        self.headImgView.frame = CGRectMake(self.headImgView.frame.origin.x, self.headImgView.frame.origin.y, self.headImgView.frame.size.height, self.headImgView.frame.size.height);
+        
+        [self setHead];
+//    });
+
+}
+
 - (void)viewWillDisappear:(BOOL)animated{
     //移除通知
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -48,7 +65,7 @@
 //    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
 //    CGFloat height = keyboardFrame.origin.y;
     CGRect frame = self.view.frame;
-    frame.origin.y = -140;
+    frame.origin.y = -self.outTFView.frame.origin.y+64;
     self.view.frame = frame;
 }
 
@@ -62,16 +79,14 @@
 //初始化视图
 - (void)initView{
     
-    //加载头像
-    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.5 shadowRadius:8 image:@"miller" placeholder:@"miller"];
-    
+    [self setHead];
     //outTFView阴影,及圆角4px
-    [self.outTFView setShadowWithshadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.3 shadowRadius:10];
+    [self.outTFView setShadowWithshadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.26 shadowRadius:10];
     self.outTFView.layer.cornerRadius = 2;
     
     //登录按钮圆角
 //    self.loginBtn.layer.cornerRadius = 15;
-    [self.loginBtn setShadowWithshadowColor:[UIColor blackColor] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.3 shadowRadius:5];
+    [self.loginBtn setShadowWithshadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.26 shadowRadius:5];
     
     
     //忘记密码居中
@@ -102,9 +117,14 @@
     gradientLayer2.startPoint = CGPointMake(1, 0);
     gradientLayer2.endPoint = CGPointMake(0, 0);
     [self.rightLineView.layer addSublayer:gradientLayer2];
-    
+       
 }
 
+
+- (void)setHead{
+    //加载头像
+    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.35 shadowRadius:8 image:@"miller" placeholder:@"miller"];
+}
 
 //隐藏键盘
 - (IBAction)hideKeyBoard:(UITapGestureRecognizer *)sender {
@@ -118,14 +138,32 @@
 }
 //监测手机号，当合法时，请求头像，登录按钮可点击
 - (IBAction)checkTelphoneNum:(UITextField *)sender {
-    if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
-        self.loginBtn.enabled = YES;
-    }else{
-        self.loginBtn.enabled = NO;
-    }
+//    if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
+//        self.loginBtn.enabled = YES;
+//    }else{
+//        self.loginBtn.enabled = NO;
+//    }
+    
+    
+    
 }
 //登录首页
 - (IBAction)toHome:(UIButton *)sender {
+    if ([self.phoneTF.text isEqualToString:@"0"]) {
+        //片方首页
+        UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
+        PFHomeViewController *viewController = [pfhome instantiateViewControllerWithIdentifier:@"pfhome"];
+        EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+        
+        [self presentViewController:nav animated:YES completion:nil];
+    }
+    if ([self.phoneTF.text isEqualToString:@"1"]) {
+        //院线经理首页
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
+        ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
+        EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
 }
 //忘记密码
 - (IBAction)forgetPwd:(UIButton *)sender {

@@ -44,7 +44,8 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+    //分割线
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10);
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
 

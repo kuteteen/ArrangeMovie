@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -11,10 +11,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cHg-ra-dNd" id="rlF-jK-5to">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="143.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="143"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Czs-1h-Pob" customClass="EMIShadowImageView">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Czs-1h-Pob">
                         <rect key="frame" x="15" y="11" width="27" height="27"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="27" id="8WZ-hc-w75"/>
@@ -28,6 +28,13 @@
                             <constraint firstAttribute="height" constant="1" id="9fN-yh-OVE"/>
                         </constraints>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kBS-90-dgZ" customClass="EMIShadowImageView">
+                        <rect key="frame" x="15" y="64" width="53" height="61"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="53" id="FfL-hf-JHQ"/>
+                            <constraint firstAttribute="height" constant="61" id="UKo-lC-CUt"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="爵迹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiD-Pq-FrO">
                         <rect key="frame" x="92" y="64" width="42" height="15"/>
                         <constraints>
@@ -72,32 +79,12 @@
                         </constraints>
                         <state key="normal" image="del_normal"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="182*****961" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-Z7-y4Z">
-                        <rect key="frame" x="59" y="14" width="108" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="108" id="U9m-A7-Gtb"/>
-                            <constraint firstAttribute="height" constant="17" id="tYA-8p-2eK"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <color key="textColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-Z7-y4Z">
+                        <rect key="frame" x="59" y="14" width="42" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="片方审核中" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2K-No-Qr3">
-                        <rect key="frame" x="212" y="15" width="93" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="VZZ-zH-BT4"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
-                        <color key="textColor" red="0.33333333333333331" green="0.48627450980392156" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kBS-90-dgZ" customClass="EMIShadowImageView">
-                        <rect key="frame" x="15" y="64" width="53" height="61"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="53" id="FfL-hf-JHQ"/>
-                            <constraint firstAttribute="height" constant="61" id="UKo-lC-CUt"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="hqh-Zw-2lT" firstAttribute="top" secondItem="rlF-jK-5to" secondAttribute="top" constant="19" id="0U1-bX-G0E"/>
@@ -106,26 +93,19 @@
                     <constraint firstItem="efZ-3s-U29" firstAttribute="top" secondItem="fiD-Pq-FrO" secondAttribute="bottom" constant="14" id="5X1-bC-DIW"/>
                     <constraint firstItem="E4y-Ey-zAX" firstAttribute="leading" secondItem="efZ-3s-U29" secondAttribute="leading" id="8NT-uk-mMb"/>
                     <constraint firstItem="iX6-rI-ykx" firstAttribute="top" secondItem="vkI-97-RvL" secondAttribute="bottom" constant="13" id="9OX-de-GA6"/>
-                    <constraint firstItem="vkI-97-RvL" firstAttribute="top" secondItem="Q2K-No-Qr3" secondAttribute="bottom" constant="20" id="EXt-17-nQP"/>
                     <constraint firstItem="iX6-rI-ykx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fiD-Pq-FrO" secondAttribute="trailing" constant="8" id="GGd-LU-Ptd"/>
                     <constraint firstItem="Czs-1h-Pob" firstAttribute="leading" secondItem="rlF-jK-5to" secondAttribute="leading" constant="15" id="HHg-mx-UCp"/>
                     <constraint firstItem="vkI-97-RvL" firstAttribute="leading" secondItem="rlF-jK-5to" secondAttribute="leading" constant="15" id="IqR-4H-piI"/>
                     <constraint firstItem="Czs-1h-Pob" firstAttribute="top" secondItem="rlF-jK-5to" secondAttribute="top" constant="11" id="JoI-gw-0rX"/>
-                    <constraint firstItem="Q2K-No-Qr3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qza-Z7-y4Z" secondAttribute="trailing" constant="8" id="K9Q-Ht-2HS"/>
-                    <constraint firstAttribute="trailing" secondItem="Q2K-No-Qr3" secondAttribute="trailing" constant="15" id="LTQ-1O-nbZ"/>
-                    <constraint firstItem="Qza-Z7-y4Z" firstAttribute="leading" secondItem="Czs-1h-Pob" secondAttribute="trailing" constant="17" id="QPn-Zt-L5E"/>
                     <constraint firstItem="E4y-Ey-zAX" firstAttribute="top" secondItem="efZ-3s-U29" secondAttribute="bottom" constant="6" id="Rd2-jW-BQy"/>
                     <constraint firstItem="kBS-90-dgZ" firstAttribute="top" secondItem="vkI-97-RvL" secondAttribute="bottom" constant="13" id="UlX-f0-4Eh"/>
                     <constraint firstAttribute="trailing" secondItem="vkI-97-RvL" secondAttribute="trailing" constant="15" id="Ve0-x2-332"/>
                     <constraint firstAttribute="trailing" secondItem="iX6-rI-ykx" secondAttribute="trailing" constant="15" id="WW4-il-Bx7"/>
-                    <constraint firstItem="Qza-Z7-y4Z" firstAttribute="top" secondItem="rlF-jK-5to" secondAttribute="top" constant="14" id="a8I-oW-0fF"/>
                     <constraint firstAttribute="trailing" secondItem="hqh-Zw-2lT" secondAttribute="trailing" constant="15" id="cml-Fv-CTK"/>
                     <constraint firstItem="kBS-90-dgZ" firstAttribute="leading" secondItem="rlF-jK-5to" secondAttribute="leading" constant="15" id="dbZ-uc-EKN"/>
                     <constraint firstItem="fiD-Pq-FrO" firstAttribute="leading" secondItem="kBS-90-dgZ" secondAttribute="trailing" constant="24" id="dsq-vw-W3W"/>
-                    <constraint firstItem="vkI-97-RvL" firstAttribute="top" secondItem="Qza-Z7-y4Z" secondAttribute="bottom" constant="19" id="eOf-gl-5rY"/>
                     <constraint firstItem="iX6-rI-ykx" firstAttribute="top" secondItem="fiD-Pq-FrO" secondAttribute="top" id="idw-BE-xra"/>
                     <constraint firstItem="vkI-97-RvL" firstAttribute="top" secondItem="Czs-1h-Pob" secondAttribute="bottom" constant="12" id="mtf-oZ-q8C"/>
-                    <constraint firstItem="Q2K-No-Qr3" firstAttribute="top" secondItem="rlF-jK-5to" secondAttribute="top" constant="15" id="u8Y-7h-qJq"/>
                     <constraint firstAttribute="trailing" secondItem="E4y-Ey-zAX" secondAttribute="trailing" constant="15" id="xXN-Ue-FCp"/>
                 </constraints>
                 <variation key="default">
@@ -135,15 +115,7 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="delTaskBtn" destination="hqh-Zw-2lT" id="RA2-SD-43d"/>
-                <outlet property="directorLabel" destination="efZ-3s-U29" id="uK4-w0-nix"/>
-                <outlet property="filmnameLabel" destination="fiD-Pq-FrO" id="ELs-zS-AFG"/>
-                <outlet property="flagLabel" destination="Q2K-No-Qr3" id="6IC-i5-Asv"/>
-                <outlet property="headImgView" destination="Czs-1h-Pob" id="UWd-8o-hbU"/>
-                <outlet property="postImgView" destination="kBS-90-dgZ" id="Cjm-Vt-T5F"/>
-                <outlet property="taskDateLabel" destination="E4y-Ey-zAX" id="AOP-ru-pUe"/>
-                <outlet property="taskPointsLabel" destination="iX6-rI-ykx" id="Ayh-zw-3fQ"/>
-                <outlet property="taskPublishPhoneLabel" destination="Qza-Z7-y4Z" id="INZ-ux-6eb"/>
+                <outlet property="postImgView" destination="kBS-90-dgZ" id="AkU-xn-4SB"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -11,6 +11,9 @@
 #import "UIColor+Hex.h"
 #import "UIImage+SCUtil.h"
 #import "ManagerIndexViewController.h"
+#import "LoginViewController.h"
+#import "LaunchViewController.h"
+#import "Test.h"
 
 @interface AppDelegate ()
 
@@ -21,28 +24,38 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    
-    
+
+
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+
+    if(screenHeight > 480){
+        myDelegate.autoSizeScaleX = screenWidth/375;
+        myDelegate.autoSizeScaleY = screenHeight/667;
+    }else{
+        myDelegate.autoSizeScaleX = 320.f/375.f;
+        myDelegate.autoSizeScaleY = 480.f/667.f;
+    }
+
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+
 //    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"all_bg"]]];
 //    self.window.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
     self.window.backgroundColor = [UIColor clearColor];
 //
 //    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
 
-    
+
+
 //    EMINavigationController *nav;
-//    
+//
 //    NSString *isFirstUse = [OperateNSUserDefault readUserDefaultWithKey:@"isFirstUse"];
-    
+
 //    if ([isFirstUse isEqualToString:@"0"]) {
 //        //不是第一次登录，首页为登录页
 //        //CK--LoginNav为根视图
-//        
+//
 //        UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
 //        nav = [login instantiateViewControllerWithIdentifier:@"loginnav"];
 //    }else{
@@ -52,10 +65,10 @@
 //    }
      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
      ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
-    
+
     //假数据 用户
     User *user = [[User alloc] init];
-    
+
     user.name = @"冯小刚";
     user.dn = @"1577470000";
     user.usertype = 0;
@@ -63,10 +76,15 @@
     user.headimg = @"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580";
     user.gradename = @"A级影院";
     viewController.user = user;
-     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
-    
-    
-    
+    EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+
+
+    // UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+    // LoginViewController *viewController = [login instantiateViewControllerWithIdentifier:@"login"];
+    // nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+
+
+
     UIImage *image = [UIImage imageNamed:@"navigation"];
     CGSize titleSize = nav.navigationBar.bounds.size;
     titleSize.height = titleSize.height+20;
@@ -75,9 +93,9 @@
                        forBarPosition:UIBarPositionAny
                            barMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-        
+
     [self.window setRootViewController:nav];
-    
+
     return YES;
 }
 
@@ -112,4 +130,31 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
++ (void)storyBoradAutoLay:(UIView *)allView
+{
+    for (UIView *temp in allView.subviews) {
+
+
+        temp.frame = CGRectMake1(temp.frame.origin.x, temp.frame.origin.y, temp.frame.size.width, temp.frame.size.height);
+
+
+
+
+        if (temp.subviews.count > 0) {
+                [AppDelegate storyBoradAutoLay:temp];
+        }
+
+
+    }
+}
+
+CG_INLINE CGRect//注意：这里的代码要放在.m文件最下面的位置
+CGRectMake1(CGFloat x, CGFloat y, CGFloat width, CGFloat height)
+{
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    CGRect rect;
+    rect.origin.x = x * myDelegate.autoSizeScaleX; rect.origin.y = y * myDelegate.autoSizeScaleY;
+    rect.size.width = width * myDelegate.autoSizeScaleX; rect.size.height = height * myDelegate.autoSizeScaleY;
+    return rect;
+}
 @end

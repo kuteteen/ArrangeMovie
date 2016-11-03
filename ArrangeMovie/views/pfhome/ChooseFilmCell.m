@@ -19,7 +19,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ChooseFilmCell" owner:nil options:nil] objectAtIndex:0];
     }
     cell.headImgView.layer.cornerRadius = 2;
-    [cell.headImgView setShadowWithshadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:5];
+    [cell.headImgView setShadowWithshadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:5];
     return cell;
 }
 

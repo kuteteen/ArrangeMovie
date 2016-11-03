@@ -75,6 +75,8 @@
 //添加图片
 - (IBAction)addImg:(UIButton *)sender {
     NSLog(@"%@",@"添加图片");
+    
+    [self performSegueWithIdentifier:@"toUploadImgVC" sender:self];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -111,12 +113,12 @@
     }
     //任务发放数
     if (indexPath.section == 0 && indexPath.row == 1) {
-        AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(17, screenHeight/4, screenWidth-34, screenHeight/2)];
-        [amalertview setTitle:@"任务发放数"];
-         
-        CKAlertViewController *ckAlertVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
-        
-        [self presentViewController:ckAlertVC animated:NO completion:nil];
+//        AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(17, screenHeight/4, screenWidth-34, screenHeight/2)];
+//        [amalertview setTitle:@"任务发放数"];
+//        
+//        CKAlertViewController *ckAlertVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
+//        
+//        [self presentViewController:ckAlertVC animated:NO completion:nil];
     }
     //任务积分
     if (indexPath.section == 1 && indexPath.row == 0) {

@@ -13,6 +13,7 @@
 #import "SCSlidePageView.h"
 #import "UIView+SDAutoLayout.h"
 #import "ProgressView.h"
+#import "PYPhotoBrowseView.h"
 
 @interface AMDetailUnDoViewController ()<SCFadeSlideViewDelegate,SCFadeSlideViewDataSource>
 @property (nonatomic,strong) NSMutableArray *array;//数据源
@@ -91,7 +92,7 @@
     
     
     //进度条
-    self.proView = [[ProgressView alloc] initWithNewFrame:CGRectMake(screenWidth/5, screenHeight-40, 0.6*screenWidth, 3)];
+    self.proView = [[ProgressView alloc] initWithNewFrame:CGRectMake(screenWidth/5, screenHeight-73, 0.6*screenWidth, 3)];
     [self.view addSubview:self.proView];
     [self showProView];
     
@@ -116,10 +117,21 @@
     return CGSizeMake(slideView.frame.size.width-84, slideView.frame.size.height);
 }
 
-//- (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
-//    NSLog(@"点击了第%ld项",(long)subIndex);
-//
-//}
+- (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
+    NSLog(@"点击了第%ld项",(long)subIndex);
+    //    跳转到排片详情的图片浏览器
+    // 1. 创建photoBroseView对象
+    PYPhotoBrowseView *photoBroseView = [[PYPhotoBrowseView alloc] init];
+    
+    // 2.1 设置图片源(UIImageView)数组
+    //    photoBroseView.sourceImgageViews = imageViews;
+    photoBroseView.imagesURL = self.array;
+    // 2.2 设置初始化图片下标（即当前点击第几张图片）
+    photoBroseView.currentIndex = 0;
+    
+    // 3.显示(浏览)
+    [photoBroseView show];
+}
 
 
 
@@ -155,8 +167,24 @@
             
             [pageView addSubview:shadowImageView];
             
+            //添加时间label
+            //下方圆角
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, pageView.frame.size.height-62, pageView.frame.size.width, 62)];
+            label.textColor = [UIColor colorWithHexString:@"15151b" alpha:1];
+            label.font = [UIFont systemFontOfSize:18.f];
+            label.text = @"2016-09-21排片情况";
+            label.backgroundColor = [UIColor whiteColor];
+            label.textAlignment = NSTextAlignmentCenter;
+            [shadowImageView addSubview:label];
+            
+            UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:label.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(2, 2)];
+            CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+            maskLayer.frame = label.bounds;
+            maskLayer.path = maskPath.CGPath;
+            label.layer.mask = maskLayer;
+            
         }else{
-            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:@"" placeholder:@""];
+            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:@"" placeholder:@""];
             [pageView addSubview:shadowImageView];
             //添加"暂无排片"图片
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((pageView.frame.size.width-120)/2, (pageView.frame.size.height-110)/2, 120, 110)];
@@ -168,7 +196,8 @@
             UILabel *label = [[UILabel alloc] init];
             label.textAlignment = NSTextAlignmentCenter;
             label.text = @"暂无排片，请稍后";
-            label.textColor = [UIColor colorWithHexString:@"#CBCBCB"];
+            label.textColor = [UIColor colorWithHexString:@"#999999"];
+            label.font = [UIFont systemFontOfSize:18.f];
             [pageView addSubview:label];
             label.sd_layout.topSpaceToView(button,15).widthRatioToView(pageView,1).leftSpaceToView(pageView,0).heightIs(40);
         }
@@ -188,8 +217,8 @@
 //根据当前页数组的索引设置进度条的长度
 - (void)setProgressView:(NSInteger)pageNumber{
     if (self.proView != nil) {
-        CGFloat ratio = ((CGFloat)(pageNumber+1))/self.array.count;
-        [self.proView setTopViewWithRatio:ratio];
+        CGFloat ratio = ((CGFloat)(pageNumber))/self.array.count;
+        [self.proView setXWithRatio:ratio];
     }
 }
 /*

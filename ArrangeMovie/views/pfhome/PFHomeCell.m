@@ -23,7 +23,7 @@
 
 - (void)setValues:(NSString *)headImg tailImg:(NSString *)tailImg title:(NSString *)title{
     [self.headImgView sd_setImageWithURL:[NSURL URLWithString:headImg] placeholderImage:[UIImage imageNamed:@"miller"]];
-    [self.headImgView setShadowWithshadowColor:[UIColor colorWithHexString:@"#DDDDDE"] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10];
+    [self.headImgView setShadowWithshadowColor:[UIColor colorWithHexString:@"#DDDDDE"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10];
     if ([tailImg isEqualToString:@""]) {
         self.tailImgView.hidden = YES;
     }else{

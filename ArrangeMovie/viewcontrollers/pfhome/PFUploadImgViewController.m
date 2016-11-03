@@ -1,30 +1,29 @@
 //
-//  LoginAuthViewController.m
+//  PFUploadImgViewController.m
 //  ArrangeMovie
 //
-//  Created by 陈凯 on 16/10/17.
+//  Created by 陈凯 on 16/10/28.
 //  Copyright © 2016年 EMI. All rights reserved.
 //
 
-#import "LoginAuthViewController.h"
+#import "PFUploadImgViewController.h"
 #import "SCFadeSlideView.h"
 #import "SCSlidePageView.h"
 #import "UIView+SDAutoLayout.h"
 #import "UIView+Toast.h"
 #import "ManagerIndexViewController.h"
 
-@interface LoginAuthViewController ()<SCFadeSlideViewDelegate,SCFadeSlideViewDataSource,LCActionSheetDelegate>
+@interface PFUploadImgViewController ()<SCFadeSlideViewDelegate,SCFadeSlideViewDataSource,LCActionSheetDelegate>
 @property (nonatomic,strong) NSMutableArray *array;//数据源
 @property (nonatomic,strong) SCFadeSlideView *slideView;//添加滑动的图片浏览
 @end
 
-@implementation LoginAuthViewController
+@implementation PFUploadImgViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"认证院线经理";
-    
+    self.title = @"上传图片";
     self.array = [[NSMutableArray alloc] initWithCapacity:0];
     [self initViews];
 }
@@ -51,16 +50,8 @@
     [bottomScrollView addSubview:self.slideView];
     [self.view addSubview:bottomScrollView];
     
-    //注
-    UILabel *zhuLabel = [[UILabel alloc] initWithFrame:CGRectMake(17, bottomScrollView.frame.size.height+10+104, screenWidth-34, 60)];
-    zhuLabel.font = [UIFont systemFontOfSize:14];
-    zhuLabel.textAlignment = NSTextAlignmentCenter;
-    zhuLabel.numberOfLines = 0;
-    zhuLabel.text = @"注:认证院线等级越高，可以接到奖励更高的任务";
-    zhuLabel.textColor = [UIColor colorWithHexString:@"#9FA6BC"];
-    [self.view addSubview:zhuLabel];
     //片方,添加圆形打钩按钮
-    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((screenWidth-58)/2, screenHeight-75, 58, 58)];
+    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((screenWidth-58)/2, screenHeight-100, 58, 58)];
     [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
     //        OKImgView setHighlightedImage:[UIImage imageNamed:row]
     [self.view addSubview:OKImgView];
@@ -81,11 +72,7 @@
 - (void)okImgClicked:(UITapGestureRecognizer *)sender{
     //上传完图片后到院方首页
     
-    //
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
-    ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
-    EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
-    [self presentViewController:nav animated:YES completion:nil];
+    
 }
 
 
@@ -97,7 +84,7 @@
 
 //- (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
 //    NSLog(@"点击了第%ld项",(long)subIndex);
-//    
+//
 //}
 
 //弹出框点击事件代理
@@ -173,15 +160,15 @@
         }else{
             [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:@"" placeholder:@""];
             [pageView addSubview:shadowImageView];
-            //添加"上传公司证件审核"图片
+            //添加"上传图片"图片
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((pageView.frame.size.width-120)/2, (pageView.frame.size.height-110)/2, 120, 110)];
             [button setImage:[UIImage imageNamed:@"row_piece_upload_photo"] forState:UIControlStateNormal];
             [button addTarget:self action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
             [pageView addSubview:button];
-            //添加"上传公司证件审核"Label
+            //添加"上传图片"Label
             UILabel *label = [[UILabel alloc] init];
             label.textAlignment = NSTextAlignmentCenter;
-            label.text = @"上传认证资质材料";
+            label.text = @"上传图片";
             label.textColor = [UIColor colorWithHexString:@"#999999"];
             label.font = [UIFont systemFontOfSize:18.f];
             [pageView addSubview:label];

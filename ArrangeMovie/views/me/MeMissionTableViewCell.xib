@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="143.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="143"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="待审核" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENL-ie-sre">
@@ -23,15 +23,8 @@
                         <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ce-QN-Q9A">
-                        <rect key="frame" x="15" y="50" width="290" height="1"/>
-                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="gVG-6E-LcC"/>
-                        </constraints>
-                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N3N-HP-Neo" customClass="EMIShadowImageView">
-                        <rect key="frame" x="15" y="64" width="53" height="61"/>
+                        <rect key="frame" x="15" y="63" width="53" height="61"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="53" id="Bts-5K-HbY"/>
                             <constraint firstAttribute="height" constant="61" id="epv-AA-HeW"/>
@@ -55,7 +48,7 @@
                         <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务时间:2016/09/10-2016/09/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iem-um-4ev">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="任务时间:2016/09/10-2016/09/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iem-um-4ev">
                         <rect key="frame" x="92" y="111" width="213" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="KRJ-b2-5aa"/>
@@ -83,12 +76,10 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="N3N-HP-Neo" firstAttribute="top" secondItem="4ce-QN-Q9A" secondAttribute="bottom" constant="13" id="1It-1e-UeN"/>
                     <constraint firstItem="v4M-5i-ybZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="2mf-Zc-obS"/>
                     <constraint firstItem="ENL-ie-sre" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="3Eb-bK-v8A"/>
-                    <constraint firstItem="4ce-QN-Q9A" firstAttribute="top" secondItem="ENL-ie-sre" secondAttribute="bottom" constant="14" id="6dt-BP-Gu6"/>
                     <constraint firstItem="iem-um-4ev" firstAttribute="top" secondItem="803-fR-bHE" secondAttribute="bottom" constant="6" id="A20-dd-wzy"/>
-                    <constraint firstItem="Uyn-cG-hEk" firstAttribute="top" secondItem="4ce-QN-Q9A" secondAttribute="bottom" constant="13" id="DLJ-al-Fpc"/>
+                    <constraint firstItem="N3N-HP-Neo" firstAttribute="top" secondItem="ENL-ie-sre" secondAttribute="bottom" constant="27" id="AyW-9p-n1w"/>
                     <constraint firstItem="803-fR-bHE" firstAttribute="leading" secondItem="KcD-kb-fhQ" secondAttribute="leading" id="FeJ-de-oAL"/>
                     <constraint firstItem="803-fR-bHE" firstAttribute="top" secondItem="KcD-kb-fhQ" secondAttribute="bottom" constant="14" id="P6y-CP-hVe"/>
                     <constraint firstItem="iem-um-4ev" firstAttribute="leading" secondItem="803-fR-bHE" secondAttribute="leading" id="R5N-Ub-wnV"/>
@@ -97,18 +88,11 @@
                     <constraint firstItem="Uyn-cG-hEk" firstAttribute="top" secondItem="KcD-kb-fhQ" secondAttribute="top" id="eAB-fT-Jsk"/>
                     <constraint firstItem="KcD-kb-fhQ" firstAttribute="leading" secondItem="N3N-HP-Neo" secondAttribute="trailing" constant="24" id="ekf-5z-TlH"/>
                     <constraint firstAttribute="trailing" secondItem="Uyn-cG-hEk" secondAttribute="trailing" constant="15" id="nHd-Mi-gcB"/>
-                    <constraint firstItem="4ce-QN-Q9A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ncs-Rf-CSm"/>
                     <constraint firstItem="N3N-HP-Neo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="qJM-mQ-SPu"/>
-                    <constraint firstAttribute="trailing" secondItem="4ce-QN-Q9A" secondAttribute="trailing" constant="15" id="qZO-aH-DF9"/>
                     <constraint firstItem="KcD-kb-fhQ" firstAttribute="top" secondItem="N3N-HP-Neo" secondAttribute="top" id="v01-aJ-HU4"/>
                     <constraint firstItem="ENL-ie-sre" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="vDa-S7-cpu"/>
                     <constraint firstAttribute="trailing" secondItem="v4M-5i-ybZ" secondAttribute="trailing" constant="15" id="wQH-Vr-9R7"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="DLJ-al-Fpc"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="postImgView" destination="N3N-HP-Neo" id="M1h-f3-GiA"/>

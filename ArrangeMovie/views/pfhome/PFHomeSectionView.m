@@ -22,7 +22,7 @@
         //默认关闭
         self.isOpen = NO;
         
-        [self.headImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"#DDDDDE"] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:imageName placeholder:@"miller"];
+        [self.headImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"#DDDDDE"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:imageName placeholder:@"miller"];
         
         self.titleLab = [[UILabel alloc] init];
         self.titleLab.textAlignment = NSTextAlignmentLeft;
