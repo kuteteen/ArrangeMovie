@@ -32,18 +32,33 @@
         
         imageView.image = image;
   
-        //添加圆形边框
-        CAGradientLayer *borderLayer = [CAGradientLayer layer];
-        borderLayer.frame = CGRectMake(0-4, 0-4, self.frame.size.width+8, self.frame.size.height+8);
-        borderLayer.cornerRadius = (float)(self.layer.frame.size.width+8)/2;
-        borderLayer.startPoint = CGPointMake(0, 1);
-        borderLayer.endPoint = CGPointMake(1, 0);
-        borderLayer.locations  = @[@(0.25), @(1)];
-        UIColor *firstColor = [UIColor colorWithHexString:@"375595" alpha:1];
-        UIColor *secondColor = [UIColor colorWithHexString:@"7899ce" alpha:1];
+        //清除layer
+        //是否已加过渐变layer
+        int isgradient = 0;
+        for (CALayer *item in self.layer.sublayers) {
+            if ([item isKindOfClass:[CAGradientLayer class]]) {
+                isgradient = 1;
+                item.frame = CGRectMake(0-4, 0-4, self.frame.size.width+8, self.frame.size.height+8);
+                item.cornerRadius = (float)(self.layer.frame.size.width+8)/2;
+                
+            }
+            
+        }
+        if (isgradient == 0) {
+            //添加圆形边框
+            CAGradientLayer *borderLayer = [CAGradientLayer layer];
+            borderLayer.frame = CGRectMake(0-4, 0-4, self.frame.size.width+8, self.frame.size.height+8);
+            borderLayer.cornerRadius = (float)(self.layer.frame.size.width+8)/2;
+            borderLayer.startPoint = CGPointMake(0, 1);
+            borderLayer.endPoint = CGPointMake(1, 0);
+            borderLayer.locations  = @[@(0.25), @(1)];
+            UIColor *firstColor = [UIColor colorWithHexString:@"375595" alpha:1];
+            UIColor *secondColor = [UIColor colorWithHexString:@"7899ce" alpha:1];
+            
+            borderLayer.colors = [NSArray arrayWithObjects:(id)firstColor.CGColor,(id)secondColor.CGColor,(id)[UIColor greenColor].CGColor, nil];
+            [self.layer addSublayer:borderLayer];
+        }
         
-        borderLayer.colors = [NSArray arrayWithObjects:(id)firstColor.CGColor,(id)secondColor.CGColor,(id)[UIColor greenColor].CGColor, nil];
-        [self.layer addSublayer:borderLayer];
         //                [self addSubview:self];
         
         //描出圆形图片imageView阴影路径
@@ -52,7 +67,10 @@
         self.layer.shadowOffset = CGSizeMake(0, 0);//偏移距离
         self.layer.shadowOpacity = 0.35;//不透明度
         self.layer.shadowRadius = 8;//半径
-        
+        //清除子视图
+        for (UIView *item in self.subviews) {
+            [item removeFromSuperview];
+        }
         [self addSubview:imageView];
     }
 }

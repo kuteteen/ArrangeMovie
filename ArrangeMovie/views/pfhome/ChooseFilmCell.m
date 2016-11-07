@@ -9,6 +9,7 @@
 #import "ChooseFilmCell.h"
 #import "UIView+Shadow.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "AppDelegate.h"
 
 @implementation ChooseFilmCell
 
@@ -20,6 +21,9 @@
     }
     cell.headImgView.layer.cornerRadius = 2;
     [cell.headImgView setShadowWithshadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:5];
+    
+    //根据比例布局
+    [AppDelegate storyBoradAutoLay:cell];
     return cell;
 }
 
@@ -30,6 +34,9 @@
     self.titleLab.text = titleStr;
     self.centerLab.text = centerStr;
     self.bottomLab.text = bottomStr;
+    
+    
+    
 }
 
 @end

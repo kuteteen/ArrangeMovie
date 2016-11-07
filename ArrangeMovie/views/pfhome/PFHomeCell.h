@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;
 @property (weak, nonatomic) IBOutlet UIImageView *tailImgView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleWidth;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 

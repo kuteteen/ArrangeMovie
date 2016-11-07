@@ -8,6 +8,7 @@
 
 #import "TaskCellNormal.h"
 #import "UIView+Shadow.h"
+#import "AppDelegate.h"
 
 @implementation TaskCellNormal
 
@@ -22,21 +23,15 @@
     
     
     //调整字体,根据屏幕大小
-    if (iPhone6SPlus) {
-        cell.titleLab.font = [UIFont systemFontOfSize:14.f];
-        cell.contentLab.font = [UIFont systemFontOfSize:16.f];
-    }
-    if (iPhone6S) {
-        cell.titleLab.font = [UIFont systemFontOfSize:13.f];
-        cell.contentLab.font = [UIFont systemFontOfSize:15.f];
-    }
     if (iPhone5S) {
         cell.titleLab.font = [UIFont systemFontOfSize:11.f];
         cell.contentLab.font = [UIFont systemFontOfSize:12.f];
     }
+    [AppDelegate storyBoradAutoLay:cell];
+    
     if (iPhone4S) {
-        cell.titleLab.font = [UIFont systemFontOfSize:11.f];
-        cell.contentLab.font = [UIFont systemFontOfSize:12.f];
+        cell.titleLab.font = [UIFont systemFontOfSize:10.f];
+        cell.contentLab.font = [UIFont systemFontOfSize:11.f];
     }
     return cell;
 }
@@ -46,11 +41,19 @@
 //title
 - (void)setTitleTxt:(NSString *)str{
     self.titleLab.text = str;
+    
 }
 
 //内容
 - (void)setContentTxt:(NSString *)str{
     self.contentLab.text = str;
+     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
+    // 调整行间距
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:10*myDelegate.autoSizeScaleY];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
+    self.contentLab.attributedText = attributedString;
     
 }
 //cell宽度 （screenWidth-34-12.5）/2  高度 (screenHeight-30-15*3)/3

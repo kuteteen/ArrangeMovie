@@ -9,6 +9,7 @@
 #import "MakeTaskViewController.h"
 #import "AMAlertView.h"
 #import "CKAlertViewController.h"
+#import "TouchLabel.h"
 
 
 @interface MakeTaskViewController ()<UICollectionViewDelegateFlowLayout>
@@ -25,6 +26,8 @@
 //    self.definesPresentationContext = YES;
     
     [self initView];
+    
+    [AppDelegate storyBoradAutoLay:self.view];
 }
 
 
@@ -113,25 +116,23 @@
     }
     //任务发放数
     if (indexPath.section == 0 && indexPath.row == 1) {
-//        AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(17, screenHeight/4, screenWidth-34, screenHeight/2)];
-//        [amalertview setTitle:@"任务发放数"];
-//        
-//        CKAlertViewController *ckAlertVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
-//        
-//        [self presentViewController:ckAlertVC animated:NO completion:nil];
+        [self createAlertView];
     }
     //任务积分
     if (indexPath.section == 1 && indexPath.row == 0) {
+        [self createAlertView];
     }
     //任务时间
     if (indexPath.section == 1 && indexPath.row == 1) {
     }
     //影院级别
     if (indexPath.section == 2 && indexPath.row == 0) {
+        [self createAlertView];
     }
+    
     //任务类型
     if (indexPath.section == 2 && indexPath.row == 1) {
-        NSLog(@"%@",@"任务类型");
+        [self createAlertView];
     }
     
 }
@@ -140,10 +141,38 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake((screenWidth-34-12.5*2)/2, (screenHeight-15-15*3-64-40)/3);
+    return CGSizeMake(164*self.myDelegate.autoSizeScaleX, 170*self.myDelegate.autoSizeScaleY);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(7.5, 6.25, 7.5, 6.25);
+    return UIEdgeInsetsMake(7.5*self.myDelegate.autoSizeScaleX, 6.25*self.myDelegate.autoSizeScaleY, 7.5*self.myDelegate.autoSizeScaleX, 6.25*self.myDelegate.autoSizeScaleX);
+}
+
+
+- (void)createAlertView{
+    AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(43.5*self.myDelegate.autoSizeScaleX, (667/2-173)*self.myDelegate.autoSizeScaleY, 288*self.myDelegate.autoSizeScaleX, 346*self.myDelegate.autoSizeScaleY)];
+    [amalertview setTitle:@"通过审核"];
+    UIScrollView *childView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 288*self.myDelegate.autoSizeScaleX, 300*self.myDelegate.autoSizeScaleY)];
+    ;
+    childView.scrollEnabled = YES;
+    childView.showsVerticalScrollIndicator = NO;
+    childView.showsHorizontalScrollIndicator = NO;
+    CGFloat y = 0;
+    for (int i = 0; i <100; i ++) {
+        
+        
+        TouchLabel *label = [[TouchLabel alloc] initWithBlock:^(NSString *str) {
+            NSLog(@"%@",str);
+        } frame:CGRectMake(24*self.myDelegate.autoSizeScaleX, y, 240*self.myDelegate.autoSizeScaleX, 40*self.myDelegate.autoSizeScaleY)];
+        label.text = [NSString stringWithFormat:@"%d份",i+1];
+        y = 40*self.myDelegate.autoSizeScaleY+y;
+        
+        [childView addSubview:label];
+    }
+    childView.contentSize = CGSizeMake(0, y);
+    [amalertview setChildView:childView];
+    CKAlertViewController *ckAlertVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
+    
+    [self presentViewController:ckAlertVC animated:NO completion:nil];
 }
 /*
 #pragma mark - Navigation

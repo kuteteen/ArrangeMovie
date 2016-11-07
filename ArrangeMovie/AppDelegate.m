@@ -14,6 +14,7 @@
 #import "LoginViewController.h"
 #import "LaunchViewController.h"
 #import "Test.h"
+#import "SCFadeSlideView.h"
 
 @interface AppDelegate ()
 
@@ -125,17 +126,29 @@
 
 + (void)storyBoradAutoLay:(UIView *)allView
 {
+    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     for (UIView *temp in allView.subviews) {
         
 
-        temp.frame = CGRectMake1(temp.frame.origin.x, temp.frame.origin.y, temp.frame.size.width, temp.frame.size.height);
-        
-        
+        //不要改变SCFadeSlideView的位置，因为计算滚动到第几页用到的frame在初始化方法里，后续改变frame会出问题
+        if (![temp isKindOfClass:[SCFadeSlideView class]]) {
+            temp.frame = CGRectMake1(temp.frame.origin.x, temp.frame.origin.y, temp.frame.size.width, temp.frame.size.height);
             
             
-        if (temp.subviews.count > 0) {
+            if (iPhone4S) {
+                if ([temp isKindOfClass:[UILabel class]]) {
+                    ((UILabel *)(temp)).font = [UIFont systemFontOfSize:((UILabel *)(temp)).font.pointSize-2];
+                }
+            }
+            
+            if (temp.subviews.count > 0) {
                 [AppDelegate storyBoradAutoLay:temp];
+            }
+        }else{
+            NSLog(@"%@",@"SCFadeSlideView");
         }
+        
+        
         
         
     }

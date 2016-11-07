@@ -8,6 +8,7 @@
 
 #import "EMIBaseViewController.h"
 
+
 @interface EMIBaseViewController ()
 
 @end
@@ -19,6 +20,8 @@
     // Do any additional setup after loading the view.
     self.view.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.myDelegate = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning {

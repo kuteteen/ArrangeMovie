@@ -28,6 +28,14 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     //    }
+    
+    
+    [AppDelegate storyBoradAutoLay:self.view];
+    
+    self.headImgView.frame = CGRectMake(self.headImgView.frame.origin.x, self.headImgView.frame.origin.y, self.headImgView.frame.size.height, self.headImgView.frame.size.height);
+    
+    [self setHead];
+    self.yzmBtn.layer.cornerRadius = self.yzmBtn.frame.size.height/2;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +53,7 @@
     //    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     //    CGFloat height = keyboardFrame.origin.y;
     CGRect frame = self.view.frame;
-    frame.origin.y = -140;
+    frame.origin.y = -CGRectGetMaxY(self.headImgView.frame)-6+64;
     self.view.frame = frame;
 }
 
@@ -60,7 +68,7 @@
     
     self.title = @"忘记密码";
     //头像
-    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.35 shadowRadius:8 image:@"miller" placeholder:@"miller"];
+    [self setHead];
     //提交按钮阴影
     [self.tjBtn setShadowWithshadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.26 shadowRadius:5];
     
@@ -68,9 +76,9 @@
     //获取验证码按钮
     self.yzmBtn = [[YZMButton alloc] initWithTime:60];
     
+    self.yzmBtn.frame = CGRectMake(230, 18, 101, 28);
     [self.yzmView addSubview:self.yzmBtn];
-    self.yzmBtn.sd_layout.centerYEqualToView(self.yzmView).rightSpaceToView(self.yzmView,0).heightRatioToView(self.yzmView,0.6).widthRatioToView(self.yzmView,0.27);
-    self.yzmBtn.layer.cornerRadius = 0.035*screenHeight*0.6;
+    self.yzmBtn.layer.cornerRadius = self.yzmBtn.frame.size.height/2;
 //    __unsafe_unretained typeof(self) weakSelf = self;
     self.yzmBtn.clickBlock = ^(){
         
@@ -80,6 +88,11 @@
         
     };
     
+}
+
+- (void)setHead{
+    //加载头像
+    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.35 shadowRadius:8 image:@"miller" placeholder:@"miller"];
 }
 //隐藏键盘
 - (IBAction)hideKeyBoard:(UITapGestureRecognizer *)sender {
