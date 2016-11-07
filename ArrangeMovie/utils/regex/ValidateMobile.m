@@ -59,4 +59,16 @@
     }
 }
 
++(NSString *)hidePhone:(NSString *)phone {
+    if ([self ValidateMobile:phone]) {
+        //替换手机号码四位为*
+        NSString *start = [phone substringToIndex:3];
+        NSString *end = [phone substringFromIndex:7];
+        NSString *result = [NSString stringWithFormat:@"%@****%@",start,end];
+        return result;
+    }else {
+        return phone;
+    }
+}
+
 @end

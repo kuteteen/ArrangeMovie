@@ -16,8 +16,6 @@
 		A5A5084E1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5A5084C1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.xib */; };
 		A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */; };
 		A5AC117B1DABA57D00CBBE05 /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */; };
-		A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC117D1DABA5E200CBBE05 /* MePointRecordTableViewCell.m */; };
-		A5AC11801DABA5E200CBBE05 /* MePointRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC117E1DABA5E200CBBE05 /* MePointRecordTableViewCell.xib */; };
 		A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11821DABA63300CBBE05 /* MeSettingTableViewCell.m */; };
 		A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */; };
 		A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AC11871DABA69100CBBE05 /* MeBankCardTableViewCell.m */; };
@@ -43,6 +41,8 @@
 		C859974F1DC04C1E0057C417 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = C859974E1DC04C1E0057C417 /* Task.m */; };
 		C85997521DC0565F0057C417 /* TakeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997511DC0565F0057C417 /* TakeTask.m */; };
 		C85997551DC058560057C417 /* Film.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997541DC058560057C417 /* Film.m */; };
+		C86161971DCAC94600B3DEB3 /* MePointRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86161951DCAC94600B3DEB3 /* MePointRecordTableViewCell.m */; };
+		C86161981DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86161961DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib */; };
 		C86DE7531DB5B63600374734 /* MissionActorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */; };
 		C86DE7541DB5B63600374734 /* MissionActorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */; };
 		C86DE7581DB5BD5300374734 /* MissionRequireTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE7561DB5BD5300374734 /* MissionRequireTableViewCell.m */; };
@@ -60,9 +60,12 @@
 		C889D9641DB07E90008156B2 /* MeAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C889D9631DB07E90008156B2 /* MeAboutViewController.m */; };
 		C889D9681DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C889D9661DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m */; };
 		C889D9691DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C889D9671DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib */; };
+		C88A0DEE1DC97C3C00B847AF /* MeMissionPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C88A0DED1DC97C3C00B847AF /* MeMissionPageViewController.m */; };
 		C8B64E7B1DB475AC00B4311D /* MeMissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B64E7A1DB475AC00B4311D /* MeMissionViewController.m */; };
 		C8B64E7F1DB49C8900B4311D /* MeMissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B64E7D1DB49C8900B4311D /* MeMissionTableViewCell.m */; };
 		C8B64E801DB49C8900B4311D /* MeMissionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8B64E7E1DB49C8900B4311D /* MeMissionTableViewCell.xib */; };
+		C8BDA63F1DC792EA00ADB4DF /* EMIFilterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BDA63E1DC792EA00ADB4DF /* EMIFilterButton.m */; };
+		C8D55CB01DC34D9C00F2E1E5 /* SCDateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D55CAF1DC34D9C00F2E1E5 /* SCDateTools.m */; };
 		C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651321DA9D5DF00400ABC /* MeViewController.m */; };
 		C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E651361DA9D62C00400ABC /* EMIBaseViewController.m */; };
 		C8E6513B1DA9D65D00400ABC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E6513A1DA9D65D00400ABC /* User.m */; };
@@ -78,23 +81,10 @@
 		C8EB79BA1DC0AD2A005599BC /* ManagerMissionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8EB79B81DC0AD2A005599BC /* ManagerMissionTableViewCell.xib */; };
 		C8EB79BD1DC0B719005599BC /* SCWebInterfaceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79BC1DC0B719005599BC /* SCWebInterfaceBase.m */; };
 		C8EB79C31DC0BAEA005599BC /* UpdateProfileWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79C21DC0BAEA005599BC /* UpdateProfileWebInterface.m */; };
-		D61685E41DD015E1007EAA64 /* RegisterWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61685E31DD015E1007EAA64 /* RegisterWebInterface.m */; };
-		D61685E71DD01CFA007EAA64 /* MobileCodeWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61685E61DD01CFA007EAA64 /* MobileCodeWebInterface.m */; };
-		D61685EA1DD01D96007EAA64 /* LoginWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61685E91DD01D96007EAA64 /* LoginWebInterface.m */; };
-		D61685ED1DD0203F007EAA64 /* ForgetPwdWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61685EC1DD0203F007EAA64 /* ForgetPwdWebInterface.m */; };
-		D61685F01DD020C7007EAA64 /* UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D61685EF1DD020C7007EAA64 /* UploadFile.m */; };
-		D61685F41DD023F8007EAA64 /* PFHomeWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61685F31DD023F8007EAA64 /* PFHomeWebInterface.m */; };
-		D61685F71DD02503007EAA64 /* PFAMDetailWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61685F61DD02503007EAA64 /* PFAMDetailWebInterface.m */; };
-		D61685FA1DD0264B007EAA64 /* PFAuditWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61685F91DD0264B007EAA64 /* PFAuditWebInterface.m */; };
-		D61685FD1DD02709007EAA64 /* FilmListWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61685FC1DD02709007EAA64 /* FilmListWebInterface.m */; };
-		D61686001DD02778007EAA64 /* GradeListWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61685FF1DD02778007EAA64 /* GradeListWebInterface.m */; };
-		D61686031DD02881007EAA64 /* ReleaseTaskWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686021DD02881007EAA64 /* ReleaseTaskWebInterface.m */; };
 		D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A064B1DAB5CA8003832A8 /* login.storyboard */; };
 		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
 		D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06591DAB88F7003832A8 /* UIView+Shadow.m */; };
-		D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */; };
-		D66370CC1DCC6E68005320FD /* TouchLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D66370CB1DCC6E68005320FD /* TouchLabel.m */; };
 		D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CC61DB45025004D6C8B /* PFHomeViewController.m */; };
 		D6950CCA1DB459BF004D6C8B /* LFLUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CC91DB459BF004D6C8B /* LFLUISegmentedControl.m */; };
 		D6950CCD1DB45D51004D6C8B /* TableWithNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CCC1DB45D51004D6C8B /* TableWithNoDataView.m */; };
@@ -151,9 +141,6 @@
 		A5AC11771DABA57D00CBBE05 /* MeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeTableViewCell.h; path = views/me/MeTableViewCell.h; sourceTree = "<group>"; };
 		A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeTableViewCell.m; path = views/me/MeTableViewCell.m; sourceTree = "<group>"; };
 		A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeTableViewCell.xib; path = views/me/MeTableViewCell.xib; sourceTree = "<group>"; };
-		A5AC117C1DABA5E200CBBE05 /* MePointRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MePointRecordTableViewCell.h; path = views/me/MePointRecordTableViewCell.h; sourceTree = "<group>"; };
-		A5AC117D1DABA5E200CBBE05 /* MePointRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MePointRecordTableViewCell.m; path = views/me/MePointRecordTableViewCell.m; sourceTree = "<group>"; };
-		A5AC117E1DABA5E200CBBE05 /* MePointRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MePointRecordTableViewCell.xib; path = views/me/MePointRecordTableViewCell.xib; sourceTree = "<group>"; };
 		A5AC11811DABA63300CBBE05 /* MeSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeSettingTableViewCell.h; path = views/me/MeSettingTableViewCell.h; sourceTree = "<group>"; };
 		A5AC11821DABA63300CBBE05 /* MeSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeSettingTableViewCell.m; path = views/me/MeSettingTableViewCell.m; sourceTree = "<group>"; };
 		A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeSettingTableViewCell.xib; path = views/me/MeSettingTableViewCell.xib; sourceTree = "<group>"; };
@@ -199,6 +186,9 @@
 		C85997511DC0565F0057C417 /* TakeTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TakeTask.m; path = models/TakeTask.m; sourceTree = "<group>"; };
 		C85997531DC058560057C417 /* Film.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Film.h; path = models/Film.h; sourceTree = "<group>"; };
 		C85997541DC058560057C417 /* Film.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Film.m; path = models/Film.m; sourceTree = "<group>"; };
+		C86161941DCAC94600B3DEB3 /* MePointRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MePointRecordTableViewCell.h; path = views/me/MePointRecordTableViewCell.h; sourceTree = "<group>"; };
+		C86161951DCAC94600B3DEB3 /* MePointRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MePointRecordTableViewCell.m; path = views/me/MePointRecordTableViewCell.m; sourceTree = "<group>"; };
+		C86161961DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MePointRecordTableViewCell.xib; path = views/me/MePointRecordTableViewCell.xib; sourceTree = "<group>"; };
 		C86DE7501DB5B63600374734 /* MissionActorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionActorTableViewCell.h; path = views/me/MissionActorTableViewCell.h; sourceTree = "<group>"; };
 		C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionActorTableViewCell.m; path = views/me/MissionActorTableViewCell.m; sourceTree = "<group>"; };
 		C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MissionActorTableViewCell.xib; path = views/me/MissionActorTableViewCell.xib; sourceTree = "<group>"; };
@@ -229,11 +219,17 @@
 		C889D9651DB0AC59008156B2 /* MeSettingSignOutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeSettingSignOutTableViewCell.h; path = views/me/MeSettingSignOutTableViewCell.h; sourceTree = "<group>"; };
 		C889D9661DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeSettingSignOutTableViewCell.m; path = views/me/MeSettingSignOutTableViewCell.m; sourceTree = "<group>"; };
 		C889D9671DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeSettingSignOutTableViewCell.xib; path = views/me/MeSettingSignOutTableViewCell.xib; sourceTree = "<group>"; };
+		C88A0DEC1DC97C3C00B847AF /* MeMissionPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionPageViewController.h; path = viewcontrollers/me/MeMissionPageViewController.h; sourceTree = "<group>"; };
+		C88A0DED1DC97C3C00B847AF /* MeMissionPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionPageViewController.m; path = viewcontrollers/me/MeMissionPageViewController.m; sourceTree = "<group>"; };
 		C8B64E791DB475AC00B4311D /* MeMissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionViewController.h; path = viewcontrollers/me/MeMissionViewController.h; sourceTree = "<group>"; };
 		C8B64E7A1DB475AC00B4311D /* MeMissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionViewController.m; path = viewcontrollers/me/MeMissionViewController.m; sourceTree = "<group>"; };
 		C8B64E7C1DB49C8900B4311D /* MeMissionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionTableViewCell.h; path = views/me/MeMissionTableViewCell.h; sourceTree = "<group>"; };
 		C8B64E7D1DB49C8900B4311D /* MeMissionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionTableViewCell.m; path = views/me/MeMissionTableViewCell.m; sourceTree = "<group>"; };
 		C8B64E7E1DB49C8900B4311D /* MeMissionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionTableViewCell.xib; path = views/me/MeMissionTableViewCell.xib; sourceTree = "<group>"; };
+		C8BDA63D1DC792EA00ADB4DF /* EMIFilterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMIFilterButton.h; path = views/base/EMIFilterButton.h; sourceTree = "<group>"; };
+		C8BDA63E1DC792EA00ADB4DF /* EMIFilterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMIFilterButton.m; path = views/base/EMIFilterButton.m; sourceTree = "<group>"; };
+		C8D55CAE1DC34D9C00F2E1E5 /* SCDateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCDateTools.h; path = utils/SCDateTools.h; sourceTree = "<group>"; };
+		C8D55CAF1DC34D9C00F2E1E5 /* SCDateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCDateTools.m; path = utils/SCDateTools.m; sourceTree = "<group>"; };
 		C8E651311DA9D5DF00400ABC /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeViewController.h; path = viewcontrollers/me/MeViewController.h; sourceTree = "<group>"; };
 		C8E651321DA9D5DF00400ABC /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeViewController.m; path = viewcontrollers/me/MeViewController.m; sourceTree = "<group>"; };
 		C8E651351DA9D62C00400ABC /* EMIBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMIBaseViewController.h; path = viewcontrollers/base/EMIBaseViewController.h; sourceTree = "<group>"; };
@@ -261,28 +257,6 @@
 		C8EB79BC1DC0B719005599BC /* SCWebInterfaceBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWebInterfaceBase.m; sourceTree = "<group>"; };
 		C8EB79C11DC0BAEA005599BC /* UpdateProfileWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateProfileWebInterface.h; path = me/UpdateProfileWebInterface.h; sourceTree = "<group>"; };
 		C8EB79C21DC0BAEA005599BC /* UpdateProfileWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateProfileWebInterface.m; path = me/UpdateProfileWebInterface.m; sourceTree = "<group>"; };
-		D61685E21DD015E1007EAA64 /* RegisterWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterWebInterface.h; path = login/RegisterWebInterface.h; sourceTree = "<group>"; };
-		D61685E31DD015E1007EAA64 /* RegisterWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterWebInterface.m; path = login/RegisterWebInterface.m; sourceTree = "<group>"; };
-		D61685E51DD01CFA007EAA64 /* MobileCodeWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileCodeWebInterface.h; path = login/MobileCodeWebInterface.h; sourceTree = "<group>"; };
-		D61685E61DD01CFA007EAA64 /* MobileCodeWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MobileCodeWebInterface.m; path = login/MobileCodeWebInterface.m; sourceTree = "<group>"; };
-		D61685E81DD01D96007EAA64 /* LoginWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginWebInterface.h; path = login/LoginWebInterface.h; sourceTree = "<group>"; };
-		D61685E91DD01D96007EAA64 /* LoginWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginWebInterface.m; path = login/LoginWebInterface.m; sourceTree = "<group>"; };
-		D61685EB1DD0203F007EAA64 /* ForgetPwdWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgetPwdWebInterface.h; path = login/ForgetPwdWebInterface.h; sourceTree = "<group>"; };
-		D61685EC1DD0203F007EAA64 /* ForgetPwdWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgetPwdWebInterface.m; path = login/ForgetPwdWebInterface.m; sourceTree = "<group>"; };
-		D61685EE1DD020C7007EAA64 /* UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFile.h; sourceTree = "<group>"; };
-		D61685EF1DD020C7007EAA64 /* UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFile.m; sourceTree = "<group>"; };
-		D61685F21DD023F8007EAA64 /* PFHomeWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFHomeWebInterface.h; path = pfhome/PFHomeWebInterface.h; sourceTree = "<group>"; };
-		D61685F31DD023F8007EAA64 /* PFHomeWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFHomeWebInterface.m; path = pfhome/PFHomeWebInterface.m; sourceTree = "<group>"; };
-		D61685F51DD02503007EAA64 /* PFAMDetailWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAMDetailWebInterface.h; path = pfhome/PFAMDetailWebInterface.h; sourceTree = "<group>"; };
-		D61685F61DD02503007EAA64 /* PFAMDetailWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAMDetailWebInterface.m; path = pfhome/PFAMDetailWebInterface.m; sourceTree = "<group>"; };
-		D61685F81DD0264B007EAA64 /* PFAuditWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAuditWebInterface.h; path = pfhome/PFAuditWebInterface.h; sourceTree = "<group>"; };
-		D61685F91DD0264B007EAA64 /* PFAuditWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAuditWebInterface.m; path = pfhome/PFAuditWebInterface.m; sourceTree = "<group>"; };
-		D61685FB1DD02709007EAA64 /* FilmListWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilmListWebInterface.h; path = pfhome/FilmListWebInterface.h; sourceTree = "<group>"; };
-		D61685FC1DD02709007EAA64 /* FilmListWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilmListWebInterface.m; path = pfhome/FilmListWebInterface.m; sourceTree = "<group>"; };
-		D61685FE1DD02778007EAA64 /* GradeListWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradeListWebInterface.h; path = pfhome/GradeListWebInterface.h; sourceTree = "<group>"; };
-		D61685FF1DD02778007EAA64 /* GradeListWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradeListWebInterface.m; path = pfhome/GradeListWebInterface.m; sourceTree = "<group>"; };
-		D61686011DD02881007EAA64 /* ReleaseTaskWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReleaseTaskWebInterface.h; path = pfhome/ReleaseTaskWebInterface.h; sourceTree = "<group>"; };
-		D61686021DD02881007EAA64 /* ReleaseTaskWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReleaseTaskWebInterface.m; path = pfhome/ReleaseTaskWebInterface.m; sourceTree = "<group>"; };
 		D62A064B1DAB5CA8003832A8 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = login.storyboard; path = src/login.storyboard; sourceTree = "<group>"; };
 		D62A064E1DAB63D1003832A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewcontrollers/login/LoginViewController.h; sourceTree = "<group>"; };
 		D62A064F1DAB63D1003832A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontrollers/login/LoginViewController.m; sourceTree = "<group>"; };
@@ -293,8 +267,6 @@
 		D62A065C1DAC817A003832A8 /* am.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = am.pch; path = config/am.pch; sourceTree = "<group>"; };
 		D62A065E1DACADAA003832A8 /* FgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FgetPwdViewController.h; path = viewcontrollers/login/FgetPwdViewController.h; sourceTree = "<group>"; };
 		D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FgetPwdViewController.m; path = viewcontrollers/login/FgetPwdViewController.m; sourceTree = "<group>"; };
-		D66370CA1DCC6E68005320FD /* TouchLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchLabel.h; path = views/pfhome/TouchLabel.h; sourceTree = "<group>"; };
-		D66370CB1DCC6E68005320FD /* TouchLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TouchLabel.m; path = views/pfhome/TouchLabel.m; sourceTree = "<group>"; };
 		D6950CC51DB45025004D6C8B /* PFHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFHomeViewController.h; path = viewcontrollers/pfhome/PFHomeViewController.h; sourceTree = "<group>"; };
 		D6950CC61DB45025004D6C8B /* PFHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFHomeViewController.m; path = viewcontrollers/pfhome/PFHomeViewController.m; sourceTree = "<group>"; };
 		D6950CC81DB459BF004D6C8B /* LFLUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFLUISegmentedControl.h; path = views/base/LFLUISegmentedControl.h; sourceTree = "<group>"; };
@@ -444,6 +416,8 @@
 				D6950CCC1DB45D51004D6C8B /* TableWithNoDataView.m */,
 				C82AF8E61DB7170600882DB6 /* SCTopLeftAlignLabel.h */,
 				C82AF8E71DB7170600882DB6 /* SCTopLeftAlignLabel.m */,
+				C8BDA63D1DC792EA00ADB4DF /* EMIFilterButton.h */,
+				C8BDA63E1DC792EA00ADB4DF /* EMIFilterButton.m */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -496,6 +470,8 @@
 		C8E6512A1DA9D43900400ABC /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				C8D55CAE1DC34D9C00F2E1E5 /* SCDateTools.h */,
+				C8D55CAF1DC34D9C00F2E1E5 /* SCDateTools.m */,
 				D6C48FF11DBEEA5F009EB672 /* NSUserDefault */,
 				D62A06511DAB7CE4003832A8 /* regex */,
 				C8E651441DA9EA8800400ABC /* category */,
@@ -543,15 +519,15 @@
 		C8E6512F1DA9D56900400ABC /* me */ = {
 			isa = PBXGroup;
 			children = (
+				C86161941DCAC94600B3DEB3 /* MePointRecordTableViewCell.h */,
+				C86161951DCAC94600B3DEB3 /* MePointRecordTableViewCell.m */,
+				C86161961DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib */,
 				A5B85DDA1DAF310D000DD644 /* MeBankAddTableViewCell.h */,
 				A5B85DDB1DAF310D000DD644 /* MeBankAddTableViewCell.m */,
 				A5B85DDC1DAF310D000DD644 /* MeBankAddTableViewCell.xib */,
 				A5AC11771DABA57D00CBBE05 /* MeTableViewCell.h */,
 				A5AC11781DABA57D00CBBE05 /* MeTableViewCell.m */,
 				A5AC11791DABA57D00CBBE05 /* MeTableViewCell.xib */,
-				A5AC117C1DABA5E200CBBE05 /* MePointRecordTableViewCell.h */,
-				A5AC117D1DABA5E200CBBE05 /* MePointRecordTableViewCell.m */,
-				A5AC117E1DABA5E200CBBE05 /* MePointRecordTableViewCell.xib */,
 				A5AC11811DABA63300CBBE05 /* MeSettingTableViewCell.h */,
 				A5AC11821DABA63300CBBE05 /* MeSettingTableViewCell.m */,
 				A5AC11831DABA63300CBBE05 /* MeSettingTableViewCell.xib */,
@@ -612,6 +588,8 @@
 				C86DE75B1DB5C7F500374734 /* MeMissionDetailViewController.m */,
 				C82AF8E91DB75BAC00882DB6 /* MeMissionCheckViewController.h */,
 				C82AF8EA1DB75BAC00882DB6 /* MeMissionCheckViewController.m */,
+				C88A0DEC1DC97C3C00B847AF /* MeMissionPageViewController.h */,
+				C88A0DED1DC97C3C00B847AF /* MeMissionPageViewController.m */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -677,40 +655,6 @@
 			children = (
 			);
 			name = manager;
-			sourceTree = "<group>";
-		};
-		D61685E11DD0156B007EAA64 /* login */ = {
-			isa = PBXGroup;
-			children = (
-				D61685E21DD015E1007EAA64 /* RegisterWebInterface.h */,
-				D61685E31DD015E1007EAA64 /* RegisterWebInterface.m */,
-				D61685E51DD01CFA007EAA64 /* MobileCodeWebInterface.h */,
-				D61685E61DD01CFA007EAA64 /* MobileCodeWebInterface.m */,
-				D61685E81DD01D96007EAA64 /* LoginWebInterface.h */,
-				D61685E91DD01D96007EAA64 /* LoginWebInterface.m */,
-				D61685EB1DD0203F007EAA64 /* ForgetPwdWebInterface.h */,
-				D61685EC1DD0203F007EAA64 /* ForgetPwdWebInterface.m */,
-			);
-			name = login;
-			sourceTree = "<group>";
-		};
-		D61685F11DD0238F007EAA64 /* pfhome */ = {
-			isa = PBXGroup;
-			children = (
-				D61685F21DD023F8007EAA64 /* PFHomeWebInterface.h */,
-				D61685F31DD023F8007EAA64 /* PFHomeWebInterface.m */,
-				D61685F51DD02503007EAA64 /* PFAMDetailWebInterface.h */,
-				D61685F61DD02503007EAA64 /* PFAMDetailWebInterface.m */,
-				D61685F81DD0264B007EAA64 /* PFAuditWebInterface.h */,
-				D61685F91DD0264B007EAA64 /* PFAuditWebInterface.m */,
-				D61685FB1DD02709007EAA64 /* FilmListWebInterface.h */,
-				D61685FC1DD02709007EAA64 /* FilmListWebInterface.m */,
-				D61685FE1DD02778007EAA64 /* GradeListWebInterface.h */,
-				D61685FF1DD02778007EAA64 /* GradeListWebInterface.m */,
-				D61686011DD02881007EAA64 /* ReleaseTaskWebInterface.h */,
-				D61686021DD02881007EAA64 /* ReleaseTaskWebInterface.m */,
-			);
-			name = pfhome;
 			sourceTree = "<group>";
 		};
 		D62A064D1DAB637C003832A8 /* login */ = {
@@ -793,8 +737,6 @@
 				D6950CD81DB4C0AB004D6C8B /* PFHomeSectionView.xib */,
 				D6BAC8131DC1A36200A4EDF6 /* ProgressView.h */,
 				D6BAC8141DC1A36200A4EDF6 /* ProgressView.m */,
-				D66370CA1DCC6E68005320FD /* TouchLabel.h */,
-				D66370CB1DCC6E68005320FD /* TouchLabel.m */,
 			);
 			name = pfhome;
 			sourceTree = "<group>";
@@ -831,18 +773,14 @@
 		D6D94BC41DB0B705004666BC /* net */ = {
 			isa = PBXGroup;
 			children = (
-				C8EB79BF1DC0B93F005599BC /* manager */,
-				C8EB79BE1DC0B939005599BC /* me */,
-				D61685E11DD0156B007EAA64 /* login */,
-				D61685F11DD0238F007EAA64 /* pfhome */,
-				D61685EE1DD020C7007EAA64 /* UploadFile.h */,
-				D61685EF1DD020C7007EAA64 /* UploadFile.m */,
 				D6D94BC51DB0B705004666BC /* SCHttpOperation.h */,
 				D6D94BC61DB0B705004666BC /* SCHttpOperation.m */,
 				D6D94BC71DB0B705004666BC /* SCHttpOperationMgr.h */,
 				D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */,
 				C8EB79BB1DC0B719005599BC /* SCWebInterfaceBase.h */,
 				C8EB79BC1DC0B719005599BC /* SCWebInterfaceBase.m */,
+				C8EB79BE1DC0B939005599BC /* me */,
+				C8EB79BF1DC0B93F005599BC /* manager */,
 			);
 			path = net;
 			sourceTree = "<group>";
@@ -915,7 +853,6 @@
 				D6C490161DBEEB0D009EB672 /* AMAlertView.xib in Resources */,
 				D6C490181DBEEB0D009EB672 /* ChooseFilmCell.xib in Resources */,
 				C86DE7591DB5BD5300374734 /* MissionRequireTableViewCell.xib in Resources */,
-				A5AC11801DABA5E200CBBE05 /* MePointRecordTableViewCell.xib in Resources */,
 				D6C4901F1DBEEB0D009EB672 /* TaskCellTime.xib in Resources */,
 				D6C4901B1DBEEB0D009EB672 /* PFHomeCell.xib in Resources */,
 				D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */,
@@ -927,6 +864,7 @@
 				C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */,
 				A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */,
 				D6950CD91DB4C0AB004D6C8B /* PFHomeSectionView.xib in Resources */,
+				C86161981DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib in Resources */,
 				A5A5084E1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.xib in Resources */,
 				A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */,
 				C8B64E801DB49C8900B4311D /* MeMissionTableViewCell.xib in Resources */,
@@ -1017,12 +955,12 @@
 				A5A508481DBF466900CB2491 /* ManagerNewMissionTableViewCell.m in Sources */,
 				C8EB79AD1DC07F2C005599BC /* BankCard.m in Sources */,
 				C86DE75C1DB5C7F500374734 /* MeMissionDetailViewController.m in Sources */,
+				C8D55CB01DC34D9C00F2E1E5 /* SCDateTools.m in Sources */,
 				D6E8691D1DC2E12500BA861B /* PFUploadImgViewController.m in Sources */,
 				C889D9681DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m in Sources */,
 				D6C48FFE1DBEEA9F009EB672 /* LaunchViewController.m in Sources */,
 				C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */,
 				C80F064A1DACFDCD00BB75BE /* MeBankCardViewController.m in Sources */,
-				D61685F41DD023F8007EAA64 /* PFHomeWebInterface.m in Sources */,
 				A5A5084D1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.m in Sources */,
 				D6C48FFA1DBEEA7A009EB672 /* MakeTaskViewController.m in Sources */,
 				C889D9641DB07E90008156B2 /* MeAboutViewController.m in Sources */,
@@ -1032,12 +970,14 @@
 				C889D95E1DB0742E008156B2 /* MeSettingViewController.m in Sources */,
 				C8B64E7F1DB49C8900B4311D /* MeMissionTableViewCell.m in Sources */,
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
+				C8BDA63F1DC792EA00ADB4DF /* EMIFilterButton.m in Sources */,
 				C82AF8EB1DB75BAC00882DB6 /* MeMissionCheckViewController.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				D6950CD71DB4BF06004D6C8B /* PFHomeSectionView.m in Sources */,
 				D6BAC8151DC1A36200A4EDF6 /* ProgressView.m in Sources */,
 				C86DE7531DB5B63600374734 /* MissionActorTableViewCell.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
+				C86161971DCAC94600B3DEB3 /* MePointRecordTableViewCell.m in Sources */,
 				D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */,
 				D6D94BCA1DB0B705004666BC /* SCHttpOperationMgr.m in Sources */,
 				D6C4901E1DBEEB0D009EB672 /* TaskCellTime.m in Sources */,
@@ -1048,18 +988,15 @@
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
 				C8EB79AA1DC07D4E005599BC /* OptDetail.m in Sources */,
 				D6950CD11DB476F4004D6C8B /* LoginAuthViewController.m in Sources */,
-				D61685FA1DD0264B007EAA64 /* PFAuditWebInterface.m in Sources */,
 				D6C48FF91DBEEA7A009EB672 /* ChooseFilmViewController.m in Sources */,
 				C8001CDF1DC075570092696C /* Grade.m in Sources */,
 				C889D95B1DAF83F3008156B2 /* MeAuthViewController.m in Sources */,
-				D61685F01DD020C7007EAA64 /* UploadFile.m in Sources */,
 				D6950CCA1DB459BF004D6C8B /* LFLUISegmentedControl.m in Sources */,
 				C859974F1DC04C1E0057C417 /* Task.m in Sources */,
 				A5A508431DBF386900CB2491 /* ManagerMissionDetailViewController.m in Sources */,
 				C80F064D1DACFDED00BB75BE /* MeNewCardViewController.m in Sources */,
 				D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */,
 				A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */,
-				D61685EA1DD01D96007EAA64 /* LoginWebInterface.m in Sources */,
 				C889D9611DB07DEB008156B2 /* MeFeedbackViewController.m in Sources */,
 				A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */,
 				D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */,
@@ -1076,11 +1013,8 @@
 				D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */,
 				C8EB79B11DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m in Sources */,
 				C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */,
-				D61685ED1DD0203F007EAA64 /* ForgetPwdWebInterface.m in Sources */,
 				A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */,
-				D61685E41DD015E1007EAA64 /* RegisterWebInterface.m in Sources */,
 				D6950CCD1DB45D51004D6C8B /* TableWithNoDataView.m in Sources */,
-				D61685E71DD01CFA007EAA64 /* MobileCodeWebInterface.m in Sources */,
 				C85997521DC0565F0057C417 /* TakeTask.m in Sources */,
 				C85997551DC058560057C417 /* Film.m in Sources */,
 				D6C490191DBEEB0D009EB672 /* CKAlertViewController.m in Sources */,
@@ -1092,20 +1026,14 @@
 				C86DE7581DB5BD5300374734 /* MissionRequireTableViewCell.m in Sources */,
 				D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */,
 				C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */,
-				D61685F71DD02503007EAA64 /* PFAMDetailWebInterface.m in Sources */,
 				D6C4901C1DBEEB0D009EB672 /* TaskCellNormal.m in Sources */,
 				D6C490171DBEEB0D009EB672 /* ChooseFilmCell.m in Sources */,
 				D6950CDD1DB4CAC1004D6C8B /* UILabel+StringFrame.m in Sources */,
-				D61685FD1DD02709007EAA64 /* FilmListWebInterface.m in Sources */,
-				D61686031DD02881007EAA64 /* ReleaseTaskWebInterface.m in Sources */,
-				D61686001DD02778007EAA64 /* GradeListWebInterface.m in Sources */,
 				C82AF8E41DB70A0600882DB6 /* MissionNoAuthTableViewCell.m in Sources */,
 				C8EB79B91DC0AD2A005599BC /* ManagerMissionTableViewCell.m in Sources */,
 				D6C490151DBEEB0D009EB672 /* AMAlertView.m in Sources */,
+				C88A0DEE1DC97C3C00B847AF /* MeMissionPageViewController.m in Sources */,
 				D6EE72F91DC86305008D4AD8 /* Test.m in Sources */,
-				A5AC117F1DABA5E200CBBE05 /* MePointRecordTableViewCell.m in Sources */,
-				D62A06601DACADAA003832A8 /* FgetPwdViewController.m in Sources */,
-				D66370CC1DCC6E68005320FD /* TouchLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

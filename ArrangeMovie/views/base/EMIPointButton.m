@@ -10,6 +10,8 @@
 #import "UIColor+Hex.h"
 #import "UIImage+SCUtil.h"
 
+#define Width [UIScreen mainScreen].bounds.size.width
+
 @implementation EMIPointButton
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -44,7 +46,12 @@
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     // 文字对齐
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
-    self.titleLabel.font = [UIFont systemFontOfSize:18];
+    if(Width>320){
+        self.titleLabel.font = [UIFont systemFontOfSize:18];
+    }else{
+        self.titleLabel.font = [UIFont systemFontOfSize:16];
+    }
+    
     // 文字颜色
     [self setTitleColor:[UIColor colorWithHexString:@"EDEDEE"] forState:UIControlStateNormal];
     [self setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forState:UIControlStateNormal];
@@ -62,21 +69,37 @@
 }
 
 -(CGRect)imageRectForContentRect:(CGRect)contentRect{
-    CGFloat imageX = 20;
-    CGFloat imageY = 7;
-    CGFloat imageW = 19;
-    CGFloat imageH = 20;
+    if(Width>320){
+        CGFloat imageX = 20;
+        CGFloat imageY = 7;
+        CGFloat imageW = 19;
+        CGFloat imageH = 20;
     
-    return CGRectMake(imageX, imageY, imageW, imageH);
+        return CGRectMake(imageX, imageY, imageW, imageH);
+    }else{
+        CGFloat imageX = 15;
+        CGFloat imageY = 7;
+        CGFloat imageW = 19;
+        CGFloat imageH = 20;
+        
+        return CGRectMake(imageX, imageY, imageW, imageH);
+    }
 }
 -(CGRect)titleRectForContentRect:(CGRect)contentRect {
     
-    
-    CGFloat titleX = 45;
-    CGFloat titleY = 7;
-    CGFloat titleW = contentRect.size.width-45-8;
-    CGFloat titleH = 20;
-    return CGRectMake(titleX, titleY, titleW, titleH);
+    if(Width>320){
+        CGFloat titleX = 45;
+        CGFloat titleY = 7;
+        CGFloat titleW = contentRect.size.width-45-8;
+        CGFloat titleH = 20;
+        return CGRectMake(titleX, titleY, titleW, titleH);
+    }else{
+        CGFloat titleX = 40;
+        CGFloat titleY = 7;
+        CGFloat titleW = contentRect.size.width-40-8;
+        CGFloat titleH = 20;
+        return CGRectMake(titleX, titleY, titleW, titleH);
+    }
 }
 
 @end

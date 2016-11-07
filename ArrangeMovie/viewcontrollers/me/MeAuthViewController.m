@@ -36,11 +36,11 @@
     }else{
         self.title = @"认证院线经理";
     }
-    
+
 //    self.array = [[NSMutableArray alloc] init];
     self.array = @[@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580"];
     [self initViewsWithUserType:self.user.usertype];
-    
+
 }
 
 -(void)initViewsWithUserType:(int)type {
@@ -51,11 +51,11 @@
     slideView.datasource = self;
     slideView.minimumPageAlpha = 0.4;
     slideView.minimumPageScale = 0.85;
-    
+
     ///添加初始的添加按钮图片
     slideView.orginPageCount = 1;
     slideView.orientation = SCFadeSlideViewOrientationHorizontal;
-    
+
     /****************************
      使用导航控制器(UINavigationController)
      如果控制器中不存在UIScrollView或者继承自UIScrollView的UI控件
@@ -64,8 +64,8 @@
     UIScrollView *bottomScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 104, Width, Height-143-104)];
     [bottomScrollView addSubview:slideView];
     [self.view addSubview:bottomScrollView];
-    
-    
+
+
     if(type==0){
         //片方,添加圆形打钩按钮
         EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((Width-58)/2, Height-110, 58, 58)];
@@ -74,20 +74,20 @@
         [self.view addSubview:OKImgView];
     }else if(type ==1){
         //添加下部Label文字说明
-        
+
         //添加蓝色按钮"重新认证"
 
     }
-    
+
     switch (type) {
         case 0:
-            
-            
-            
-            
+
+
+
+
             break;
         case 1:
-            
+
             break;
         default:
             break;
@@ -118,27 +118,37 @@
 -(UIView *)slideView:(SCFadeSlideView *)slideView cellForPageAtIndex:(NSInteger)index {
     SCSlidePageView *pageView = (SCSlidePageView *)[slideView dequeueReusableCell];
     if(!pageView){
-        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, slideView.frame.size.width-84, slideView.frame.size.height)];
+        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(2, 2, slideView.frame.size.width-84, slideView.frame.size.height-4)];
         pageView.layer.cornerRadius = 4;
         pageView.layer.masksToBounds = YES;
         pageView.backgroundColor = [UIColor clearColor];
+//        pageView.coverView.backgroundColor =
         pageView.coverView.backgroundColor = [UIColor clearColor];
-        
+
         EMIShadowImageView *shadowImageView;
-        shadowImageView = [[EMIShadowImageView alloc] initWithFrame:pageView.frame];
+        shadowImageView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(0, 0, pageView.frame.size.width, pageView.frame.size.height)];
         shadowImageView.contentMode = UIViewContentModeScaleAspectFit;
-        
+        CALayer *shadowLayer = [CALayer layer];
+
+        shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, pageView.frame.size.width, pageView.frame.size.width) cornerRadius:2].CGPath;
+        shadowLayer.shadowColor = [UIColor colorWithRed:10/256 green:14/256 blue:22/256 alpha:1].CGColor;//阴影颜色
+        shadowLayer.shadowOffset = CGSizeMake(0, 0);//偏移距离
+        shadowLayer.shadowOpacity = 1;//不透明度
+        shadowLayer.shadowRadius = 40;//半径
+
+        [pageView.layer insertSublayer:shadowLayer atIndex:1];
         if(self.array.count>0&&index<self.array.count){
             
             [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:self.array[index] placeholder:@""];
-            
+
+
             //添加删除按钮
             UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake(pageView.frame.size.width-36, 10, 26, 30)];
             delBtn.tag = index;
             [delBtn addTarget:self action:@selector(delPhoto:) forControlEvents:UIControlEventTouchUpInside];
             [delBtn setBackgroundImage:[UIImage imageNamed:@"del_normal"] forState:UIControlStateNormal];
-            
-            
+
+
             //todo
             [pageView addSubview:shadowImageView];
             [pageView addSubview:delBtn];
@@ -150,14 +160,14 @@
             [button setImage:[UIImage imageNamed:@"row_piece_upload_photo"] forState:UIControlStateNormal];
             [button addTarget:self action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
             [pageView addSubview:button];
-            
+
             //添加"上传公司证件审核"Label
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, button.frame.origin.y+120+30, pageView.frame.size.width, 40)];
             label.textAlignment = NSTextAlignmentCenter;
             label.text = @"上传公司证件审核";
             [shadowImageView addSubview:label];
         }
-        
+
     }
     return pageView;
 }
@@ -201,7 +211,7 @@
         [imagePicker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL flag) {
             NSLog(@"%@",photos[0]);
         }];
-        
+
         [self presentViewController:imagePicker animated:YES completion:nil];
     }
 }

@@ -6,8 +6,9 @@
 //  Copyright © 2016年 EMI. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SCTableViewCell.h"
 
-@interface ManagerMissionTableViewCell : UITableViewCell
-
+@interface ManagerMissionTableViewCell : SCTableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *flagLabel;
+@property (weak, nonatomic) IBOutlet UIButton *delTaskBtn;
 @end
