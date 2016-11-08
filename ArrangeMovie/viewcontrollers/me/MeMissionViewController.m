@@ -28,7 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
 
-@property (nonatomic, strong) MeMissionPageViewController *viewController;
+//@property (nonatomic, strong) MeMissionPageViewController *viewController;
 ///页数
 @property (nonatomic, assign) NSInteger pageCount;
 ///第N页

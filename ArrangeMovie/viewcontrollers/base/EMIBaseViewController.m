@@ -19,7 +19,25 @@
     // Do any additional setup after loading the view.
     self.view.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(disableRESideMenu)
+//                                                 name:@"disableRESideMenu"
+//                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(enableRESideMenu)
+//                                                 name:@"enableRESideMenu"
+//                                               object:nil];
 }
+
+//- (void)enableRESideMenu {
+//    self.panGestureEnabled = YES;
+//}
+//
+//- (void)disableRESideMenu {
+//    self.panGestureEnabled = NO;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -174,7 +174,7 @@
     
                 CALayer *shadowLayer = [CALayer layer];
     
-                shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0-4, 0-4, self.frame.size.width+8, self.frame.size.width+8) cornerRadius:2].CGPath;
+                shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0-2, 0-2, self.frame.size.width+4, self.frame.size.width+4) cornerRadius:2].CGPath;
                 shadowLayer.shadowColor = color.CGColor;//阴影颜色
                 shadowLayer.shadowOffset = offset;//偏移距离
                 shadowLayer.shadowOpacity = opacity;//不透明度
