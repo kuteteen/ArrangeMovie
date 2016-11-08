@@ -23,6 +23,11 @@
     [super viewDidLoad];
     
     [self initView];
+    
+//    [AppDelegate storyBoradAutoLay:self.view];
+//
+    self.tableView.frame = CGRectMake(0, 64, screenWidth, screenHeight-64);
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,13 +49,14 @@
 - (void)initView{
     self.title = @"选择电影名称";
     
-    self.tableView.separatorInset = UIEdgeInsetsMake(0, 17, 0, 17);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     _searchController.searchResultsUpdater = self;
     _searchController.dimsBackgroundDuringPresentation = NO;
     _searchController.hidesNavigationBarDuringPresentation = NO;
     _searchController.searchBar.frame = CGRectMake(0, 0, screenWidth, 44.0);
+    _searchController.searchBar.placeholder = @"请输入你要搜索的内容";
     self.tableView.tableHeaderView = self.searchController.searchBar;
     
     self.dataList=[NSMutableArray arrayWithCapacity:100];
@@ -59,7 +65,7 @@
     
     for (NSInteger i=0; i<100; i++) {
         
-        NSDictionary *dic = @{@"filmimgurl":@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg",@"filmname":[NSString stringWithFormat:@"%ld",(long)i],@"filmdirector":@"导演：陈凯",@"filmstars":@"演员：陈凯"};
+        NSDictionary *dic = @{@"filmimgurl":@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg",@"filmname":[NSString stringWithFormat:@"让子弹飞%ld",(long)i],@"filmdirector":@"导演：陈凯",@"filmstars":@"演员：陈凯、杨幂、胡歌、科比、詹姆斯"};
         
         Film *film = [Film mj_objectWithKeyValues:dic];
         
@@ -113,7 +119,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 103*self.myDelegate.autoSizeScaleY;
 }
 
 -(void)updateSearchResultsForSearchController:(UISearchController *)searchController {

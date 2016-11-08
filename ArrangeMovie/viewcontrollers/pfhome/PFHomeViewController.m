@@ -21,6 +21,15 @@
     [super viewDidLoad];
     
     [self initView];
+    
+    [AppDelegate storyBoradAutoLay:self.view];
+    
+    self.headImgView.frame = CGRectMake(self.headImgView.frame.origin.x, self.headImgView.frame.origin.y, self.headImgView.frame.size.height, self.headImgView.frame.size.height);
+    if (iPhone4S) {
+        self.headImgView.frame = CGRectMake(130, 68, 60, 60);
+        self.nameLab.font = [UIFont systemFontOfSize:16.f];
+    }
+    [self setHead];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +44,9 @@
     self.sectionArray = [[NSMutableArray alloc] initWithCapacity:0];
     [self.sectionArray addObject:@[@"1",@"2",@"3]"]];
     [self.sectionArray addObject:@[@"1",@"2",@"3]"]];
+    [self.sectionArray addObject:@[@"1",@"2",@"3]"]];
+    [self.sectionArray addObject:@[@"1",@"2",@"3]"]];
+    [self.sectionArray addObject:@[@"1",@"2",@"3]"]];
     self.isshowArray = [[NSMutableArray alloc] initWithCapacity:0];
     self.issselectedArray = [[NSMutableArray alloc] initWithCapacity:0];
     
@@ -46,8 +58,10 @@
     UIBarButtonItem *rightNavBtn = [UIBarButtonItem itemWithImageName:@"film_index_my" highImageName:@"film_index_my" target:self action:@selector(rightNavBtnClicked:)];
     self.navigationItem.rightBarButtonItem = rightNavBtn;
     self.navigationItem.leftBarButtonItem = leftNavBtn;
-    //加载头像
-    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.35 shadowRadius:5 image:@"miller" placeholder:@"miller"];
+   
+    
+    [self setHead];
+    
     //片方姓名
     self.nameLab.text = @"王小二";
     
@@ -56,6 +70,11 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
+
+- (void)setHead{
+    //加载头像
+    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.35 shadowRadius:5 image:@"miller" placeholder:@"miller"];
+}
 
 //处理数据
 - (void)handleData{
@@ -140,15 +159,15 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 51;
+    return 55*self.myDelegate.autoSizeScaleY;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 101;
+    return 101*self.myDelegate.autoSizeScaleY;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    PFHomeSectionView *sectionView = [[PFHomeSectionView alloc] initWithType:@"1" imageName:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" titleStr:@"《让子弹飞》排片任务" bigNumStr:@"100" smallNumStr:@"90.5"];
+    PFHomeSectionView *sectionView = [[PFHomeSectionView alloc] initWithType:@"1" imageName:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" titleStr:@"《让子弹飞》排片任务" bigNumStr:@"8" smallNumStr:@"0.5"];
     
     
     //背景色

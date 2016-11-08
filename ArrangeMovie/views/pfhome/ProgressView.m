@@ -21,14 +21,15 @@
         self.bottomView = [[UIView alloc] init];
         self.bottomView.backgroundColor = [UIColor colorWithHexString:@"#ffffff"];
         self.bottomView.alpha = 0.4;
+        self.bottomView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         [self addSubview:self.bottomView];
-        self.bottomView.sd_layout.xIs(0).topSpaceToView(self,0).bottomSpaceToView(self,0).widthRatioToView(self,1);
+        
         [self setCorner:self.bottomView];
         //顶层
         self.topView = [[UIView alloc] init];
         self.topView.backgroundColor = [UIColor colorWithHexString:@"#ffffff"];
+        self.topView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         [self addSubview:self.topView];
-        self.topView.sd_layout.leftSpaceToView(self,0).topSpaceToView(self,0).bottomSpaceToView(self,0).widthIs(frame.size.width);
         [self setCorner:self.topView];
     }
     return self;
@@ -36,7 +37,7 @@
 //设置topView宽度比例
 - (void)setTopViewWithRatio:(CGFloat)ratio{
     [UIView animateWithDuration: 0.35 delay: 0 options: UIViewAnimationOptionCurveEaseInOut animations: ^{
-       self.topView.sd_layout.widthIs(self.frame.size.width*ratio);
+        self.topView.frame = CGRectMake(0, 0, ratio*self.frame.size.width, self.frame.size.height);
     } completion: ^(BOOL finished) {
         
     }];
@@ -45,7 +46,7 @@
 //设置topView的X
 - (void)setXWithRatio:(CGFloat)ratio{
     [UIView animateWithDuration: 0.35 delay: 0 options: UIViewAnimationOptionCurveEaseInOut animations: ^{
-        self.topView.sd_layout.xIs(self.frame.size.width*ratio);
+        self.topView.frame = CGRectMake(self.frame.size.width*ratio, 0, self.topView.frame.size.width, self.frame.size.height);
     } completion: ^(BOOL finished) {
         
     }];

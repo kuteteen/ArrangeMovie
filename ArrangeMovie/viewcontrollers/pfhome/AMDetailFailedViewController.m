@@ -35,10 +35,12 @@
     self.array = [[NSMutableArray alloc] initWithCapacity:0];
     
     //假数据
-    [self.array addObject:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580"];
-    [self.array addObject:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580"];
+    [self.array addObject:@"http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580"];
+    [self.array addObject:@"http://img.hb.aicdn.com/d2024a8a998c8d3e4ba842e40223c23dfe1026c8bbf3-OudiPA_fw580"];
     
     [self initViews];
+    
+    [AppDelegate storyBoradAutoLay:self.view];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,10 +54,10 @@
  */
 - (void)setRightNav:(NSString *)headImgUrl{
     
-    UIImageView *headImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    UIImageView *headImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
     //圆角
     headImgView.layer.masksToBounds = YES;
-    headImgView.layer.cornerRadius = 15;
+    headImgView.layer.cornerRadius = 14;
     
     if ([headImgUrl isEqualToString:@""]) {
         headImgView.image = [UIImage imageNamed:@"miller"];
@@ -69,7 +71,7 @@
 
 -(void)initViews {
     //添加滑动的图片浏览
-    self.slideView = [[SCFadeSlideView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight-143-104)];
+    self.slideView = [[SCFadeSlideView alloc] initWithFrame:CGRectMake(0, 0, 375*self.myDelegate.autoSizeScaleX, 397*self.myDelegate.autoSizeScaleY)];
     self.slideView.backgroundColor = [UIColor clearColor];
     self.slideView.delegate = self;
     self.slideView.datasource = self;
@@ -85,13 +87,13 @@
      如果控制器中不存在UIScrollView或者继承自UIScrollView的UI控件
      请使用UIScrollView作为SCFadeSlideView的容器View,才会显示正常,如下
      *****************************/
-    UIScrollView *bottomScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 104, screenWidth, screenHeight-143-104)];
+    UIScrollView *bottomScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 94, 375, 397)];
     [bottomScrollView addSubview:self.slideView];
     [self.view addSubview:bottomScrollView];
     
     
     //进度条
-    self.proView = [[ProgressView alloc] initWithNewFrame:CGRectMake(screenWidth/5, screenHeight-73, 0.6*screenWidth, 3)];
+    self.proView = [[ProgressView alloc] initWithNewFrame:CGRectMake(89.5, 563, 196, 3)];
     [self.view addSubview:self.proView];
     [self showProView];
     
@@ -113,7 +115,7 @@
 
 #pragma mark SCFadeSlideView delegate
 -(CGSize)sizeForPageInSlideView:(SCFadeSlideView *)slideView {
-    return CGSizeMake(slideView.frame.size.width-84, slideView.frame.size.height);
+     return CGSizeMake((375)*self.myDelegate.autoSizeScaleX-84, 397*self.myDelegate.autoSizeScaleY);
 }
 
 - (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
@@ -143,7 +145,7 @@
 -(UIView *)slideView:(SCFadeSlideView *)slideView cellForPageAtIndex:(NSInteger)index {
     SCSlidePageView *pageView = (SCSlidePageView *)[slideView dequeueReusableCell];
     if(!pageView){
-        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, slideView.frame.size.width-84, slideView.frame.size.height)];
+        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, (375)*self.myDelegate.autoSizeScaleX-84, 397*self.myDelegate.autoSizeScaleY)];
         pageView.layer.cornerRadius = 4;
         pageView.layer.masksToBounds = YES;
         pageView.backgroundColor = [UIColor clearColor];
@@ -163,7 +165,7 @@
             
             //添加时间label
             //下方圆角
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, pageView.frame.size.height-62, pageView.frame.size.width, 62)];
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (397-61.5)*self.myDelegate.autoSizeScaleY, (375)*self.myDelegate.autoSizeScaleX-84, 61.5*self.myDelegate.autoSizeScaleY)];
             label.textColor = [UIColor colorWithHexString:@"15151b" alpha:1];
             label.font = [UIFont systemFontOfSize:18.f];
             label.text = @"2016-09-21排片情况";
@@ -181,19 +183,18 @@
             [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:@"" placeholder:@""];
             [pageView addSubview:shadowImageView];
             //添加"排片未完成"图片
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((pageView.frame.size.width-120)/2, (pageView.frame.size.height-110)/2, 120, 110)];
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(85.5*self.myDelegate.autoSizeScaleX, 143.5*self.myDelegate.autoSizeScaleY, 120*self.myDelegate.autoSizeScaleX, 110*self.myDelegate.autoSizeScaleY)];
             [button setImage:[UIImage imageNamed:@"row_piece_unfinished"] forState:UIControlStateNormal];
             //            [button addTarget:self action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
             [pageView addSubview:button];
             
             //添加"排片未完成""Label
-            UILabel *label = [[UILabel alloc] init];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 283.5*self.myDelegate.autoSizeScaleY, 291*self.myDelegate.autoSizeScaleX, 40*self.myDelegate.autoSizeScaleY)];
             label.textAlignment = NSTextAlignmentCenter;
             label.text = @"排片任务未完成";
             label.textColor = [UIColor colorWithHexString:@"#999999"];
             label.font = [UIFont systemFontOfSize:18.f];
             [pageView addSubview:label];
-            label.sd_layout.topSpaceToView(button,15).widthRatioToView(pageView,1).leftSpaceToView(pageView,0).heightIs(40);
         }
         
         
@@ -205,7 +206,7 @@
 
 //滚动到了第几页
 - (void)didScrollToPage:(NSInteger)pageNumber inSlideView:(SCFadeSlideView *)slideView{
-    NSLog(@"%ld",pageNumber);
+    NSLog(@"%ld",(long)pageNumber);
     [self setProgressView:pageNumber];
 }
 //根据当前页数组的索引设置进度条的长度

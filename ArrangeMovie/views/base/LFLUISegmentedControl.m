@@ -10,7 +10,8 @@
 
 @interface LFLUISegmentedControl ()<LFLUISegmentedControlDelegate>
 {
-    CGFloat widthFloat;
+//    CGFloat widthFloat;
+    NSInteger seugemtNumber;
     UIView* buttonDown;
 }
 @end
@@ -19,10 +20,9 @@
 
 -(void)AddSegumentArray:(NSArray *)SegumentArray
 {
-    NSInteger seugemtNumber=SegumentArray.count;
-    widthFloat=(self.bounds.size.width)/seugemtNumber;
+    seugemtNumber=SegumentArray.count;
     for (int i=0; i<SegumentArray.count; i++) {
-        UIButton* button=[[UIButton alloc]initWithFrame:CGRectMake(i*widthFloat, 0, widthFloat, self.bounds.size.height-3)];
+        UIButton* button=[[UIButton alloc]initWithFrame:CGRectMake(i*((self.bounds.size.width)/seugemtNumber), 0, ((self.bounds.size.width)/seugemtNumber), self.bounds.size.height-3)];
         [button setTitle:SegumentArray[i] forState:UIControlStateNormal];
         [button.titleLabel setFont:self.titleFont];
         [button setTitleColor:self.titleColor forState:UIControlStateNormal];
@@ -31,7 +31,7 @@
         [button addTarget:self action:@selector(changeTheSegument:) forControlEvents:UIControlEventTouchUpInside];
         if (i==0) {
             //            默认下划线高  3
-            buttonDown=[[UIView alloc]initWithFrame:CGRectMake(i*widthFloat, self.bounds.size.height-3, widthFloat, 3)];
+            buttonDown=[[UIView alloc]initWithFrame:CGRectMake(i*((self.bounds.size.width)/seugemtNumber), self.bounds.size.height-3, ((self.bounds.size.width)/seugemtNumber), 3)];
             
 #pragma mark -----buttonDown 设置下划线颜色
             [buttonDown setBackgroundColor:self.lineColor];
@@ -55,7 +55,7 @@
         [self.ButtonArray[segument] setSelected:YES];
         [((UIButton *)self.ButtonArray[segument]).titleLabel setFont:self.selectFont];
         [UIView animateWithDuration:0.1 animations:^{
-            [buttonDown setFrame:CGRectMake(segument*widthFloat,self.bounds.size.height-3, widthFloat, 3)];
+            [buttonDown setFrame:CGRectMake(segument*((self.bounds.size.width)/seugemtNumber),self.bounds.size.height-3, ((self.bounds.size.width)/seugemtNumber), 3)];
         }];
         self.selectSeugment=segument;
         [self.delegate uisegumentSelectionChange:self.selectSeugment];

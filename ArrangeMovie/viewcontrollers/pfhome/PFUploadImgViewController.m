@@ -26,11 +26,13 @@
     self.title = @"上传图片";
     self.array = [[NSMutableArray alloc] initWithCapacity:0];
     [self initViews];
+    
+    [AppDelegate storyBoradAutoLay:self.view];
 }
 
 -(void)initViews {
     //添加滑动的图片浏览
-    self.slideView = [[SCFadeSlideView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight-143-104)];
+    self.slideView = [[SCFadeSlideView alloc] initWithFrame:CGRectMake(0, 0, 375*self.myDelegate.autoSizeScaleX, 397*self.myDelegate.autoSizeScaleY)];
     self.slideView.backgroundColor = [UIColor clearColor];
     self.slideView.delegate = self;
     self.slideView.datasource = self;
@@ -46,12 +48,12 @@
      如果控制器中不存在UIScrollView或者继承自UIScrollView的UI控件
      请使用UIScrollView作为SCFadeSlideView的容器View,才会显示正常,如下
      *****************************/
-    UIScrollView *bottomScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 104, screenWidth, screenHeight-143-104)];
+    UIScrollView *bottomScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 94, 375, 397)];
     [bottomScrollView addSubview:self.slideView];
     [self.view addSubview:bottomScrollView];
     
     //片方,添加圆形打钩按钮
-    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((screenWidth-58)/2, screenHeight-100, 58, 58)];
+    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(158.5, 558, 58, 58)];
     [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
     //        OKImgView setHighlightedImage:[UIImage imageNamed:row]
     [self.view addSubview:OKImgView];
@@ -79,7 +81,7 @@
 
 #pragma mark SCFadeSlideView delegate
 -(CGSize)sizeForPageInSlideView:(SCFadeSlideView *)slideView {
-    return CGSizeMake(slideView.frame.size.width-84, slideView.frame.size.height);
+    return CGSizeMake((375)*self.myDelegate.autoSizeScaleX-84, 397*self.myDelegate.autoSizeScaleY);
 }
 
 //- (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
@@ -135,7 +137,7 @@
 -(UIView *)slideView:(SCFadeSlideView *)slideView cellForPageAtIndex:(NSInteger)index {
     SCSlidePageView *pageView = (SCSlidePageView *)[slideView dequeueReusableCell];
     if(!pageView){
-        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, slideView.frame.size.width-84, slideView.frame.size.height)];
+        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, (375)*self.myDelegate.autoSizeScaleX-84, 397*self.myDelegate.autoSizeScaleY)];
         pageView.layer.cornerRadius = 4;
         pageView.layer.masksToBounds = YES;
         pageView.backgroundColor = [UIColor clearColor];
@@ -151,7 +153,7 @@
             
             [pageView addSubview:shadowImageView];
             //删除按钮
-            UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake(slideView.frame.size.width-84-36, 10, 26, 30)];
+            UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake((375-36)*self.myDelegate.autoSizeScaleX-84, 10*self.myDelegate.autoSizeScaleY, 26*self.myDelegate.autoSizeScaleX, 30*self.myDelegate.autoSizeScaleY)];
             delBtn.tag = index;
             [delBtn addTarget:self action:@selector(delPhoto:) forControlEvents:UIControlEventTouchUpInside];
             [delBtn setBackgroundImage:[UIImage imageNamed:@"del_normal"] forState:UIControlStateNormal];
@@ -161,18 +163,17 @@
             [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:@"" placeholder:@""];
             [pageView addSubview:shadowImageView];
             //添加"上传图片"图片
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((pageView.frame.size.width-120)/2, (pageView.frame.size.height-110)/2, 120, 110)];
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(85.5*self.myDelegate.autoSizeScaleX, 143.5*self.myDelegate.autoSizeScaleY, 120*self.myDelegate.autoSizeScaleX, 110*self.myDelegate.autoSizeScaleY)];
             [button setImage:[UIImage imageNamed:@"row_piece_upload_photo"] forState:UIControlStateNormal];
             [button addTarget:self action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
             [pageView addSubview:button];
             //添加"上传图片"Label
-            UILabel *label = [[UILabel alloc] init];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 283.5*self.myDelegate.autoSizeScaleY, 291*self.myDelegate.autoSizeScaleX, 40*self.myDelegate.autoSizeScaleY)];
             label.textAlignment = NSTextAlignmentCenter;
             label.text = @"上传图片";
             label.textColor = [UIColor colorWithHexString:@"#999999"];
             label.font = [UIFont systemFontOfSize:18.f];
             [pageView addSubview:label];
-            label.sd_layout.topSpaceToView(button,15).widthRatioToView(pageView,1).leftSpaceToView(pageView,0).heightIs(40);
         }
         
         

@@ -10,7 +10,6 @@
 #import "PFHomeViewController.h"
 #import "EMINavigationController.h"
 #import "ManagerIndexViewController.h"
-#import "AppDelegate.h"
 
 @interface LoginViewController ()
 
@@ -35,6 +34,13 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 //    }
+    
+    
+    [AppDelegate storyBoradAutoLay:self.view];
+    
+    self.headImgView.frame = CGRectMake(self.headImgView.frame.origin.x, self.headImgView.frame.origin.y, self.headImgView.frame.size.height, self.headImgView.frame.size.height);
+    
+    [self setHead];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,13 +50,10 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     
+    [super viewDidAppear:animated];
     //确保在autolayout后再执行
 //    dispatch_async(dispatch_get_main_queue(), ^{
-        [AppDelegate storyBoradAutoLay:self.view];
-        
-        self.headImgView.frame = CGRectMake(self.headImgView.frame.origin.x, self.headImgView.frame.origin.y, self.headImgView.frame.size.height, self.headImgView.frame.size.height);
-        
-        [self setHead];
+    
 //    });
 
 }

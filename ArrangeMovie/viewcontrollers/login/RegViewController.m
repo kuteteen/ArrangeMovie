@@ -28,11 +28,24 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     //    }
+    
+    
+    [AppDelegate storyBoradAutoLay:self.view];
+    
+    self.yzmBtn.layer.cornerRadius = self.yzmBtn.frame.size.height/2;
+    self.headImg.frame = CGRectMake(self.headImg.frame.origin.x, self.headImg.frame.origin.y, self.headImg.frame.size.height, self.headImg.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+    
+//    });
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -44,7 +57,7 @@
     //    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     //    CGFloat height = keyboardFrame.origin.y;
     CGRect frame = self.view.frame;
-    frame.origin.y = -140;
+    frame.origin.y = -self.segmentView.frame.origin.y+64;
     self.view.frame = frame;
 }
 
@@ -63,7 +76,7 @@
     [self.headImg setImage:[UIImage imageNamed:@"register_head"]];
     
     //滑动菜单
-    self.mainSegView = [[LFLUISegmentedControl alloc] initWithFrame:CGRectMake(0,0,  screenWidth, self.segmentView.frame.size.height)];
+    self.mainSegView = [[LFLUISegmentedControl alloc] initWithFrame:CGRectMake(0,0,  self.segmentView.frame.size.width, self.segmentView.frame.size.height)];
     self.mainSegView.delegate = self;
     [self.mainSegView AddSegumentArray:[NSArray arrayWithObjects:@"片方",@"院线经理", nil]];
     [self.segmentView addSubview:self.mainSegView];
@@ -74,10 +87,9 @@
     
     //获取验证码按钮
     self.yzmBtn = [[YZMButton alloc] initWithTime:60];
-    
+    self.yzmBtn.frame = CGRectMake(230, 18, 101, 28);
     [self.yzmView addSubview:self.yzmBtn];
-    self.yzmBtn.sd_layout.centerYEqualToView(self.yzmView).rightSpaceToView(self.yzmView,0).heightRatioToView(self.yzmView,0.6).widthRatioToView(self.yzmView,0.27);
-    self.yzmBtn.layer.cornerRadius = 0.035*screenHeight*0.6;
+    self.yzmBtn.layer.cornerRadius = self.yzmBtn.frame.size.height/2;
     //    __unsafe_unretained typeof(self) weakSelf = self;
     self.yzmBtn.clickBlock = ^(){
         

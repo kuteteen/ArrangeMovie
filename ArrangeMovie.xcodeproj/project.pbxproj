@@ -103,6 +103,18 @@
 		C8EB79BA1DC0AD2A005599BC /* ManagerMissionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8EB79B81DC0AD2A005599BC /* ManagerMissionTableViewCell.xib */; };
 		C8EB79BD1DC0B719005599BC /* SCWebInterfaceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79BC1DC0B719005599BC /* SCWebInterfaceBase.m */; };
 		C8EB79C31DC0BAEA005599BC /* UpdateProfileWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79C21DC0BAEA005599BC /* UpdateProfileWebInterface.m */; };
+		D61686061DD0521E007EAA64 /* UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686051DD0521E007EAA64 /* UploadFile.m */; };
+		D61686101DD05229007EAA64 /* ForgetPwdWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686091DD05229007EAA64 /* ForgetPwdWebInterface.m */; };
+		D61686111DD05229007EAA64 /* LoginWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D616860B1DD05229007EAA64 /* LoginWebInterface.m */; };
+		D61686121DD05229007EAA64 /* MobileCodeWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D616860D1DD05229007EAA64 /* MobileCodeWebInterface.m */; };
+		D61686131DD05229007EAA64 /* RegisterWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D616860F1DD05229007EAA64 /* RegisterWebInterface.m */; };
+		D61686211DD05233007EAA64 /* FilmListWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686161DD05233007EAA64 /* FilmListWebInterface.m */; };
+		D61686221DD05233007EAA64 /* GradeListWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686181DD05233007EAA64 /* GradeListWebInterface.m */; };
+		D61686231DD05233007EAA64 /* PFAMDetailWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D616861A1DD05233007EAA64 /* PFAMDetailWebInterface.m */; };
+		D61686241DD05233007EAA64 /* PFAuditWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D616861C1DD05233007EAA64 /* PFAuditWebInterface.m */; };
+		D61686251DD05233007EAA64 /* PFHomeWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D616861E1DD05233007EAA64 /* PFHomeWebInterface.m */; };
+		D61686261DD05233007EAA64 /* ReleaseTaskWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686201DD05233007EAA64 /* ReleaseTaskWebInterface.m */; };
+		D61686291DD05258007EAA64 /* TouchLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686281DD05258007EAA64 /* TouchLabel.m */; };
 		D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A064B1DAB5CA8003832A8 /* login.storyboard */; };
 		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
@@ -321,6 +333,30 @@
 		C8EB79BC1DC0B719005599BC /* SCWebInterfaceBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWebInterfaceBase.m; sourceTree = "<group>"; };
 		C8EB79C11DC0BAEA005599BC /* UpdateProfileWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateProfileWebInterface.h; path = me/UpdateProfileWebInterface.h; sourceTree = "<group>"; };
 		C8EB79C21DC0BAEA005599BC /* UpdateProfileWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateProfileWebInterface.m; path = me/UpdateProfileWebInterface.m; sourceTree = "<group>"; };
+		D61686041DD0521E007EAA64 /* UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFile.h; sourceTree = "<group>"; };
+		D61686051DD0521E007EAA64 /* UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFile.m; sourceTree = "<group>"; };
+		D61686081DD05229007EAA64 /* ForgetPwdWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdWebInterface.h; sourceTree = "<group>"; };
+		D61686091DD05229007EAA64 /* ForgetPwdWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdWebInterface.m; sourceTree = "<group>"; };
+		D616860A1DD05229007EAA64 /* LoginWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebInterface.h; sourceTree = "<group>"; };
+		D616860B1DD05229007EAA64 /* LoginWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebInterface.m; sourceTree = "<group>"; };
+		D616860C1DD05229007EAA64 /* MobileCodeWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileCodeWebInterface.h; sourceTree = "<group>"; };
+		D616860D1DD05229007EAA64 /* MobileCodeWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileCodeWebInterface.m; sourceTree = "<group>"; };
+		D616860E1DD05229007EAA64 /* RegisterWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterWebInterface.h; sourceTree = "<group>"; };
+		D616860F1DD05229007EAA64 /* RegisterWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterWebInterface.m; sourceTree = "<group>"; };
+		D61686151DD05233007EAA64 /* FilmListWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilmListWebInterface.h; sourceTree = "<group>"; };
+		D61686161DD05233007EAA64 /* FilmListWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilmListWebInterface.m; sourceTree = "<group>"; };
+		D61686171DD05233007EAA64 /* GradeListWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeListWebInterface.h; sourceTree = "<group>"; };
+		D61686181DD05233007EAA64 /* GradeListWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeListWebInterface.m; sourceTree = "<group>"; };
+		D61686191DD05233007EAA64 /* PFAMDetailWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAMDetailWebInterface.h; sourceTree = "<group>"; };
+		D616861A1DD05233007EAA64 /* PFAMDetailWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFAMDetailWebInterface.m; sourceTree = "<group>"; };
+		D616861B1DD05233007EAA64 /* PFAuditWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAuditWebInterface.h; sourceTree = "<group>"; };
+		D616861C1DD05233007EAA64 /* PFAuditWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFAuditWebInterface.m; sourceTree = "<group>"; };
+		D616861D1DD05233007EAA64 /* PFHomeWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFHomeWebInterface.h; sourceTree = "<group>"; };
+		D616861E1DD05233007EAA64 /* PFHomeWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFHomeWebInterface.m; sourceTree = "<group>"; };
+		D616861F1DD05233007EAA64 /* ReleaseTaskWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseTaskWebInterface.h; sourceTree = "<group>"; };
+		D61686201DD05233007EAA64 /* ReleaseTaskWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseTaskWebInterface.m; sourceTree = "<group>"; };
+		D61686271DD05258007EAA64 /* TouchLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchLabel.h; path = views/pfhome/TouchLabel.h; sourceTree = "<group>"; };
+		D61686281DD05258007EAA64 /* TouchLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TouchLabel.m; path = views/pfhome/TouchLabel.m; sourceTree = "<group>"; };
 		D62A064B1DAB5CA8003832A8 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = login.storyboard; path = src/login.storyboard; sourceTree = "<group>"; };
 		D62A064E1DAB63D1003832A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewcontrollers/login/LoginViewController.h; sourceTree = "<group>"; };
 		D62A064F1DAB63D1003832A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontrollers/login/LoginViewController.m; sourceTree = "<group>"; };
@@ -753,6 +789,40 @@
 			name = manager;
 			sourceTree = "<group>";
 		};
+		D61686071DD05229007EAA64 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				D61686081DD05229007EAA64 /* ForgetPwdWebInterface.h */,
+				D61686091DD05229007EAA64 /* ForgetPwdWebInterface.m */,
+				D616860A1DD05229007EAA64 /* LoginWebInterface.h */,
+				D616860B1DD05229007EAA64 /* LoginWebInterface.m */,
+				D616860C1DD05229007EAA64 /* MobileCodeWebInterface.h */,
+				D616860D1DD05229007EAA64 /* MobileCodeWebInterface.m */,
+				D616860E1DD05229007EAA64 /* RegisterWebInterface.h */,
+				D616860F1DD05229007EAA64 /* RegisterWebInterface.m */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		D61686141DD05233007EAA64 /* pfhome */ = {
+			isa = PBXGroup;
+			children = (
+				D61686151DD05233007EAA64 /* FilmListWebInterface.h */,
+				D61686161DD05233007EAA64 /* FilmListWebInterface.m */,
+				D61686171DD05233007EAA64 /* GradeListWebInterface.h */,
+				D61686181DD05233007EAA64 /* GradeListWebInterface.m */,
+				D61686191DD05233007EAA64 /* PFAMDetailWebInterface.h */,
+				D616861A1DD05233007EAA64 /* PFAMDetailWebInterface.m */,
+				D616861B1DD05233007EAA64 /* PFAuditWebInterface.h */,
+				D616861C1DD05233007EAA64 /* PFAuditWebInterface.m */,
+				D616861D1DD05233007EAA64 /* PFHomeWebInterface.h */,
+				D616861E1DD05233007EAA64 /* PFHomeWebInterface.m */,
+				D616861F1DD05233007EAA64 /* ReleaseTaskWebInterface.h */,
+				D61686201DD05233007EAA64 /* ReleaseTaskWebInterface.m */,
+			);
+			path = pfhome;
+			sourceTree = "<group>";
+		};
 		D62A064D1DAB637C003832A8 /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -811,6 +881,8 @@
 		D6950CD41DB4BEB9004D6C8B /* pfhome */ = {
 			isa = PBXGroup;
 			children = (
+				D61686271DD05258007EAA64 /* TouchLabel.h */,
+				D61686281DD05258007EAA64 /* TouchLabel.m */,
 				D6C490041DBEEB0D009EB672 /* AMAlertView.h */,
 				D6C490051DBEEB0D009EB672 /* AMAlertView.m */,
 				D6C490061DBEEB0D009EB672 /* AMAlertView.xib */,
@@ -869,6 +941,10 @@
 		D6D94BC41DB0B705004666BC /* net */ = {
 			isa = PBXGroup;
 			children = (
+				D61686141DD05233007EAA64 /* pfhome */,
+				D61686071DD05229007EAA64 /* login */,
+				D61686041DD0521E007EAA64 /* UploadFile.h */,
+				D61686051DD0521E007EAA64 /* UploadFile.m */,
 				D6D94BC51DB0B705004666BC /* SCHttpOperation.h */,
 				D6D94BC61DB0B705004666BC /* SCHttpOperation.m */,
 				D6D94BC71DB0B705004666BC /* SCHttpOperationMgr.h */,
@@ -1064,6 +1140,7 @@
 				C8B64E7F1DB49C8900B4311D /* MeMissionTableViewCell.m in Sources */,
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
 				C8BDA63F1DC792EA00ADB4DF /* EMIFilterButton.m in Sources */,
+				D61686121DD05229007EAA64 /* MobileCodeWebInterface.m in Sources */,
 				C82AF8EB1DB75BAC00882DB6 /* MeMissionCheckViewController.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				D6950CD71DB4BF06004D6C8B /* PFHomeSectionView.m in Sources */,
@@ -1074,8 +1151,10 @@
 				C82C48AB1DCC85F400848128 /* ArrangeDetailWebInterface.m in Sources */,
 				C86161971DCAC94600B3DEB3 /* MePointRecordTableViewCell.m in Sources */,
 				D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */,
+				D61686061DD0521E007EAA64 /* UploadFile.m in Sources */,
 				D6D94BCA1DB0B705004666BC /* SCHttpOperationMgr.m in Sources */,
 				D6C4901E1DBEEB0D009EB672 /* TaskCellTime.m in Sources */,
+				D61686131DD05229007EAA64 /* RegisterWebInterface.m in Sources */,
 				D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */,
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
 				D6BAC80F1DC1893D00A4EDF6 /* AMDetailDoneViewController.m in Sources */,
@@ -1085,6 +1164,7 @@
 				C8EB79AA1DC07D4E005599BC /* OptDetail.m in Sources */,
 				C8610C071DD065C600E959E1 /* SetDefaultBankWebInterface.m in Sources */,
 				C8610BFB1DD05E3200E959E1 /* ChargeWebInterface.m in Sources */,
+				D61686221DD05233007EAA64 /* GradeListWebInterface.m in Sources */,
 				D6950CD11DB476F4004D6C8B /* LoginAuthViewController.m in Sources */,
 				D6C48FF91DBEEA7A009EB672 /* ChooseFilmViewController.m in Sources */,
 				C8001CDF1DC075570092696C /* Grade.m in Sources */,
@@ -1103,6 +1183,7 @@
 				C8610BF21DD047F300E959E1 /* TaskDetailWebInterface.m in Sources */,
 				C8B64E7B1DB475AC00B4311D /* MeMissionViewController.m in Sources */,
 				C82C48A81DCC6C5E00848128 /* PFTaskListWebInterface.m in Sources */,
+				D61686261DD05233007EAA64 /* ReleaseTaskWebInterface.m in Sources */,
 				C80EB32E1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.m in Sources */,
 				C861619B1DCAD7A000B3DEB3 /* ManagerMissionPageViewController.m in Sources */,
 				D6E6EDD41DC6EC0C00ED6475 /* TaskDetail.m in Sources */,
@@ -1119,8 +1200,12 @@
 				D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */,
 				C8610C041DD0638F00E959E1 /* AddBankWebInterface.m in Sources */,
 				C8EB79B11DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m in Sources */,
+				D61686111DD05229007EAA64 /* LoginWebInterface.m in Sources */,
+				D61686291DD05258007EAA64 /* TouchLabel.m in Sources */,
 				C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */,
 				A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */,
+				D61686241DD05233007EAA64 /* PFAuditWebInterface.m in Sources */,
+				D61686101DD05229007EAA64 /* ForgetPwdWebInterface.m in Sources */,
 				D6950CCD1DB45D51004D6C8B /* TableWithNoDataView.m in Sources */,
 				C85997521DC0565F0057C417 /* TakeTask.m in Sources */,
 				C85997551DC058560057C417 /* Film.m in Sources */,
@@ -1131,6 +1216,7 @@
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
 				C8EB79C31DC0BAEA005599BC /* UpdateProfileWebInterface.m in Sources */,
 				C80F06471DACFDA600BB75BE /* MePointViewController.m in Sources */,
+				D61686211DD05233007EAA64 /* FilmListWebInterface.m in Sources */,
 				C86DE7581DB5BD5300374734 /* MissionRequireTableViewCell.m in Sources */,
 				D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */,
 				C8610C101DD06ADF00E959E1 /* UploadProofWebInterface.m in Sources */,
@@ -1142,8 +1228,10 @@
 				C8EB79B91DC0AD2A005599BC /* ManagerMissionTableViewCell.m in Sources */,
 				D6C490151DBEEB0D009EB672 /* AMAlertView.m in Sources */,
 				C88A0DEE1DC97C3C00B847AF /* MeMissionPageViewController.m in Sources */,
+				D61686251DD05233007EAA64 /* PFHomeWebInterface.m in Sources */,
 				D6EE72F91DC86305008D4AD8 /* Test.m in Sources */,
 				C8610C191DD086E900E959E1 /* ManagerToAuthTaskWebInterface.m in Sources */,
+				D61686231DD05233007EAA64 /* PFAMDetailWebInterface.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

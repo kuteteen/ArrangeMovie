@@ -22,14 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *stateImgView;//上升/下降箭头
 @property (weak, nonatomic) IBOutlet UILabel *smallNumLab;//小数字
 @property (weak, nonatomic) IBOutlet UILabel *smallSymbLab;//小百分比
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bigNumH;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bigNumW;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bigSymbW;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bigSymbH;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *smallNumH;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *smallNumW;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *smallSymbW;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *smallSymbH;
 @property (weak, nonatomic) IBOutlet UIView *lineView;//分割线，展开式显示
 
 

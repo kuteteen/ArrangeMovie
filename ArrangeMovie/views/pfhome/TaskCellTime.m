@@ -8,6 +8,7 @@
 
 #import "TaskCellTime.h"
 #import "UIView+shadow.h"
+#import "AppDelegate.h"
 
 @implementation TaskCellTime
 + (TaskCellTime *)cellForCollection:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath{
@@ -18,22 +19,7 @@
     
     
     //调整字体,根据屏幕大小
-    if (iPhone6SPlus) {
-        cell.titleLab.font = [UIFont systemFontOfSize:14.f];
-        cell.startLab.font = [UIFont systemFontOfSize:16.f];
-        cell.endLab.font = [UIFont systemFontOfSize:16.f];
-    }
-    if (iPhone6S) {
-        cell.titleLab.font = [UIFont systemFontOfSize:13.f];
-        cell.startLab.font = [UIFont systemFontOfSize:15.f];
-        cell.endLab.font = [UIFont systemFontOfSize:15.f];
-    }
     if (iPhone5S) {
-        cell.titleLab.font = [UIFont systemFontOfSize:11.f];
-        cell.startLab.font = [UIFont systemFontOfSize:12.f];
-        cell.endLab.font = [UIFont systemFontOfSize:12.f];
-    }
-    if (iPhone4S) {
         cell.titleLab.font = [UIFont systemFontOfSize:11.f];
         cell.startLab.font = [UIFont systemFontOfSize:12.f];
         cell.endLab.font = [UIFont systemFontOfSize:12.f];
@@ -44,6 +30,15 @@
     
     [cell.startView addGestureRecognizer:startges];
     [cell.endView addGestureRecognizer:endges];
+    
+    [AppDelegate storyBoradAutoLay:cell];
+    
+    if (iPhone4S) {
+        cell.titleLab.font = [UIFont systemFontOfSize:10.f];
+        cell.startLab.font = [UIFont systemFontOfSize:11.f];
+        cell.endLab.font = [UIFont systemFontOfSize:11.f];
+    }
+    
     return cell;
 }
 
