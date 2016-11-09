@@ -122,7 +122,7 @@
         <!--Manager Mission Detail View Controller-->
         <scene sceneID="dIM-Yb-Ej2">
             <objects>
-                <viewController id="hiI-Zi-mVP" customClass="ManagerMissionDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="managertaskdetail" id="hiI-Zi-mVP" customClass="ManagerMissionDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mz5-eu-1Di"/>
                         <viewControllerLayoutGuide type="bottom" id="V1q-jy-WLD"/>

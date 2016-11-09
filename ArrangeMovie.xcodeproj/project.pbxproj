@@ -44,6 +44,9 @@
 		C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA91DABA44100B14075 /* SCTableViewCell.m */; };
 		C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BAC1DACA62700B14075 /* MeProfileViewController.m */; };
 		C83C79231DD092CB002EEAF3 /* EMIRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C79221DD092CB002EEAF3 /* EMIRootViewController.m */; };
+		C83C79261DD163CD002EEAF3 /* OUNavAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C79251DD163CD002EEAF3 /* OUNavAnimation.m */; };
+		C83C792C1DD179C2002EEAF3 /* MeMissionTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */; };
+		C83C792E1DD179FC002EEAF3 /* MeMissionTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */; };
 		C859974F1DC04C1E0057C417 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = C859974E1DC04C1E0057C417 /* Task.m */; };
 		C85997521DC0565F0057C417 /* TakeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997511DC0565F0057C417 /* TakeTask.m */; };
 		C85997551DC058560057C417 /* Film.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997541DC058560057C417 /* Film.m */; };
@@ -72,6 +75,14 @@
 		C86DE75C1DB5C7F500374734 /* MeMissionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE75B1DB5C7F500374734 /* MeMissionDetailViewController.m */; };
 		C86DE7601DB61A6C00374734 /* MissionRowPieceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE75E1DB61A6C00374734 /* MissionRowPieceTableViewCell.m */; };
 		C86DE7611DB61A6C00374734 /* MissionRowPieceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86DE75F1DB61A6C00374734 /* MissionRowPieceTableViewCell.xib */; };
+		C87E40AB1DD2B12300DD2018 /* MeMissionActorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87E40AA1DD2B12300DD2018 /* MeMissionActorView.xib */; };
+		C87E40AE1DD2B14D00DD2018 /* MeMissionActorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C87E40AD1DD2B14D00DD2018 /* MeMissionActorView.m */; };
+		C87E40B11DD2BC8400DD2018 /* MeMissionRequireView.m in Sources */ = {isa = PBXBuildFile; fileRef = C87E40B01DD2BC8400DD2018 /* MeMissionRequireView.m */; };
+		C87E40B31DD2BC9800DD2018 /* MeMissionRequireView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87E40B21DD2BC9800DD2018 /* MeMissionRequireView.xib */; };
+		C87E40B51DD2EEC500DD2018 /* MeMissionRowPieceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87E40B41DD2EEC500DD2018 /* MeMissionRowPieceView.xib */; };
+		C87E40B81DD2EEDA00DD2018 /* MeMissionRowPieceView.m in Sources */ = {isa = PBXBuildFile; fileRef = C87E40B71DD2EEDA00DD2018 /* MeMissionRowPieceView.m */; };
+		C87E40BB1DD3003D00DD2018 /* MeMissionNoAuthView.m in Sources */ = {isa = PBXBuildFile; fileRef = C87E40BA1DD3003D00DD2018 /* MeMissionNoAuthView.m */; };
+		C87E40BD1DD3005100DD2018 /* MeMissionNoAuthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87E40BC1DD3005100DD2018 /* MeMissionNoAuthView.xib */; };
 		C886B0D71DA8FC0500240283 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D61DA8FC0500240283 /* main.m */; };
 		C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D91DA8FC0500240283 /* AppDelegate.m */; };
 		C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C886B0E11DA8FC0500240283 /* Assets.xcassets */; };
@@ -224,6 +235,11 @@
 		C8329BAC1DACA62700B14075 /* MeProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeProfileViewController.m; path = viewcontrollers/me/MeProfileViewController.m; sourceTree = "<group>"; };
 		C83C79211DD092CB002EEAF3 /* EMIRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMIRootViewController.h; path = viewcontrollers/base/EMIRootViewController.h; sourceTree = "<group>"; };
 		C83C79221DD092CB002EEAF3 /* EMIRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMIRootViewController.m; path = viewcontrollers/base/EMIRootViewController.m; sourceTree = "<group>"; };
+		C83C79241DD163CD002EEAF3 /* OUNavAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OUNavAnimation.h; path = viewcontrollers/base/OUNavAnimation.h; sourceTree = "<group>"; };
+		C83C79251DD163CD002EEAF3 /* OUNavAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OUNavAnimation.m; path = viewcontrollers/base/OUNavAnimation.m; sourceTree = "<group>"; };
+		C83C792A1DD179C2002EEAF3 /* MeMissionTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionTitleView.h; path = views/me/MeMissionTitleView.h; sourceTree = "<group>"; };
+		C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionTitleView.m; path = views/me/MeMissionTitleView.m; sourceTree = "<group>"; };
+		C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionTitleView.xib; path = views/me/MeMissionTitleView.xib; sourceTree = "<group>"; };
 		C859974D1DC04C1E0057C417 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = models/Task.h; sourceTree = "<group>"; };
 		C859974E1DC04C1E0057C417 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = models/Task.m; sourceTree = "<group>"; };
 		C85997501DC0565F0057C417 /* TakeTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TakeTask.h; path = models/TakeTask.h; sourceTree = "<group>"; };
@@ -276,6 +292,18 @@
 		C86DE75D1DB61A6C00374734 /* MissionRowPieceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionRowPieceTableViewCell.h; path = views/me/MissionRowPieceTableViewCell.h; sourceTree = "<group>"; };
 		C86DE75E1DB61A6C00374734 /* MissionRowPieceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionRowPieceTableViewCell.m; path = views/me/MissionRowPieceTableViewCell.m; sourceTree = "<group>"; };
 		C86DE75F1DB61A6C00374734 /* MissionRowPieceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MissionRowPieceTableViewCell.xib; path = views/me/MissionRowPieceTableViewCell.xib; sourceTree = "<group>"; };
+		C87E40AA1DD2B12300DD2018 /* MeMissionActorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionActorView.xib; path = views/me/MeMissionActorView.xib; sourceTree = "<group>"; };
+		C87E40AC1DD2B14D00DD2018 /* MeMissionActorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionActorView.h; path = views/me/MeMissionActorView.h; sourceTree = "<group>"; };
+		C87E40AD1DD2B14D00DD2018 /* MeMissionActorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionActorView.m; path = views/me/MeMissionActorView.m; sourceTree = "<group>"; };
+		C87E40AF1DD2BC8400DD2018 /* MeMissionRequireView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionRequireView.h; path = views/me/MeMissionRequireView.h; sourceTree = "<group>"; };
+		C87E40B01DD2BC8400DD2018 /* MeMissionRequireView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionRequireView.m; path = views/me/MeMissionRequireView.m; sourceTree = "<group>"; };
+		C87E40B21DD2BC9800DD2018 /* MeMissionRequireView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionRequireView.xib; path = views/me/MeMissionRequireView.xib; sourceTree = "<group>"; };
+		C87E40B41DD2EEC500DD2018 /* MeMissionRowPieceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionRowPieceView.xib; path = views/me/MeMissionRowPieceView.xib; sourceTree = "<group>"; };
+		C87E40B61DD2EEDA00DD2018 /* MeMissionRowPieceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionRowPieceView.h; path = views/me/MeMissionRowPieceView.h; sourceTree = "<group>"; };
+		C87E40B71DD2EEDA00DD2018 /* MeMissionRowPieceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionRowPieceView.m; path = views/me/MeMissionRowPieceView.m; sourceTree = "<group>"; };
+		C87E40B91DD3003D00DD2018 /* MeMissionNoAuthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionNoAuthView.h; path = views/me/MeMissionNoAuthView.h; sourceTree = "<group>"; };
+		C87E40BA1DD3003D00DD2018 /* MeMissionNoAuthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionNoAuthView.m; path = views/me/MeMissionNoAuthView.m; sourceTree = "<group>"; };
+		C87E40BC1DD3005100DD2018 /* MeMissionNoAuthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionNoAuthView.xib; path = views/me/MeMissionNoAuthView.xib; sourceTree = "<group>"; };
 		C886B0D21DA8FC0500240283 /* ArrangeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArrangeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C886B0D61DA8FC0500240283 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C886B0D81DA8FC0500240283 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -635,18 +663,33 @@
 				C80EB32B1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.h */,
 				C80EB32C1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.m */,
 				C80EB32D1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.xib */,
+				C83C792A1DD179C2002EEAF3 /* MeMissionTitleView.h */,
+				C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */,
+				C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */,
+				C87E40AC1DD2B14D00DD2018 /* MeMissionActorView.h */,
+				C87E40AD1DD2B14D00DD2018 /* MeMissionActorView.m */,
+				C87E40AA1DD2B12300DD2018 /* MeMissionActorView.xib */,
 				C86DE7501DB5B63600374734 /* MissionActorTableViewCell.h */,
 				C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */,
 				C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */,
+				C87E40AF1DD2BC8400DD2018 /* MeMissionRequireView.h */,
+				C87E40B01DD2BC8400DD2018 /* MeMissionRequireView.m */,
+				C87E40B21DD2BC9800DD2018 /* MeMissionRequireView.xib */,
 				C86DE7551DB5BD5300374734 /* MissionRequireTableViewCell.h */,
 				C86DE7561DB5BD5300374734 /* MissionRequireTableViewCell.m */,
 				C86DE7571DB5BD5300374734 /* MissionRequireTableViewCell.xib */,
 				C86DE75D1DB61A6C00374734 /* MissionRowPieceTableViewCell.h */,
 				C86DE75E1DB61A6C00374734 /* MissionRowPieceTableViewCell.m */,
 				C86DE75F1DB61A6C00374734 /* MissionRowPieceTableViewCell.xib */,
+				C87E40B61DD2EEDA00DD2018 /* MeMissionRowPieceView.h */,
+				C87E40B71DD2EEDA00DD2018 /* MeMissionRowPieceView.m */,
+				C87E40B41DD2EEC500DD2018 /* MeMissionRowPieceView.xib */,
 				C82AF8E11DB70A0600882DB6 /* MissionNoAuthTableViewCell.h */,
 				C82AF8E21DB70A0600882DB6 /* MissionNoAuthTableViewCell.m */,
 				C82AF8E31DB70A0600882DB6 /* MissionNoAuthTableViewCell.xib */,
+				C87E40B91DD3003D00DD2018 /* MeMissionNoAuthView.h */,
+				C87E40BA1DD3003D00DD2018 /* MeMissionNoAuthView.m */,
+				C87E40BC1DD3005100DD2018 /* MeMissionNoAuthView.xib */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -689,6 +732,8 @@
 		C8E651341DA9D60F00400ABC /* base */ = {
 			isa = PBXGroup;
 			children = (
+				C83C79241DD163CD002EEAF3 /* OUNavAnimation.h */,
+				C83C79251DD163CD002EEAF3 /* OUNavAnimation.m */,
 				C8E6513F1DA9E77000400ABC /* EMINavigationController.h */,
 				C8E6513E1DA9E77000400ABC /* EMINavigationController.m */,
 				C8E651351DA9D62C00400ABC /* EMIBaseViewController.h */,
@@ -1043,13 +1088,18 @@
 				C889D9691DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib in Resources */,
 				C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */,
 				A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */,
+				C87E40AB1DD2B12300DD2018 /* MeMissionActorView.xib in Resources */,
 				D6950CD91DB4C0AB004D6C8B /* PFHomeSectionView.xib in Resources */,
+				C87E40BD1DD3005100DD2018 /* MeMissionNoAuthView.xib in Resources */,
 				C86161981DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib in Resources */,
 				A5A5084E1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.xib in Resources */,
 				A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */,
+				C83C792E1DD179FC002EEAF3 /* MeMissionTitleView.xib in Resources */,
 				C8B64E801DB49C8900B4311D /* MeMissionTableViewCell.xib in Resources */,
+				C87E40B51DD2EEC500DD2018 /* MeMissionRowPieceView.xib in Resources */,
 				A5A5083C1DBF2CF800CB2491 /* manager.storyboard in Resources */,
 				D6C490001DBEEABD009EB672 /* launch.storyboard in Resources */,
+				C87E40B31DD2BC9800DD2018 /* MeMissionRequireView.xib in Resources */,
 				A5A508491DBF466900CB2491 /* ManagerNewMissionTableViewCell.xib in Resources */,
 				C8EB79BA1DC0AD2A005599BC /* ManagerMissionTableViewCell.xib in Resources */,
 				D6D94BCC1DB0BDA6004666BC /* pfhome.storyboard in Resources */,
@@ -1144,9 +1194,11 @@
 				C82AF8EB1DB75BAC00882DB6 /* MeMissionCheckViewController.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				D6950CD71DB4BF06004D6C8B /* PFHomeSectionView.m in Sources */,
+				C87E40B81DD2EEDA00DD2018 /* MeMissionRowPieceView.m in Sources */,
 				D6BAC8151DC1A36200A4EDF6 /* ProgressView.m in Sources */,
 				C8610C131DD06C4500E959E1 /* ManagerTaskWebInterface.m in Sources */,
 				C86DE7531DB5B63600374734 /* MissionActorTableViewCell.m in Sources */,
+				C87E40B11DD2BC8400DD2018 /* MeMissionRequireView.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				C82C48AB1DCC85F400848128 /* ArrangeDetailWebInterface.m in Sources */,
 				C86161971DCAC94600B3DEB3 /* MePointRecordTableViewCell.m in Sources */,
@@ -1164,6 +1216,7 @@
 				C8EB79AA1DC07D4E005599BC /* OptDetail.m in Sources */,
 				C8610C071DD065C600E959E1 /* SetDefaultBankWebInterface.m in Sources */,
 				C8610BFB1DD05E3200E959E1 /* ChargeWebInterface.m in Sources */,
+				C87E40AE1DD2B14D00DD2018 /* MeMissionActorView.m in Sources */,
 				D61686221DD05233007EAA64 /* GradeListWebInterface.m in Sources */,
 				D6950CD11DB476F4004D6C8B /* LoginAuthViewController.m in Sources */,
 				D6C48FF91DBEEA7A009EB672 /* ChooseFilmViewController.m in Sources */,
@@ -1181,6 +1234,7 @@
 				D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
 				C8610BF21DD047F300E959E1 /* TaskDetailWebInterface.m in Sources */,
+				C83C79261DD163CD002EEAF3 /* OUNavAnimation.m in Sources */,
 				C8B64E7B1DB475AC00B4311D /* MeMissionViewController.m in Sources */,
 				C82C48A81DCC6C5E00848128 /* PFTaskListWebInterface.m in Sources */,
 				D61686261DD05233007EAA64 /* ReleaseTaskWebInterface.m in Sources */,
@@ -1190,6 +1244,7 @@
 				C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */,
 				C83C79231DD092CB002EEAF3 /* EMIRootViewController.m in Sources */,
 				D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */,
+				C83C792C1DD179C2002EEAF3 /* MeMissionTitleView.m in Sources */,
 				C8610C1C1DD087D100E959E1 /* TaskImgWebInterface.m in Sources */,
 				A5A508401DBF2FE500CB2491 /* ManagerIndexViewController.m in Sources */,
 				C80F06501DAE282D00BB75BE /* EMIPointButton.m in Sources */,
@@ -1225,6 +1280,7 @@
 				D6C490171DBEEB0D009EB672 /* ChooseFilmCell.m in Sources */,
 				D6950CDD1DB4CAC1004D6C8B /* UILabel+StringFrame.m in Sources */,
 				C82AF8E41DB70A0600882DB6 /* MissionNoAuthTableViewCell.m in Sources */,
+				C87E40BB1DD3003D00DD2018 /* MeMissionNoAuthView.m in Sources */,
 				C8EB79B91DC0AD2A005599BC /* ManagerMissionTableViewCell.m in Sources */,
 				D6C490151DBEEB0D009EB672 /* AMAlertView.m in Sources */,
 				C88A0DEE1DC97C3C00B847AF /* MeMissionPageViewController.m in Sources */,

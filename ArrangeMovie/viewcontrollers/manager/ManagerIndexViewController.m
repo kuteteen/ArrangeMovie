@@ -117,6 +117,8 @@
     [self performSegueWithIdentifier:@"tomissiondetail" sender:nil];
 }
 
+-(void)startAnimationForIndexPath:(NSIndexPath*)indexPath{
+}
 
  #pragma mark - Navigation
 

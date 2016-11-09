@@ -10,10 +10,12 @@
 #import "LFLUISegmentedControl.h"
 #import "MeMissionTableViewCell.h"
 #import "MeMissionPageViewController.h"
+#import "MeMissionDetailViewController.h"
+#import "EMINavigationController.h"
 
 #define Width [UIScreen mainScreen].bounds.size.width
 
-@interface MeMissionViewController ()<LFLUISegmentedControlDelegate,UIPageViewControllerDataSource,UIPageViewControllerDelegate> {
+@interface MeMissionViewController ()<LFLUISegmentedControlDelegate,UIPageViewControllerDataSource,UIPageViewControllerDelegate,MeMissionPageViewControllerDelegate> {
     LFLUISegmentedControl *segmentControl;
     
     UIPageViewController *pageViewController;
@@ -87,7 +89,7 @@
     }
     MeMissionPageViewController *pageContentViewController;
     pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"missionpagecontent"];
-    
+    pageContentViewController.delegate = self;
     pageContentViewController.pageIndex = index;
     return pageContentViewController;
 }
@@ -95,6 +97,25 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - MeMissionPageViewControllerDelegate
+-(void)checkMission:(MeMissionTableViewCell *)cell {
+    //跳转到详情
+//    [self performSegueWithIdentifier:@"metomissiondetail" sender:nil];
+    [self startAnimationForIndexPath:cell];
+}
+
+#pragma mark animation
+-(void)startAnimationForIndexPath:(MeMissionTableViewCell *)cell{
+    
+    MeMissionDetailViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"memissiondetail"];
+    viewController.user = self.user;
+    viewController.task = cell.task;
+    
+    CGRect originRect = cell.imgRect;
+//    CGRect 
+    [((EMINavigationController *)self.navigationController) pushViewController:viewController withImageView:cell.postImgView originRect:originRect desRect:CGRectMake(15, 84, 53, 61)];
 }
 
 #pragma mark -UIPageViewControllerDataSource

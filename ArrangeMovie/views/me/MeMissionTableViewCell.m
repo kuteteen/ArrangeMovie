@@ -7,10 +7,8 @@
 //
 
 #import "MeMissionTableViewCell.h"
-#import "EMIShadowImageView.h"
 
 @interface MeMissionTableViewCell()
-@property (weak, nonatomic) IBOutlet EMIShadowImageView *postImgView;
 
 @end
 
@@ -37,7 +35,8 @@
 }
 
 -(void)setValue:(id)value {
-    [self.postImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:5 image:value placeholder:@"miller"];
+    self.task = (Task *)value;
+    [self.postImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:5.f image:@"http://cdnq.duitang.com/uploads/item/201506/05/20150605124315_xFQtw.thumb.700_0.jpeg" placeholder:@"miller"];
 }
 
 @end

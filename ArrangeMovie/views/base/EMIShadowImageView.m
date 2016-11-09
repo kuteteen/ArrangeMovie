@@ -59,7 +59,9 @@
                 [imageView zy_cornerRadiusRoundingRect];
                 if(image){
                     if ([image hasPrefix:@"http"]) {
-                        [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder]];
+                        [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                            self.image = image;
+                        }];
                     }else if(image.length>0){
                         imageView.image = [UIImage imageNamed:image];
                     }else if(placeholder.length>0){
@@ -120,7 +122,9 @@
                 [imageView zy_cornerRadiusRoundingRect];
                 if(image){
                     if ([image hasPrefix:@"http"]) {
-                        [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder]];
+                        [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                            self.image = image;
+                        }];
                     }else if(image.length>0){
                         imageView.image = [UIImage imageNamed:image];
                     }else if(placeholder.length>0){
@@ -154,7 +158,9 @@
                 
                 if(image){
                     if ([image hasPrefix:@"http"]) {
-                        [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder]];
+                        [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                            self.image = image;
+                        }];
                     }else if(image.length>0){
                         imageView.image = [UIImage imageNamed:image];
                     }else if(placeholder.length>0){

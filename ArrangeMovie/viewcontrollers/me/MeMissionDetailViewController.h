@@ -7,7 +7,10 @@
 //
 
 #import "EMIBaseViewController.h"
+#import "Task.h"
 
 @interface MeMissionDetailViewController : EMIBaseViewController
+
+@property (nonatomic, strong) Task *task;
 
 @end

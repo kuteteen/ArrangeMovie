@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MeMissionNoAuthView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="134"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务审核中,暂无排片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dur-4V-BiI">
+                    <rect key="frame" x="96" y="94" width="128" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="IGm-JU-d0j"/>
+                        <constraint firstAttribute="width" constant="128" id="ch1-kw-Bzb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                    <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row_piece_move" translatesAutoresizingMaskIntoConstraints="NO" id="eEl-Qc-sWZ">
+                    <rect key="frame" x="120" y="17" width="80" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="Zcc-N6-MxZ"/>
+                        <constraint firstAttribute="height" constant="65" id="nmH-Cc-uc1"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dur-4V-BiI" firstAttribute="top" secondItem="eEl-Qc-sWZ" secondAttribute="bottom" constant="12" id="Rmj-Yg-BA7"/>
+                <constraint firstItem="dur-4V-BiI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aQJ-1u-Quv"/>
+                <constraint firstItem="eEl-Qc-sWZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="d36-Jg-Tt7"/>
+                <constraint firstAttribute="bottom" secondItem="dur-4V-BiI" secondAttribute="bottom" constant="25" id="fav-Rq-as1"/>
+                <constraint firstItem="eEl-Qc-sWZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="qSV-Ia-CWZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="row_piece_move" width="120" height="100"/>
+    </resources>
+</document>

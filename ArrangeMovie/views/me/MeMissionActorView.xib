@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主要演员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwd-W6-ZAN">
+                    <rect key="frame" x="15" y="17" width="76" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="COt-78-5Nq"/>
+                        <constraint firstAttribute="width" constant="76" id="txo-6o-psx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本尼迪克特·康伯巴奇,马丁·弗瑞曼,马克·加蒂斯,安德鲁·斯科特" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCt-SC-k2z">
+                    <rect key="frame" x="15" y="52" width="290" height="13"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13" id="sDE-oJ-xNg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                    <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="pCt-SC-k2z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="0ab-mX-4ML"/>
+                <constraint firstItem="Hwd-W6-ZAN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="FZg-qx-00h"/>
+                <constraint firstAttribute="bottom" secondItem="pCt-SC-k2z" secondAttribute="bottom" constant="16" id="RDf-dN-nw5"/>
+                <constraint firstAttribute="trailing" secondItem="pCt-SC-k2z" secondAttribute="trailing" constant="15" id="gaa-7s-Fo9"/>
+                <constraint firstItem="pCt-SC-k2z" firstAttribute="top" secondItem="Hwd-W6-ZAN" secondAttribute="bottom" constant="17" id="qNC-6z-72R"/>
+                <constraint firstItem="Hwd-W6-ZAN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="vBu-gN-Nnk"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="140" y="153.5"/>
+        </view>
+    </objects>
+</document>

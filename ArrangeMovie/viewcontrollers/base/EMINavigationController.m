@@ -8,9 +8,14 @@
 
 #import "EMINavigationController.h"
 #import "UIColor+Hex.h"
+#import "OUNavAnimation.h"
 //#import "RDVTabBarController.h"
 
-@interface EMINavigationController ()
+@interface EMINavigationController ()<UINavigationControllerDelegate>
+@property (nonatomic, assign) CGRect origionRect;
+@property (nonatomic, assign) CGRect desRect;
+@property (nonatomic, strong) UIImage* image;
+@property (nonatomic, assign) BOOL isPush;
 
 @end
 
@@ -141,8 +146,9 @@
 }
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated {
-    UIViewController *viewController = [super popViewControllerAnimated:animated];
-    return viewController;
+    self.isPush = NO;
+    
+    return [super popViewControllerAnimated:animated];
 }
 
 - (NSArray *)popToRootViewControllerAnimated:(BOOL)animated {
@@ -153,17 +159,11 @@
 }
 
 - (NSArray *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
-//    if([viewController isKindOfClass:[YYHomeViewController class]]){
-//        [[viewController rdv_tabBarController] setTabBarHidden:YES animated:NO];
-//    }else{
-//        [[viewController rdv_tabBarController] setTabBarHidden:NO animated:NO];
-//    }
     return [super popToViewController:viewController animated:animated];
 }
 
 - (void)back
 {
-
     [self popViewControllerAnimated:YES];
 }
 
@@ -171,4 +171,27 @@
 {
     [self popToRootViewControllerAnimated:YES];
 }
+
+-(void)pushViewController:(UIViewController *)viewController withImageView:(UIImageView *)imageView originRect:(CGRect)originRect desRect:(CGRect)desRect{
+    self.delegate = self;
+    self.origionRect = originRect;
+    self.desRect = desRect;
+    self.image = imageView.image;
+    self.isPush = YES;
+    [super pushViewController:viewController animated:YES];
+}
+
+#pragma mark UINavigationControllerDelegate
+-(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
+    OUNavAnimation* animation = [[OUNavAnimation alloc] init];
+    animation.imageRect = self.origionRect;
+    animation.image = self.image;
+    animation.isPush = self.isPush;
+    animation.desRect = self.desRect;
+    if (!self.isPush) {
+        self.delegate = nil;
+    }
+    return animation;
+}
+
 @end
