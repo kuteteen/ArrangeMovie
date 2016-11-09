@@ -8,7 +8,7 @@
 
 #import "PFHomeViewController.h"
 
-@interface PFHomeViewController ()
+@interface PFHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
 @property(nonatomic,strong)NSMutableArray *sectionArray;//section数组(里面包裹着各个section的数据)
 @property(nonatomic,strong)NSMutableArray *isshowArray;//是否展示数组(和sectionArray数量保持一致)
@@ -20,16 +20,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.sectionArray = [[NSMutableArray alloc] initWithCapacity:0];
+    for (int i = 0; i < 100; i++) {
+        [self.sectionArray addObject:@[@1,@2,@3]];
+    }
+    self.isshowArray = [[NSMutableArray alloc] initWithCapacity:0];
+    self.issselectedArray = [[NSMutableArray alloc] initWithCapacity:0];
+    [self handleData];
+    
     [self initView];
     
-    [AppDelegate storyBoradAutoLay:self.view];
-    
-    self.headImgView.frame = CGRectMake(self.headImgView.frame.origin.x, self.headImgView.frame.origin.y, self.headImgView.frame.size.height, self.headImgView.frame.size.height);
-    if (iPhone4S) {
-        self.headImgView.frame = CGRectMake(130, 68, 60, 60);
-        self.nameLab.font = [UIFont systemFontOfSize:16.f];
-    }
-    [self setHead];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,39 +42,58 @@
 
 - (void)initView{
     
-    self.sectionArray = [[NSMutableArray alloc] initWithCapacity:0];
-    [self.sectionArray addObject:@[@"1",@"2",@"3]"]];
-    [self.sectionArray addObject:@[@"1",@"2",@"3]"]];
-    [self.sectionArray addObject:@[@"1",@"2",@"3]"]];
-    [self.sectionArray addObject:@[@"1",@"2",@"3]"]];
-    [self.sectionArray addObject:@[@"1",@"2",@"3]"]];
-    self.isshowArray = [[NSMutableArray alloc] initWithCapacity:0];
-    self.issselectedArray = [[NSMutableArray alloc] initWithCapacity:0];
     
-    
-    [self handleData];
-    //rightNavBtn  &&  leftNavBtn
-    
-    UIBarButtonItem *leftNavBtn = [UIBarButtonItem itemWithImageName:@"film_index_add" highImageName:@"film_index_add" target:self action:@selector(leftNavBtnClicked:)];
-    UIBarButtonItem *rightNavBtn = [UIBarButtonItem itemWithImageName:@"film_index_my" highImageName:@"film_index_my" target:self action:@selector(rightNavBtnClicked:)];
-    self.navigationItem.rightBarButtonItem = rightNavBtn;
-    self.navigationItem.leftBarButtonItem = leftNavBtn;
-   
-    
-    [self setHead];
-    
-    //片方姓名
-    self.nameLab.text = @"王小二";
-    
-    //tabelview尾部视图
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;//无分割线
+    //tabelview
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, screenWidth, screenHeight-64)];
+
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.bounces = YES;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    
+    self.head = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 201*self.myDelegate.autoSizeScaleY)];
+    
+    self.topView = [[UIImageView alloc] initWithFrame:self.head.bounds];
+    self.topView.image = [UIImage imageNamed:@"pfhome_topbg"];
+    self.topView.contentMode = UIViewContentModeScaleAspectFill;
+    self.topView.clipsToBounds = YES;
+    //头像
+    self.headImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((screenWidth-110*self.myDelegate.autoSizeScaleX)/2, 4, 110*self.myDelegate.autoSizeScaleX, 110*self.myDelegate.autoSizeScaleX)];
+    self.headImgView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
+    [self setHead];
+    [self.topView addSubview:self.headImgView];
+    self.headImgView.sd_layout.centerXEqualToView(self.topView);
+    //姓名
+    self.nameLab = [[UILabel alloc] initWithFrame:CGRectMake(10, 4+110*self.myDelegate.autoSizeScaleX+4+23*self.myDelegate.autoSizeScaleY, screenWidth-20, 25*self.myDelegate.autoSizeScaleY)];
+    self.nameLab.textAlignment = NSTextAlignmentCenter;
+    self.nameLab.font = [UIFont systemFontOfSize:21.f];
+    self.nameLab.text = @"王小二";
+    self.nameLab.textColor = [UIColor whiteColor];
+    self.nameLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
+    [self.topView addSubview:self.nameLab];
+    self.nameLab.sd_layout.centerXEqualToView(self.topView);
+    
+    [self.head addSubview:self.topView];
+    self.tableView.tableHeaderView = self.head;
+    
+    [self.tableView sendSubviewToBack:self.tableView.tableHeaderView];
+    
+    [self.view addSubview:self.tableView];
+    
+    
+    
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_index_add" highImageName:@"film_index_add" target:self action:@selector(leftNavBtnClicked:)];
+    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_index_my" highImageName:@"film_index_my" target:self action:@selector(rightNavBtnClicked:)];
 }
 
 
 - (void)setHead{
     //加载头像
-    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.35 shadowRadius:5 image:@"miller" placeholder:@"miller"];
+    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.35 shadowRadius:8 image:@"miller" placeholder:@"miller"];
 }
 
 //处理数据
@@ -236,6 +256,53 @@
             break;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+//滑动
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    
+    //图片高度
+    CGFloat imageHeight = self.head.frame.size.height;
+    //图片宽度
+    CGFloat imageWidth = screenWidth;
+    //图片上下偏移量
+    CGFloat imageOffsetY = scrollView.contentOffset.y;
+    
+//    NSLog(@"图片上下偏移量 imageOffsetY:%f ->",imageOffsetY);
+    
+    
+    
+    //上移
+    if (imageOffsetY < 0) {
+        CGFloat totalOffset = imageHeight + ABS(imageOffsetY);
+        CGFloat f = totalOffset / imageHeight;
+        
+        self.topView.frame = CGRectMake(-(imageWidth * f - imageWidth) * 0.5, imageOffsetY, imageWidth * f, totalOffset);
+    }
+    
+        //下移
+        if (imageOffsetY > 0) {
+            CGFloat totalOffset = imageHeight + ABS(imageOffsetY);
+//            CGFloat f = totalOffset / imageHeight;
+    
+            [self.topView setFrame:CGRectMake(0, -imageOffsetY/2, imageWidth, totalOffset)];
+        }
+
+
+    return;
+}
+
+
+
+
+//处理视图位置的变化
+- (void)handleViewPosition:(UIScrollView *)sc{
+    
+    
+    
 }
 /*
 #pragma mark - Navigation

@@ -77,6 +77,7 @@
     
     //滑动菜单
     self.mainSegView = [[LFLUISegmentedControl alloc] initWithFrame:CGRectMake(0,0,  self.segmentView.frame.size.width, self.segmentView.frame.size.height)];
+    self.mainSegView.isClickable = YES;
     self.mainSegView.delegate = self;
     [self.mainSegView AddSegumentArray:[NSArray arrayWithObjects:@"片方",@"院线经理", nil]];
     [self.segmentView addSubview:self.mainSegView];

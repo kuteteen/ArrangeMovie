@@ -14,9 +14,11 @@
 #import "MeViewController.h"
 
 @interface PFHomeViewController : EMIBaseViewController
-@property (weak, nonatomic) IBOutlet EMIShadowImageView *headImgView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLab;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong,nonatomic)   UIView *head;
+@property (strong, nonatomic)  UIImageView *topView;
+@property (strong, nonatomic)  EMIShadowImageView *headImgView;
+@property (strong, nonatomic)  UILabel *nameLab;
+@property (strong, nonatomic)  UITableView *tableView;
 
 //空表格的替代视图
 @property (strong,nonatomic) TableWithNoDataView *noDataView;

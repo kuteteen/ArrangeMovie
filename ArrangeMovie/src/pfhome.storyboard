@@ -174,42 +174,10 @@
                     <view key="view" contentMode="scaleToFill" id="FgS-ev-QHZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1sR-ET-XEJ">
-                                <rect key="frame" x="0.0" y="253" width="375" height="414"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="eYG-SH-P6J" id="SJT-mw-jkH"/>
-                                    <outlet property="delegate" destination="eYG-SH-P6J" id="Ufk-x6-jD9"/>
-                                </connections>
-                            </tableView>
-                            <view contentMode="scaleToFill" id="woA-U8-VC6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="253"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="exx-nU-pyN" customClass="EMIShadowImageView">
-                                        <rect key="frame" x="133" y="80" width="110" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SPA-RN-1IZ">
-                                        <rect key="frame" x="75" y="203" width="225" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.22745098039215686" green="0.3529411764705882" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="jai-34-FuV"/>
                     <connections>
-                        <outlet property="headImgView" destination="exx-nU-pyN" id="pYS-yd-eD2"/>
-                        <outlet property="nameLab" destination="SPA-RN-1IZ" id="c3J-QJ-dak"/>
-                        <outlet property="tableView" destination="1sR-ET-XEJ" id="Haf-5L-m79"/>
                         <segue destination="gpQ-z6-JqU" kind="push" identifier="toMakeTaskVC" id="VOD-wp-ygU"/>
                         <segue destination="X3H-GA-rtq" kind="push" identifier="toUnDoVC" id="tiO-j7-Dbe"/>
                         <segue destination="4QR-X0-Tqi" kind="push" identifier="toDoneVC" id="HK1-Ao-Kvp"/>

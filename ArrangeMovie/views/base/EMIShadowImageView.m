@@ -107,9 +107,12 @@
                 self.layer.shadowOffset = offset;//偏移距离
                 self.layer.shadowOpacity = opacity;//不透明度
                 self.layer.shadowRadius = radius;//半径
-                //清除子视图
+                //清除子视图中的uiimageview
                 for (UIView *item in self.subviews) {
-                    [item removeFromSuperview];
+                    if ([item isKindOfClass:[UIImageView class]]) {
+                        [item removeFromSuperview];
+                    }
+                    
                 }
                 [self addSubview:imageView];
             }

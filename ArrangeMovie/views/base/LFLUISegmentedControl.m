@@ -45,7 +45,10 @@
 }
 -(void)changeTheSegument:(UIButton*)button
 {
-//    [self selectTheSegument:button.tag];
+    if (self.isClickable) {
+        [self selectTheSegument:button.tag];
+    }
+    
 }
 -(void)selectTheSegument:(NSInteger)segument
 {
