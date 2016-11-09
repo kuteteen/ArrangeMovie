@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -623,7 +623,7 @@
         <!--Me Mission Detail View Controller-->
         <scene sceneID="pse-Zu-uSC">
             <objects>
-                <viewController id="SwR-tE-qH0" customClass="MeMissionDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="memissiondetail" id="SwR-tE-qH0" customClass="MeMissionDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6rg-CX-Yw8"/>
                         <viewControllerLayoutGuide type="bottom" id="koJ-V9-XMN"/>
@@ -631,29 +631,11 @@
                     <view key="view" contentMode="scaleToFill" id="etm-0f-b0C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1mq-wC-kAB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="SwR-tE-qH0" id="FMg-oL-58B"/>
-                                    <outlet property="delegate" destination="SwR-tE-qH0" id="9DV-qw-QqL"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="1mq-wC-kAB" firstAttribute="leading" secondItem="etm-0f-b0C" secondAttribute="leading" id="9hO-uY-I8Y"/>
-                            <constraint firstItem="koJ-V9-XMN" firstAttribute="top" secondItem="1mq-wC-kAB" secondAttribute="bottom" id="Pjg-SG-uee"/>
-                            <constraint firstAttribute="trailing" secondItem="1mq-wC-kAB" secondAttribute="trailing" id="R4j-Br-KFw"/>
-                            <constraint firstItem="1mq-wC-kAB" firstAttribute="top" secondItem="6rg-CX-Yw8" secondAttribute="bottom" id="igx-VY-Elo"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="f9I-yw-UQi"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="tableView" destination="1mq-wC-kAB" id="ngV-1b-tX3"/>
                         <segue destination="jJR-eF-i4z" kind="push" identifier="memissiontocheck" id="E17-fe-lTT"/>
                     </connections>
                 </viewController>

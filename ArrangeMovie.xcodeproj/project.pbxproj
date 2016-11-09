@@ -22,6 +22,7 @@
 		A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AC11881DABA69100CBBE05 /* MeBankCardTableViewCell.xib */; };
 		A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B85DDB1DAF310D000DD644 /* MeBankAddTableViewCell.m */; };
 		A5B85DDE1DAF310D000DD644 /* MeBankAddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5B85DDC1DAF310D000DD644 /* MeBankAddTableViewCell.xib */; };
+		B730A82A1DE3FE68B55FF505 /* libPods-ArrangeMovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB27B15B9D74F725098C316 /* libPods-ArrangeMovie.a */; };
 		C8001CDF1DC075570092696C /* Grade.m in Sources */ = {isa = PBXBuildFile; fileRef = C8001CDE1DC075570092696C /* Grade.m */; };
 		C80EB32E1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C80EB32C1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.m */; };
 		C80EB32F1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80EB32D1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.xib */; };
@@ -34,15 +35,39 @@
 		C82AF8E51DB70A0600882DB6 /* MissionNoAuthTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C82AF8E31DB70A0600882DB6 /* MissionNoAuthTableViewCell.xib */; };
 		C82AF8E81DB7170600882DB6 /* SCTopLeftAlignLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C82AF8E71DB7170600882DB6 /* SCTopLeftAlignLabel.m */; };
 		C82AF8EB1DB75BAC00882DB6 /* MeMissionCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C82AF8EA1DB75BAC00882DB6 /* MeMissionCheckViewController.m */; };
+		C82C48A51DCC660E00848128 /* ChangePswWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C82C48A41DCC660E00848128 /* ChangePswWebInterface.m */; };
+		C82C48A81DCC6C5E00848128 /* PFTaskListWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C82C48A71DCC6C5E00848128 /* PFTaskListWebInterface.m */; };
+		C82C48AB1DCC85F400848128 /* ArrangeDetailWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C82C48AA1DCC85F400848128 /* ArrangeDetailWebInterface.m */; };
+		C82C48AE1DCC90AF00848128 /* TaskHistoryWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C82C48AD1DCC90AF00848128 /* TaskHistoryWebInterface.m */; };
 		C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */; };
 		C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA61DAB6C6100B14075 /* EMIShadowImageView.m */; };
 		C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BA91DABA44100B14075 /* SCTableViewCell.m */; };
 		C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8329BAC1DACA62700B14075 /* MeProfileViewController.m */; };
+		C83C79231DD092CB002EEAF3 /* EMIRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C79221DD092CB002EEAF3 /* EMIRootViewController.m */; };
+		C83C79261DD163CD002EEAF3 /* OUNavAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C79251DD163CD002EEAF3 /* OUNavAnimation.m */; };
+		C83C792C1DD179C2002EEAF3 /* MeMissionTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */; };
+		C83C792E1DD179FC002EEAF3 /* MeMissionTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */; };
 		C859974F1DC04C1E0057C417 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = C859974E1DC04C1E0057C417 /* Task.m */; };
 		C85997521DC0565F0057C417 /* TakeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997511DC0565F0057C417 /* TakeTask.m */; };
 		C85997551DC058560057C417 /* Film.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997541DC058560057C417 /* Film.m */; };
+		C8610BF21DD047F300E959E1 /* TaskDetailWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610BF11DD047F300E959E1 /* TaskDetailWebInterface.m */; };
+		C8610BF51DD04B6C00E959E1 /* TaskDelWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610BF41DD04B6C00E959E1 /* TaskDelWebInterface.m */; };
+		C8610BF81DD0586200E959E1 /* PointsDetailWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610BF71DD0586200E959E1 /* PointsDetailWebInterface.m */; };
+		C8610BFB1DD05E3200E959E1 /* ChargeWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610BFA1DD05E3200E959E1 /* ChargeWebInterface.m */; };
+		C8610BFE1DD0602D00E959E1 /* GetDefaultBankWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610BFD1DD0602D00E959E1 /* GetDefaultBankWebInterface.m */; };
+		C8610C011DD0622B00E959E1 /* GetBanksWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610C001DD0622B00E959E1 /* GetBanksWebInterface.m */; };
+		C8610C041DD0638F00E959E1 /* AddBankWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610C031DD0638F00E959E1 /* AddBankWebInterface.m */; };
+		C8610C071DD065C600E959E1 /* SetDefaultBankWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610C061DD065C600E959E1 /* SetDefaultBankWebInterface.m */; };
+		C8610C0A1DD0670400E959E1 /* PFToAuthWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610C091DD0670400E959E1 /* PFToAuthWebInterface.m */; };
+		C8610C0D1DD0690400E959E1 /* FeedbackWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610C0C1DD0690400E959E1 /* FeedbackWebInterface.m */; };
+		C8610C101DD06ADF00E959E1 /* UploadProofWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610C0F1DD06ADF00E959E1 /* UploadProofWebInterface.m */; };
+		C8610C131DD06C4500E959E1 /* ManagerTaskWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610C121DD06C4500E959E1 /* ManagerTaskWebInterface.m */; };
+		C8610C161DD0749E00E959E1 /* ReceiveTaskWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610C151DD0749E00E959E1 /* ReceiveTaskWebInterface.m */; };
+		C8610C191DD086E900E959E1 /* ManagerToAuthTaskWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610C181DD086E900E959E1 /* ManagerToAuthTaskWebInterface.m */; };
+		C8610C1C1DD087D100E959E1 /* TaskImgWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8610C1B1DD087D100E959E1 /* TaskImgWebInterface.m */; };
 		C86161971DCAC94600B3DEB3 /* MePointRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86161951DCAC94600B3DEB3 /* MePointRecordTableViewCell.m */; };
 		C86161981DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86161961DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib */; };
+		C861619B1DCAD7A000B3DEB3 /* ManagerMissionPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C861619A1DCAD7A000B3DEB3 /* ManagerMissionPageViewController.m */; };
 		C86DE7531DB5B63600374734 /* MissionActorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */; };
 		C86DE7541DB5B63600374734 /* MissionActorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */; };
 		C86DE7581DB5BD5300374734 /* MissionRequireTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE7561DB5BD5300374734 /* MissionRequireTableViewCell.m */; };
@@ -50,6 +75,14 @@
 		C86DE75C1DB5C7F500374734 /* MeMissionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE75B1DB5C7F500374734 /* MeMissionDetailViewController.m */; };
 		C86DE7601DB61A6C00374734 /* MissionRowPieceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE75E1DB61A6C00374734 /* MissionRowPieceTableViewCell.m */; };
 		C86DE7611DB61A6C00374734 /* MissionRowPieceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86DE75F1DB61A6C00374734 /* MissionRowPieceTableViewCell.xib */; };
+		C87E40AB1DD2B12300DD2018 /* MeMissionActorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87E40AA1DD2B12300DD2018 /* MeMissionActorView.xib */; };
+		C87E40AE1DD2B14D00DD2018 /* MeMissionActorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C87E40AD1DD2B14D00DD2018 /* MeMissionActorView.m */; };
+		C87E40B11DD2BC8400DD2018 /* MeMissionRequireView.m in Sources */ = {isa = PBXBuildFile; fileRef = C87E40B01DD2BC8400DD2018 /* MeMissionRequireView.m */; };
+		C87E40B31DD2BC9800DD2018 /* MeMissionRequireView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87E40B21DD2BC9800DD2018 /* MeMissionRequireView.xib */; };
+		C87E40B51DD2EEC500DD2018 /* MeMissionRowPieceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87E40B41DD2EEC500DD2018 /* MeMissionRowPieceView.xib */; };
+		C87E40B81DD2EEDA00DD2018 /* MeMissionRowPieceView.m in Sources */ = {isa = PBXBuildFile; fileRef = C87E40B71DD2EEDA00DD2018 /* MeMissionRowPieceView.m */; };
+		C87E40BB1DD3003D00DD2018 /* MeMissionNoAuthView.m in Sources */ = {isa = PBXBuildFile; fileRef = C87E40BA1DD3003D00DD2018 /* MeMissionNoAuthView.m */; };
+		C87E40BD1DD3005100DD2018 /* MeMissionNoAuthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87E40BC1DD3005100DD2018 /* MeMissionNoAuthView.xib */; };
 		C886B0D71DA8FC0500240283 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D61DA8FC0500240283 /* main.m */; };
 		C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C886B0D91DA8FC0500240283 /* AppDelegate.m */; };
 		C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C886B0E11DA8FC0500240283 /* Assets.xcassets */; };
@@ -133,12 +166,12 @@
 		D6E6EDD41DC6EC0C00ED6475 /* TaskDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6EDD31DC6EC0C00ED6475 /* TaskDetail.m */; };
 		D6E8691D1DC2E12500BA861B /* PFUploadImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E8691C1DC2E12500BA861B /* PFUploadImgViewController.m */; };
 		D6EE72F91DC86305008D4AD8 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EE72F81DC86305008D4AD8 /* Test.m */; };
-		E39C21A829586ED653E9F439 /* libPods-ArrangeMovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E8D6CFA6C7C07DE492EFF6 /* libPods-ArrangeMovie.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		53E8D6CFA6C7C07DE492EFF6 /* libPods-ArrangeMovie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArrangeMovie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CA5AB6299322F51380A83C8 /* Pods-ArrangeMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.release.xcconfig"; sourceTree = "<group>"; };
+		1DA6FC1FE50EC84548300DD3 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
+		3FB27B15B9D74F725098C316 /* libPods-ArrangeMovie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArrangeMovie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		693ABFA56142BD986F8A6BE6 /* Pods-ArrangeMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.release.xcconfig"; sourceTree = "<group>"; };
 		A5A5083B1DBF2CF800CB2491 /* manager.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = manager.storyboard; path = src/manager.storyboard; sourceTree = "<group>"; };
 		A5A5083E1DBF2FE500CB2491 /* ManagerIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerIndexViewController.h; path = viewcontrollers/manager/ManagerIndexViewController.h; sourceTree = "<group>"; };
 		A5A5083F1DBF2FE500CB2491 /* ManagerIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagerIndexViewController.m; path = viewcontrollers/manager/ManagerIndexViewController.m; sourceTree = "<group>"; };
@@ -184,6 +217,14 @@
 		C82AF8E71DB7170600882DB6 /* SCTopLeftAlignLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCTopLeftAlignLabel.m; path = views/base/SCTopLeftAlignLabel.m; sourceTree = "<group>"; };
 		C82AF8E91DB75BAC00882DB6 /* MeMissionCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionCheckViewController.h; path = viewcontrollers/me/MeMissionCheckViewController.h; sourceTree = "<group>"; };
 		C82AF8EA1DB75BAC00882DB6 /* MeMissionCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionCheckViewController.m; path = viewcontrollers/me/MeMissionCheckViewController.m; sourceTree = "<group>"; };
+		C82C48A31DCC660E00848128 /* ChangePswWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangePswWebInterface.h; path = me/ChangePswWebInterface.h; sourceTree = "<group>"; };
+		C82C48A41DCC660E00848128 /* ChangePswWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChangePswWebInterface.m; path = me/ChangePswWebInterface.m; sourceTree = "<group>"; };
+		C82C48A61DCC6C5E00848128 /* PFTaskListWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFTaskListWebInterface.h; path = me/PFTaskListWebInterface.h; sourceTree = "<group>"; };
+		C82C48A71DCC6C5E00848128 /* PFTaskListWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTaskListWebInterface.m; path = me/PFTaskListWebInterface.m; sourceTree = "<group>"; };
+		C82C48A91DCC85F400848128 /* ArrangeDetailWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrangeDetailWebInterface.h; path = me/ArrangeDetailWebInterface.h; sourceTree = "<group>"; };
+		C82C48AA1DCC85F400848128 /* ArrangeDetailWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArrangeDetailWebInterface.m; path = me/ArrangeDetailWebInterface.m; sourceTree = "<group>"; };
+		C82C48AC1DCC90AF00848128 /* TaskHistoryWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskHistoryWebInterface.h; path = me/TaskHistoryWebInterface.h; sourceTree = "<group>"; };
+		C82C48AD1DCC90AF00848128 /* TaskHistoryWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskHistoryWebInterface.m; path = me/TaskHistoryWebInterface.m; sourceTree = "<group>"; };
 		C8329B9F1DAB34F200B14075 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Extension.h"; path = "views/base/UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		C8329BA01DAB34F200B14075 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Extension.m"; path = "views/base/UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		C8329BA51DAB6C6100B14075 /* EMIShadowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMIShadowImageView.h; path = views/base/EMIShadowImageView.h; sourceTree = "<group>"; };
@@ -192,15 +233,54 @@
 		C8329BA91DABA44100B14075 /* SCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCTableViewCell.m; path = views/base/SCTableViewCell.m; sourceTree = "<group>"; };
 		C8329BAB1DACA62700B14075 /* MeProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeProfileViewController.h; path = viewcontrollers/me/MeProfileViewController.h; sourceTree = "<group>"; };
 		C8329BAC1DACA62700B14075 /* MeProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeProfileViewController.m; path = viewcontrollers/me/MeProfileViewController.m; sourceTree = "<group>"; };
+		C83C79211DD092CB002EEAF3 /* EMIRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMIRootViewController.h; path = viewcontrollers/base/EMIRootViewController.h; sourceTree = "<group>"; };
+		C83C79221DD092CB002EEAF3 /* EMIRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMIRootViewController.m; path = viewcontrollers/base/EMIRootViewController.m; sourceTree = "<group>"; };
+		C83C79241DD163CD002EEAF3 /* OUNavAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OUNavAnimation.h; path = viewcontrollers/base/OUNavAnimation.h; sourceTree = "<group>"; };
+		C83C79251DD163CD002EEAF3 /* OUNavAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OUNavAnimation.m; path = viewcontrollers/base/OUNavAnimation.m; sourceTree = "<group>"; };
+		C83C792A1DD179C2002EEAF3 /* MeMissionTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionTitleView.h; path = views/me/MeMissionTitleView.h; sourceTree = "<group>"; };
+		C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionTitleView.m; path = views/me/MeMissionTitleView.m; sourceTree = "<group>"; };
+		C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionTitleView.xib; path = views/me/MeMissionTitleView.xib; sourceTree = "<group>"; };
 		C859974D1DC04C1E0057C417 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = models/Task.h; sourceTree = "<group>"; };
 		C859974E1DC04C1E0057C417 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = models/Task.m; sourceTree = "<group>"; };
 		C85997501DC0565F0057C417 /* TakeTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TakeTask.h; path = models/TakeTask.h; sourceTree = "<group>"; };
 		C85997511DC0565F0057C417 /* TakeTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TakeTask.m; path = models/TakeTask.m; sourceTree = "<group>"; };
 		C85997531DC058560057C417 /* Film.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Film.h; path = models/Film.h; sourceTree = "<group>"; };
 		C85997541DC058560057C417 /* Film.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Film.m; path = models/Film.m; sourceTree = "<group>"; };
+		C8610BF01DD047F300E959E1 /* TaskDetailWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDetailWebInterface.h; path = me/TaskDetailWebInterface.h; sourceTree = "<group>"; };
+		C8610BF11DD047F300E959E1 /* TaskDetailWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDetailWebInterface.m; path = me/TaskDetailWebInterface.m; sourceTree = "<group>"; };
+		C8610BF31DD04B6C00E959E1 /* TaskDelWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDelWebInterface.h; path = me/TaskDelWebInterface.h; sourceTree = "<group>"; };
+		C8610BF41DD04B6C00E959E1 /* TaskDelWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDelWebInterface.m; path = me/TaskDelWebInterface.m; sourceTree = "<group>"; };
+		C8610BF61DD0586200E959E1 /* PointsDetailWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointsDetailWebInterface.h; path = me/PointsDetailWebInterface.h; sourceTree = "<group>"; };
+		C8610BF71DD0586200E959E1 /* PointsDetailWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointsDetailWebInterface.m; path = me/PointsDetailWebInterface.m; sourceTree = "<group>"; };
+		C8610BF91DD05E3200E959E1 /* ChargeWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChargeWebInterface.h; path = me/ChargeWebInterface.h; sourceTree = "<group>"; };
+		C8610BFA1DD05E3200E959E1 /* ChargeWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChargeWebInterface.m; path = me/ChargeWebInterface.m; sourceTree = "<group>"; };
+		C8610BFC1DD0602D00E959E1 /* GetDefaultBankWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetDefaultBankWebInterface.h; path = me/GetDefaultBankWebInterface.h; sourceTree = "<group>"; };
+		C8610BFD1DD0602D00E959E1 /* GetDefaultBankWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetDefaultBankWebInterface.m; path = me/GetDefaultBankWebInterface.m; sourceTree = "<group>"; };
+		C8610BFF1DD0622B00E959E1 /* GetBanksWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetBanksWebInterface.h; path = me/GetBanksWebInterface.h; sourceTree = "<group>"; };
+		C8610C001DD0622B00E959E1 /* GetBanksWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetBanksWebInterface.m; path = me/GetBanksWebInterface.m; sourceTree = "<group>"; };
+		C8610C021DD0638F00E959E1 /* AddBankWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddBankWebInterface.h; path = me/AddBankWebInterface.h; sourceTree = "<group>"; };
+		C8610C031DD0638F00E959E1 /* AddBankWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddBankWebInterface.m; path = me/AddBankWebInterface.m; sourceTree = "<group>"; };
+		C8610C051DD065C600E959E1 /* SetDefaultBankWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetDefaultBankWebInterface.h; path = me/SetDefaultBankWebInterface.h; sourceTree = "<group>"; };
+		C8610C061DD065C600E959E1 /* SetDefaultBankWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetDefaultBankWebInterface.m; path = me/SetDefaultBankWebInterface.m; sourceTree = "<group>"; };
+		C8610C081DD0670400E959E1 /* PFToAuthWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFToAuthWebInterface.h; path = me/PFToAuthWebInterface.h; sourceTree = "<group>"; };
+		C8610C091DD0670400E959E1 /* PFToAuthWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFToAuthWebInterface.m; path = me/PFToAuthWebInterface.m; sourceTree = "<group>"; };
+		C8610C0B1DD0690400E959E1 /* FeedbackWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackWebInterface.h; path = me/FeedbackWebInterface.h; sourceTree = "<group>"; };
+		C8610C0C1DD0690400E959E1 /* FeedbackWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackWebInterface.m; path = me/FeedbackWebInterface.m; sourceTree = "<group>"; };
+		C8610C0E1DD06ADF00E959E1 /* UploadProofWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadProofWebInterface.h; path = me/UploadProofWebInterface.h; sourceTree = "<group>"; };
+		C8610C0F1DD06ADF00E959E1 /* UploadProofWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadProofWebInterface.m; path = me/UploadProofWebInterface.m; sourceTree = "<group>"; };
+		C8610C111DD06C4500E959E1 /* ManagerTaskWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerTaskWebInterface.h; path = manager/ManagerTaskWebInterface.h; sourceTree = "<group>"; };
+		C8610C121DD06C4500E959E1 /* ManagerTaskWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagerTaskWebInterface.m; path = manager/ManagerTaskWebInterface.m; sourceTree = "<group>"; };
+		C8610C141DD0749E00E959E1 /* ReceiveTaskWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReceiveTaskWebInterface.h; path = manager/ReceiveTaskWebInterface.h; sourceTree = "<group>"; };
+		C8610C151DD0749E00E959E1 /* ReceiveTaskWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReceiveTaskWebInterface.m; path = manager/ReceiveTaskWebInterface.m; sourceTree = "<group>"; };
+		C8610C171DD086E900E959E1 /* ManagerToAuthTaskWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerToAuthTaskWebInterface.h; path = manager/ManagerToAuthTaskWebInterface.h; sourceTree = "<group>"; };
+		C8610C181DD086E900E959E1 /* ManagerToAuthTaskWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagerToAuthTaskWebInterface.m; path = manager/ManagerToAuthTaskWebInterface.m; sourceTree = "<group>"; };
+		C8610C1A1DD087D100E959E1 /* TaskImgWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskImgWebInterface.h; path = manager/TaskImgWebInterface.h; sourceTree = "<group>"; };
+		C8610C1B1DD087D100E959E1 /* TaskImgWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskImgWebInterface.m; path = manager/TaskImgWebInterface.m; sourceTree = "<group>"; };
 		C86161941DCAC94600B3DEB3 /* MePointRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MePointRecordTableViewCell.h; path = views/me/MePointRecordTableViewCell.h; sourceTree = "<group>"; };
 		C86161951DCAC94600B3DEB3 /* MePointRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MePointRecordTableViewCell.m; path = views/me/MePointRecordTableViewCell.m; sourceTree = "<group>"; };
 		C86161961DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MePointRecordTableViewCell.xib; path = views/me/MePointRecordTableViewCell.xib; sourceTree = "<group>"; };
+		C86161991DCAD7A000B3DEB3 /* ManagerMissionPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerMissionPageViewController.h; path = viewcontrollers/manager/ManagerMissionPageViewController.h; sourceTree = "<group>"; };
+		C861619A1DCAD7A000B3DEB3 /* ManagerMissionPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagerMissionPageViewController.m; path = viewcontrollers/manager/ManagerMissionPageViewController.m; sourceTree = "<group>"; };
 		C86DE7501DB5B63600374734 /* MissionActorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionActorTableViewCell.h; path = views/me/MissionActorTableViewCell.h; sourceTree = "<group>"; };
 		C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionActorTableViewCell.m; path = views/me/MissionActorTableViewCell.m; sourceTree = "<group>"; };
 		C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MissionActorTableViewCell.xib; path = views/me/MissionActorTableViewCell.xib; sourceTree = "<group>"; };
@@ -212,6 +292,18 @@
 		C86DE75D1DB61A6C00374734 /* MissionRowPieceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionRowPieceTableViewCell.h; path = views/me/MissionRowPieceTableViewCell.h; sourceTree = "<group>"; };
 		C86DE75E1DB61A6C00374734 /* MissionRowPieceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionRowPieceTableViewCell.m; path = views/me/MissionRowPieceTableViewCell.m; sourceTree = "<group>"; };
 		C86DE75F1DB61A6C00374734 /* MissionRowPieceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MissionRowPieceTableViewCell.xib; path = views/me/MissionRowPieceTableViewCell.xib; sourceTree = "<group>"; };
+		C87E40AA1DD2B12300DD2018 /* MeMissionActorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionActorView.xib; path = views/me/MeMissionActorView.xib; sourceTree = "<group>"; };
+		C87E40AC1DD2B14D00DD2018 /* MeMissionActorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionActorView.h; path = views/me/MeMissionActorView.h; sourceTree = "<group>"; };
+		C87E40AD1DD2B14D00DD2018 /* MeMissionActorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionActorView.m; path = views/me/MeMissionActorView.m; sourceTree = "<group>"; };
+		C87E40AF1DD2BC8400DD2018 /* MeMissionRequireView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionRequireView.h; path = views/me/MeMissionRequireView.h; sourceTree = "<group>"; };
+		C87E40B01DD2BC8400DD2018 /* MeMissionRequireView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionRequireView.m; path = views/me/MeMissionRequireView.m; sourceTree = "<group>"; };
+		C87E40B21DD2BC9800DD2018 /* MeMissionRequireView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionRequireView.xib; path = views/me/MeMissionRequireView.xib; sourceTree = "<group>"; };
+		C87E40B41DD2EEC500DD2018 /* MeMissionRowPieceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionRowPieceView.xib; path = views/me/MeMissionRowPieceView.xib; sourceTree = "<group>"; };
+		C87E40B61DD2EEDA00DD2018 /* MeMissionRowPieceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionRowPieceView.h; path = views/me/MeMissionRowPieceView.h; sourceTree = "<group>"; };
+		C87E40B71DD2EEDA00DD2018 /* MeMissionRowPieceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionRowPieceView.m; path = views/me/MeMissionRowPieceView.m; sourceTree = "<group>"; };
+		C87E40B91DD3003D00DD2018 /* MeMissionNoAuthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionNoAuthView.h; path = views/me/MeMissionNoAuthView.h; sourceTree = "<group>"; };
+		C87E40BA1DD3003D00DD2018 /* MeMissionNoAuthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionNoAuthView.m; path = views/me/MeMissionNoAuthView.m; sourceTree = "<group>"; };
+		C87E40BC1DD3005100DD2018 /* MeMissionNoAuthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionNoAuthView.xib; path = views/me/MeMissionNoAuthView.xib; sourceTree = "<group>"; };
 		C886B0D21DA8FC0500240283 /* ArrangeMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArrangeMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C886B0D61DA8FC0500240283 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C886B0D81DA8FC0500240283 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -367,7 +459,6 @@
 		D6E8691C1DC2E12500BA861B /* PFUploadImgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFUploadImgViewController.m; path = viewcontrollers/pfhome/PFUploadImgViewController.m; sourceTree = "<group>"; };
 		D6EE72F71DC86305008D4AD8 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Test.h; path = viewcontrollers/login/Test.h; sourceTree = "<group>"; };
 		D6EE72F81DC86305008D4AD8 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Test.m; path = viewcontrollers/login/Test.m; sourceTree = "<group>"; };
-		F38D72B2516F7DA2E417D9E1 /* Pods-ArrangeMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArrangeMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,26 +466,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E39C21A829586ED653E9F439 /* libPods-ArrangeMovie.a in Frameworks */,
+				B730A82A1DE3FE68B55FF505 /* libPods-ArrangeMovie.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		24C014887E9AA026FB3A8EB4 /* Pods */ = {
+		A39C1F25603B279C817ED382 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F38D72B2516F7DA2E417D9E1 /* Pods-ArrangeMovie.debug.xcconfig */,
-				7CA5AB6299322F51380A83C8 /* Pods-ArrangeMovie.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		8558AB253CBF758E69471EFC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				53E8D6CFA6C7C07DE492EFF6 /* libPods-ArrangeMovie.a */,
+				3FB27B15B9D74F725098C316 /* libPods-ArrangeMovie.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -408,6 +490,8 @@
 				A5A508421DBF386900CB2491 /* ManagerMissionDetailViewController.m */,
 				C8EB79B31DC0A677005599BC /* ManagerMissionViewController.h */,
 				C8EB79B41DC0A677005599BC /* ManagerMissionViewController.m */,
+				C86161991DCAD7A000B3DEB3 /* ManagerMissionPageViewController.h */,
+				C861619A1DCAD7A000B3DEB3 /* ManagerMissionPageViewController.m */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -463,8 +547,8 @@
 			children = (
 				C886B0D41DA8FC0500240283 /* ArrangeMovie */,
 				C886B0D31DA8FC0500240283 /* Products */,
-				24C014887E9AA026FB3A8EB4 /* Pods */,
-				8558AB253CBF758E69471EFC /* Frameworks */,
+				DC6F5D0DC112102B436F71B6 /* Pods */,
+				A39C1F25603B279C817ED382 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -579,18 +663,33 @@
 				C80EB32B1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.h */,
 				C80EB32C1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.m */,
 				C80EB32D1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.xib */,
+				C83C792A1DD179C2002EEAF3 /* MeMissionTitleView.h */,
+				C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */,
+				C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */,
+				C87E40AC1DD2B14D00DD2018 /* MeMissionActorView.h */,
+				C87E40AD1DD2B14D00DD2018 /* MeMissionActorView.m */,
+				C87E40AA1DD2B12300DD2018 /* MeMissionActorView.xib */,
 				C86DE7501DB5B63600374734 /* MissionActorTableViewCell.h */,
 				C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */,
 				C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */,
+				C87E40AF1DD2BC8400DD2018 /* MeMissionRequireView.h */,
+				C87E40B01DD2BC8400DD2018 /* MeMissionRequireView.m */,
+				C87E40B21DD2BC9800DD2018 /* MeMissionRequireView.xib */,
 				C86DE7551DB5BD5300374734 /* MissionRequireTableViewCell.h */,
 				C86DE7561DB5BD5300374734 /* MissionRequireTableViewCell.m */,
 				C86DE7571DB5BD5300374734 /* MissionRequireTableViewCell.xib */,
 				C86DE75D1DB61A6C00374734 /* MissionRowPieceTableViewCell.h */,
 				C86DE75E1DB61A6C00374734 /* MissionRowPieceTableViewCell.m */,
 				C86DE75F1DB61A6C00374734 /* MissionRowPieceTableViewCell.xib */,
+				C87E40B61DD2EEDA00DD2018 /* MeMissionRowPieceView.h */,
+				C87E40B71DD2EEDA00DD2018 /* MeMissionRowPieceView.m */,
+				C87E40B41DD2EEC500DD2018 /* MeMissionRowPieceView.xib */,
 				C82AF8E11DB70A0600882DB6 /* MissionNoAuthTableViewCell.h */,
 				C82AF8E21DB70A0600882DB6 /* MissionNoAuthTableViewCell.m */,
 				C82AF8E31DB70A0600882DB6 /* MissionNoAuthTableViewCell.xib */,
+				C87E40B91DD3003D00DD2018 /* MeMissionNoAuthView.h */,
+				C87E40BA1DD3003D00DD2018 /* MeMissionNoAuthView.m */,
+				C87E40BC1DD3005100DD2018 /* MeMissionNoAuthView.xib */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -633,10 +732,14 @@
 		C8E651341DA9D60F00400ABC /* base */ = {
 			isa = PBXGroup;
 			children = (
+				C83C79241DD163CD002EEAF3 /* OUNavAnimation.h */,
+				C83C79251DD163CD002EEAF3 /* OUNavAnimation.m */,
 				C8E6513F1DA9E77000400ABC /* EMINavigationController.h */,
 				C8E6513E1DA9E77000400ABC /* EMINavigationController.m */,
 				C8E651351DA9D62C00400ABC /* EMIBaseViewController.h */,
 				C8E651361DA9D62C00400ABC /* EMIBaseViewController.m */,
+				C83C79211DD092CB002EEAF3 /* EMIRootViewController.h */,
+				C83C79221DD092CB002EEAF3 /* EMIRootViewController.m */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -682,6 +785,36 @@
 			children = (
 				C8EB79C11DC0BAEA005599BC /* UpdateProfileWebInterface.h */,
 				C8EB79C21DC0BAEA005599BC /* UpdateProfileWebInterface.m */,
+				C82C48A31DCC660E00848128 /* ChangePswWebInterface.h */,
+				C82C48A41DCC660E00848128 /* ChangePswWebInterface.m */,
+				C82C48A61DCC6C5E00848128 /* PFTaskListWebInterface.h */,
+				C82C48A71DCC6C5E00848128 /* PFTaskListWebInterface.m */,
+				C82C48A91DCC85F400848128 /* ArrangeDetailWebInterface.h */,
+				C82C48AA1DCC85F400848128 /* ArrangeDetailWebInterface.m */,
+				C82C48AC1DCC90AF00848128 /* TaskHistoryWebInterface.h */,
+				C82C48AD1DCC90AF00848128 /* TaskHistoryWebInterface.m */,
+				C8610BF01DD047F300E959E1 /* TaskDetailWebInterface.h */,
+				C8610BF11DD047F300E959E1 /* TaskDetailWebInterface.m */,
+				C8610BF31DD04B6C00E959E1 /* TaskDelWebInterface.h */,
+				C8610BF41DD04B6C00E959E1 /* TaskDelWebInterface.m */,
+				C8610BF61DD0586200E959E1 /* PointsDetailWebInterface.h */,
+				C8610BF71DD0586200E959E1 /* PointsDetailWebInterface.m */,
+				C8610BF91DD05E3200E959E1 /* ChargeWebInterface.h */,
+				C8610BFA1DD05E3200E959E1 /* ChargeWebInterface.m */,
+				C8610BFC1DD0602D00E959E1 /* GetDefaultBankWebInterface.h */,
+				C8610BFD1DD0602D00E959E1 /* GetDefaultBankWebInterface.m */,
+				C8610BFF1DD0622B00E959E1 /* GetBanksWebInterface.h */,
+				C8610C001DD0622B00E959E1 /* GetBanksWebInterface.m */,
+				C8610C021DD0638F00E959E1 /* AddBankWebInterface.h */,
+				C8610C031DD0638F00E959E1 /* AddBankWebInterface.m */,
+				C8610C051DD065C600E959E1 /* SetDefaultBankWebInterface.h */,
+				C8610C061DD065C600E959E1 /* SetDefaultBankWebInterface.m */,
+				C8610C081DD0670400E959E1 /* PFToAuthWebInterface.h */,
+				C8610C091DD0670400E959E1 /* PFToAuthWebInterface.m */,
+				C8610C0B1DD0690400E959E1 /* FeedbackWebInterface.h */,
+				C8610C0C1DD0690400E959E1 /* FeedbackWebInterface.m */,
+				C8610C0E1DD06ADF00E959E1 /* UploadProofWebInterface.h */,
+				C8610C0F1DD06ADF00E959E1 /* UploadProofWebInterface.m */,
 			);
 			name = me;
 			sourceTree = "<group>";
@@ -689,6 +822,14 @@
 		C8EB79BF1DC0B93F005599BC /* manager */ = {
 			isa = PBXGroup;
 			children = (
+				C8610C111DD06C4500E959E1 /* ManagerTaskWebInterface.h */,
+				C8610C121DD06C4500E959E1 /* ManagerTaskWebInterface.m */,
+				C8610C141DD0749E00E959E1 /* ReceiveTaskWebInterface.h */,
+				C8610C151DD0749E00E959E1 /* ReceiveTaskWebInterface.m */,
+				C8610C171DD086E900E959E1 /* ManagerToAuthTaskWebInterface.h */,
+				C8610C181DD086E900E959E1 /* ManagerToAuthTaskWebInterface.m */,
+				C8610C1A1DD087D100E959E1 /* TaskImgWebInterface.h */,
+				C8610C1B1DD087D100E959E1 /* TaskImgWebInterface.m */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -861,6 +1002,15 @@
 			path = net;
 			sourceTree = "<group>";
 		};
+		DC6F5D0DC112102B436F71B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1DA6FC1FE50EC84548300DD3 /* Pods-ArrangeMovie.debug.xcconfig */,
+				693ABFA56142BD986F8A6BE6 /* Pods-ArrangeMovie.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -868,13 +1018,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C886B0E91DA8FC0500240283 /* Build configuration list for PBXNativeTarget "ArrangeMovie" */;
 			buildPhases = (
-				8FDA667701CBB6DAF40D3FED /* [CP] Check Pods Manifest.lock */,
+				2804E0049F994876587E5AF8 /* [CP] Check Pods Manifest.lock */,
 				C886B0CE1DA8FC0500240283 /* Sources */,
 				C886B0CF1DA8FC0500240283 /* Frameworks */,
 				C886B0D01DA8FC0500240283 /* Resources */,
-				742A7C4B9A02F574BF9BF0C1 /* [CP] Embed Pods Frameworks */,
-				840A9F2E1BF41DCBEE76C7D1 /* [CP] Copy Pods Resources */,
-				9BF89797336E06C71839DB9E /* Embed Pods Frameworks */,
+				B23DF01AD6278C29DB210E41 /* [CP] Embed Pods Frameworks */,
+				2B2C68712B953431C3F58C8D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -939,13 +1088,18 @@
 				C889D9691DB0AC59008156B2 /* MeSettingSignOutTableViewCell.xib in Resources */,
 				C8E6513D1DA9E6CC00400ABC /* me.storyboard in Resources */,
 				A5AC11851DABA63300CBBE05 /* MeSettingTableViewCell.xib in Resources */,
+				C87E40AB1DD2B12300DD2018 /* MeMissionActorView.xib in Resources */,
 				D6950CD91DB4C0AB004D6C8B /* PFHomeSectionView.xib in Resources */,
+				C87E40BD1DD3005100DD2018 /* MeMissionNoAuthView.xib in Resources */,
 				C86161981DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib in Resources */,
 				A5A5084E1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.xib in Resources */,
 				A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */,
+				C83C792E1DD179FC002EEAF3 /* MeMissionTitleView.xib in Resources */,
 				C8B64E801DB49C8900B4311D /* MeMissionTableViewCell.xib in Resources */,
+				C87E40B51DD2EEC500DD2018 /* MeMissionRowPieceView.xib in Resources */,
 				A5A5083C1DBF2CF800CB2491 /* manager.storyboard in Resources */,
 				D6C490001DBEEABD009EB672 /* launch.storyboard in Resources */,
+				C87E40B31DD2BC9800DD2018 /* MeMissionRequireView.xib in Resources */,
 				A5A508491DBF466900CB2491 /* ManagerNewMissionTableViewCell.xib in Resources */,
 				C8EB79BA1DC0AD2A005599BC /* ManagerMissionTableViewCell.xib in Resources */,
 				D6D94BCC1DB0BDA6004666BC /* pfhome.storyboard in Resources */,
@@ -957,37 +1111,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		742A7C4B9A02F574BF9BF0C1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		840A9F2E1BF41DCBEE76C7D1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8FDA667701CBB6DAF40D3FED /* [CP] Check Pods Manifest.lock */ = {
+		2804E0049F994876587E5AF8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1002,14 +1126,29 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		9BF89797336E06C71839DB9E /* Embed Pods Frameworks */ = {
+		2B2C68712B953431C3F58C8D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArrangeMovie/Pods-ArrangeMovie-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B23DF01AD6278C29DB210E41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1025,6 +1164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6C4901A1DBEEB0D009EB672 /* PFHomeCell.m in Sources */,
+				C8610C161DD0749E00E959E1 /* ReceiveTaskWebInterface.m in Sources */,
 				D6C48FF41DBEEA5F009EB672 /* OperateNSUserDefault.m in Sources */,
 				D6BAC8121DC1897E00A4EDF6 /* AMDetailFailedViewController.m in Sources */,
 				C8EB79B51DC0A677005599BC /* ManagerMissionViewController.m in Sources */,
@@ -1032,7 +1172,9 @@
 				C8EB79AD1DC07F2C005599BC /* BankCard.m in Sources */,
 				C86DE75C1DB5C7F500374734 /* MeMissionDetailViewController.m in Sources */,
 				C8D55CB01DC34D9C00F2E1E5 /* SCDateTools.m in Sources */,
+				C8610BF81DD0586200E959E1 /* PointsDetailWebInterface.m in Sources */,
 				D6E8691D1DC2E12500BA861B /* PFUploadImgViewController.m in Sources */,
+				C82C48A51DCC660E00848128 /* ChangePswWebInterface.m in Sources */,
 				C889D9681DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m in Sources */,
 				D6C48FFE1DBEEA9F009EB672 /* LaunchViewController.m in Sources */,
 				C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */,
@@ -1044,6 +1186,7 @@
 				C86DE7601DB61A6C00374734 /* MissionRowPieceTableViewCell.m in Sources */,
 				C8EB79BD1DC0B719005599BC /* SCWebInterfaceBase.m in Sources */,
 				C889D95E1DB0742E008156B2 /* MeSettingViewController.m in Sources */,
+				C8610C011DD0622B00E959E1 /* GetBanksWebInterface.m in Sources */,
 				C8B64E7F1DB49C8900B4311D /* MeMissionTableViewCell.m in Sources */,
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
 				C8BDA63F1DC792EA00ADB4DF /* EMIFilterButton.m in Sources */,
@@ -1051,9 +1194,13 @@
 				C82AF8EB1DB75BAC00882DB6 /* MeMissionCheckViewController.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				D6950CD71DB4BF06004D6C8B /* PFHomeSectionView.m in Sources */,
+				C87E40B81DD2EEDA00DD2018 /* MeMissionRowPieceView.m in Sources */,
 				D6BAC8151DC1A36200A4EDF6 /* ProgressView.m in Sources */,
+				C8610C131DD06C4500E959E1 /* ManagerTaskWebInterface.m in Sources */,
 				C86DE7531DB5B63600374734 /* MissionActorTableViewCell.m in Sources */,
+				C87E40B11DD2BC8400DD2018 /* MeMissionRequireView.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
+				C82C48AB1DCC85F400848128 /* ArrangeDetailWebInterface.m in Sources */,
 				C86161971DCAC94600B3DEB3 /* MePointRecordTableViewCell.m in Sources */,
 				D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */,
 				D61686061DD0521E007EAA64 /* UploadFile.m in Sources */,
@@ -1063,9 +1210,13 @@
 				D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */,
 				C8329BA71DAB6C6100B14075 /* EMIShadowImageView.m in Sources */,
 				D6BAC80F1DC1893D00A4EDF6 /* AMDetailDoneViewController.m in Sources */,
+				C82C48AE1DCC90AF00848128 /* TaskHistoryWebInterface.m in Sources */,
 				C82AF8E81DB7170600882DB6 /* SCTopLeftAlignLabel.m in Sources */,
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
 				C8EB79AA1DC07D4E005599BC /* OptDetail.m in Sources */,
+				C8610C071DD065C600E959E1 /* SetDefaultBankWebInterface.m in Sources */,
+				C8610BFB1DD05E3200E959E1 /* ChargeWebInterface.m in Sources */,
+				C87E40AE1DD2B14D00DD2018 /* MeMissionActorView.m in Sources */,
 				D61686221DD05233007EAA64 /* GradeListWebInterface.m in Sources */,
 				D6950CD11DB476F4004D6C8B /* LoginAuthViewController.m in Sources */,
 				D6C48FF91DBEEA7A009EB672 /* ChooseFilmViewController.m in Sources */,
@@ -1079,19 +1230,30 @@
 				A5AC11841DABA63300CBBE05 /* MeSettingTableViewCell.m in Sources */,
 				C889D9611DB07DEB008156B2 /* MeFeedbackViewController.m in Sources */,
 				A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */,
+				C8610BF51DD04B6C00E959E1 /* TaskDelWebInterface.m in Sources */,
 				D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
+				C8610BF21DD047F300E959E1 /* TaskDetailWebInterface.m in Sources */,
+				C83C79261DD163CD002EEAF3 /* OUNavAnimation.m in Sources */,
 				C8B64E7B1DB475AC00B4311D /* MeMissionViewController.m in Sources */,
+				C82C48A81DCC6C5E00848128 /* PFTaskListWebInterface.m in Sources */,
 				D61686261DD05233007EAA64 /* ReleaseTaskWebInterface.m in Sources */,
 				C80EB32E1DB4DB1A00FEAA4A /* MissionTitleTableViewCell.m in Sources */,
+				C861619B1DCAD7A000B3DEB3 /* ManagerMissionPageViewController.m in Sources */,
 				D6E6EDD41DC6EC0C00ED6475 /* TaskDetail.m in Sources */,
 				C8329BAD1DACA62700B14075 /* MeProfileViewController.m in Sources */,
+				C83C79231DD092CB002EEAF3 /* EMIRootViewController.m in Sources */,
 				D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */,
+				C83C792C1DD179C2002EEAF3 /* MeMissionTitleView.m in Sources */,
+				C8610C1C1DD087D100E959E1 /* TaskImgWebInterface.m in Sources */,
 				A5A508401DBF2FE500CB2491 /* ManagerIndexViewController.m in Sources */,
 				C80F06501DAE282D00BB75BE /* EMIPointButton.m in Sources */,
+				C8610C0A1DD0670400E959E1 /* PFToAuthWebInterface.m in Sources */,
 				C81371131DAA2BAE006479D6 /* UIImage+SCUtil.m in Sources */,
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
+				C8610BFE1DD0602D00E959E1 /* GetDefaultBankWebInterface.m in Sources */,
 				D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */,
+				C8610C041DD0638F00E959E1 /* AddBankWebInterface.m in Sources */,
 				C8EB79B11DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m in Sources */,
 				D61686111DD05229007EAA64 /* LoginWebInterface.m in Sources */,
 				D61686291DD05258007EAA64 /* TouchLabel.m in Sources */,
@@ -1102,6 +1264,7 @@
 				D6950CCD1DB45D51004D6C8B /* TableWithNoDataView.m in Sources */,
 				C85997521DC0565F0057C417 /* TakeTask.m in Sources */,
 				C85997551DC058560057C417 /* Film.m in Sources */,
+				C8610C0D1DD0690400E959E1 /* FeedbackWebInterface.m in Sources */,
 				D6C490191DBEEB0D009EB672 /* CKAlertViewController.m in Sources */,
 				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
 				D6BAC80C1DC188BF00A4EDF6 /* AMDetailUnDoViewController.m in Sources */,
@@ -1111,16 +1274,19 @@
 				D61686211DD05233007EAA64 /* FilmListWebInterface.m in Sources */,
 				C86DE7581DB5BD5300374734 /* MissionRequireTableViewCell.m in Sources */,
 				D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */,
+				C8610C101DD06ADF00E959E1 /* UploadProofWebInterface.m in Sources */,
 				C8329BAA1DABA44100B14075 /* SCTableViewCell.m in Sources */,
 				D6C4901C1DBEEB0D009EB672 /* TaskCellNormal.m in Sources */,
 				D6C490171DBEEB0D009EB672 /* ChooseFilmCell.m in Sources */,
 				D6950CDD1DB4CAC1004D6C8B /* UILabel+StringFrame.m in Sources */,
 				C82AF8E41DB70A0600882DB6 /* MissionNoAuthTableViewCell.m in Sources */,
+				C87E40BB1DD3003D00DD2018 /* MeMissionNoAuthView.m in Sources */,
 				C8EB79B91DC0AD2A005599BC /* ManagerMissionTableViewCell.m in Sources */,
 				D6C490151DBEEB0D009EB672 /* AMAlertView.m in Sources */,
 				C88A0DEE1DC97C3C00B847AF /* MeMissionPageViewController.m in Sources */,
 				D61686251DD05233007EAA64 /* PFHomeWebInterface.m in Sources */,
 				D6EE72F91DC86305008D4AD8 /* Test.m in Sources */,
+				C8610C191DD086E900E959E1 /* ManagerToAuthTaskWebInterface.m in Sources */,
 				D61686231DD05233007EAA64 /* PFAMDetailWebInterface.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1212,7 +1378,7 @@
 		};
 		C886B0EA1DA8FC0500240283 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F38D72B2516F7DA2E417D9E1 /* Pods-ArrangeMovie.debug.xcconfig */;
+			baseConfigurationReference = 1DA6FC1FE50EC84548300DD3 /* Pods-ArrangeMovie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1230,7 +1396,7 @@
 		};
 		C886B0EB1DA8FC0500240283 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7CA5AB6299322F51380A83C8 /* Pods-ArrangeMovie.release.xcconfig */;
+			baseConfigurationReference = 693ABFA56142BD986F8A6BE6 /* Pods-ArrangeMovie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

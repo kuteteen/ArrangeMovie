@@ -14,13 +14,8 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-<<<<<<< HEAD:Pods/Pods.xcodeproj/xcuserdata/chenkai.xcuserdatad/xcschemes/BEMCheckBox.xcscheme
-               BlueprintIdentifier = '8A32B37671014AFDB7B5BC1F'
-               BlueprintName = 'BEMCheckBox'
-=======
                BlueprintIdentifier = '17392667E38E4938ACA525E988BB433B'
                BlueprintName = 'FXBlurView'
->>>>>>> 9c89f8f8f31e2c47e188ba635a355bc87ea7d6e0:Pods/Pods.xcodeproj/xcuserdata/wongsuechang.xcuserdatad/xcschemes/FXBlurView.xcscheme
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libFXBlurView.a'>
             </BuildableReference>

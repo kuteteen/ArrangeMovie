@@ -12,18 +12,29 @@
 #import "ManagerMissionDetailViewController.h"
 #import "AMAlertView.h"
 #import "CKAlertViewController.h"
+#import "ManagerMissionPageViewController.h"
 
 #define Width [UIScreen mainScreen].bounds.size.width
 
-@interface ManagerMissionViewController ()<LFLUISegmentedControlDelegate,UITableViewDelegate,UITableViewDataSource>{
+@interface ManagerMissionViewController ()<LFLUISegmentedControlDelegate,UIPageViewControllerDataSource,UIPageViewControllerDelegate>{
     LFLUISegmentedControl *segmentControl;
     CKAlertViewController *ckAlertVC;
+    
+    
+    UIPageViewController *pageViewController;
+    NSMutableArray *viewControllers;
 }
 @property (weak, nonatomic) IBOutlet UIView *segmentView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
-@property (strong,nonatomic) NSMutableArray *dataArray;//所有数据
-@property (strong,nonatomic) NSMutableArray *array;//显示用的数据
+//@property (strong,nonatomic) NSMutableArray *dataArray;//所有数据
+//@property (strong,nonatomic) NSMutableArray *array;//显示用的数据
+
+///页数
+@property (nonatomic, assign) NSInteger pageCount;
+///第N页
+@property (nonatomic, assign) NSInteger pageIndex;
+
 @end
 
 @implementation ManagerMissionViewController
@@ -40,108 +51,88 @@
     [segmentControl AddSegumentArray:@[@"新任务",@"已领取",@"审核中",@"已完成"]];
     [self.segmentView addSubview:segmentControl];
     
-//    self.array = @[@"http://cdnq.duitang.com/uploads/item/201506/05/20150605124315_xFQtw.thumb.700_0.jpeg",@"http://b.hiphotos.baidu.com/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=529c869ec7fc1e17e9b284632bf99d66/1e30e924b899a9015d3d6abe15950a7b0208f529.jpg",@"http://p0.qhimg.com/t017f06c5631452f6bd.jpg"];
+    pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managerpageviewcontroller"];
+    self.pageCount = 4;
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    //分割线
-    self.tableView.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10);
-    self.tableView.tableFooterView = [[UIView alloc] init];
+    pageViewController.delegate = self;
+    pageViewController.dataSource = self;
+    [self setContentViewController:0];
+    pageViewController.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
+    [self addChildViewController:pageViewController];
+    [self.contentView addSubview:pageViewController.view];
+    [pageViewController didMoveToParentViewController:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(NSMutableArray *)array {
-    if(!_array){
-        _array = [[NSMutableArray alloc] init];
-        for(int i = 0;i<4;i++){
-            Task *task = [[Task alloc] init];
-            task.filmname = @"让子弹飞";
-            task.filmdirector = @"姜文";
-            task.startdate = @"2016/10/28";
-            task.enddate = @"2016/11/28";
-            task.taskpoints = @"200";
-            task.filmstars = @"本尼迪克特·康伯巴奇,马丁·弗瑞曼,安德鲁·斯科特,马克·加蒂斯";
-            task.startdate = @"2016-10-31";
-            task.enddate = @"2016-11-21";
-            task.shownum = @"30";
-            task.tasknum = @"10";
-            task.surplusnum = @"7";
-            task.dn = @"18252495961";
-            task.gradename = @"A级影院";
-            [_array addObject:task];
+
+-(void)setContentViewController:(NSInteger)pageIndex {
+    if(!viewControllers){
+        viewControllers = [[NSMutableArray alloc] initWithCapacity:self.pageCount];
+        for(int i = 0;i<self.pageCount;i++){
+            ManagerMissionPageViewController *startingViewController = [self viewControllerAtIndex:i];
+            [viewControllers addObject:startingViewController];
         }
     }
-    return _array;
-}
-
-#pragma mark - UITableView delegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 144.f;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //任务详情
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中
     
-    //跳转到任务详情
-    [self performSegueWithIdentifier:@"tomanagermissiondetail" sender:nil];
+    [pageViewController setViewControllers:@[viewControllers[pageIndex]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    
 }
 
-#pragma mark - UITableView dataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.array.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ManagerMissionTableViewCell *cell = [ManagerMissionTableViewCell cellWithTableView:tableView];
-    UIView *backview = [[UIView alloc] init];
-    backview.backgroundColor = [UIColor colorWithHexString:@"f6f6f6"];
-    cell.selectedBackgroundView = backview;
-    
-    [cell setValue:self.array[indexPath.row]];
-    
-    if(segmentControl.selectSeugment==2){
-        cell.flagLabel.hidden = NO;
-        cell.delTaskBtn.hidden = YES;
-    }else{
-        cell.flagLabel.hidden = YES;
-        cell.delTaskBtn.hidden = NO;
+-(ManagerMissionPageViewController *)viewControllerAtIndex:(NSInteger)index {
+    if(index>=self.pageCount) {
+        return nil;
     }
-    [cell.delTaskBtn addTarget:self action:@selector(toDelTask:) forControlEvents:UIControlEventTouchUpInside];
-    return cell;
+    ManagerMissionPageViewController *pageContentViewController;
+    pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managermissionpagecontent"];
+    
+    pageContentViewController.pageIndex = index;
+    return pageContentViewController;
 }
+
+#pragma mark -UIPageViewControllerDataSource
+
+-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    ManagerMissionPageViewController *vc = (ManagerMissionPageViewController *)viewController;
+    self.pageIndex = vc.pageIndex;
+    if(self.pageIndex<self.pageCount-1){
+        self.pageIndex++;
+        return [viewControllers objectAtIndex:self.pageIndex];
+    }else{
+        return nil;
+    }
+}
+
+-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    ManagerMissionPageViewController *vc = (ManagerMissionPageViewController *)viewController;
+    self.pageIndex = vc.pageIndex;
+    if(self.pageIndex == 0){
+        return nil;
+    }
+    self.pageIndex --;
+    //    [segmentControl selectTheSegument:self.pageIndex];
+    return [viewControllers objectAtIndex:self.pageIndex];
+}
+
+-(void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
+    ManagerMissionPageViewController *vc = (ManagerMissionPageViewController *)previousViewControllers[0];
+    NSInteger page;
+    if((self.pageIndex==0&&self.pageIndex==vc.pageIndex)||self.pageIndex>vc.pageIndex){
+        page = vc.pageIndex+1;
+    }else{
+        page = vc.pageIndex-1;
+    }
+    [segmentControl selectTheSegument:page];
+}
+
+
+
 
 #pragma mark - LFLUISegmentedControl delegate
 -(void)uisegumentSelectionChange:(NSInteger)selection {
     NSLog(@"滑动到第%ld页",(long)selection);
-    //reloadData
-    [self.tableView reloadData];
-}
-
-- (IBAction)selectSegment:(UISwipeGestureRecognizer *)sender {
-    UISwipeGestureRecognizerDirection direction = sender.direction;
-    NSInteger select = segmentControl.selectSeugment;
-    switch (direction) {
-        case UISwipeGestureRecognizerDirectionLeft:
-            if(segmentControl.selectSeugment!=3){
-                select ++;
-                [segmentControl selectTheSegument:select];
-            }
-            break;
-        case UISwipeGestureRecognizerDirectionRight:
-            if(segmentControl.selectSeugment!=0){
-                select --;
-                [segmentControl selectTheSegument:select];
-            }
-            break;
-        default:
-            break;
-    }
 }
 
 -(void)toDelTask:(id)sender {

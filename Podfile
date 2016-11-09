@@ -15,4 +15,5 @@ target :'ArrangeMovie' do
    pod 'UITableView+FDTemplateLayoutCell','1.4'
    pod 'PYPhotoBrowser','1.0.5'
    pod 'FXBlurView'
+   pod 'RESideMenu', '~> 4.0.7'
 end

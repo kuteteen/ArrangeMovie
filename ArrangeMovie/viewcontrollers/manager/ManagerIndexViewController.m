@@ -36,14 +36,31 @@
 
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"theatres_index_view_task" highImageName:@"theatres_index_view_task" target:self action:@selector(toMyMission)];
 
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_index_my" highImageName:@"film_index_my" target:self action:@selector(toMyProfile)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_index_my" highImageName:@"film_index_my" target:self action:@selector(presentRightMenuViewController:)];
 
     self.tableView.tableFooterView = [[UIView alloc] init];
 
     [self showUser];
 
-
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(disableRESideMenu)
+//                                                 name:@"disableRESideMenu"
+//                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(enableRESideMenu)
+//                                                 name:@"enableRESideMenu"
+//                                               object:nil];
 }
+
+//- (void)enableRESideMenu {
+//    self.panGestureEnabled = YES;
+//}
+//
+//- (void)disableRESideMenu {
+//    self.panGestureEnabled = NO;
+//}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -100,6 +117,8 @@
     [self performSegueWithIdentifier:@"tomissiondetail" sender:nil];
 }
 
+-(void)startAnimationForIndexPath:(NSIndexPath*)indexPath{
+}
 
  #pragma mark - Navigation
 
@@ -126,6 +145,8 @@
 }
 
 -(void)toMyProfile {
+    
+    
    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"me" bundle:nil];
     MeViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"me"];
     viewController.user = self.user;

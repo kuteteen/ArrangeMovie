@@ -14,9 +14,11 @@
 #import "LoginViewController.h"
 #import "LaunchViewController.h"
 #import "Test.h"
-#import "SCFadeSlideView.h"
+#import "MeViewController.h"
+#import "RESideMenu.h"
+#import "EMIRootViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<RESideMenuDelegate>
 
 @end
 
@@ -25,10 +27,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    
+
+
     AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
-    
+
     if(screenHeight > 480){
         myDelegate.autoSizeScaleX = screenWidth/375;
         myDelegate.autoSizeScaleY = screenHeight/667;
@@ -36,60 +38,99 @@
         myDelegate.autoSizeScaleX = 320.f/375.f;
         myDelegate.autoSizeScaleY = 480.f/667.f;
     }
-    
-    
+
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+
 //    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"all_bg"]]];
 //    self.window.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
     self.window.backgroundColor = [UIColor clearColor];
 //
 //    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-    
-    
-//     UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
-//     MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
-//     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
-    
-    EMINavigationController *nav;
-    
+
+
+
+//    EMINavigationController *nav;
+//
 //    NSString *isFirstUse = [OperateNSUserDefault readUserDefaultWithKey:@"isFirstUse"];
-    
+
 //    if ([isFirstUse isEqualToString:@"0"]) {
 //        //不是第一次登录，首页为登录页
-        //CK--LoginNav为根视图
-        
-        UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
-        LoginViewController *viewController = [login instantiateViewControllerWithIdentifier:@"login"];
-        nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
-//    UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
-//    Test *viewController = [login instantiateViewControllerWithIdentifier:@"test"];
-//    nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+//        //CK--LoginNav为根视图
+//
+//        UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+//        nav = [login instantiateViewControllerWithIdentifier:@"loginnav"];
 //    }else{
 //        //欢迎页为根视图
 //        UIStoryboard *launch = [UIStoryboard storyboardWithName:@"launch" bundle:nil];
-//        LaunchViewController *viewController = [launch instantiateViewControllerWithIdentifier:@"launch"];
-//        nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+//        nav = [launch instantiateViewControllerWithIdentifier:@"launchnav"];
 //    }
+    
+    UIStoryboard *manager = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
+    ManagerIndexViewController *managerIndexVC = [manager instantiateViewControllerWithIdentifier:@"manager"];
+    //假数据 用户
+    User *user = [[User alloc] init];
+    
+    user.name = @"冯小刚";
+    user.dn = @"1577470000";
+    user.usertype = 0;
+    user.sex = 1;
+    user.headimg = @"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580";
+    user.gradename = @"A级影院";
+    managerIndexVC.user = user;
+    EMINavigationController *managerNav = [[EMINavigationController alloc] initWithRootViewController:managerIndexVC];
+    
+    
+    UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
+    MeViewController *meVC = [me instantiateViewControllerWithIdentifier:@"me"];
+    EMINavigationController *meNav = [[EMINavigationController alloc] initWithRootViewController:meVC];
+    EMIRootViewController *sideMenuViewController = [[EMIRootViewController alloc] initWithContentViewController:managerNav
+                                                                    leftMenuViewController:nil
+                                                                   rightMenuViewController:meNav];
+    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"all_bg"];
+    sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+    sideMenuViewController.delegate = self;
+    sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
+    sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
+    sideMenuViewController.contentViewShadowOpacity = 0.6;
+    sideMenuViewController.contentViewShadowRadius = 12;
+    sideMenuViewController.contentViewShadowEnabled = YES;
+    
+    
+    sideMenuViewController.scaleContentView = NO;
+    sideMenuViewController.scaleMenuView = NO;
+    sideMenuViewController.panGestureEnabled = YES;
+    sideMenuViewController.contentViewInPortraitOffsetCenterX = screenWidth;
+//    self.window.rootViewController = sideMenuViewController;
+    
+    
+    
 //     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
 //     ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
-//     EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
-    
-    
-    
+//
+//    
+//    viewController.user = user;
+//    EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+
+
+    // UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+    // LoginViewController *viewController = [login instantiateViewControllerWithIdentifier:@"login"];
+    // nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+
+
+
     UIImage *image = [UIImage imageNamed:@"navigation"];
-    CGSize titleSize = nav.navigationBar.bounds.size;
+    CGSize titleSize = managerNav.navigationBar.bounds.size;
     titleSize.height = titleSize.height+20;
     image = [self scaleToSize:image size:titleSize];
     [[UINavigationBar appearance] setBackgroundImage:image
                        forBarPosition:UIBarPositionAny
                            barMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-        
-    [self.window setRootViewController:nav];
-    
+
+    [self.window setRootViewController:sideMenuViewController];
+
     return YES;
 }
 
@@ -126,31 +167,19 @@
 
 + (void)storyBoradAutoLay:(UIView *)allView
 {
-    AppDelegate *myDelegate = [[UIApplication sharedApplication] delegate];
     for (UIView *temp in allView.subviews) {
-        
 
-        //不要改变SCFadeSlideView的位置，因为计算滚动到第几页用到的frame在初始化方法里，后续改变frame会出问题
-        if (![temp isKindOfClass:[SCFadeSlideView class]]) {
-            temp.frame = CGRectMake1(temp.frame.origin.x, temp.frame.origin.y, temp.frame.size.width, temp.frame.size.height);
-            
-            
-            if (iPhone4S) {
-                if ([temp isKindOfClass:[UILabel class]]) {
-                    ((UILabel *)(temp)).font = [UIFont systemFontOfSize:((UILabel *)(temp)).font.pointSize-2];
-                }
-            }
-            
-            if (temp.subviews.count > 0) {
+
+        temp.frame = CGRectMake1(temp.frame.origin.x, temp.frame.origin.y, temp.frame.size.width, temp.frame.size.height);
+
+
+
+
+        if (temp.subviews.count > 0) {
                 [AppDelegate storyBoradAutoLay:temp];
-            }
-        }else{
-            NSLog(@"%@",@"SCFadeSlideView");
         }
-        
-        
-        
-        
+
+
     }
 }
 

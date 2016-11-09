@@ -8,6 +8,9 @@
 
 #import "MeViewController.h"
 #import "MeTableViewCell.h"
+#import "UIBarButtonItem+Extension.h"
+#import "UIViewController+RESideMenu.h"
+#import "RESideMenu.h"
 
 @interface MeViewController ()
 @property (nonatomic, strong) NSArray *array;//存放列表item
@@ -23,6 +26,8 @@
     // Do any additional setup after loading the view.
     self.title = @"我的";
     
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back_normal" highImageName:@"back_normal" target:self action:@selector(showRootViewontroller:)];
+    
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
     self.tableView.separatorColor = [UIColor colorWithHexString:@"4C6EAB"];
     
@@ -32,6 +37,15 @@
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"enableRESideMenu"
+                                                        object:self
+                                                      userInfo:nil];
+}
+
+-(void)showRootViewontroller:(id)sender {
+    if(self.sideMenuViewController) {
+        [self.sideMenuViewController hideMenuViewController];
+    }
 }
 
 -(NSArray *)array {
