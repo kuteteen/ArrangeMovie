@@ -16,6 +16,10 @@ typedef enum {
     EMIShadowPathRoundRectangle//圆角矩形,2016-10-17 所有带阴影的圆角矩形半径为2
 }EMIShadowPathType;
 
+///缓存图片
+@property (nonatomic, strong, nullable) UIImage *img;
+
+
 -(void) setShadowWithType:(EMIShadowPathType)pathType
               shadowColor:(UIColor *)color
              shadowOffset:(CGSize)offset
