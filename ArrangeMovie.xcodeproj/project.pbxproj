@@ -126,6 +126,7 @@
 		D61686251DD05233007EAA64 /* PFHomeWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D616861E1DD05233007EAA64 /* PFHomeWebInterface.m */; };
 		D61686261DD05233007EAA64 /* ReleaseTaskWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686201DD05233007EAA64 /* ReleaseTaskWebInterface.m */; };
 		D61686291DD05258007EAA64 /* TouchLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686281DD05258007EAA64 /* TouchLabel.m */; };
+		D61686731DD448AC007EAA64 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = D61686721DD448AC007EAA64 /* loading.gif */; };
 		D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A064B1DAB5CA8003832A8 /* login.storyboard */; };
 		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
@@ -385,6 +386,7 @@
 		D61686201DD05233007EAA64 /* ReleaseTaskWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseTaskWebInterface.m; sourceTree = "<group>"; };
 		D61686271DD05258007EAA64 /* TouchLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchLabel.h; path = views/pfhome/TouchLabel.h; sourceTree = "<group>"; };
 		D61686281DD05258007EAA64 /* TouchLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TouchLabel.m; path = views/pfhome/TouchLabel.m; sourceTree = "<group>"; };
+		D61686721DD448AC007EAA64 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading.gif; path = src/loading.gif; sourceTree = "<group>"; };
 		D62A064B1DAB5CA8003832A8 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = login.storyboard; path = src/login.storyboard; sourceTree = "<group>"; };
 		D62A064E1DAB63D1003832A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewcontrollers/login/LoginViewController.h; sourceTree = "<group>"; };
 		D62A064F1DAB63D1003832A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontrollers/login/LoginViewController.m; sourceTree = "<group>"; };
@@ -627,6 +629,7 @@
 		C8E6512E1DA9D52000400ABC /* src */ = {
 			isa = PBXGroup;
 			children = (
+				D61686721DD448AC007EAA64 /* loading.gif */,
 				D6C48FFF1DBEEABD009EB672 /* launch.storyboard */,
 				C8E6513C1DA9E6CC00400ABC /* me.storyboard */,
 				D62A064B1DAB5CA8003832A8 /* login.storyboard */,
@@ -1099,6 +1102,7 @@
 				C87E40B51DD2EEC500DD2018 /* MeMissionRowPieceView.xib in Resources */,
 				A5A5083C1DBF2CF800CB2491 /* manager.storyboard in Resources */,
 				D6C490001DBEEABD009EB672 /* launch.storyboard in Resources */,
+				D61686731DD448AC007EAA64 /* loading.gif in Resources */,
 				C87E40B31DD2BC9800DD2018 /* MeMissionRequireView.xib in Resources */,
 				A5A508491DBF466900CB2491 /* ManagerNewMissionTableViewCell.xib in Resources */,
 				C8EB79BA1DC0AD2A005599BC /* ManagerMissionTableViewCell.xib in Resources */,
