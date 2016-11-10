@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "UIBarButtonItem+Extension.h"
 #import "EMIShadowImageView.h"
+#import "OUNavAnimation.h"
 
 @interface EMINavigationController : UINavigationController
+
+@property (nonatomic, strong) OUNavAnimation* animation;
 
 /**
  *  push 方法

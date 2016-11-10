@@ -89,20 +89,20 @@
     [scrollView addSubview:detailLabel];
     
     
-    if(self.task.data.count>0){
-//    NSInteger count = 5;
-        NSInteger count = self.task.data.count;
+//    if(self.task.data.count>0){
+    NSInteger count = 5;
+//        NSInteger count = self.task.data.count;
         for(int i = 0;i<count;i ++){
             MeMissionRowPieceView *pieceView = [[MeMissionRowPieceView alloc] initNibWithFrame:CGRectMake(0, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height+i*84, screenWidth, 84)];
             pieceView.tag = 1000+i;
             [scrollView addSubview:pieceView];
         }
     scrollView.contentSize = CGSizeMake(screenWidth, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height+count*84+17);
-    }else{
-        MeMissionNoAuthView *noAuthView = [[MeMissionNoAuthView alloc] initNibWithFrame:CGRectMake(0, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height, screenWidth, 134)];
-        [scrollView addSubview:noAuthView];
-        scrollView.contentSize = CGSizeMake(screenWidth, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height+134);
-    }
+//    }else{
+//        MeMissionNoAuthView *noAuthView = [[MeMissionNoAuthView alloc] initNibWithFrame:CGRectMake(0, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height, screenWidth, 134)];
+//        [scrollView addSubview:noAuthView];
+//        scrollView.contentSize = CGSizeMake(screenWidth, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height+134);
+//    }
     
     [self.view addSubview:scrollView];
 }

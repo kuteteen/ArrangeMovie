@@ -7,11 +7,10 @@
 //
 
 #import "ManagerNewMissionTableViewCell.h"
-#import "EMIShadowImageView.h"
 #import "Task.h"
 
 @interface ManagerNewMissionTableViewCell ()
-@property (strong, nonatomic) IBOutlet EMIShadowImageView *postImgView;
+
 @property (weak, nonatomic) IBOutlet UILabel *filmNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskPointsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *directorLabel;
