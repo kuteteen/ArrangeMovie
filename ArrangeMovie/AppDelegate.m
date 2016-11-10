@@ -12,8 +12,6 @@
 #import "UIImage+SCUtil.h"
 #import "ManagerIndexViewController.h"
 #import "LoginViewController.h"
-#import "LaunchViewController.h"
-#import "Test.h"
 #import "MeViewController.h"
 #import "RESideMenu.h"
 #import "EMIRootViewController.h"
@@ -128,7 +126,7 @@
 {
     for (UIView *temp in allView.subviews) {
 
-        //SCFadeSlideView不要对其子view进行布局
+        //SCFadeSlideView不进行比例布局
         if (![temp isKindOfClass:[SCFadeSlideView class]]) {
             temp.frame = CGRectMake1(temp.frame.origin.x, temp.frame.origin.y, temp.frame.size.width, temp.frame.size.height);
             if (temp.subviews.count > 0) {

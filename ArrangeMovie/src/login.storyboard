@@ -167,6 +167,7 @@
                         <outlet property="rightLineView" destination="a5Y-tu-D3l" id="3Vz-eE-8zO"/>
                         <segue destination="u65-rD-WZ0" kind="push" identifier="toFgetPwdVC" id="4iQ-N2-ui4"/>
                         <segue destination="dNy-9w-QB9" kind="push" identifier="toRegVC" id="ckC-8E-w7t"/>
+                        <segue destination="iV9-px-yGB" kind="push" identifier="tologinwelcome" id="Keg-vb-8sd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5R-Im-5o5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -588,26 +589,35 @@
             </objects>
             <point key="canvasLocation" x="909.5" y="262.5"/>
         </scene>
-        <!--Test-->
+        <!--Welcome Back View Controller-->
         <scene sceneID="co9-xY-a6S">
             <objects>
-                <viewController storyboardIdentifier="test" id="iV9-px-yGB" customClass="Test" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="test" id="iV9-px-yGB" customClass="WelcomeBackViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1RN-lF-yJA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JR2-G7-ykq">
-                                <rect key="frame" x="164" y="78" width="46" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_head" id="NFc-OO-B5f">
+                                <rect key="frame" x="133" y="110" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.75056297729999999" blue="0.7924524543" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎回来" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i0f-Jd-JE0">
+                                <rect key="frame" x="17" y="246" width="341" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
                     <navigationItem key="navigationItem" id="VpG-ID-s0c"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="backLab" destination="i0f-Jd-JE0" id="I09-a0-DvV"/>
+                        <outlet property="headView" destination="NFc-OO-B5f" id="HJ4-8K-JvY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIm-Ho-KoQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -615,6 +625,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="default_head" width="1024" height="1024"/>
         <image name="head_bg" width="320" height="79"/>
         <image name="login_-register" width="16" height="16"/>
         <image name="login_btn_normal" width="343" height="45"/>

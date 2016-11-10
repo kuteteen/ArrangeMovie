@@ -127,6 +127,7 @@
 		D61686261DD05233007EAA64 /* ReleaseTaskWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686201DD05233007EAA64 /* ReleaseTaskWebInterface.m */; };
 		D61686291DD05258007EAA64 /* TouchLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686281DD05258007EAA64 /* TouchLabel.m */; };
 		D61686731DD448AC007EAA64 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = D61686721DD448AC007EAA64 /* loading.gif */; };
+		D61686761DD45929007EAA64 /* WelcomeBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686751DD45929007EAA64 /* WelcomeBackViewController.m */; };
 		D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A064B1DAB5CA8003832A8 /* login.storyboard */; };
 		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
@@ -166,7 +167,6 @@
 		D6D94BCC1DB0BDA6004666BC /* pfhome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D94BCB1DB0BDA6004666BC /* pfhome.storyboard */; };
 		D6E6EDD41DC6EC0C00ED6475 /* TaskDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6EDD31DC6EC0C00ED6475 /* TaskDetail.m */; };
 		D6E8691D1DC2E12500BA861B /* PFUploadImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E8691C1DC2E12500BA861B /* PFUploadImgViewController.m */; };
-		D6EE72F91DC86305008D4AD8 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EE72F81DC86305008D4AD8 /* Test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -387,6 +387,8 @@
 		D61686271DD05258007EAA64 /* TouchLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchLabel.h; path = views/pfhome/TouchLabel.h; sourceTree = "<group>"; };
 		D61686281DD05258007EAA64 /* TouchLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TouchLabel.m; path = views/pfhome/TouchLabel.m; sourceTree = "<group>"; };
 		D61686721DD448AC007EAA64 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading.gif; path = src/loading.gif; sourceTree = "<group>"; };
+		D61686741DD45929007EAA64 /* WelcomeBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeBackViewController.h; path = viewcontrollers/login/WelcomeBackViewController.h; sourceTree = "<group>"; };
+		D61686751DD45929007EAA64 /* WelcomeBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeBackViewController.m; path = viewcontrollers/login/WelcomeBackViewController.m; sourceTree = "<group>"; };
 		D62A064B1DAB5CA8003832A8 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = login.storyboard; path = src/login.storyboard; sourceTree = "<group>"; };
 		D62A064E1DAB63D1003832A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewcontrollers/login/LoginViewController.h; sourceTree = "<group>"; };
 		D62A064F1DAB63D1003832A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontrollers/login/LoginViewController.m; sourceTree = "<group>"; };
@@ -459,8 +461,6 @@
 		D6E6EDD31DC6EC0C00ED6475 /* TaskDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDetail.m; path = models/TaskDetail.m; sourceTree = "<group>"; };
 		D6E8691B1DC2E12500BA861B /* PFUploadImgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFUploadImgViewController.h; path = viewcontrollers/pfhome/PFUploadImgViewController.h; sourceTree = "<group>"; };
 		D6E8691C1DC2E12500BA861B /* PFUploadImgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFUploadImgViewController.m; path = viewcontrollers/pfhome/PFUploadImgViewController.m; sourceTree = "<group>"; };
-		D6EE72F71DC86305008D4AD8 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Test.h; path = viewcontrollers/login/Test.h; sourceTree = "<group>"; };
-		D6EE72F81DC86305008D4AD8 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Test.m; path = viewcontrollers/login/Test.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -882,8 +882,8 @@
 				D6B43A1B1DAF6D2900F2849E /* RegViewController.m */,
 				D6950CCF1DB476F4004D6C8B /* LoginAuthViewController.h */,
 				D6950CD01DB476F4004D6C8B /* LoginAuthViewController.m */,
-				D6EE72F71DC86305008D4AD8 /* Test.h */,
-				D6EE72F81DC86305008D4AD8 /* Test.m */,
+				D61686741DD45929007EAA64 /* WelcomeBackViewController.h */,
+				D61686751DD45929007EAA64 /* WelcomeBackViewController.m */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -1257,6 +1257,7 @@
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
 				C8610BFE1DD0602D00E959E1 /* GetDefaultBankWebInterface.m in Sources */,
 				D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */,
+				D61686761DD45929007EAA64 /* WelcomeBackViewController.m in Sources */,
 				C8610C041DD0638F00E959E1 /* AddBankWebInterface.m in Sources */,
 				C8EB79B11DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m in Sources */,
 				D61686111DD05229007EAA64 /* LoginWebInterface.m in Sources */,
@@ -1289,7 +1290,6 @@
 				D6C490151DBEEB0D009EB672 /* AMAlertView.m in Sources */,
 				C88A0DEE1DC97C3C00B847AF /* MeMissionPageViewController.m in Sources */,
 				D61686251DD05233007EAA64 /* PFHomeWebInterface.m in Sources */,
-				D6EE72F91DC86305008D4AD8 /* Test.m in Sources */,
 				C8610C191DD086E900E959E1 /* ManagerToAuthTaskWebInterface.m in Sources */,
 				D61686231DD05233007EAA64 /* PFAMDetailWebInterface.m in Sources */,
 			);

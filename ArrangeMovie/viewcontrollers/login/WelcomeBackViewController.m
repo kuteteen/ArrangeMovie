@@ -1,32 +1,29 @@
 //
-//  Test.m
+//  WelcomeBackViewController.m
 //  ArrangeMovie
 //
-//  Created by 陈凯 on 16/11/1.
+//  Created by 陈凯 on 16/11/10.
 //  Copyright © 2016年 EMI. All rights reserved.
-//
+//  欢迎回来过度页面
 
-#import "Test.h"
-#import "AppDelegate.h"
+#import "WelcomeBackViewController.h"
 
-@interface Test ()
+@interface WelcomeBackViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *headView;
+@property (weak, nonatomic) IBOutlet UILabel *backLab;
 
 @end
 
-@implementation Test
+@implementation WelcomeBackViewController
 
 - (void)viewDidLoad {
-    
-    
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    
+    //禁止返回
+    self.navigationItem.backBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [AppDelegate storyBoradAutoLay:self.view];
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

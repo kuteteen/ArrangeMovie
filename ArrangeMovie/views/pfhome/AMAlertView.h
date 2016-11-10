@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface AMAlertView : UIView
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeight;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;//标题
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLabelHeight;
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;//关闭按钮
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *closeBtnWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *closeBtnHeight;
 @property (weak, nonatomic) IBOutlet UIView *contentView;//视图中自定义子势图
 @property (weak, nonatomic) IBOutlet UIView *lineView;//分割线
 

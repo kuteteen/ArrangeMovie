@@ -37,6 +37,12 @@
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"enableRESideMenu"
                                                         object:self
                                                       userInfo:nil];
