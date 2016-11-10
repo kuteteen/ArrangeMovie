@@ -17,6 +17,7 @@
 #import "MeViewController.h"
 #import "RESideMenu.h"
 #import "EMIRootViewController.h"
+#import "SCFadeSlideView.h"
 
 @interface AppDelegate ()<RESideMenuDelegate>
 
@@ -127,15 +128,15 @@
 {
     for (UIView *temp in allView.subviews) {
 
-
-        temp.frame = CGRectMake1(temp.frame.origin.x, temp.frame.origin.y, temp.frame.size.width, temp.frame.size.height);
-
-
-
-
-        if (temp.subviews.count > 0) {
+        //SCFadeSlideView不要对其子view进行布局
+        if (![temp isKindOfClass:[SCFadeSlideView class]]) {
+            temp.frame = CGRectMake1(temp.frame.origin.x, temp.frame.origin.y, temp.frame.size.width, temp.frame.size.height);
+            if (temp.subviews.count > 0) {
                 [AppDelegate storyBoradAutoLay:temp];
+            }
         }
+        
+        
 
 
     }
