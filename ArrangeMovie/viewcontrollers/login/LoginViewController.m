@@ -138,21 +138,24 @@
 }
 //登录首页
 - (IBAction)toHome:(UIButton *)sender {
-    if ([self.phoneTF.text isEqualToString:@"0"]) {
-        //片方首页
-        UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
-        PFHomeViewController *viewController = [pfhome instantiateViewControllerWithIdentifier:@"pfhome"];
-        EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
-        
-        [self presentViewController:nav animated:YES completion:nil];
-    }
-    if ([self.phoneTF.text isEqualToString:@"1"]) {
-        //院线经理首页
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
-        ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
-        EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
-        [self presentViewController:nav animated:YES completion:nil];
-    }
+//    if ([self.phoneTF.text isEqualToString:@"0"]) {
+//        //片方首页
+//        UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
+//        PFHomeViewController *viewController = [pfhome instantiateViewControllerWithIdentifier:@"pfhome"];
+//        EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+//        
+//        [self presentViewController:nav animated:YES completion:nil];
+//    }
+//    if ([self.phoneTF.text isEqualToString:@"1"]) {
+//        //院线经理首页
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
+//        ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
+//        EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+//        [self presentViewController:nav animated:YES completion:nil];
+//    }
+    
+    
+    //进入登录欢迎页
 }
 //忘记密码
 - (IBAction)forgetPwd:(UIButton *)sender {

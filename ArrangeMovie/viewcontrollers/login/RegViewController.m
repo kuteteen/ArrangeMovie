@@ -8,8 +8,10 @@
 
 #import "RegViewController.h"
 #import "PFHomeViewController.h"
+#import "EMIRootViewController.h"
+#import "RESideMenu.h"
 
-@interface RegViewController ()<LFLUISegmentedControlDelegate,LCActionSheetDelegate>
+@interface RegViewController ()<LFLUISegmentedControlDelegate,LCActionSheetDelegate,RESideMenuDelegate>
 
 @end
 
@@ -209,8 +211,28 @@
         UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
         PFHomeViewController *viewController = [pfhome instantiateViewControllerWithIdentifier:@"pfhome"];
         EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+        UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
+        MeViewController *meVC = [me instantiateViewControllerWithIdentifier:@"me"];
+        EMINavigationController *meNav = [[EMINavigationController alloc] initWithRootViewController:meVC];
         
-        [self presentViewController:nav animated:YES completion:nil];
+        
+        EMIRootViewController *sideMenuViewController = [[EMIRootViewController alloc] initWithContentViewController:nav leftMenuViewController:nil rightMenuViewController:meNav];
+            sideMenuViewController.backgroundImage = [UIImage imageNamed:@"all_bg"];
+            sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+            sideMenuViewController.delegate = self;
+            sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
+            sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
+            sideMenuViewController.contentViewShadowOpacity = 0.6;
+            sideMenuViewController.contentViewShadowRadius = 12;
+            sideMenuViewController.contentViewShadowEnabled = YES;
+        
+        
+            sideMenuViewController.scaleContentView = NO;
+            sideMenuViewController.scaleMenuView = NO;
+            sideMenuViewController.panGestureEnabled = YES;
+            sideMenuViewController.contentViewInPortraitOffsetCenterX = screenWidth;
+        
+        [self presentViewController:sideMenuViewController animated:YES completion:nil];
     }
     //院线经理跳至认证院线经理
     if (self.mainSegView.selectSeugment == 1) {

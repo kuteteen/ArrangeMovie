@@ -14,6 +14,11 @@
     self = [[[NSBundle mainBundle] loadNibNamed:@"AMAlertView" owner:nil options:nil] objectAtIndex:0];
     if (self) {
         self.frame = frame;
+        self.topViewHeight.constant = 46*autoSizeScaleY;
+        self.titleLabelHeight.constant = 22*autoSizeScaleY;
+        self.titleLabel.font = [UIFont systemFontOfSize:18.f*autoSizeScaleY];
+        self.closeBtnWidth.constant = 22*autoSizeScaleY;
+        self.closeBtnHeight.constant = 22*autoSizeScaleY;
         self.alpha = 1;
     }
     return self;
