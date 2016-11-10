@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIBarButtonItem+Extension.h"
+#import "EMIShadowImageView.h"
 
 @interface EMINavigationController : UINavigationController
 
@@ -19,6 +20,6 @@
  *  @param origin         原始位置
  *  @param desRect        目标位置矩形
  */
--(void)pushViewController:(UIViewController *)viewController withImageView:(UIImageView*)imageView originRect:(CGRect)originRect desRect:(CGRect)desRect;
+-(void)pushViewController:(UIViewController *)viewController withImageView:(EMIShadowImageView*)imageView originRect:(CGRect)originRect desRect:(CGRect)desRect;
 
 @end

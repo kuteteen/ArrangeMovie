@@ -13,14 +13,18 @@
 #import "Task.h"
 #import "ManagerMissionDetailViewController.h"
 #import "ManagerMissionViewController.h"
+#import "UIView+SDAutoLayout.h"
 
-@interface ManagerIndexViewController ()<UITableViewDelegate,UITableViewDataSource> {
+@interface ManagerIndexViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate> {
     Task *selTask;
 }
-@property (strong, nonatomic) IBOutlet EMIShadowImageView *headImgView;
-@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *cinemaLabel;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIView *head;
+@property (strong, nonatomic) UIImageView *topView;
+
+@property (strong, nonatomic) EMIShadowImageView *headImgView;
+@property (strong, nonatomic) UILabel *nameLabel;
+@property (strong, nonatomic) UILabel *cinemaLabel;
+@property (strong, nonatomic) UITableView *tableView;
 
 
 @property (strong, nonatomic) NSMutableArray *array;//数据源
@@ -38,28 +42,56 @@
 
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_index_my" highImageName:@"film_index_my" target:self action:@selector(presentRightMenuViewController:)];
 
-    self.tableView.tableFooterView = [[UIView alloc] init];
-
-    [self showUser];
+//    self.tableView.tableFooterView = [[UIView alloc] init];
 
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(disableRESideMenu)
-//                                                 name:@"disableRESideMenu"
-//                                               object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(enableRESideMenu)
-//                                                 name:@"enableRESideMenu"
-//                                               object:nil];
+    [self initViews];
+    
+    [self showUser];
 }
 
-//- (void)enableRESideMenu {
-//    self.panGestureEnabled = YES;
-//}
-//
-//- (void)disableRESideMenu {
-//    self.panGestureEnabled = NO;
-//}
+-(void)initViews {
+    
+    //tabelview
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, screenWidth, screenHeight-64)];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.bounces = YES;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.head = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 201*self.myDelegate.autoSizeScaleY)];
+    self.topView = [[UIImageView alloc] initWithFrame:self.head.bounds];
+    self.topView.image = [UIImage imageNamed:@"pfhome_topbg"];
+    self.topView.contentMode = UIViewContentModeScaleAspectFill;
+    self.topView.clipsToBounds = YES;
+    
+    //头像
+    self.headImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((screenWidth-110*self.myDelegate.autoSizeScaleX)/2, 4, 110*self.myDelegate.autoSizeScaleX, 110*self.myDelegate.autoSizeScaleX)];
+    self.headImgView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
+    
+    [self.topView addSubview:self.headImgView];
+    self.headImgView.sd_layout.centerXEqualToView(self.topView);
+    
+    //姓名
+    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 4+110*self.myDelegate.autoSizeScaleX+4+23*self.myDelegate.autoSizeScaleY, screenWidth-20, 25*self.myDelegate.autoSizeScaleY)];
+    self.nameLabel.textAlignment = NSTextAlignmentCenter;
+    self.nameLabel.font = [UIFont systemFontOfSize:21.f];
+    self.nameLabel.text = @"王小二";
+    self.nameLabel.textColor = [UIColor whiteColor];
+    self.nameLabel.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
+    [self.topView addSubview:self.nameLabel];
+    self.nameLabel.sd_layout.centerXEqualToView(self.topView);
+    
+    [self.head addSubview:self.topView];
+    self.tableView.tableHeaderView = self.head;
+    
+    [self.tableView sendSubviewToBack:self.tableView.tableHeaderView];
+    
+    [self.view addSubview:self.tableView];
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -71,13 +103,13 @@
   [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580" placeholder:@""];
     // [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:self.user.headimg placeholder:@""];
     self.nameLabel.text = self.user.name;
-    self.cinemaLabel.text = self.user.gradename;
+//    self.cinemaLabel.text = self.user.gradename;
 }
 
 -(NSMutableArray *)array {
     if(!_array){
         _array = [[NSMutableArray alloc] init];
-        for(int i = 0;i<4;i++){
+        for(int i = 0;i<10;i++){
             Task *task = [[Task alloc] init];
             task.filmname = @"让子弹飞";
             task.filmdirector = @"姜文";
@@ -96,6 +128,43 @@
     }
     return _array;
 }
+
+
+//滑动
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    
+    //图片高度
+    CGFloat imageHeight = self.head.frame.size.height;
+    //图片宽度
+    CGFloat imageWidth = screenWidth;
+    //图片上下偏移量
+    CGFloat imageOffsetY = scrollView.contentOffset.y;
+    
+    //    NSLog(@"图片上下偏移量 imageOffsetY:%f ->",imageOffsetY);
+    
+    
+    
+    //上移
+    if (imageOffsetY < 0) {
+        CGFloat totalOffset = imageHeight + ABS(imageOffsetY);
+        CGFloat f = totalOffset / imageHeight;
+        
+        self.topView.frame = CGRectMake(-(imageWidth * f - imageWidth) * 0.5, imageOffsetY, imageWidth * f, totalOffset);
+    }
+    
+    //下移
+    if (imageOffsetY > 0) {
+        CGFloat totalOffset = imageHeight + ABS(imageOffsetY);
+        //            CGFloat f = totalOffset / imageHeight;
+        
+        [self.topView setFrame:CGRectMake(0, -imageOffsetY/2, imageWidth, totalOffset)];
+    }
+
+    return;
+}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 101.f;

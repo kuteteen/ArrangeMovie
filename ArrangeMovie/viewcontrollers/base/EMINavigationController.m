@@ -172,11 +172,11 @@
     [self popToRootViewControllerAnimated:YES];
 }
 
--(void)pushViewController:(UIViewController *)viewController withImageView:(UIImageView *)imageView originRect:(CGRect)originRect desRect:(CGRect)desRect{
+-(void)pushViewController:(UIViewController *)viewController withImageView:(EMIShadowImageView *)imageView originRect:(CGRect)originRect desRect:(CGRect)desRect{
     self.delegate = self;
     self.origionRect = originRect;
     self.desRect = desRect;
-    self.image = imageView.image;
+    self.image = imageView.img;
     self.isPush = YES;
     [super pushViewController:viewController animated:YES];
 }

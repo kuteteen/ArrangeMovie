@@ -60,7 +60,7 @@
                 if(image){
                     if ([image hasPrefix:@"http"]) {
                         [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                            self.image = image;
+                            self.img = image;
                         }];
                     }else if(image.length>0){
                         imageView.image = [UIImage imageNamed:image];
@@ -126,7 +126,7 @@
                 if(image){
                     if ([image hasPrefix:@"http"]) {
                         [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                            self.image = image;
+                            self.img = image;
                         }];
                     }else if(image.length>0){
                         imageView.image = [UIImage imageNamed:image];
@@ -162,7 +162,7 @@
                 if(image){
                     if ([image hasPrefix:@"http"]) {
                         [imageView sd_setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:placeholder] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                            self.image = image;
+                            self.img = image;
                         }];
                     }else if(image.length>0){
                         imageView.image = [UIImage imageNamed:image];
