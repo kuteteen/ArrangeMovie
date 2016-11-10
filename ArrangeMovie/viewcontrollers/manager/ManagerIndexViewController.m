@@ -14,6 +14,7 @@
 #import "ManagerMissionDetailViewController.h"
 #import "ManagerMissionViewController.h"
 #import "UIView+SDAutoLayout.h"
+#import "EMINavigationController.h"
 
 @interface ManagerIndexViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate> {
     Task *selTask;
@@ -183,10 +184,26 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中
     selTask = self.array[indexPath.row];
-    [self performSegueWithIdentifier:@"tomissiondetail" sender:nil];
+//    [self performSegueWithIdentifier:@"tomissiondetail" sender:nil];
+    [self startAnimationForIndexPath:indexPath];
 }
 
 -(void)startAnimationForIndexPath:(NSIndexPath*)indexPath{
+    
+    ManagerMissionDetailViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managertaskdetail"];
+    viewController.user = self.user;
+    viewController.task = selTask;
+    
+    ManagerNewMissionTableViewCell *cell = (ManagerNewMissionTableViewCell *)[self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    ///cell在tableView的位置
+    CGRect rectInTableView = [self.tableView rectForRowAtIndexPath:indexPath];
+    
+    //cell在viewController中的位置
+    CGRect rect = [self.tableView convertRect:rectInTableView toView:[self.tableView superview]];
+    CGRect originRect = CGRectMake(rect.origin.x+15, rect.origin.y+25, cell.postImgView.frame.size.width, cell.postImgView.frame.size.height);
+    cell.imgRect = originRect;
+    
+    [((EMINavigationController *)self.navigationController) pushViewController:viewController withImageView:cell.postImgView originRect:originRect desRect:CGRectMake(15, 84, 53, 61)];
 }
 
  #pragma mark - Navigation

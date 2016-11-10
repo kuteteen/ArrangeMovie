@@ -12,10 +12,15 @@
 #import "ManagerMissionRequireTableViewCell.h"
 #import "ManagerMissionBtnTableViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "UIBarButtonItem+Extension.h"
+#import "EMIShadowImageView.h"
+#import "EMINavigationController.h"
 
 #define Width [UIScreen mainScreen].bounds.size.width
 
-@interface ManagerMissionDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ManagerMissionDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate> {
+    CGFloat originY;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -35,8 +40,24 @@
     [headView sd_setImageWithURL:[NSURL URLWithString:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:headView];
     }];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back_normal" highImageName:@"back_pressed" target:self action:@selector(backToUp)];
     
     
+    for(UIView *view in self.view.superview.subviews){
+        if ([view isKindOfClass:[UIImageView class]]) {
+            originY = view.frame.origin.y;
+        }
+    }
+    
+}
+
+-(void)backToUp {
+    for(UIView *view in self.view.superview.subviews){
+        if ([view isKindOfClass:[UIImageView class]]) {
+            view.alpha = 1;
+        }
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -150,6 +171,19 @@
         }
         return cell;
     }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    ///Y方向上的滑动距离
+    CGFloat offSetY = scrollView.contentOffset.y-64;
+    for(UIView *view in self.view.superview.subviews){
+        if ([view isKindOfClass:[UIImageView class]]) {
+            view.frame = CGRectMake(view.frame.origin.x, originY - offSetY + 20, view.frame.size.width, view.frame.size.height);
+            NSLog(@"移动之后详情页面图片的Y:%f",view.frame.origin.y);
+            ((EMINavigationController *)self.navigationController).animation.desRect = view.frame;
+        }
+    }
+    return;
 }
 
 /*

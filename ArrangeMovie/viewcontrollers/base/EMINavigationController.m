@@ -8,7 +8,6 @@
 
 #import "EMINavigationController.h"
 #import "UIColor+Hex.h"
-#import "OUNavAnimation.h"
 //#import "RDVTabBarController.h"
 
 @interface EMINavigationController ()<UINavigationControllerDelegate>
@@ -183,15 +182,15 @@
 
 #pragma mark UINavigationControllerDelegate
 -(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
-    OUNavAnimation* animation = [[OUNavAnimation alloc] init];
-    animation.imageRect = self.origionRect;
-    animation.image = self.image;
-    animation.isPush = self.isPush;
-    animation.desRect = self.desRect;
+    self.animation = [[OUNavAnimation alloc] init];
+    self.animation.imageRect = self.origionRect;
+    self.animation.image = self.image;
+    self.animation.isPush = self.isPush;
+    self.animation.desRect = self.desRect;
     if (!self.isPush) {
         self.delegate = nil;
     }
-    return animation;
+    return self.animation;
 }
 
 @end

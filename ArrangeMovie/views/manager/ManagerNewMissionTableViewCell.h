@@ -7,7 +7,11 @@
 //
 
 #import "SCTableViewCell.h"
+#import "EMIShadowImageView.h"
 
 @interface ManagerNewMissionTableViewCell : SCTableViewCell
+
+@property (strong, nonatomic) IBOutlet EMIShadowImageView *postImgView;
+@property (nonatomic, assign) CGRect imgRect;
 
 @end
