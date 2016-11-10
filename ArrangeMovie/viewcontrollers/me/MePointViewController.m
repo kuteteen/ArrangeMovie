@@ -18,7 +18,7 @@
 #define Width [UIScreen mainScreen].bounds.size.width
 #define Height [UIScreen mainScreen].bounds.size.height
 
-@interface MePointViewController()<UITableViewDelegate,UITableViewDataSource> {
+@interface MePointViewController()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate> {
     CKAlertViewController *filterVC;//筛选查询条件VC
     NSInteger filter;// 0,全部 1,充值 2,提现 3,消费
     
@@ -166,12 +166,39 @@
 
 -(void)toCharge:(id)sender {
     if(!chargeVC){
-        AMAlertView *amalertview = [[AMAlertView alloc] initWithFrame:CGRectMake(45, (Height-306)/2, Width-90, 306)];
+        AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(45*autoSizeScaleX, (Height-247)/2, Width-90*autoSizeScaleX, 247*autoSizeScaleY)];
         [amalertview setTitle:@"积分充值"];
         
+        UIView *childView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Width-90*autoSizeScaleX, (247-46)*autoSizeScaleY)];
+        UITextField *textFild = [[UITextField alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, 20*autoSizeScaleY, Width-90*autoSizeScaleX-24, 40*autoSizeScaleY)];
+        textFild.delegate = self;
+        textFild.keyboardType = UIKeyboardTypeNumberPad;
+        textFild.placeholder = @"请填写充值金额(￥)";
+        [textFild setValue:[UIColor colorWithHexString:@"15151b"] forKeyPath:@"_placeholderLabel.textColor"];
+        [textFild setValue:[UIFont systemFontOfSize:17*autoSizeScaleX] forKeyPath:@"_placeholderLabel.font"];
+        textFild.font = [UIFont systemFontOfSize:17*autoSizeScaleX];
+        textFild.layer.cornerRadius = 4*autoSizeScaleY;
+        textFild.layer.masksToBounds = YES;
+        textFild.layer.borderColor = [[UIColor colorWithHexString:@"bbbbbd"] CGColor];
+        textFild.layer.borderWidth = 0.5*autoSizeScaleY;
+        [childView addSubview:textFild];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleX, 15*autoSizeScaleY)];
+        label.text = @"付款方式";
+        label.textColor = [UIColor colorWithHexString:@"45454a"];
+        label.font = [UIFont systemFontOfSize:15*autoSizeScaleX];
+        [childView addSubview:label];
+        
+        
+        
+        [amalertview setChildView:childView];
         chargeVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
     }
     [self presentViewController:chargeVC animated:NO completion:nil];
+}
+
+-(void)toWithdraw:(id)sender {
+    
 }
 
 @end
