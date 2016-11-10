@@ -89,7 +89,7 @@
     [scrollView addSubview:detailLabel];
     
     
-    if(self.task.data.count>0&&self.task.){
+    if(self.task.data.count>0){
         for(int i = 0;i<5;i ++){
             MeMissionRowPieceView *pieceView = [[MeMissionRowPieceView alloc] initNibWithFrame:CGRectMake(0, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height+i*84, screenWidth, 84)];
             pieceView.tag = 1000+i;
