@@ -13,10 +13,6 @@
 @property (strong, nonatomic) UIWindow *window;
 
 
-//storyboard 按比例自适应view
-@property float autoSizeScaleX;
-@property float autoSizeScaleY;
-
 
 + (void)storyBoradAutoLay:(UIView *)allView;
 @end

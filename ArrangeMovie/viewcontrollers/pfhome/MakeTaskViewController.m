@@ -141,17 +141,17 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(164*self.myDelegate.autoSizeScaleX, 170*self.myDelegate.autoSizeScaleY);
+    return CGSizeMake(164*autoSizeScaleX, 170*autoSizeScaleY);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(7.5*self.myDelegate.autoSizeScaleX, 6.25*self.myDelegate.autoSizeScaleY, 7.5*self.myDelegate.autoSizeScaleX, 6.25*self.myDelegate.autoSizeScaleX);
+    return UIEdgeInsetsMake(7.5*autoSizeScaleX, 6.25*autoSizeScaleY, 7.5*autoSizeScaleX, 6.25*autoSizeScaleX);
 }
 
 
 - (void)createAlertView{
-    AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(43.5*self.myDelegate.autoSizeScaleX, (667/2-173)*self.myDelegate.autoSizeScaleY, 288*self.myDelegate.autoSizeScaleX, 346*self.myDelegate.autoSizeScaleY)];
+    AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(43.5*autoSizeScaleX, (667/2-173)*autoSizeScaleY, 288*autoSizeScaleX, 346*autoSizeScaleY)];
     [amalertview setTitle:@"通过审核"];
-    UIScrollView *childView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 288*self.myDelegate.autoSizeScaleX, 300*self.myDelegate.autoSizeScaleY)];
+    UIScrollView *childView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 288*autoSizeScaleX, 300*autoSizeScaleY)];
     ;
     childView.scrollEnabled = YES;
     childView.showsVerticalScrollIndicator = NO;
@@ -162,9 +162,9 @@
         
         TouchLabel *label = [[TouchLabel alloc] initWithBlock:^(NSString *str) {
             NSLog(@"%@",str);
-        } frame:CGRectMake(24*self.myDelegate.autoSizeScaleX, y, 240*self.myDelegate.autoSizeScaleX, 40*self.myDelegate.autoSizeScaleY)];
+        } frame:CGRectMake(24*autoSizeScaleX, y, 240*autoSizeScaleX, 40*autoSizeScaleY)];
         label.text = [NSString stringWithFormat:@"%d份",i+1];
-        y = 40*self.myDelegate.autoSizeScaleY+y;
+        y = 40*autoSizeScaleY+y;
         
         [childView addSubview:label];
     }

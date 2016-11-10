@@ -9,14 +9,18 @@
 #ifndef am_pch
 #define am_pch
 
-//判断是否是4S
+
+#define screenWidth [[UIScreen mainScreen] bounds].size.width
+#define screenHeight [[UIScreen mainScreen] bounds].size.height
+//判断是否是4S,5s,6s,plus
+
 #define iPhone4S [[UIScreen mainScreen] bounds].size.width == 320.0f && [[UIScreen mainScreen] bounds].size.height == 480.0f
 #define iPhone5S [[UIScreen mainScreen] bounds].size.width == 320.0f && [[UIScreen mainScreen] bounds].size.height == 568.0f
 #define iPhone6S [[UIScreen mainScreen] bounds].size.width == 375.0f && [[UIScreen mainScreen] bounds].size.height == 667.0f
 #define iPhone6SPlus [[UIScreen mainScreen] bounds].size.width == 414.0f && [[UIScreen mainScreen] bounds].size.height == 736.0f
-#define screenWidth [[UIScreen mainScreen] bounds].size.width
-#define screenHeight [[UIScreen mainScreen] bounds].size.height
 
+#define autoSizeScaleX [[UIScreen mainScreen] bounds].size.width/375.0f
+#define autoSizeScaleY [[UIScreen mainScreen] bounds].size.height/667.0f
 //Toast
 #import "UIView+Toast.h"
 //userDefault

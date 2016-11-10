@@ -71,7 +71,7 @@
 
 -(void)initViews {
     //添加滑动的图片浏览
-    self.slideView = [[SCFadeSlideView alloc] initWithFrame:CGRectMake(0, 0, 375*self.myDelegate.autoSizeScaleX, 397*self.myDelegate.autoSizeScaleY)];
+    self.slideView = [[SCFadeSlideView alloc] initWithFrame:CGRectMake(0, 0, 375*autoSizeScaleX, 397*autoSizeScaleY)];
     self.slideView.backgroundColor = [UIColor clearColor];
     self.slideView.delegate = self;
     self.slideView.datasource = self;
@@ -115,7 +115,7 @@
 
 #pragma mark SCFadeSlideView delegate
 -(CGSize)sizeForPageInSlideView:(SCFadeSlideView *)slideView {
-     return CGSizeMake((375)*self.myDelegate.autoSizeScaleX-84, 397*self.myDelegate.autoSizeScaleY);
+     return CGSizeMake((375)*autoSizeScaleX-84, 397*autoSizeScaleY);
 }
 
 - (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
@@ -145,7 +145,7 @@
 -(UIView *)slideView:(SCFadeSlideView *)slideView cellForPageAtIndex:(NSInteger)index {
     SCSlidePageView *pageView = (SCSlidePageView *)[slideView dequeueReusableCell];
     if(!pageView){
-        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, (375)*self.myDelegate.autoSizeScaleX-84, 397*self.myDelegate.autoSizeScaleY)];
+        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, (375)*autoSizeScaleX-84, 397*autoSizeScaleY)];
         pageView.layer.cornerRadius = 4;
         pageView.layer.masksToBounds = YES;
         pageView.backgroundColor = [UIColor clearColor];
@@ -165,7 +165,7 @@
             
             //添加时间label
             //下方圆角
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (397-61.5)*self.myDelegate.autoSizeScaleY, (375)*self.myDelegate.autoSizeScaleX-84, 61.5*self.myDelegate.autoSizeScaleY)];
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (397-61.5)*autoSizeScaleY, (375)*autoSizeScaleX-84, 61.5*autoSizeScaleY)];
             label.textColor = [UIColor colorWithHexString:@"15151b" alpha:1];
             label.font = [UIFont systemFontOfSize:18.f];
             label.text = @"2016-09-21排片情况";
@@ -183,13 +183,13 @@
             [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:@"" placeholder:@""];
             [pageView addSubview:shadowImageView];
             //添加"排片未完成"图片
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(85.5*self.myDelegate.autoSizeScaleX, 143.5*self.myDelegate.autoSizeScaleY, 120*self.myDelegate.autoSizeScaleX, 110*self.myDelegate.autoSizeScaleY)];
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(85.5*autoSizeScaleX, 143.5*autoSizeScaleY, 120*autoSizeScaleX, 110*autoSizeScaleY)];
             [button setImage:[UIImage imageNamed:@"row_piece_unfinished"] forState:UIControlStateNormal];
             //            [button addTarget:self action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
             [pageView addSubview:button];
             
             //添加"排片未完成""Label
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 283.5*self.myDelegate.autoSizeScaleY, 291*self.myDelegate.autoSizeScaleX, 40*self.myDelegate.autoSizeScaleY)];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 283.5*autoSizeScaleY, 291*autoSizeScaleX, 40*autoSizeScaleY)];
             label.textAlignment = NSTextAlignmentCenter;
             label.text = @"排片任务未完成";
             label.textColor = [UIColor colorWithHexString:@"#999999"];

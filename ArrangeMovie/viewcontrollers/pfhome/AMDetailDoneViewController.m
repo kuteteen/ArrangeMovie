@@ -75,7 +75,7 @@
 
 -(void)initViews {
     //添加滑动的图片浏览
-    self.slideView = [[SCFadeSlideView alloc] initWithFrame:CGRectMake(0, 0, 375*self.myDelegate.autoSizeScaleX, 397*self.myDelegate.autoSizeScaleY)];
+    self.slideView = [[SCFadeSlideView alloc] initWithFrame:CGRectMake(0, 0, 375*autoSizeScaleX, 397*autoSizeScaleY)];
     self.slideView.backgroundColor = [UIColor clearColor];
     self.slideView.delegate = self;
     self.slideView.datasource = self;
@@ -117,11 +117,11 @@
 
 //蓝色完成圆勾点击事件
 - (void)okImgClicked:(UITapGestureRecognizer *)sender{
-    AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(43.5*self.myDelegate.autoSizeScaleX, (667/2-95.5)*self.myDelegate.autoSizeScaleY, 288*self.myDelegate.autoSizeScaleX, 191*self.myDelegate.autoSizeScaleY)];
+    AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(43.5*autoSizeScaleX, (667/2-95.5)*autoSizeScaleY, 288*autoSizeScaleX, 191*autoSizeScaleY)];
     [amalertview setTitle:@"通过审核"];
-    UIView *childView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 288*self.myDelegate.autoSizeScaleX, 145*self.myDelegate.autoSizeScaleY)];
+    UIView *childView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 288*autoSizeScaleX, 145*autoSizeScaleY)];
     UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    sureBtn.frame = CGRectMake(24*self.myDelegate.autoSizeScaleX, 77*self.myDelegate.autoSizeScaleY, 240*self.myDelegate.autoSizeScaleX, 41*self.myDelegate.autoSizeScaleY);
+    sureBtn.frame = CGRectMake(24*autoSizeScaleX, 77*autoSizeScaleY, 240*autoSizeScaleX, 41*autoSizeScaleY);
     sureBtn.backgroundColor = [UIColor colorWithHexString:@"557cce"];
     sureBtn.layer.masksToBounds = YES;
     sureBtn.layer.cornerRadius = 4.f;
@@ -130,7 +130,7 @@
     [sureBtn addTarget:self action:@selector(sure:) forControlEvents:UIControlEventTouchUpInside];
     [childView addSubview:sureBtn];
     
-    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(24*self.myDelegate.autoSizeScaleX, 0, 240*self.myDelegate.autoSizeScaleX, 77*self.myDelegate.autoSizeScaleY)];
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(24*autoSizeScaleX, 0, 240*autoSizeScaleX, 77*autoSizeScaleY)];
     lab.font = [UIFont systemFontOfSize:15.f];
     lab.textColor = [UIColor colorWithHexString:@"15151b"];
     lab.text = @"确认是否通过本次排片任务？";
@@ -164,7 +164,7 @@
 
 #pragma mark SCFadeSlideView delegate
 -(CGSize)sizeForPageInSlideView:(SCFadeSlideView *)slideView {
-     return CGSizeMake((375)*self.myDelegate.autoSizeScaleX-84, 397*self.myDelegate.autoSizeScaleY);
+     return CGSizeMake((375)*autoSizeScaleX-84, 397*autoSizeScaleY);
 }
 
 - (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
@@ -195,7 +195,7 @@
 -(UIView *)slideView:(SCFadeSlideView *)slideView cellForPageAtIndex:(NSInteger)index {
     SCSlidePageView *pageView = (SCSlidePageView *)[slideView dequeueReusableCell];
     if(!pageView){
-        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, (375)*self.myDelegate.autoSizeScaleX-84, 397*self.myDelegate.autoSizeScaleY)];
+        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, (375)*autoSizeScaleX-84, 397*autoSizeScaleY)];
         pageView.layer.cornerRadius = 4;
         pageView.layer.masksToBounds = YES;
         pageView.backgroundColor = [UIColor clearColor];
@@ -215,7 +215,7 @@
             
             //添加时间label
             //下方圆角
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (397-61.5)*self.myDelegate.autoSizeScaleY, (375)*self.myDelegate.autoSizeScaleX-84, 61.5*self.myDelegate.autoSizeScaleY)];
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (397-61.5)*autoSizeScaleY, (375)*autoSizeScaleX-84, 61.5*autoSizeScaleY)];
             label.textColor = [UIColor colorWithHexString:@"15151b" alpha:1];
             label.font = [UIFont systemFontOfSize:18.f];
             label.text = @"2016-09-21排片情况";

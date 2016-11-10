@@ -119,7 +119,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 103*self.myDelegate.autoSizeScaleY;
+    return 103*autoSizeScaleY;
 }
 
 -(void)updateSearchResultsForSearchController:(UISearchController *)searchController {

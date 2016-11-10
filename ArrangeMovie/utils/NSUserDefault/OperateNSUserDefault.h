@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @interface OperateNSUserDefault : NSObject
+
+//将user信息存入userDefault中
++ (void)saveUser:(User *)user;
+
 
 //新增userdefault的值
 + (void)addUserDefaultWithKeyAndValue:(NSString *)key value:(id)value;

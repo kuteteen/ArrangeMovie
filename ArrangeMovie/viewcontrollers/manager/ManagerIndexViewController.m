@@ -62,21 +62,21 @@
     self.tableView.bounces = YES;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.head = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 201*self.myDelegate.autoSizeScaleY)];
+    self.head = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 201*autoSizeScaleY)];
     self.topView = [[UIImageView alloc] initWithFrame:self.head.bounds];
     self.topView.image = [UIImage imageNamed:@"pfhome_topbg"];
     self.topView.contentMode = UIViewContentModeScaleAspectFill;
     self.topView.clipsToBounds = YES;
     
     //头像
-    self.headImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((screenWidth-110*self.myDelegate.autoSizeScaleX)/2, 4, 110*self.myDelegate.autoSizeScaleX, 110*self.myDelegate.autoSizeScaleX)];
+    self.headImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((screenWidth-110*autoSizeScaleX)/2, 4, 110*autoSizeScaleX, 110*autoSizeScaleX)];
     self.headImgView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     
     [self.topView addSubview:self.headImgView];
     self.headImgView.sd_layout.centerXEqualToView(self.topView);
     
     //姓名
-    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 4+110*self.myDelegate.autoSizeScaleX+4+23*self.myDelegate.autoSizeScaleY, screenWidth-20, 25*self.myDelegate.autoSizeScaleY)];
+    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 4+110*autoSizeScaleX+4+23*autoSizeScaleY, screenWidth-20, 25*autoSizeScaleY)];
     self.nameLabel.textAlignment = NSTextAlignmentCenter;
     self.nameLabel.font = [UIFont systemFontOfSize:21.f];
     self.nameLabel.text = @"王小二";

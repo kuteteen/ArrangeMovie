@@ -25,15 +25,10 @@
     
     [self initView];
     
-    
-//    if (iPhonePlus) {
-//       
-//    }else{
-        //键盘弹出收起的通知事件
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    //键盘弹出收起的通知事件
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-//    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     
     [AppDelegate storyBoradAutoLay:self.view];
@@ -48,15 +43,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    
-    [super viewDidAppear:animated];
-    //确保在autolayout后再执行
-//    dispatch_async(dispatch_get_main_queue(), ^{
-    
-//    });
-
-}
 
 - (void)viewWillDisappear:(BOOL)animated{
     //移除通知
@@ -141,11 +127,11 @@
 }
 //监测手机号，当合法时，请求头像，登录按钮可点击
 - (IBAction)checkTelphoneNum:(UITextField *)sender {
-//    if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
-//        self.loginBtn.enabled = YES;
-//    }else{
-//        self.loginBtn.enabled = NO;
-//    }
+    if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
+        self.loginBtn.enabled = YES;
+    }else{
+        self.loginBtn.enabled = NO;
+    }
     
     
     

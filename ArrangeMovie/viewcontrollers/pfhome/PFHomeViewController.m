@@ -54,20 +54,20 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     
-    self.head = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 201*self.myDelegate.autoSizeScaleY)];
+    self.head = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 201*autoSizeScaleY)];
     
     self.topView = [[UIImageView alloc] initWithFrame:self.head.bounds];
     self.topView.image = [UIImage imageNamed:@"pfhome_topbg"];
     self.topView.contentMode = UIViewContentModeScaleAspectFill;
     self.topView.clipsToBounds = YES;
     //头像
-    self.headImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((screenWidth-110*self.myDelegate.autoSizeScaleX)/2, 4, 110*self.myDelegate.autoSizeScaleX, 110*self.myDelegate.autoSizeScaleX)];
+    self.headImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((screenWidth-110*autoSizeScaleX)/2, 4, 110*autoSizeScaleX, 110*autoSizeScaleX)];
     self.headImgView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self setHead];
     [self.topView addSubview:self.headImgView];
     self.headImgView.sd_layout.centerXEqualToView(self.topView);
     //姓名
-    self.nameLab = [[UILabel alloc] initWithFrame:CGRectMake(10, 4+110*self.myDelegate.autoSizeScaleX+4+23*self.myDelegate.autoSizeScaleY, screenWidth-20, 25*self.myDelegate.autoSizeScaleY)];
+    self.nameLab = [[UILabel alloc] initWithFrame:CGRectMake(10, 4+110*autoSizeScaleX+4+23*autoSizeScaleY, screenWidth-20, 25*autoSizeScaleY)];
     self.nameLab.textAlignment = NSTextAlignmentCenter;
     self.nameLab.font = [UIFont systemFontOfSize:21.f];
     self.nameLab.text = @"王小二";
@@ -179,11 +179,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 55*self.myDelegate.autoSizeScaleY;
+    return 55*autoSizeScaleY;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 101*self.myDelegate.autoSizeScaleY;
+    return 101*autoSizeScaleY;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
