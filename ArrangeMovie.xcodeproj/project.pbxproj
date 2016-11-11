@@ -130,6 +130,7 @@
 		D61686761DD45929007EAA64 /* WelcomeBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686751DD45929007EAA64 /* WelcomeBackViewController.m */; };
 		D61686781DD4716B007EAA64 /* FgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */; };
 		D616867B1DD55303007EAA64 /* LoginSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D616867A1DD55303007EAA64 /* LoginSuccessViewController.m */; };
+		D61686B81DD5B902007EAA64 /* CKLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686B71DD5B902007EAA64 /* CKLoopScrollView.m */; };
 		D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A064B1DAB5CA8003832A8 /* login.storyboard */; };
 		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
@@ -393,6 +394,8 @@
 		D61686751DD45929007EAA64 /* WelcomeBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeBackViewController.m; path = viewcontrollers/login/WelcomeBackViewController.m; sourceTree = "<group>"; };
 		D61686791DD55303007EAA64 /* LoginSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginSuccessViewController.h; path = viewcontrollers/login/LoginSuccessViewController.h; sourceTree = "<group>"; };
 		D616867A1DD55303007EAA64 /* LoginSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginSuccessViewController.m; path = viewcontrollers/login/LoginSuccessViewController.m; sourceTree = "<group>"; };
+		D61686B61DD5B902007EAA64 /* CKLoopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKLoopScrollView.h; path = views/pfhome/datepicker/CKLoopScrollView.h; sourceTree = "<group>"; };
+		D61686B71DD5B902007EAA64 /* CKLoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKLoopScrollView.m; path = views/pfhome/datepicker/CKLoopScrollView.m; sourceTree = "<group>"; };
 		D62A064B1DAB5CA8003832A8 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = login.storyboard; path = src/login.storyboard; sourceTree = "<group>"; };
 		D62A064E1DAB63D1003832A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewcontrollers/login/LoginViewController.h; sourceTree = "<group>"; };
 		D62A064F1DAB63D1003832A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontrollers/login/LoginViewController.m; sourceTree = "<group>"; };
@@ -875,6 +878,15 @@
 			path = pfhome;
 			sourceTree = "<group>";
 		};
+		D61686B51DD5B89B007EAA64 /* datepicker */ = {
+			isa = PBXGroup;
+			children = (
+				D61686B61DD5B902007EAA64 /* CKLoopScrollView.h */,
+				D61686B71DD5B902007EAA64 /* CKLoopScrollView.m */,
+			);
+			name = datepicker;
+			sourceTree = "<group>";
+		};
 		D62A064D1DAB637C003832A8 /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -935,6 +947,7 @@
 		D6950CD41DB4BEB9004D6C8B /* pfhome */ = {
 			isa = PBXGroup;
 			children = (
+				D61686B51DD5B89B007EAA64 /* datepicker */,
 				D61686271DD05258007EAA64 /* TouchLabel.h */,
 				D61686281DD05258007EAA64 /* TouchLabel.m */,
 				D6C490041DBEEB0D009EB672 /* AMAlertView.h */,
@@ -1268,6 +1281,7 @@
 				D61686761DD45929007EAA64 /* WelcomeBackViewController.m in Sources */,
 				C8610C041DD0638F00E959E1 /* AddBankWebInterface.m in Sources */,
 				C8EB79B11DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m in Sources */,
+				D61686B81DD5B902007EAA64 /* CKLoopScrollView.m in Sources */,
 				D61686111DD05229007EAA64 /* LoginWebInterface.m in Sources */,
 				D61686291DD05258007EAA64 /* TouchLabel.m in Sources */,
 				C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */,
