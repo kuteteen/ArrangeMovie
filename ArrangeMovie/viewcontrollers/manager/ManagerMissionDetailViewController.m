@@ -49,6 +49,11 @@
         }
     }
     
+    
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    }
+    
 }
 
 -(void)backToUp {

@@ -47,6 +47,7 @@
 		C83C79261DD163CD002EEAF3 /* OUNavAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C79251DD163CD002EEAF3 /* OUNavAnimation.m */; };
 		C83C792C1DD179C2002EEAF3 /* MeMissionTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */; };
 		C83C792E1DD179FC002EEAF3 /* MeMissionTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */; };
+		C84C7C4F1DD5953B00D134DD /* loading_120.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84C7C4E1DD5953B00D134DD /* loading_120.gif */; };
 		C859974F1DC04C1E0057C417 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = C859974E1DC04C1E0057C417 /* Task.m */; };
 		C85997521DC0565F0057C417 /* TakeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997511DC0565F0057C417 /* TakeTask.m */; };
 		C85997551DC058560057C417 /* Film.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997541DC058560057C417 /* Film.m */; };
@@ -126,7 +127,6 @@
 		D61686251DD05233007EAA64 /* PFHomeWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D616861E1DD05233007EAA64 /* PFHomeWebInterface.m */; };
 		D61686261DD05233007EAA64 /* ReleaseTaskWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686201DD05233007EAA64 /* ReleaseTaskWebInterface.m */; };
 		D61686291DD05258007EAA64 /* TouchLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686281DD05258007EAA64 /* TouchLabel.m */; };
-		D61686731DD448AC007EAA64 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = D61686721DD448AC007EAA64 /* loading.gif */; };
 		D61686761DD45929007EAA64 /* WelcomeBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686751DD45929007EAA64 /* WelcomeBackViewController.m */; };
 		D61686781DD4716B007EAA64 /* FgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */; };
 		D616867B1DD55303007EAA64 /* LoginSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D616867A1DD55303007EAA64 /* LoginSuccessViewController.m */; };
@@ -244,6 +244,7 @@
 		C83C792A1DD179C2002EEAF3 /* MeMissionTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionTitleView.h; path = views/me/MeMissionTitleView.h; sourceTree = "<group>"; };
 		C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionTitleView.m; path = views/me/MeMissionTitleView.m; sourceTree = "<group>"; };
 		C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionTitleView.xib; path = views/me/MeMissionTitleView.xib; sourceTree = "<group>"; };
+		C84C7C4E1DD5953B00D134DD /* loading_120.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading_120.gif; path = src/loading_120.gif; sourceTree = "<group>"; };
 		C859974D1DC04C1E0057C417 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = models/Task.h; sourceTree = "<group>"; };
 		C859974E1DC04C1E0057C417 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = models/Task.m; sourceTree = "<group>"; };
 		C85997501DC0565F0057C417 /* TakeTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TakeTask.h; path = models/TakeTask.h; sourceTree = "<group>"; };
@@ -389,7 +390,6 @@
 		D61686201DD05233007EAA64 /* ReleaseTaskWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseTaskWebInterface.m; sourceTree = "<group>"; };
 		D61686271DD05258007EAA64 /* TouchLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchLabel.h; path = views/pfhome/TouchLabel.h; sourceTree = "<group>"; };
 		D61686281DD05258007EAA64 /* TouchLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TouchLabel.m; path = views/pfhome/TouchLabel.m; sourceTree = "<group>"; };
-		D61686721DD448AC007EAA64 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading.gif; path = src/loading.gif; sourceTree = "<group>"; };
 		D61686741DD45929007EAA64 /* WelcomeBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeBackViewController.h; path = viewcontrollers/login/WelcomeBackViewController.h; sourceTree = "<group>"; };
 		D61686751DD45929007EAA64 /* WelcomeBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeBackViewController.m; path = viewcontrollers/login/WelcomeBackViewController.m; sourceTree = "<group>"; };
 		D61686791DD55303007EAA64 /* LoginSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginSuccessViewController.h; path = viewcontrollers/login/LoginSuccessViewController.h; sourceTree = "<group>"; };
@@ -636,7 +636,7 @@
 		C8E6512E1DA9D52000400ABC /* src */ = {
 			isa = PBXGroup;
 			children = (
-				D61686721DD448AC007EAA64 /* loading.gif */,
+				C84C7C4E1DD5953B00D134DD /* loading_120.gif */,
 				D6C48FFF1DBEEABD009EB672 /* launch.storyboard */,
 				C8E6513C1DA9E6CC00400ABC /* me.storyboard */,
 				D62A064B1DAB5CA8003832A8 /* login.storyboard */,
@@ -1117,11 +1117,11 @@
 				A5A5084E1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.xib in Resources */,
 				A5AC118A1DABA69100CBBE05 /* MeBankCardTableViewCell.xib in Resources */,
 				C83C792E1DD179FC002EEAF3 /* MeMissionTitleView.xib in Resources */,
+				C84C7C4F1DD5953B00D134DD /* loading_120.gif in Resources */,
 				C8B64E801DB49C8900B4311D /* MeMissionTableViewCell.xib in Resources */,
 				C87E40B51DD2EEC500DD2018 /* MeMissionRowPieceView.xib in Resources */,
 				A5A5083C1DBF2CF800CB2491 /* manager.storyboard in Resources */,
 				D6C490001DBEEABD009EB672 /* launch.storyboard in Resources */,
-				D61686731DD448AC007EAA64 /* loading.gif in Resources */,
 				C87E40B31DD2BC9800DD2018 /* MeMissionRequireView.xib in Resources */,
 				A5A508491DBF466900CB2491 /* ManagerNewMissionTableViewCell.xib in Resources */,
 				C8EB79BA1DC0AD2A005599BC /* ManagerMissionTableViewCell.xib in Resources */,

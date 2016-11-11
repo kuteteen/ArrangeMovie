@@ -13,10 +13,11 @@
 #import "AMAlertView.h"
 #import "CKAlertViewController.h"
 #import "ManagerMissionPageViewController.h"
+#import "EMINavigationController.h"
 
 #define Width [UIScreen mainScreen].bounds.size.width
 
-@interface ManagerMissionViewController ()<LFLUISegmentedControlDelegate,UIPageViewControllerDataSource,UIPageViewControllerDelegate>{
+@interface ManagerMissionViewController ()<LFLUISegmentedControlDelegate,UIPageViewControllerDataSource,UIPageViewControllerDelegate,ManagerMissionPageViewControllerDelegate> {
     LFLUISegmentedControl *segmentControl;
     CKAlertViewController *ckAlertVC;
     
@@ -73,6 +74,7 @@
         viewControllers = [[NSMutableArray alloc] initWithCapacity:self.pageCount];
         for(int i = 0;i<self.pageCount;i++){
             ManagerMissionPageViewController *startingViewController = [self viewControllerAtIndex:i];
+            startingViewController.delegate = self;
             [viewControllers addObject:startingViewController];
         }
     }
@@ -133,6 +135,24 @@
 #pragma mark - LFLUISegmentedControl delegate
 -(void)uisegumentSelectionChange:(NSInteger)selection {
     NSLog(@"滑动到第%ld页",(long)selection);
+}
+
+-(void)checkMission:(ManagerMissionTableViewCell *)cell {
+    //跳转到详情
+    //    [self performSegueWithIdentifier:@"metomissiondetail" sender:nil];
+    [self startAnimationForIndexPath:cell];
+}
+
+#pragma mark animation
+-(void)startAnimationForIndexPath:(ManagerMissionTableViewCell *)cell{
+    
+    ManagerMissionDetailViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managermissiondetail"];
+    viewController.user = self.user;
+    viewController.task = cell.task;
+    
+    CGRect originRect = cell.imgRect;
+    //    CGRect
+    [((EMINavigationController *)self.navigationController) pushViewController:viewController withImageView:cell.postImgView originRect:originRect desRect:CGRectMake(15, 84, 53, 61)];
 }
 
 -(void)toDelTask:(id)sender {

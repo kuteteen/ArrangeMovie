@@ -40,6 +40,8 @@
     LoginViewController *loginvc = [login instantiateViewControllerWithIdentifier:@"login"];
     EMINavigationController *loginnav = [[EMINavigationController alloc] initWithRootViewController:loginvc];
     [self.window setRootViewController:loginnav];
+    
+//    
 //    UIStoryboard *manager = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
 //    ManagerIndexViewController *managerIndexVC = [manager instantiateViewControllerWithIdentifier:@"manager"];
 //    //假数据 用户
@@ -58,6 +60,7 @@
 //    UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
 //    MeViewController *meVC = [me instantiateViewControllerWithIdentifier:@"me"];
 //    EMINavigationController *meNav = [[EMINavigationController alloc] initWithRootViewController:meVC];
+//    
 //    EMIRootViewController *sideMenuViewController = [[EMIRootViewController alloc] initWithContentViewController:managerNav
 //                                                                    leftMenuViewController:nil
 //                                                                   rightMenuViewController:meNav];
@@ -75,8 +78,8 @@
 //    sideMenuViewController.scaleMenuView = NO;
 //    sideMenuViewController.panGestureEnabled = YES;
 //    sideMenuViewController.contentViewInPortraitOffsetCenterX = screenWidth;
-//
-//
+
+
     UIImage *image = [UIImage imageNamed:@"navigation"];
     CGSize titleSize = loginnav.navigationBar.bounds.size;
     titleSize.height = titleSize.height+20;
@@ -86,7 +89,7 @@
                            barMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
 
-//    [self.window setRootViewController:sideMenuViewController];
+    [self.window setRootViewController:loginnav];
 
     return YES;
 }

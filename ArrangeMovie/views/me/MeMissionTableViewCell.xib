@@ -95,7 +95,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="directorLabel" destination="803-fR-bHE" id="fMN-dE-MQP"/>
                 <outlet property="postImgView" destination="N3N-HP-Neo" id="M1h-f3-GiA"/>
+                <outlet property="taskdateLabel" destination="iem-um-4ev" id="dnC-7B-zpQ"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -13,12 +13,15 @@
 #import "UIImage+SCUtil.h"
 #import "EMIFilterButton.h"
 #import "AMAlertView.h"
+#import "BEMCheckBox.h"
+#import "UIImage+GIF.h"
+#import "MBProgressHUD.h"
 
 
 #define Width [UIScreen mainScreen].bounds.size.width
 #define Height [UIScreen mainScreen].bounds.size.height
 
-@interface MePointViewController()<UITableViewDelegate,UITableViewDataSource> {
+@interface MePointViewController()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate> {
     CKAlertViewController *filterVC;//筛选查询条件VC
     NSInteger filter;// 0,全部 1,充值 2,提现 3,消费
     
@@ -83,6 +86,34 @@
     
     
     
+    
+    //        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80 , 80)];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage sd_animatedGIFNamed:@"loading_120"]];
+    //        NSString  *name = @"loading.gif";
+    //
+    //        NSString  *filePath = [[NSBundle bundleWithPath:[[NSBundle mainBundle] bundlePath]] pathForResource:name ofType:nil];
+    //
+    //        NSData  *imageData = [NSData dataWithContentsOfFile:filePath];
+    //        imageView.image = [UIImage sd_animatedGIFWithData:imageData];
+    //        imageView.image = [UIImage sd_animatedGIFNamed:@"loading"];
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    HUD.backgroundColor = [UIColor colorWithHexString:@"000000" alpha:0.2];
+    HUD.bezelView.backgroundColor = [UIColor colorWithHexString:@"ffffff" alpha:0.8];
+    //        HUD.bezelView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loading_bj"]];
+    //        HUD.bezelView.tintColor = [UIColor clearColor];
+    
+    HUD.bezelView.layer.cornerRadius = 16;
+    HUD.mode = MBProgressHUDModeCustomView;
+    //        HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.customView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+    HUD.customView = imageView;
+    HUD.margin = 5;
+    NSLog(@"HUD的margin:%f",HUD.margin);
+//    HUD.delegate = self;
+    HUD.square = YES;
+    [HUD showAnimated:YES];
+    [HUD hideAnimated:YES afterDelay:5];
+
     
 }
 #pragma mark - tableView delegate
@@ -166,12 +197,74 @@
 
 -(void)toCharge:(id)sender {
     if(!chargeVC){
-        AMAlertView *amalertview = [[AMAlertView alloc] initWithFrame:CGRectMake(45, (Height-306)/2, Width-90, 306)];
+        AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(45*autoSizeScaleX, (Height-247)/2, Width-90*autoSizeScaleX, 247*autoSizeScaleY)];
         [amalertview setTitle:@"积分充值"];
         
+        UIView *childView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Width-90*autoSizeScaleX, (247-46)*autoSizeScaleY)];
+        UITextField *textFild = [[UITextField alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, 20*autoSizeScaleY, Width-90*autoSizeScaleX-24, 40*autoSizeScaleY)];
+        textFild.delegate = self;
+        textFild.keyboardType = UIKeyboardTypeNumberPad;
+        textFild.placeholder = @"请填写充值金额(￥)";
+        [textFild setValue:[UIColor colorWithHexString:@"15151b"] forKeyPath:@"_placeholderLabel.textColor"];
+        [textFild setValue:[UIFont systemFontOfSize:17*autoSizeScaleX] forKeyPath:@"_placeholderLabel.font"];
+        textFild.font = [UIFont systemFontOfSize:17*autoSizeScaleX];
+        textFild.layer.cornerRadius = 4*autoSizeScaleY;
+        textFild.layer.masksToBounds = YES;
+        textFild.layer.borderColor = [[UIColor colorWithHexString:@"bbbbbd"] CGColor];
+        textFild.layer.borderWidth = 0.5*autoSizeScaleY;
+        [childView addSubview:textFild];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleX, 15*autoSizeScaleY)];
+        label.text = @"付款方式";
+        label.textColor = [UIColor colorWithHexString:@"45454a"];
+        label.font = [UIFont systemFontOfSize:15*autoSizeScaleX];
+        [childView addSubview:label];
+        
+        //支付宝
+        BEMCheckBox *aliPay = [[BEMCheckBox alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+60+20, (20+40+28)*autoSizeScaleY, 15, 15)];
+        aliPay.on = YES;
+        [childView addSubview:aliPay];
+        
+        UILabel *aliLabel = [[UILabel alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+60+20+15+4, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleY, 15)];
+        aliLabel.text = @"支付宝";
+        aliLabel.textColor = [UIColor colorWithHexString:@"15151b"];
+        aliLabel.font = [UIFont systemFontOfSize:17.f*autoSizeScaleY];
+        [childView addSubview:aliLabel];
+        
+        //微信
+        BEMCheckBox *wxPay = [[BEMCheckBox alloc] initWithFrame:CGRectMake(aliLabel.frame.origin.x+60*autoSizeScaleY+8, (20+40+28)*autoSizeScaleY, 15, 15)];
+        wxPay.on = NO;
+        [childView addSubview:wxPay];
+        
+        UILabel *wxLabel = [[UILabel alloc] initWithFrame:CGRectMake(wxPay.frame.origin.x+15+4, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleY, 15)];
+        wxLabel.text = @"微信";
+        wxLabel.textColor = [UIColor colorWithHexString:@"15151b"];
+        wxLabel.font = [UIFont systemFontOfSize:17.f*autoSizeScaleY];
+        [childView addSubview:wxLabel];
+        
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, (247-46)*autoSizeScaleY-(27+40)*autoSizeScaleY, Width-90*autoSizeScaleX-24, 40*autoSizeScaleY)];
+        [btn setBackgroundColor:[UIColor colorWithHexString:@"557cce"]];
+        [btn setTitle:@"确认充值" forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        btn.layer.masksToBounds = YES;
+        btn.layer.cornerRadius = 4;
+        [btn addTarget:self action:@selector(closeChargeVC:) forControlEvents:UIControlEventTouchUpInside];
+        [childView addSubview:btn];
+        
+        [amalertview setChildView:childView];
         chargeVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
     }
     [self presentViewController:chargeVC animated:NO completion:nil];
+}
+
+-(void)closeChargeVC:(id)sender {
+    if(chargeVC){
+        [chargeVC dismissViewControllerAnimated:NO completion:nil];
+    }
+}
+
+-(void)toWithdraw:(id)sender {
+    
 }
 
 @end
