@@ -190,7 +190,7 @@
 
 -(void)startAnimationForIndexPath:(NSIndexPath*)indexPath{
     
-    ManagerMissionDetailViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managertaskdetail"];
+    ManagerMissionDetailViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managermissiondetail"];
     viewController.user = self.user;
     viewController.task = selTask;
     
