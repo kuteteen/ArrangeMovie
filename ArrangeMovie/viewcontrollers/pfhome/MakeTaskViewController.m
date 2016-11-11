@@ -99,6 +99,7 @@
         
         [cell setStartTxt:@"选择任务开始时间"];
         [cell setEndTxt:@"选择任务结束时间"];
+        cell.parentVC = self;
         return cell;
     }else{
         //其他
@@ -124,6 +125,7 @@
     }
     //任务时间
     if (indexPath.section == 1 && indexPath.row == 1) {
+        
     }
     //影院级别
     if (indexPath.section == 2 && indexPath.row == 0) {

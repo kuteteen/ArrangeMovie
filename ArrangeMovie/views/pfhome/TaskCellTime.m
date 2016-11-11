@@ -9,7 +9,8 @@
 #import "TaskCellTime.h"
 #import "UIView+shadow.h"
 #import "AppDelegate.h"
-
+#import "AMAlertView.h"
+#import "CKAlertViewController.h"
 @implementation TaskCellTime
 + (TaskCellTime *)cellForCollection:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath{
     NSString *identifier = @"TaskCellTime";
@@ -59,8 +60,24 @@
 
 - (void)alertStart:(UITapGestureRecognizer *)sender{
     NSLog(@"%@",@"start");
+    
 }
 - (void)alertEnd:(UITapGestureRecognizer *)sender{
     NSLog(@"%@",@"end");
+}
+
+//0为开始时间，1为结束时间
+- (void)createDatePicker:(NSString *)type{
+    AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(43.5*autoSizeScaleX, (667/2-173)*autoSizeScaleY, 288*autoSizeScaleX, 346*autoSizeScaleY)];
+    if ([type isEqualToString:@"0"]) {
+        [amalertview setTitle:@"任务开始时间"];
+    }else{
+        [amalertview setTitle:@"任务结束时间"];
+    }
+
+    
+    CKAlertViewController *ckAlertVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
+    
+    [self.parentVC presentViewController:ckAlertVC animated:NO completion:nil];
 }
 @end

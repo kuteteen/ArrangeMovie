@@ -15,7 +15,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="210" height="46"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oe-gy-QKg">
-                            <rect key="frame" x="10" y="12" width="158" height="22"/>
+                            <rect key="frame" x="10" y="12" width="168" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="w1d-MA-sNg"/>
                             </constraints>
@@ -24,7 +24,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eF-aB-mFc">
-                            <rect key="frame" x="178" y="12" width="22" height="22"/>
+                            <rect key="frame" x="188" y="12" width="22" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="22" id="Y32-9S-Q17"/>
                                 <constraint firstAttribute="height" constant="22" id="lWx-1s-CfL"/>
@@ -38,7 +38,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="0eF-aB-mFc" secondAttribute="trailing" constant="10" id="6WV-2s-QXY"/>
+                        <constraint firstAttribute="trailing" secondItem="0eF-aB-mFc" secondAttribute="trailing" id="6WV-2s-QXY"/>
                         <constraint firstItem="0eF-aB-mFc" firstAttribute="leading" secondItem="0oe-gy-QKg" secondAttribute="trailing" constant="10" id="969-9E-xdJ"/>
                         <constraint firstItem="0oe-gy-QKg" firstAttribute="centerY" secondItem="c4x-uq-9ld" secondAttribute="centerY" id="U5r-dP-tZ9"/>
                         <constraint firstItem="0eF-aB-mFc" firstAttribute="centerY" secondItem="c4x-uq-9ld" secondAttribute="centerY" id="fwd-cy-4aU"/>

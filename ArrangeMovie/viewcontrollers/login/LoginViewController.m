@@ -10,9 +10,10 @@
 #import "PFHomeViewController.h"
 #import "EMINavigationController.h"
 #import "ManagerIndexViewController.h"
+#import "WelcomeBackViewController.h"
 
 @interface LoginViewController ()
-
+@property (strong,nonatomic)NSString *tempuserType;
 @end
 
 @implementation LoginViewController
@@ -25,10 +26,7 @@
     
     [self initView];
     
-    //键盘弹出收起的通知事件
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-        
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
     
     
     [AppDelegate storyBoradAutoLay:self.view];
@@ -36,6 +34,14 @@
     self.headImgView.frame = CGRectMake(self.headImgView.frame.origin.x, self.headImgView.frame.origin.y, self.headImgView.frame.size.height, self.headImgView.frame.size.height);
     
     [self setHead];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //键盘弹出收起的通知事件
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -127,35 +133,32 @@
 }
 //监测手机号，当合法时，请求头像，登录按钮可点击
 - (IBAction)checkTelphoneNum:(UITextField *)sender {
-    if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
-        self.loginBtn.enabled = YES;
-    }else{
-        self.loginBtn.enabled = NO;
-    }
+//    if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
+//        self.loginBtn.enabled = YES;
+//    }else{
+//        self.loginBtn.enabled = NO;
+//    }
     
     
     
 }
 //登录首页
 - (IBAction)toHome:(UIButton *)sender {
-//    if ([self.phoneTF.text isEqualToString:@"0"]) {
-//        //片方首页
-//        UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
-//        PFHomeViewController *viewController = [pfhome instantiateViewControllerWithIdentifier:@"pfhome"];
-//        EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
-//        
-//        [self presentViewController:nav animated:YES completion:nil];
-//    }
-//    if ([self.phoneTF.text isEqualToString:@"1"]) {
-//        //院线经理首页
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
-//        ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
-//        EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
-//        [self presentViewController:nav animated:YES completion:nil];
-//    }
+    if ([self.phoneTF.text isEqualToString:@"0"]) {
+        //片方首页
+        self.tempuserType = @"0";
+        //进入登录欢迎页
+        [self performSegueWithIdentifier:@"tologinwelcome" sender:self];
+    }
+    if ([self.phoneTF.text isEqualToString:@"1"]) {
+        //院线经理首页
+        self.tempuserType = @"1";
+        //进入登录欢迎页
+        [self performSegueWithIdentifier:@"tologinwelcome" sender:self];
+    }
     
     
-    //进入登录欢迎页
+    
 }
 //忘记密码
 - (IBAction)forgetPwd:(UIButton *)sender {
@@ -166,14 +169,13 @@
     [self performSegueWithIdentifier:@"toRegVC" sender:self];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"tologinwelcome"]) {
+        WelcomeBackViewController *welVC = segue.destinationViewController;
+        welVC.tempuserType = self.tempuserType;
+    }
 }
-*/
+
 
 @end

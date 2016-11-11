@@ -20,14 +20,6 @@
     
     [self initView];
     
-    //    if (iPhonePlus) {
-    //
-    //    }else{
-    //键盘弹出收起的通知事件
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    //    }
     
     
     [AppDelegate storyBoradAutoLay:self.view];
@@ -36,6 +28,14 @@
     
     [self setHead];
     self.yzmBtn.layer.cornerRadius = self.yzmBtn.frame.size.height/2;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //键盘弹出收起的通知事件
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {

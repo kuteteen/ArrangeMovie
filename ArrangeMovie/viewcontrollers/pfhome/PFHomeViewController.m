@@ -13,6 +13,11 @@
 @property(nonatomic,strong)NSMutableArray *sectionArray;//section数组(里面包裹着各个section的数据)
 @property(nonatomic,strong)NSMutableArray *isshowArray;//是否展示数组(和sectionArray数量保持一致)
 @property(nonatomic,strong)NSMutableArray *issselectedArray;//是否选中数组(和sectionArray数量保持一致),用来标志背景色
+
+
+@property(nonatomic,strong)UIImageView *leadaddView;//引导图片
+@property(nonatomic,strong)UIImageView *leadmyView;//引导图片
+@property(nonatomic,strong)UITapGestureRecognizer *removeLeadGes;//清除引导图片的手势
 @end
 
 @implementation PFHomeViewController
@@ -87,9 +92,51 @@
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_index_add" highImageName:@"film_index_add" target:self action:@selector(leftNavBtnClicked:)];
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_index_my" highImageName:@"film_index_my" target:self action:@selector(rightNavBtnClicked:)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_index_my" highImageName:@"film_index_my" target:self action:@selector(presentRightMenuViewController:)];
+    
+    
+    [self initLeadView];
 }
 
+
+//加载引导相关的视图，只在第一次进入这个应用时加载一次
+- (void)initLeadView{
+    //首先，隐藏navigation
+    [self.navigationController setNavigationBarHidden:YES];
+    
+    self.leadmyView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    self.leadmyView.tag = 0;
+    self.leadmyView.image = [UIImage imageNamed:@"film_lead_my"];
+    self.leadmyView.userInteractionEnabled = YES;
+    [self.view addSubview:self.leadmyView];
+    
+    self.leadaddView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    self.leadaddView.tag = 1;
+    self.leadaddView.image = [UIImage imageNamed:@"film_lead_add"];
+    self.leadaddView.userInteractionEnabled = YES;
+    [self.view addSubview:self.leadaddView];
+    
+    self.removeLeadGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeLead:)];
+    [self.leadaddView addGestureRecognizer:self.removeLeadGes];
+    
+}
+
+//清除引导相关视图
+- (void)removeLead:(UITapGestureRecognizer *)sender{
+    //点击leadaddView
+    if (sender.view.tag == 1) {
+        [self.leadaddView removeFromSuperview];
+        [self.leadaddView removeGestureRecognizer:self.removeLeadGes];
+        [self.leadmyView addGestureRecognizer:self.removeLeadGes];
+        return;
+    }
+    //点击leadaddView
+    if (sender.view.tag == 0) {
+        [self.leadmyView removeFromSuperview];
+        [self.navigationController setNavigationBarHidden:NO];
+        return;
+    }
+}
 
 - (void)setHead{
     //加载头像
@@ -104,12 +151,7 @@
     }
 }
 
-//我的资料
-- (void)rightNavBtnClicked:(UIBarButtonItem *)sender{
-    UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
-    MeViewController *viewController = [me instantiateViewControllerWithIdentifier:@"me"];
-    [self.navigationController pushViewController:viewController animated:YES];
-}
+
 //新增拍片任务
 - (void)leftNavBtnClicked:(UIBarButtonItem *)sender{
     [self performSegueWithIdentifier:@"toMakeTaskVC" sender:self];

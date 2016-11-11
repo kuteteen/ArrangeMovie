@@ -128,6 +128,8 @@
 		D61686291DD05258007EAA64 /* TouchLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686281DD05258007EAA64 /* TouchLabel.m */; };
 		D61686731DD448AC007EAA64 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = D61686721DD448AC007EAA64 /* loading.gif */; };
 		D61686761DD45929007EAA64 /* WelcomeBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686751DD45929007EAA64 /* WelcomeBackViewController.m */; };
+		D61686781DD4716B007EAA64 /* FgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */; };
+		D616867B1DD55303007EAA64 /* LoginSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D616867A1DD55303007EAA64 /* LoginSuccessViewController.m */; };
 		D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A064B1DAB5CA8003832A8 /* login.storyboard */; };
 		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
@@ -389,6 +391,8 @@
 		D61686721DD448AC007EAA64 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading.gif; path = src/loading.gif; sourceTree = "<group>"; };
 		D61686741DD45929007EAA64 /* WelcomeBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeBackViewController.h; path = viewcontrollers/login/WelcomeBackViewController.h; sourceTree = "<group>"; };
 		D61686751DD45929007EAA64 /* WelcomeBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeBackViewController.m; path = viewcontrollers/login/WelcomeBackViewController.m; sourceTree = "<group>"; };
+		D61686791DD55303007EAA64 /* LoginSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginSuccessViewController.h; path = viewcontrollers/login/LoginSuccessViewController.h; sourceTree = "<group>"; };
+		D616867A1DD55303007EAA64 /* LoginSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginSuccessViewController.m; path = viewcontrollers/login/LoginSuccessViewController.m; sourceTree = "<group>"; };
 		D62A064B1DAB5CA8003832A8 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = login.storyboard; path = src/login.storyboard; sourceTree = "<group>"; };
 		D62A064E1DAB63D1003832A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewcontrollers/login/LoginViewController.h; sourceTree = "<group>"; };
 		D62A064F1DAB63D1003832A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontrollers/login/LoginViewController.m; sourceTree = "<group>"; };
@@ -884,6 +888,8 @@
 				D6950CD01DB476F4004D6C8B /* LoginAuthViewController.m */,
 				D61686741DD45929007EAA64 /* WelcomeBackViewController.h */,
 				D61686751DD45929007EAA64 /* WelcomeBackViewController.m */,
+				D61686791DD55303007EAA64 /* LoginSuccessViewController.h */,
+				D616867A1DD55303007EAA64 /* LoginSuccessViewController.m */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -1167,6 +1173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D61686781DD4716B007EAA64 /* FgetPwdViewController.m in Sources */,
 				D6C4901A1DBEEB0D009EB672 /* PFHomeCell.m in Sources */,
 				C8610C161DD0749E00E959E1 /* ReceiveTaskWebInterface.m in Sources */,
 				D6C48FF41DBEEA5F009EB672 /* OperateNSUserDefault.m in Sources */,
@@ -1178,6 +1185,7 @@
 				C8D55CB01DC34D9C00F2E1E5 /* SCDateTools.m in Sources */,
 				C8610BF81DD0586200E959E1 /* PointsDetailWebInterface.m in Sources */,
 				D6E8691D1DC2E12500BA861B /* PFUploadImgViewController.m in Sources */,
+				D616867B1DD55303007EAA64 /* LoginSuccessViewController.m in Sources */,
 				C82C48A51DCC660E00848128 /* ChangePswWebInterface.m in Sources */,
 				C889D9681DB0AC59008156B2 /* MeSettingSignOutTableViewCell.m in Sources */,
 				D6C48FFE1DBEEA9F009EB672 /* LaunchViewController.m in Sources */,
@@ -1319,6 +1327,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1363,6 +1372,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1385,8 +1395,10 @@
 			baseConfigurationReference = 1DA6FC1FE50EC84548300DD3 /* Pods-ArrangeMovie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = NO;
 				GCC_PREFIX_HEADER = ArrangeMovie/config/am.pch;
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1394,6 +1406,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.emi365.ArrangeMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ArrangeMovie/ArrangeMovie-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
@@ -1403,8 +1417,10 @@
 			baseConfigurationReference = 693ABFA56142BD986F8A6BE6 /* Pods-ArrangeMovie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = NO;
 				GCC_PREFIX_HEADER = ArrangeMovie/config/am.pch;
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1412,6 +1428,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.emi365.ArrangeMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ArrangeMovie/ArrangeMovie-Bridging-Header.h";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;

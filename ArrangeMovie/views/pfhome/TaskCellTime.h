@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *endLab;
 @property (weak, nonatomic) IBOutlet UIView *startView;
 @property (weak, nonatomic) IBOutlet UIView *endView;
-
+@property (strong,nonatomic) UIViewController *parentVC;
 + (TaskCellTime *)cellForCollection:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath;
 
 
