@@ -13,6 +13,9 @@
 #import "UIImage+SCUtil.h"
 #import "EMIFilterButton.h"
 #import "AMAlertView.h"
+#import "BEMCheckBox.h"
+#import "UIImage+GIF.h"
+#import "MBProgressHUD.h"
 
 
 #define Width [UIScreen mainScreen].bounds.size.width
@@ -83,6 +86,34 @@
     
     
     
+    
+    //        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80 , 80)];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage sd_animatedGIFNamed:@"loading_120"]];
+    //        NSString  *name = @"loading.gif";
+    //
+    //        NSString  *filePath = [[NSBundle bundleWithPath:[[NSBundle mainBundle] bundlePath]] pathForResource:name ofType:nil];
+    //
+    //        NSData  *imageData = [NSData dataWithContentsOfFile:filePath];
+    //        imageView.image = [UIImage sd_animatedGIFWithData:imageData];
+    //        imageView.image = [UIImage sd_animatedGIFNamed:@"loading"];
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    HUD.backgroundColor = [UIColor colorWithHexString:@"000000" alpha:0.2];
+    HUD.bezelView.backgroundColor = [UIColor colorWithHexString:@"ffffff" alpha:0.8];
+    //        HUD.bezelView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loading_bj"]];
+    //        HUD.bezelView.tintColor = [UIColor clearColor];
+    
+    HUD.bezelView.layer.cornerRadius = 16;
+    HUD.mode = MBProgressHUDModeCustomView;
+    //        HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.customView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+    HUD.customView = imageView;
+    HUD.margin = 5;
+    NSLog(@"HUD的margin:%f",HUD.margin);
+//    HUD.delegate = self;
+    HUD.square = YES;
+    [HUD showAnimated:YES];
+    [HUD hideAnimated:YES afterDelay:5];
+
     
 }
 #pragma mark - tableView delegate
@@ -189,6 +220,10 @@
         label.font = [UIFont systemFontOfSize:15*autoSizeScaleX];
         [childView addSubview:label];
         
+        //支付宝
+        BEMCheckBox *aliPay = [[BEMCheckBox alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+60+20, (20+40+28)*autoSizeScaleY, 15, 15)];
+        //微信
+        BEMCheckBox *wxPay = [[BEMCheckBox alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+60+20+40, (20+40+28)*autoSizeScaleY, 15, 15)];
         
         
         [amalertview setChildView:childView];
@@ -196,6 +231,8 @@
     }
     [self presentViewController:chargeVC animated:NO completion:nil];
 }
+
+//-(void)
 
 -(void)toWithdraw:(id)sender {
     

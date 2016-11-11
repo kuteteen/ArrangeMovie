@@ -14,5 +14,7 @@
 @property (weak, nonatomic) IBOutlet EMIShadowImageView *postImgView;
 @property (nonatomic, strong) Task *task;
 @property (nonatomic, assign) CGRect imgRect;
+@property (weak, nonatomic) IBOutlet UILabel *directorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *taskdateLabel;
 
 @end

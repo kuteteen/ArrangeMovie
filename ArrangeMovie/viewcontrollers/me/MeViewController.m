@@ -11,8 +11,10 @@
 #import "UIBarButtonItem+Extension.h"
 #import "UIViewController+RESideMenu.h"
 #import "RESideMenu.h"
+#import "MBProgressHUD.h"
+#import "UIImage+GIF.h"
 
-@interface MeViewController ()
+@interface MeViewController ()<MBProgressHUDDelegate>
 @property (nonatomic, strong) NSArray *array;//存放列表item
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -115,6 +117,10 @@
     
 }
 
+
+-(void)hudWasHidden:(MBProgressHUD *)hud {
+    
+}
 /*
 #pragma mark - Navigation
 

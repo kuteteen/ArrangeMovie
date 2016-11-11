@@ -13,11 +13,13 @@
 #import "MeMissionRequireView.h"
 #import "MeMissionRowPieceView.h"
 #import "MeMissionNoAuthView.h"
+#import "EMINavigationController.h"
 
 #define Width [UIScreen mainScreen].bounds.size.width
 
-@interface MeMissionDetailViewController () {
+@interface MeMissionDetailViewController () <UIScrollViewDelegate>{
     BOOL isAuthed;
+    CGFloat originY;
 }
 
 @end
@@ -32,7 +34,12 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back_normal" highImageName:@"back_pressed" target:self action:@selector(backToUp)];
     
 //    self.tableView.tableFooterView = [[UIView alloc] init];
-    
+    for(UIView *view in self.view.superview.subviews){
+        if ([view isKindOfClass:[UIImageView class]]) {
+            originY = view.frame.origin.y;
+        }
+    }
+
 }
 
 
@@ -65,6 +72,7 @@
 -(void)initViews {
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
     scrollView.backgroundColor = [UIColor whiteColor];
+    scrollView.delegate = self;
     
     ///添加电影信息
     MeMissionTitleView *titleView = [[MeMissionTitleView alloc] initNibWithFrame:CGRectMake(0, 64, screenWidth, 99)];
@@ -105,6 +113,19 @@
 //    }
     
     [self.view addSubview:scrollView];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    ///Y方向上的滑动距离
+    CGFloat offSetY = scrollView.contentOffset.y-64;
+    for(UIView *view in self.view.superview.subviews){
+        if ([view isKindOfClass:[UIImageView class]]) {
+            view.frame = CGRectMake(view.frame.origin.x, originY - offSetY + 20, view.frame.size.width, view.frame.size.height);
+            NSLog(@"移动之后详情页面图片的Y:%f",view.frame.origin.y);
+            ((EMINavigationController *)self.navigationController).animation.desRect = view.frame;
+        }
+    }
+    return;
 }
 
 /**
