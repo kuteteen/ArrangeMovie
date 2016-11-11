@@ -91,7 +91,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.34901960784313724" green="0.48627450980392156" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c02-sh-FYR">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c02-sh-FYR">
                                 <rect key="frame" x="17" y="423" width="341" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -167,7 +167,7 @@
                         <outlet property="rightLineView" destination="a5Y-tu-D3l" id="3Vz-eE-8zO"/>
                         <segue destination="u65-rD-WZ0" kind="push" identifier="toFgetPwdVC" id="4iQ-N2-ui4"/>
                         <segue destination="dNy-9w-QB9" kind="push" identifier="toRegVC" id="ckC-8E-w7t"/>
-                        <segue destination="iV9-px-yGB" kind="push" identifier="tologinwelcome" id="Keg-vb-8sd"/>
+                        <segue destination="iV9-px-yGB" kind="push" identifier="tologinwelcome" id="dzJ-fT-o8F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5R-Im-5o5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -592,7 +592,7 @@
         <!--Welcome Back View Controller-->
         <scene sceneID="co9-xY-a6S">
             <objects>
-                <viewController storyboardIdentifier="test" id="iV9-px-yGB" customClass="WelcomeBackViewController" sceneMemberID="viewController">
+                <viewController id="iV9-px-yGB" customClass="WelcomeBackViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1RN-lF-yJA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -601,10 +601,10 @@
                                 <rect key="frame" x="133" y="110" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎回来" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i0f-Jd-JE0">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎回来" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i0f-Jd-JE0">
                                 <rect key="frame" x="17" y="246" width="341" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -617,11 +617,64 @@
                     <connections>
                         <outlet property="backLab" destination="i0f-Jd-JE0" id="I09-a0-DvV"/>
                         <outlet property="headView" destination="NFc-OO-B5f" id="HJ4-8K-JvY"/>
+                        <segue destination="AjO-jR-RLc" kind="push" identifier="tologinsuccess" id="AYI-4O-Hez"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIm-Ho-KoQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="178.5" y="1773.5"/>
+        </scene>
+        <!--Login Success View Controller-->
+        <scene sceneID="xEk-20-jlO">
+            <objects>
+                <viewController id="AjO-jR-RLc" customClass="LoginSuccessViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0cw-gK-G60">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qSB-A2-aNH" customClass="EMIShadowImageView">
+                                <rect key="frame" x="133" y="344" width="110" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view alpha="0.0" contentMode="scaleToFill" id="gzG-J1-03h">
+                                <rect key="frame" x="125" y="589" width="125" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登陆成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0nR-bM-egM">
+                                        <rect key="frame" x="45" y="0.0" width="80" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" red="0.58039215686274503" green="0.63529411764705879" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_success" id="5G6-S0-Kvn">
+                                        <rect key="frame" x="2" y="0.0" width="23" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YJn-Es-y8K">
+                                <rect key="frame" x="10" y="471" width="355" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aH8-BS-guN"/>
+                    <connections>
+                        <outlet property="bottomLab" destination="0nR-bM-egM" id="g25-Og-9xl"/>
+                        <outlet property="bottomView" destination="gzG-J1-03h" id="oCW-hC-bf6"/>
+                        <outlet property="headImgView" destination="qSB-A2-aNH" id="M77-1y-Gy3"/>
+                        <outlet property="nameLab" destination="YJn-Es-y8K" id="xXh-En-wZS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rWu-mD-P75" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="577.5" y="1723.5"/>
         </scene>
     </scenes>
     <resources>
@@ -631,6 +684,7 @@
         <image name="login_btn_normal" width="343" height="45"/>
         <image name="login_imput_-password" width="20" height="23"/>
         <image name="login_input_tel" width="20" height="23"/>
+        <image name="login_success" width="46" height="46"/>
         <image name="register_verification_code" width="20" height="23"/>
     </resources>
 </document>

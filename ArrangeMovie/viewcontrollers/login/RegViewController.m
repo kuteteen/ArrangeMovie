@@ -22,14 +22,6 @@
     
     
     [self initView];
-    //    if (iPhonePlus) {
-    //
-    //    }else{
-    //键盘弹出收起的通知事件
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    //    }
     
     
     [AppDelegate storyBoradAutoLay:self.view];
@@ -37,18 +29,19 @@
     self.yzmBtn.layer.cornerRadius = self.yzmBtn.frame.size.height/2;
     self.headImg.frame = CGRectMake(self.headImg.frame.origin.x, self.headImg.frame.origin.y, self.headImg.frame.size.height, self.headImg.frame.size.height);
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //键盘弹出收起的通知事件
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-//    dispatch_async(dispatch_get_main_queue(), ^{
-    
-//    });
-}
+
 
 - (void)viewWillDisappear:(BOOL)animated{
     //移除通知

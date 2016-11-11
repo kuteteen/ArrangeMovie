@@ -12,8 +12,10 @@
 #import "UIView+SDAutoLayout.h"
 #import "UIView+Toast.h"
 #import "ManagerIndexViewController.h"
+#import "MeViewController.h"
+#import "EMIRootViewController.h"
 
-@interface LoginAuthViewController ()<SCFadeSlideViewDelegate,SCFadeSlideViewDataSource,LCActionSheetDelegate>
+@interface LoginAuthViewController ()<SCFadeSlideViewDelegate,SCFadeSlideViewDataSource,LCActionSheetDelegate,RESideMenuDelegate>
 @property (nonatomic,strong) NSMutableArray *array;//数据源
 @property (nonatomic,strong) SCFadeSlideView *slideView;//添加滑动的图片浏览
 @end
@@ -86,11 +88,43 @@
 - (void)okImgClicked:(UITapGestureRecognizer *)sender{
     //上传完图片后到院方首页
     
-    //
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
-    ManagerIndexViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"manager"];
-    EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
-    [self presentViewController:nav animated:YES completion:nil];
+    
+        UIStoryboard *manager = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
+        ManagerIndexViewController *managerIndexVC = [manager instantiateViewControllerWithIdentifier:@"manager"];
+        //假数据 用户
+        User *user = [[User alloc] init];
+    
+        user.name = @"冯小刚";
+        user.dn = @"1577470000";
+        user.usertype = 0;
+        user.sex = 1;
+        user.headimg = @"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580";
+        user.gradename = @"A级影院";
+        managerIndexVC.user = user;
+        EMINavigationController *managerNav = [[EMINavigationController alloc] initWithRootViewController:managerIndexVC];
+    
+    
+        UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
+        MeViewController *meVC = [me instantiateViewControllerWithIdentifier:@"me"];
+        EMINavigationController *meNav = [[EMINavigationController alloc] initWithRootViewController:meVC];
+        EMIRootViewController *sideMenuViewController = [[EMIRootViewController alloc] initWithContentViewController:managerNav
+                                                                        leftMenuViewController:nil
+                                                                       rightMenuViewController:meNav];
+        sideMenuViewController.backgroundImage = [UIImage imageNamed:@"all_bg"];
+        sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+        sideMenuViewController.delegate = self;
+        sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
+        sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
+        sideMenuViewController.contentViewShadowOpacity = 0.6;
+        sideMenuViewController.contentViewShadowRadius = 12;
+        sideMenuViewController.contentViewShadowEnabled = YES;
+    
+    
+        sideMenuViewController.scaleContentView = NO;
+        sideMenuViewController.scaleMenuView = NO;
+        sideMenuViewController.panGestureEnabled = YES;
+        sideMenuViewController.contentViewInPortraitOffsetCenterX = screenWidth;
+        [self presentViewController:sideMenuViewController animated:YES completion:nil];
 }
 
 

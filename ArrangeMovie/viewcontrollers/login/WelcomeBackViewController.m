@@ -7,6 +7,11 @@
 //  欢迎回来过度页面
 
 #import "WelcomeBackViewController.h"
+#import "AppDelegate.h"
+#import "PFHomeViewController.h"
+#import "EMINavigationController.h"
+#import "EMIRootViewController.h"
+#import "LoginSuccessViewController.h"
 
 @interface WelcomeBackViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *headView;
@@ -22,6 +27,29 @@
     //禁止返回
     self.navigationItem.backBarButtonItem = nil;
     self.navigationItem.leftBarButtonItem = nil;
+    
+    //按比例布局
+    [AppDelegate storyBoradAutoLay:self.view];
+    //头像圆角
+    self.headView.layer.masksToBounds = YES;
+    self.headView.frame = CGRectMake(self.headView.frame.origin.x, self.headView.frame.origin.y, self.headView.frame.size.width, self.headView.frame.size.width);
+    self.headView.layer.cornerRadius = self.headView.frame.size.height/2;
+    
+    //欢迎回来 渐变
+    [UIView animateWithDuration:3.0 animations:^{
+        self.backLab.alpha = 1;
+    }];
+    //todo此处暂无请求，使线程睡眠5秒，页面跳转
+    double delayInSeconds = 5.0;
+    __block WelcomeBackViewController* bself = self;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [bself performSegueWithIdentifier:@"tologinsuccess" sender:self];
+    });
+    
+    
+    
+    //进行网络请求，请求成功跳至登陆成功页面
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,14 +57,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"tologinsuccess"]) {
+        LoginSuccessViewController *losVC = segue.destinationViewController;
+        losVC.tempuserType = self.tempuserType;
+    }
 }
-*/
+
 
 @end
