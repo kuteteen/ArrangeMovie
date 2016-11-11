@@ -7,8 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ManagerMissionTableViewCell.h"
+
+@protocol ManagerMissionPageViewControllerDelegate <NSObject>
+
+-(void)checkMission:(ManagerMissionTableViewCell *)cell;
+
+@end
+
 
 @interface ManagerMissionPageViewController : UIViewController
 ///第N页
 @property (nonatomic, assign) NSInteger pageIndex;
+@property(assign,nonatomic)id<ManagerMissionPageViewControllerDelegate> delegate;
+
 @end

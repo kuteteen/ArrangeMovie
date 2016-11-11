@@ -8,7 +8,7 @@
 
 #import "ManagerMissionPageViewController.h"
 #import "Task.h"
-#import "ManagerMissionTableViewCell.h"
+
 
 @interface ManagerMissionPageViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -64,8 +64,19 @@
     //任务详情
     [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中
     
+    ManagerMissionTableViewCell *cell = (ManagerMissionTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    ///cell在tableView的位置
+    CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
+    
+    //cell在viewController中的位置
+    CGRect rect = [tableView convertRect:rectInTableView toView:[tableView superview]];
+    CGRect originRect = CGRectMake(rect.origin.x+15, rect.origin.y+63+50+64, cell.postImgView.frame.size.width, cell.postImgView.frame.size.height);
+    cell.imgRect = originRect;
+    if([self.delegate respondsToSelector:@selector(checkMission:)]){
+        [self.delegate performSelector:@selector(checkMission:) withObject:cell];
+    }
     //跳转到任务详情
-    [self performSegueWithIdentifier:@"tomanagermissiondetail" sender:nil];
+//    [self performSegueWithIdentifier:@"tomanagermissiondetail" sender:nil];
 }
 
 #pragma mark - UITableView dataSource

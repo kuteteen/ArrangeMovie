@@ -45,15 +45,23 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
-                                                        object:self
-                                                      userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
+//                                                        object:self
+//                                                      userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     }
     [self initViews];
+    
+    [self.navigationController.interactivePopGestureRecognizer addTarget:self action:@selector(handleGesture:)];
 }
 
+
+-(void)handleGesture:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(void)backToUp {
     
     for(UIView *view in self.view.superview.subviews){

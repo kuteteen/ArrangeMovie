@@ -222,9 +222,34 @@
         
         //支付宝
         BEMCheckBox *aliPay = [[BEMCheckBox alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+60+20, (20+40+28)*autoSizeScaleY, 15, 15)];
-        //微信
-        BEMCheckBox *wxPay = [[BEMCheckBox alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+60+20+40, (20+40+28)*autoSizeScaleY, 15, 15)];
+        aliPay.on = YES;
+        [childView addSubview:aliPay];
         
+        UILabel *aliLabel = [[UILabel alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+60+20+15+4, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleY, 15)];
+        aliLabel.text = @"支付宝";
+        aliLabel.textColor = [UIColor colorWithHexString:@"15151b"];
+        aliLabel.font = [UIFont systemFontOfSize:17.f*autoSizeScaleY];
+        [childView addSubview:aliLabel];
+        
+        //微信
+        BEMCheckBox *wxPay = [[BEMCheckBox alloc] initWithFrame:CGRectMake(aliLabel.frame.origin.x+60*autoSizeScaleY+8, (20+40+28)*autoSizeScaleY, 15, 15)];
+        wxPay.on = NO;
+        [childView addSubview:wxPay];
+        
+        UILabel *wxLabel = [[UILabel alloc] initWithFrame:CGRectMake(wxPay.frame.origin.x+15+4, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleY, 15)];
+        wxLabel.text = @"微信";
+        wxLabel.textColor = [UIColor colorWithHexString:@"15151b"];
+        wxLabel.font = [UIFont systemFontOfSize:17.f*autoSizeScaleY];
+        [childView addSubview:wxLabel];
+        
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, (247-46)*autoSizeScaleY-(27+40)*autoSizeScaleY, Width-90*autoSizeScaleX-24, 40*autoSizeScaleY)];
+        [btn setBackgroundColor:[UIColor colorWithHexString:@"557cce"]];
+        [btn setTitle:@"确认充值" forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        btn.layer.masksToBounds = YES;
+        btn.layer.cornerRadius = 4;
+        [btn addTarget:self action:@selector(closeChargeVC:) forControlEvents:UIControlEventTouchUpInside];
+        [childView addSubview:btn];
         
         [amalertview setChildView:childView];
         chargeVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
@@ -232,7 +257,11 @@
     [self presentViewController:chargeVC animated:NO completion:nil];
 }
 
-//-(void)
+-(void)closeChargeVC:(id)sender {
+    if(chargeVC){
+        [chargeVC dismissViewControllerAnimated:NO completion:nil];
+    }
+}
 
 -(void)toWithdraw:(id)sender {
     
