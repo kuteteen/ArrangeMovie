@@ -207,11 +207,11 @@
             
             break;
         case 1:
-            [cell setValues:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" tailImg:@"film_index_task_finished" title:@"《让子弹飞》拍片任务已完成"];
+            [cell setValues:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" tailImg:@"film_index_task_finished" title:@"系统提示：《让子弹飞》拍片任务已完成"];
             
             break;
         case 2:
-            [cell setValues:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" tailImg:@"film_index_task_lost" title:@"《让子弹飞》拍片任务已失败"];
+            [cell setValues:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" tailImg:@"film_index_task_lost" title:@"系统提示：《让子弹飞》拍片任务已失败"];
             
             break;
         default:
@@ -225,7 +225,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 101*autoSizeScaleY;
+    return 103*autoSizeScaleY;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -233,11 +233,11 @@
     
     
     //背景色
-    if ([self.issselectedArray[section]  isEqual: @YES]) {
-        sectionView.backgroundColor = [UIColor colorWithHexString:@"#f6f6f6"];
-    }else{
-        sectionView.backgroundColor = [UIColor whiteColor];
-    }
+//    if ([self.issselectedArray[section]  isEqual: @YES]) {
+//        sectionView.backgroundColor = [UIColor colorWithHexString:@"#f6f6f6"];
+//    }else{
+//        sectionView.backgroundColor = [UIColor whiteColor];
+//    }
     
     
     //展开图标

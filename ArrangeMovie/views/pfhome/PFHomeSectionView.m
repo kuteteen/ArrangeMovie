@@ -23,7 +23,7 @@
         //默认关闭
         self.isOpen = NO;
         
-        [self.headImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"#DDDDDE"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:imageName placeholder:@"miller"];
+        [self.headImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"#DDDDDE"] shadowOffset:CGSizeZero shadowOpacity:0.5 shadowRadius:3 image:imageName placeholder:@"miller"];
         
         self.titleLab = [[UILabel alloc] init];
         self.titleLab.textAlignment = NSTextAlignmentLeft;
@@ -82,30 +82,17 @@
     //根据比例布局
     [AppDelegate storyBoradAutoLay:self];
     
-    //布局完了，5S  宽度已经缩小了，把字体适当变小
-    if (iPhone5S) {
-        self.titleLab.font = [UIFont systemFontOfSize:14.f];
     
-        self.bigNumLab.font = [UIFont systemFontOfSize:40.f-6.f];
+        self.titleLab.font = [UIFont systemFontOfSize:17*autoSizeScaleY];
     
-        self.bigSymbLab.font = [UIFont systemFontOfSize:20.f-4.f];
+        self.bigNumLab.font = [UIFont systemFontOfSize:40*autoSizeScaleY];
     
-        self.smallNumLab.font = [UIFont systemFontOfSize:13.f-3.f];
+        self.bigSymbLab.font = [UIFont systemFontOfSize:20*autoSizeScaleY];
     
-        self.smallSymbLab.font = [UIFont systemFontOfSize:9.f-3.f];
-    }
+        self.smallNumLab.font = [UIFont systemFontOfSize:13*autoSizeScaleY];
     
-    if (iPhone4S) {
-        self.titleLab.font = [UIFont systemFontOfSize:12.f];
-        
-        self.bigNumLab.font = [UIFont systemFontOfSize:40.f-10.f];
-        
-        self.bigSymbLab.font = [UIFont systemFontOfSize:20.f-6.f];
-        
-        self.smallNumLab.font = [UIFont systemFontOfSize:13.f-4.f];
-        
-        self.smallSymbLab.font = [UIFont systemFontOfSize:9.f-4.f];
-    }
+        self.smallSymbLab.font = [UIFont systemFontOfSize:9*autoSizeScaleY];
+    
     
     
     return self;
@@ -162,10 +149,10 @@
 - (void)operateSection:(BOOL) state{
     if (state) {
         [self.groupImgView setImage:[UIImage imageNamed:@"film_index_xiala_click"]];
-        self.lineView.hidden = YES;
+        self.lineView.hidden = NO;
     }else{
         [self.groupImgView setImage:[UIImage imageNamed:@"film_index_xiala"]];
-        self.lineView.hidden = NO;
+        self.lineView.hidden = YES;
     }
     
     
