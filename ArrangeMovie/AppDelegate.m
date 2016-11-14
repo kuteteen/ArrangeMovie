@@ -80,14 +80,14 @@
 //    sideMenuViewController.contentViewInPortraitOffsetCenterX = screenWidth;
 
 
-    UIImage *image = [UIImage imageNamed:@"navigation"];
-    CGSize titleSize = loginnav.navigationBar.bounds.size;
-    titleSize.height = titleSize.height+20;
-    image = [self scaleToSize:image size:titleSize];
-    [[UINavigationBar appearance] setBackgroundImage:image
-                       forBarPosition:UIBarPositionAny
-                           barMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+//    UIImage *image = [UIImage imageNamed:@"navigation"];
+//    CGSize titleSize = loginnav.navigationBar.bounds.size;
+//    titleSize.height = titleSize.height+20;
+//    image = [self scaleToSize:image size:titleSize];
+//    [[UINavigationBar appearance] setBackgroundImage:image
+//                       forBarPosition:UIBarPositionAny
+//                           barMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
 
     [self.window setRootViewController:loginnav];
 

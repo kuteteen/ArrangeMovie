@@ -70,7 +70,7 @@
     
     // 设置导航栏背景
     
-    UIImage *image = [UIImage imageNamed:@"navigation"];
+//    UIImage *image = [UIImage imageNamed:@"navigation"];
     
 ////    UIImage *image = [UIImage imageNamed:@"navigation"];
 //    CGSize titleSize = appearance.bounds.size;
@@ -83,8 +83,8 @@
 //    [appearance setShadowImage:[UIImage new]];
     
     
-    UIColor *color = [UIColor colorWithPatternImage:image];
-    appearance.barTintColor = color;
+//    UIColor *color = [UIColor colorWithPatternImage:image];
+    appearance.barTintColor = [UIColor colorWithHexString:@"#162271"];
     
     appearance.barStyle = UIBarStyleBlackTranslucent;
     // 设置文字属性
