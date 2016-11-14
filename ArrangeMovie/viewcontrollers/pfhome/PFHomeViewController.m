@@ -221,15 +221,20 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 55*autoSizeScaleY;
+    return 46*autoSizeScaleY;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 103*autoSizeScaleY;
+    if ([self.isshowArray[section]  isEqual: @YES]) {
+        return (103+15)*autoSizeScaleY;
+    }else{
+        return 103*autoSizeScaleY;
+    }
+    
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    PFHomeSectionView *sectionView = [[PFHomeSectionView alloc] initWithType:@"1" imageName:@"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2317499888,864114656&fm=116&gp=0.jpg" titleStr:@"《让子弹飞》排片任务" bigNumStr:@"8" smallNumStr:@"0.5"];
+    PFHomeSectionView *sectionView = [[PFHomeSectionView alloc] initWithType:@"1" imageName:@"http://cdnq.duitang.com/uploads/item/201506/05/20150605124315_xFQtw.thumb.700_0.jpeg" titleStr:@"《让子弹飞》排片任务" bigNumStr:@"8" smallNumStr:@"0.5"];
     
     
     //背景色
@@ -248,15 +253,12 @@
         [sectionView operateSection:NO];
     }
     __unsafe_unretained typeof(self) weakSelf = self;
-//    __unsafe_unretained typeof(sectionView) weaksectionView = sectionView;
     [sectionView setBlock:^{
         
         if ([weakSelf.isshowArray[section]  isEqual: @YES]) {
             [weakSelf.isshowArray replaceObjectAtIndex:section withObject:@(NO)];
-//            weaksectionView.isOpen = NO;
         }else{
             [weakSelf.isshowArray replaceObjectAtIndex:section withObject:@(YES)];
-//            weaksectionView.isOpen = YES;
         }
         
         
@@ -340,12 +342,6 @@
 
 
 
-//处理视图位置的变化
-- (void)handleViewPosition:(UIScrollView *)sc{
-    
-    
-    
-}
 /*
 #pragma mark - Navigation
 

@@ -7,6 +7,7 @@
 //
 
 #import "PFHomeSectionView.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "AppDelegate.h"
 
 @implementation PFHomeSectionView
@@ -14,7 +15,7 @@
 - (instancetype)initWithType:(NSString *)type imageName:(NSString *)imageName titleStr:(NSString *)titleStr bigNumStr:(NSString *)bigNumStr smallNumStr:(NSString *)smallNumStr{
     self = [[[NSBundle mainBundle] loadNibNamed:@"PFHomeSectionView" owner:nil options:nil] objectAtIndex:0];
     if (self) {
-        self.frame = CGRectMake(0, 0, 375, 101);
+        self.frame = CGRectMake(0, 0, 375, 103);
         
         self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSelf:)];
         
@@ -23,13 +24,14 @@
         //默认关闭
         self.isOpen = NO;
         
-        [self.headImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"#DDDDDE"] shadowOffset:CGSizeZero shadowOpacity:0.5 shadowRadius:3 image:imageName placeholder:@"miller"];
+        
+        
         
         self.titleLab = [[UILabel alloc] init];
         self.titleLab.textAlignment = NSTextAlignmentLeft;
         self.titleLab.textColor = [UIColor colorWithHexString:@"15151B"];
-        self.titleLab.font = [UIFont systemFontOfSize:17.f];
-        
+        self.titleLab.font = [UIFont fontWithName:@"HelveticaNeue" size:17.f];
+//        self.titleLab.backgroundColor = [UIColor redColor];
 
         
         self.titleLab.text = titleStr;
@@ -41,24 +43,24 @@
         CGSize bigNumSize = [self.bigNumLab boundingRectWithSize:CGSizeMake(0.f, 0.f)];
         
         //计算出来的bigNumSize包含了间距，可用UIFont的ascender、capHeight得到(中文，数字)的实际大小
-        self.bigNumLab.frame = CGRectMake(115, 101-15-self.bigNumLab.font.capHeight-2, bigNumSize.width, self.bigNumLab.font.capHeight+2);
+        self.bigNumLab.frame = CGRectMake(102, 54, bigNumSize.width, self.bigNumLab.font.capHeight+2.5);
         
         
         self.bigSymbLab.text = @"%";
         CGSize bigSymbSize = [self.bigSymbLab boundingRectWithSize:CGSizeMake(0.f, 0.f)];
-        self.bigSymbLab.frame = CGRectMake(115+bigNumSize.width+1, 101-15-self.bigSymbLab.font.capHeight-2, bigSymbSize.width, self.bigSymbLab.font.capHeight+2);
+        self.bigSymbLab.frame = CGRectMake(102+bigNumSize.width+1, 67.3, bigSymbSize.width, self.bigSymbLab.font.capHeight+2.5);
         
-        self.stateImgView.frame = CGRectMake(115+bigNumSize.width+1+bigSymbSize.width+2, 101-15-self.bigSymbLab.font.capHeight-2, 6, self.bigSymbLab.font.capHeight+2);
+        self.stateImgView.frame = CGRectMake(102+bigNumSize.width+1+bigSymbSize.width+2, 68, 5.5, self.bigSymbLab.font.capHeight+2.5);
         
         
         self.smallNumLab.text = smallNumStr;
         CGSize smallNumSize = [self.smallNumLab boundingRectWithSize:CGSizeMake(0.f, 0.f)];
-        self.smallNumLab.frame = CGRectMake(115+bigNumSize.width+1+bigSymbSize.width+2+6+2, 101-15-self.smallNumLab.font.capHeight-2, smallNumSize.width, self.smallNumLab.font.capHeight+2);
+        self.smallNumLab.frame = CGRectMake(102+bigNumSize.width+1+bigSymbSize.width+2+5.5+2, 73, smallNumSize.width, self.smallNumLab.font.capHeight+2.5);
         
         
         self.smallSymbLab.text = @"%";
         CGSize smallSymbSize = [self.smallSymbLab boundingRectWithSize:CGSizeMake(0.f, 0.f)];
-        self.smallSymbLab.frame = CGRectMake(115+bigNumSize.width+1+bigSymbSize.width+2+6+2+smallNumSize.width+1, 101-15-self.smallSymbLab.font.capHeight-2, smallSymbSize.width, self.smallSymbLab.font.capHeight+2);
+        self.smallSymbLab.frame = CGRectMake(102+bigNumSize.width+1+bigSymbSize.width+2+5.5+2+smallNumSize.width+1, 78, smallSymbSize.width, self.smallSymbLab.font.capHeight+2.5);
         
         
         if ([type isEqualToString:@"0"]) {
@@ -82,16 +84,16 @@
     //根据比例布局
     [AppDelegate storyBoradAutoLay:self];
     
+    [self.headImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"#0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.2 shadowRadius:3 image:imageName placeholder:@""];
+    self.titleLab.font = [UIFont fontWithName:@"HelveticaNeue" size:17*autoSizeScaleY];
     
-        self.titleLab.font = [UIFont systemFontOfSize:17*autoSizeScaleY];
+    self.bigNumLab.font = [UIFont fontWithName:@"HelveticaNeue" size:44*autoSizeScaleY];
     
-        self.bigNumLab.font = [UIFont systemFontOfSize:40*autoSizeScaleY];
+    self.bigSymbLab.font = [UIFont fontWithName:@"HelveticaNeue" size:25*autoSizeScaleY];
     
-        self.bigSymbLab.font = [UIFont systemFontOfSize:20*autoSizeScaleY];
+    self.smallNumLab.font = [UIFont fontWithName:@"HelveticaNeue" size:17*autoSizeScaleY];
     
-        self.smallNumLab.font = [UIFont systemFontOfSize:13*autoSizeScaleY];
-    
-        self.smallSymbLab.font = [UIFont systemFontOfSize:9*autoSizeScaleY];
+    self.smallSymbLab.font = [UIFont fontWithName:@"HelveticaNeue" size:10*autoSizeScaleY];
     
     
     
@@ -102,8 +104,8 @@
 -(void)createScroll:(CGSize) size{
     
     
-    
-    self.labScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(105, 25, 220, 17)];
+    //本来 在6s上 直接x应为101，但是中文符号《  占了一些位置，所以剪个7
+    self.labScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(101-7, 25, 220, 17)];
     [self addSubview:self.labScrollView];
     //把滚动手势换给父视图
     self.labScrollView.userInteractionEnabled = NO;
@@ -130,10 +132,10 @@
         if ([temp isKindOfClass:[UILabel class]]) {
             
             
-            if (iPhone4S || iPhone5S) {
+            
                 CGFloat fontsize = ((UILabel *)(temp)).font.pointSize;
-                ((UILabel *)(temp)).font = [UIFont systemFontOfSize:fontsize-2.f];
-            }
+                ((UILabel *)(temp)).font = [UIFont systemFontOfSize:fontsize*autoSizeScaleY];
+            
             
         }
         
@@ -150,9 +152,12 @@
     if (state) {
         [self.groupImgView setImage:[UIImage imageNamed:@"film_index_xiala_click"]];
         self.lineView.hidden = NO;
+        //按照6s的尺寸，展开状态，高度应该高个15单位
+        self.frame = self.frame = CGRectMake(0, 0, 375*autoSizeScaleX, (103+15)*autoSizeScaleY);
     }else{
         [self.groupImgView setImage:[UIImage imageNamed:@"film_index_xiala"]];
         self.lineView.hidden = YES;
+        self.frame = self.frame = CGRectMake(0, 0, 375*autoSizeScaleX, (103)*autoSizeScaleY);
     }
     
     

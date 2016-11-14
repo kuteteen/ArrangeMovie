@@ -73,7 +73,6 @@
 //                imageView.layer.masksToBounds = YES;
 //                imageView.layer.cornerRadius = imageView.frame.size.width/2;
                 
-                //清除layer
                 //是否已加过渐变layer
                 int isgradient = 0;
                 for (CALayer *item in self.layer.sublayers) {
@@ -141,17 +140,37 @@
 //                imageView.layer.cornerRadius = imageView.frame.size.width/2;
                 
                 //描出圆形图片imageView阴影路径
+                //是否已加过layer
+                int isgradient = 0;
                 
-                CALayer *shadowLayer = [CALayer layer];
                 
-                shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0-4, 0-4, self.frame.size.width+8, self.frame.size.width+8) cornerRadius:self.frame.size.width/2 + 4].CGPath;
-                shadowLayer.shadowColor = color.CGColor;//阴影颜色
-                shadowLayer.shadowOffset = offset;//偏移距离
-                shadowLayer.shadowOpacity = opacity;//不透明度
-                shadowLayer.shadowRadius = radius;//半径
                 
-                [self.layer insertSublayer:shadowLayer atIndex:0];
+                if (self.layer.sublayers.count > 0) {
+                    
+                    isgradient = 1;
+                    
+                }
                 
+                if (isgradient == 0) {
+                    CALayer *shadowLayer = [CALayer layer];
+                    
+                    shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0-2, 0-2, self.frame.size.width+4, self.frame.size.height+4) cornerRadius:(self.frame.size.width+4)/2].CGPath;
+                    shadowLayer.shadowColor = color.CGColor;//阴影颜色
+                    shadowLayer.shadowOffset = offset;//偏移距离
+                    shadowLayer.shadowOpacity = opacity;//不透明度
+                    shadowLayer.shadowRadius = radius;//半径
+                    
+                    [self.layer insertSublayer:shadowLayer atIndex:0];
+                }
+                
+                
+                //清除子视图
+                for (UIView *item in self.subviews) {
+//                    if ([item isKindOfClass:[UIImageView class]]) {
+                        [item removeFromSuperview];
+//                    }
+                    
+                }
                 [self addSubview:imageView];
             }
             break;
@@ -183,7 +202,7 @@
     
                 CALayer *shadowLayer = [CALayer layer];
     
-                shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0-2, 0-2, self.frame.size.width+4, self.frame.size.width+4) cornerRadius:2].CGPath;
+                shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0-2, 0-2, self.frame.size.width+4, self.frame.size.height+4) cornerRadius:2].CGPath;
                 shadowLayer.shadowColor = color.CGColor;//阴影颜色
                 shadowLayer.shadowOffset = offset;//偏移距离
                 shadowLayer.shadowOpacity = opacity;//不透明度

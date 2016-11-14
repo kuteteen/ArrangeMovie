@@ -69,6 +69,7 @@
         self.layer.shadowRadius = 8;//半径
         //清除子视图
         for (UIView *item in self.subviews) {
+            
             [item removeFromSuperview];
         }
         [self addSubview:imageView];

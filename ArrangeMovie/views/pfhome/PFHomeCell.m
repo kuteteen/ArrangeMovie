@@ -26,17 +26,18 @@
     
     
     //每次走这个方法之前，把所有控件的初始位置改为6的尺寸
-    self.headImgView.frame = CGRectMake(17, 18, 28, 28);
-    self.tailImgView.frame = CGRectMake(338, 22, 20, 20);
-    self.scrollView.frame = CGRectMake(62, 22, 252, 20);
+    self.headImgView.frame = CGRectMake(15, 3, 28, 28);
+    self.tailImgView.frame = CGRectMake(340, 7, 20, 20);
+    self.scrollView.frame = CGRectMake(62, 7, 259, 20);
     
     self.titleLabel.font = [UIFont systemFontOfSize:14.f];
     
     
-    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:headImg] placeholderImage:[UIImage imageNamed:@"miller"]];
-    [self.headImgView setShadowWithshadowColor:[UIColor colorWithHexString:@"#DDDDDE"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:5];
+    
     if ([tailImg isEqualToString:@""]) {
         self.tailImgView.hidden = YES;
+        //开头以《 开头，y要小一些
+         self.scrollView.frame = CGRectMake(62-5, 7, 259, 20);
     }else{
         self.tailImgView.hidden = NO;
         self.tailImgView.image = [UIImage imageNamed:tailImg];
@@ -53,11 +54,15 @@
     //根据比例布局
     [AppDelegate storyBoradAutoLay:self];
     
+    //由于按比例之后导致图片长宽不等，需要再做调整
+    CGRect headRect = self.headImgView.frame;
+    headRect.size.height = headRect.size.width;
+    self.headImgView.frame = headRect;
     
-    //布局完了，5S  宽度已经缩小了，把字体适当变小
-    if (iPhone5S) {
-        self.titleLabel.font = [UIFont systemFontOfSize:12.f];
+    [self.headImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.2 shadowRadius:2 image:headImg placeholder:@""];
+
+    self.titleLabel.font = [UIFont systemFontOfSize:14.0*autoSizeScaleY];
         
-    }
+    
 }
 @end
