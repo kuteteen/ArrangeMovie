@@ -83,9 +83,6 @@
     return self;
 }
 
-//-(void)setLineColor:(UIColor *)lineColor{
-//    self.lineColor = lineColor;
-//}
 //-(void)setLFLBackGroundColor:(UIColor *)LFLBackGroundColor{
 //    self.LFLBackGroundColor = LFLBackGroundColor;
 //}
