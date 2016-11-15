@@ -103,27 +103,27 @@
                                     <constraint firstAttribute="height" constant="50" id="7V2-IE-QNU"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSy-Gf-IXb">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tlp-KU-MDL">
                                 <rect key="frame" x="0.0" y="114" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="vSy-Gf-IXb" firstAttribute="top" secondItem="eLg-Qc-BPm" secondAttribute="bottom" id="11z-I3-Ckf"/>
                             <constraint firstItem="eLg-Qc-BPm" firstAttribute="top" secondItem="LlN-Yf-hHD" secondAttribute="bottom" id="A00-S2-tPm"/>
+                            <constraint firstItem="tlp-KU-MDL" firstAttribute="leading" secondItem="0ci-jF-UdV" secondAttribute="leading" id="FuB-vY-vlZ"/>
+                            <constraint firstAttribute="trailing" secondItem="tlp-KU-MDL" secondAttribute="trailing" id="QaF-hf-FJJ"/>
                             <constraint firstAttribute="trailing" secondItem="eLg-Qc-BPm" secondAttribute="trailing" id="TAO-aY-0zz"/>
-                            <constraint firstItem="gLV-a0-1tq" firstAttribute="top" secondItem="vSy-Gf-IXb" secondAttribute="bottom" id="U6I-je-GRE"/>
+                            <constraint firstItem="tlp-KU-MDL" firstAttribute="top" secondItem="eLg-Qc-BPm" secondAttribute="bottom" id="WhP-5T-7uR"/>
                             <constraint firstItem="eLg-Qc-BPm" firstAttribute="leading" secondItem="0ci-jF-UdV" secondAttribute="leading" id="awx-iL-e47"/>
-                            <constraint firstItem="vSy-Gf-IXb" firstAttribute="leading" secondItem="0ci-jF-UdV" secondAttribute="leading" id="fSc-s3-scN"/>
-                            <constraint firstAttribute="trailing" secondItem="vSy-Gf-IXb" secondAttribute="trailing" id="uro-qR-g7m"/>
+                            <constraint firstItem="gLV-a0-1tq" firstAttribute="top" secondItem="tlp-KU-MDL" secondAttribute="bottom" id="cV5-C7-hiw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Y9t-o0-Lsz"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="contentView" destination="vSy-Gf-IXb" id="K5l-b6-LqR"/>
+                        <outlet property="scrollView" destination="tlp-KU-MDL" id="bq5-qq-qlt"/>
                         <outlet property="segmentView" destination="eLg-Qc-BPm" id="Mva-qi-uOa"/>
                         <segue destination="hiI-Zi-mVP" kind="push" identifier="tomanagermissiondetail" id="IqZ-Mg-ndf"/>
                     </connections>
@@ -178,6 +178,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eN5-Nj-Jgl"/>
+        <segue reference="IqZ-Mg-ndf"/>
     </inferredMetricsTieBreakers>
 </document>

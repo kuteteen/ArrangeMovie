@@ -17,7 +17,7 @@
 
 #define Width [UIScreen mainScreen].bounds.size.width
 
-@interface ManagerMissionViewController ()<LFLUISegmentedControlDelegate,UIPageViewControllerDataSource,UIPageViewControllerDelegate,ManagerMissionPageViewControllerDelegate> {
+@interface ManagerMissionViewController ()<LFLUISegmentedControlDelegate,UIScrollViewDelegate,ManagerMissionPageViewControllerDelegate> {
     LFLUISegmentedControl *segmentControl;
     CKAlertViewController *ckAlertVC;
     
@@ -26,7 +26,8 @@
     NSMutableArray *viewControllers;
 }
 @property (weak, nonatomic) IBOutlet UIView *segmentView;
-@property (weak, nonatomic) IBOutlet UIView *contentView;
+//@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 //@property (strong,nonatomic) NSMutableArray *dataArray;//所有数据
 //@property (strong,nonatomic) NSMutableArray *array;//显示用的数据
@@ -48,20 +49,34 @@
     segmentControl = [[LFLUISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, Width, 50)];
     segmentControl.delegate = self;
     segmentControl.titleFont = [UIFont systemFontOfSize:16.f];
+    segmentControl.titleColor = [UIColor colorWithHexString:@"162271"];
     segmentControl.selectFont = [UIFont systemFontOfSize:16.f];
+    segmentControl.selectColor = [UIColor colorWithHexString:@"162271"];
+    segmentControl.backgroundColor = [UIColor whiteColor];
+    segmentControl.lineColor = [UIColor colorWithHexString:@"162271"];
     [segmentControl AddSegumentArray:@[@"新任务",@"已领取",@"审核中",@"已完成"]];
     [self.segmentView addSubview:segmentControl];
     
-    pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managerpageviewcontroller"];
-    self.pageCount = 4;
+    self.scrollView.delegate = self;
     
-    pageViewController.delegate = self;
-    pageViewController.dataSource = self;
-    [self setContentViewController:0];
-    pageViewController.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
-    [self addChildViewController:pageViewController];
-    [self.contentView addSubview:pageViewController.view];
-    [pageViewController didMoveToParentViewController:self];
+    _pageCount = 4;
+    if(!viewControllers){
+        viewControllers = [[NSMutableArray alloc] initWithCapacity:self.pageCount];
+    }
+    for(NSInteger i = 0;i<self.pageCount;i++){
+        [self setContentViewController:i];
+    }
+    self.scrollView.contentSize = CGSizeMake(self.pageCount*screenWidth, 0);
+//    pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managerpageviewcontroller"];
+//    self.pageCount = 4;
+//    
+//    pageViewController.delegate = self;
+//    pageViewController.dataSource = self;
+//    [self setContentViewController:0];
+//    pageViewController.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
+//    [self addChildViewController:pageViewController];
+//    [self.contentView addSubview:pageViewController.view];
+//    [pageViewController didMoveToParentViewController:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,17 +85,9 @@
 }
 
 -(void)setContentViewController:(NSInteger)pageIndex {
-    if(!viewControllers){
-        viewControllers = [[NSMutableArray alloc] initWithCapacity:self.pageCount];
-        for(int i = 0;i<self.pageCount;i++){
-            ManagerMissionPageViewController *startingViewController = [self viewControllerAtIndex:i];
-            startingViewController.delegate = self;
-            [viewControllers addObject:startingViewController];
-        }
-    }
-    
-    [pageViewController setViewControllers:@[viewControllers[pageIndex]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-    
+    ManagerMissionPageViewController *startingViewController = [self viewControllerAtIndex:pageIndex];
+    [self.scrollView addSubview:startingViewController.view];
+    [viewControllers addObject:startingViewController];
 }
 
 -(ManagerMissionPageViewController *)viewControllerAtIndex:(NSInteger)index {
@@ -89,45 +96,48 @@
     }
     ManagerMissionPageViewController *pageContentViewController;
     pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managermissionpagecontent"];
-    
     pageContentViewController.pageIndex = index;
+    pageContentViewController.delegate = self;
+    
+    pageContentViewController.view.frame = CGRectMake(index*screenWidth, 0, screenWidth, self.scrollView.frame.size.height);
+    [pageContentViewController viewWillAppear:YES];
     return pageContentViewController;
 }
 
-#pragma mark -UIPageViewControllerDataSource
-
--(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    ManagerMissionPageViewController *vc = (ManagerMissionPageViewController *)viewController;
-    self.pageIndex = vc.pageIndex;
-    if(self.pageIndex<self.pageCount-1){
-        self.pageIndex++;
-        return [viewControllers objectAtIndex:self.pageIndex];
-    }else{
-        return nil;
-    }
-}
-
--(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    ManagerMissionPageViewController *vc = (ManagerMissionPageViewController *)viewController;
-    self.pageIndex = vc.pageIndex;
-    if(self.pageIndex == 0){
-        return nil;
-    }
-    self.pageIndex --;
-    //    [segmentControl selectTheSegument:self.pageIndex];
-    return [viewControllers objectAtIndex:self.pageIndex];
-}
-
--(void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
-    ManagerMissionPageViewController *vc = (ManagerMissionPageViewController *)previousViewControllers[0];
-    NSInteger page;
-    if((self.pageIndex==0&&self.pageIndex==vc.pageIndex)||self.pageIndex>vc.pageIndex){
-        page = vc.pageIndex+1;
-    }else{
-        page = vc.pageIndex-1;
-    }
-    [segmentControl selectTheSegument:page];
-}
+//#pragma mark -UIPageViewControllerDataSource
+//
+//-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+//    ManagerMissionPageViewController *vc = (ManagerMissionPageViewController *)viewController;
+//    self.pageIndex = vc.pageIndex;
+//    if(self.pageIndex<self.pageCount-1){
+//        self.pageIndex++;
+//        return [viewControllers objectAtIndex:self.pageIndex];
+//    }else{
+//        return nil;
+//    }
+//}
+//
+//-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+//    ManagerMissionPageViewController *vc = (ManagerMissionPageViewController *)viewController;
+//    self.pageIndex = vc.pageIndex;
+//    if(self.pageIndex == 0){
+//        return nil;
+//    }
+//    self.pageIndex --;
+//    //    [segmentControl selectTheSegument:self.pageIndex];
+//    return [viewControllers objectAtIndex:self.pageIndex];
+//}
+//
+//-(void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
+//    ManagerMissionPageViewController *vc = (ManagerMissionPageViewController *)previousViewControllers[0];
+//    NSInteger page;
+//    if((self.pageIndex==0&&self.pageIndex==vc.pageIndex)||self.pageIndex>vc.pageIndex){
+//        page = vc.pageIndex+1;
+//    }else{
+//        page = vc.pageIndex-1;
+//    }
+//    [segmentControl selectTheSegument:page];
+//}
 
 
 
@@ -183,6 +193,12 @@
     [ckAlertVC dismissViewControllerAnimated:NO completion:nil];
 }
 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    ///X方向上的滑动距离
+    CGFloat offSetX = scrollView.contentOffset.x;
+    NSLog(@"在X方向上的滑动距离：%f",offSetX);
+}
 
 #pragma mark - Navigation
 

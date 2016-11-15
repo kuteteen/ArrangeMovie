@@ -50,9 +50,9 @@
     
     self.taskPublishPhoneLabel.text = [ValidateMobile hidePhone:self.task.dn];
     self.filmnameLabel.text = self.task.filmname;
-    self.directorLabel.text = [NSString stringWithFormat:@"导演:%@",self.task.filmdirector];
+    self.directorLabel.text = [NSString stringWithFormat:@"导演：%@",self.task.filmdirector];
     self.taskPointsLabel.text = [NSString stringWithFormat:@"%@积分",self.task.taskpoints];
-    self.taskDateLabel.text = [NSString stringWithFormat:@"任务时间:%@-%@",self.task.startdate,self.task.enddate];
+    self.taskDateLabel.text = [NSString stringWithFormat:@"任务时间：%@-%@",self.task.startdate,self.task.enddate];
 }
 
 @end
