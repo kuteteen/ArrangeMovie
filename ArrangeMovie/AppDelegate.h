@@ -15,5 +15,7 @@
 
 
 + (void)storyBoradAutoLay:(UIView *)allView;
+
++ (void)storyBoardAutoLabelFont:(UIView *)allView;
 @end
 

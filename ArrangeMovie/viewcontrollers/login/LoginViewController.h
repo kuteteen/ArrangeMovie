@@ -14,14 +14,16 @@
 
 
 @interface LoginViewController : EMIBaseViewController
-@property (weak, nonatomic) IBOutlet EMIShadowImageView *headImgView;
-@property (weak, nonatomic) IBOutlet UITextField *phoneTF;
-@property (weak, nonatomic) IBOutlet UITextField *pwdTF;
-//输入框外层view
-@property (weak, nonatomic) IBOutlet UIView *outTFView;
+@property (weak, nonatomic) IBOutlet UIImageView *headImgView;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLab;//手机号标签
+
+@property (weak, nonatomic) IBOutlet UITextField *phoneTF;//手机号输入框
+@property (weak, nonatomic) IBOutlet UIView *phoneLineView;//手机号分割线
+@property (weak, nonatomic) IBOutlet UILabel *pwdLab;//密码标签
+@property (weak, nonatomic) IBOutlet UITextField *pwdTF;//密码输入框
+@property (weak, nonatomic) IBOutlet UIView *pwdLineView;//密码分割线
+
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
-@property (weak, nonatomic) IBOutlet UIView *leftLineView;
-@property (weak, nonatomic) IBOutlet UIView *rightLineView;
 @property (weak, nonatomic) IBOutlet UIButton *forgetBtn;
 
 @end
