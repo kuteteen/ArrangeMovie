@@ -47,6 +47,7 @@
 		C83C79261DD163CD002EEAF3 /* OUNavAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C79251DD163CD002EEAF3 /* OUNavAnimation.m */; };
 		C83C792C1DD179C2002EEAF3 /* MeMissionTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */; };
 		C83C792E1DD179FC002EEAF3 /* MeMissionTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */; };
+		C83FDE6E1DDADCB500173655 /* DROIDSANS-BOLD_0.TTF in Resources */ = {isa = PBXBuildFile; fileRef = C83FDE6D1DDADCB500173655 /* DROIDSANS-BOLD_0.TTF */; };
 		C84C7C4F1DD5953B00D134DD /* loading_120.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84C7C4E1DD5953B00D134DD /* loading_120.gif */; };
 		C859974F1DC04C1E0057C417 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = C859974E1DC04C1E0057C417 /* Task.m */; };
 		C85997521DC0565F0057C417 /* TakeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997511DC0565F0057C417 /* TakeTask.m */; };
@@ -245,6 +246,7 @@
 		C83C792A1DD179C2002EEAF3 /* MeMissionTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionTitleView.h; path = views/me/MeMissionTitleView.h; sourceTree = "<group>"; };
 		C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionTitleView.m; path = views/me/MeMissionTitleView.m; sourceTree = "<group>"; };
 		C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionTitleView.xib; path = views/me/MeMissionTitleView.xib; sourceTree = "<group>"; };
+		C83FDE6D1DDADCB500173655 /* DROIDSANS-BOLD_0.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DROIDSANS-BOLD_0.TTF"; path = "src/DROIDSANS-BOLD_0.TTF"; sourceTree = "<group>"; };
 		C84C7C4E1DD5953B00D134DD /* loading_120.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading_120.gif; path = src/loading_120.gif; sourceTree = "<group>"; };
 		C859974D1DC04C1E0057C417 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = models/Task.h; sourceTree = "<group>"; };
 		C859974E1DC04C1E0057C417 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = models/Task.m; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 		C8E6512E1DA9D52000400ABC /* src */ = {
 			isa = PBXGroup;
 			children = (
+				C83FDE6D1DDADCB500173655 /* DROIDSANS-BOLD_0.TTF */,
 				C86292421DD981D00066FD1A /* DroidSansfallBack.TTF */,
 				C84C7C4E1DD5953B00D134DD /* loading_120.gif */,
 				D6C48FFF1DBEEABD009EB672 /* launch.storyboard */,
@@ -1105,6 +1108,7 @@
 				C86DE7591DB5BD5300374734 /* MissionRequireTableViewCell.xib in Resources */,
 				D6C4901F1DBEEB0D009EB672 /* TaskCellTime.xib in Resources */,
 				D6C4901B1DBEEB0D009EB672 /* PFHomeCell.xib in Resources */,
+				C83FDE6E1DDADCB500173655 /* DROIDSANS-BOLD_0.TTF in Resources */,
 				D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */,
 				C82AF8E51DB70A0600882DB6 /* MissionNoAuthTableViewCell.xib in Resources */,
 				C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */,

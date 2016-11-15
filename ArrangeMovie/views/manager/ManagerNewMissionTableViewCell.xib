@@ -44,7 +44,7 @@
                             <constraint firstAttribute="width" constant="14" id="RFo-RP-Iqr"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导演:姜文" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCz-Pz-75V">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导演：姜文" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCz-Pz-75V">
                         <rect key="frame" x="110" y="52" width="195" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="0FQ-X1-fLg"/>

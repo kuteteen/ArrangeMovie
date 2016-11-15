@@ -87,6 +87,7 @@
     appearance.barTintColor = [UIColor colorWithHexString:@"#162271"];
     
     appearance.barStyle = UIBarStyleBlackTranslucent;
+    appearance.translucent = YES;
     // 设置文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
