@@ -144,6 +144,7 @@
 		D6950CD71DB4BF06004D6C8B /* PFHomeSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CD61DB4BF06004D6C8B /* PFHomeSectionView.m */; };
 		D6950CD91DB4C0AB004D6C8B /* PFHomeSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6950CD81DB4C0AB004D6C8B /* PFHomeSectionView.xib */; };
 		D6950CDD1DB4CAC1004D6C8B /* UILabel+StringFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CDC1DB4CAC1004D6C8B /* UILabel+StringFrame.m */; };
+		D6AE9F0D1DDC469C002B5272 /* ToTaskSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AE9F0C1DDC469C002B5272 /* ToTaskSegue.m */; };
 		D6B43A181DAF2FEE00F2849E /* YZMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A171DAF2FEE00F2849E /* YZMButton.m */; };
 		D6B43A1C1DAF6D2900F2849E /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B43A1B1DAF6D2900F2849E /* RegViewController.m */; };
 		D6BAC80C1DC188BF00A4EDF6 /* AMDetailUnDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BAC80B1DC188BF00A4EDF6 /* AMDetailUnDoViewController.m */; };
@@ -423,6 +424,8 @@
 		D6950CD81DB4C0AB004D6C8B /* PFHomeSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFHomeSectionView.xib; path = views/pfhome/PFHomeSectionView.xib; sourceTree = "<group>"; };
 		D6950CDB1DB4CAC1004D6C8B /* UILabel+StringFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+StringFrame.h"; path = "utils/category/UILabel+StringFrame.h"; sourceTree = "<group>"; };
 		D6950CDC1DB4CAC1004D6C8B /* UILabel+StringFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+StringFrame.m"; path = "utils/category/UILabel+StringFrame.m"; sourceTree = "<group>"; };
+		D6AE9F0B1DDC469C002B5272 /* ToTaskSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToTaskSegue.h; path = views/pfhome/ToTaskSegue.h; sourceTree = "<group>"; };
+		D6AE9F0C1DDC469C002B5272 /* ToTaskSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToTaskSegue.m; path = views/pfhome/ToTaskSegue.m; sourceTree = "<group>"; };
 		D6B43A161DAF2FEE00F2849E /* YZMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZMButton.h; path = views/login/YZMButton.h; sourceTree = "<group>"; };
 		D6B43A171DAF2FEE00F2849E /* YZMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZMButton.m; path = views/login/YZMButton.m; sourceTree = "<group>"; };
 		D6B43A1A1DAF6D2900F2849E /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegViewController.h; path = viewcontrollers/login/RegViewController.h; sourceTree = "<group>"; };
@@ -978,6 +981,8 @@
 				D6950CD81DB4C0AB004D6C8B /* PFHomeSectionView.xib */,
 				D6BAC8131DC1A36200A4EDF6 /* ProgressView.h */,
 				D6BAC8141DC1A36200A4EDF6 /* ProgressView.m */,
+				D6AE9F0B1DDC469C002B5272 /* ToTaskSegue.h */,
+				D6AE9F0C1DDC469C002B5272 /* ToTaskSegue.m */,
 			);
 			name = pfhome;
 			sourceTree = "<group>";
@@ -1286,6 +1291,7 @@
 				C8E651331DA9D5DF00400ABC /* MeViewController.m in Sources */,
 				C8610BFE1DD0602D00E959E1 /* GetDefaultBankWebInterface.m in Sources */,
 				D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */,
+				D6AE9F0D1DDC469C002B5272 /* ToTaskSegue.m in Sources */,
 				D61686761DD45929007EAA64 /* WelcomeBackViewController.m in Sources */,
 				C8610C041DD0638F00E959E1 /* AddBankWebInterface.m in Sources */,
 				C8EB79B11DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m in Sources */,

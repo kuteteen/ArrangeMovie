@@ -30,7 +30,7 @@
         self.titleLab = [[UILabel alloc] init];
         self.titleLab.textAlignment = NSTextAlignmentLeft;
         self.titleLab.textColor = [UIColor colorWithHexString:@"15151B"];
-        self.titleLab.font = [UIFont fontWithName:@"HelveticaNeue" size:17.f];
+        self.titleLab.font = [UIFont fontWithName:@"DroidSansFallback" size:17.f];
 //        self.titleLab.backgroundColor = [UIColor redColor];
 
         
@@ -43,24 +43,24 @@
         CGSize bigNumSize = [self.bigNumLab boundingRectWithSize:CGSizeMake(0.f, 0.f)];
         
         //计算出来的bigNumSize包含了间距，可用UIFont的ascender、capHeight得到(中文，数字)的实际大小
-        self.bigNumLab.frame = CGRectMake(102, 54, bigNumSize.width, self.bigNumLab.font.capHeight+2.5);
+        self.bigNumLab.frame = CGRectMake(102, 53.5, bigNumSize.width, self.bigNumLab.font.capHeight+4);
         
         
         self.bigSymbLab.text = @"%";
         CGSize bigSymbSize = [self.bigSymbLab boundingRectWithSize:CGSizeMake(0.f, 0.f)];
-        self.bigSymbLab.frame = CGRectMake(102+bigNumSize.width+1, 67.3, bigSymbSize.width, self.bigSymbLab.font.capHeight+2.5);
+        self.bigSymbLab.frame = CGRectMake(102+bigNumSize.width+1, 67.3, bigSymbSize.width, self.bigSymbLab.font.capHeight+3);
         
-        self.stateImgView.frame = CGRectMake(102+bigNumSize.width+1+bigSymbSize.width+2, 68, 5.5, self.bigSymbLab.font.capHeight+2.5);
+        self.stateImgView.frame = CGRectMake(102+bigNumSize.width+1+bigSymbSize.width+4, 69, 6, self.bigSymbLab.font.capHeight+2);
         
         
         self.smallNumLab.text = smallNumStr;
         CGSize smallNumSize = [self.smallNumLab boundingRectWithSize:CGSizeMake(0.f, 0.f)];
-        self.smallNumLab.frame = CGRectMake(102+bigNumSize.width+1+bigSymbSize.width+2+5.5+2, 73, smallNumSize.width, self.smallNumLab.font.capHeight+2.5);
+        self.smallNumLab.frame = CGRectMake(102+bigNumSize.width+1+bigSymbSize.width+2+6+4, 73, smallNumSize.width, self.smallNumLab.font.capHeight+3);
         
         
         self.smallSymbLab.text = @"%";
         CGSize smallSymbSize = [self.smallSymbLab boundingRectWithSize:CGSizeMake(0.f, 0.f)];
-        self.smallSymbLab.frame = CGRectMake(102+bigNumSize.width+1+bigSymbSize.width+2+5.5+2+smallNumSize.width+1, 78, smallSymbSize.width, self.smallSymbLab.font.capHeight+2.5);
+        self.smallSymbLab.frame = CGRectMake(102+bigNumSize.width+1+bigSymbSize.width+2+6+2+smallNumSize.width+1, 76, smallSymbSize.width, self.smallSymbLab.font.capHeight+3);
         
         
         if ([type isEqualToString:@"0"]) {
@@ -85,15 +85,15 @@
     [AppDelegate storyBoradAutoLay:self];
     
     [self.headImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"#0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.2 shadowRadius:3 image:imageName placeholder:@""];
-    self.titleLab.font = [UIFont fontWithName:@"HelveticaNeue" size:17*autoSizeScaleY];
+    self.titleLab.font = [UIFont fontWithName:@"DroidSansFallback" size:17*autoSizeScaleY];
     
-    self.bigNumLab.font = [UIFont fontWithName:@"HelveticaNeue" size:44*autoSizeScaleY];
+    self.bigNumLab.font = [UIFont fontWithName:@"DroidSansFallback" size:40*autoSizeScaleY];
     
-    self.bigSymbLab.font = [UIFont fontWithName:@"HelveticaNeue" size:25*autoSizeScaleY];
+    self.bigSymbLab.font = [UIFont fontWithName:@"DroidSansFallback" size:20*autoSizeScaleY];
     
-    self.smallNumLab.font = [UIFont fontWithName:@"HelveticaNeue" size:17*autoSizeScaleY];
+    self.smallNumLab.font = [UIFont fontWithName:@"DroidSansFallback" size:13*autoSizeScaleY];
     
-    self.smallSymbLab.font = [UIFont fontWithName:@"HelveticaNeue" size:10*autoSizeScaleY];
+    self.smallSymbLab.font = [UIFont fontWithName:@"DroidSansFallback" size:9*autoSizeScaleY];
     
     
     

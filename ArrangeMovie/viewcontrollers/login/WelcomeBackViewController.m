@@ -30,6 +30,8 @@
     
     //按比例布局
     [AppDelegate storyBoradAutoLay:self.view];
+    //字体大小
+    [AppDelegate storyBoardAutoLabelFont:self.view];
     //头像圆角
     self.headView.layer.masksToBounds = YES;
     self.headView.frame = CGRectMake(self.headView.frame.origin.x, self.headView.frame.origin.y, self.headView.frame.size.width, self.headView.frame.size.width);
@@ -40,7 +42,7 @@
         self.backLab.alpha = 1;
     }];
     //todo此处暂无请求，使线程睡眠5秒，页面跳转
-    double delayInSeconds = 5.0;
+    double delayInSeconds = 2.0;
     __block WelcomeBackViewController* bself = self;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){

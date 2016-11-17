@@ -100,7 +100,7 @@
     self.phoneTF.textColor = [UIColor colorWithHexString:@"162271"];
     self.phoneLineView.backgroundColor = [UIColor colorWithHexString:@"162271"];
     //阴影
-    [self.phoneLineView setShadowWithshadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.9 shadowRadius:4];
+    [self.phoneLineView setShadowWithshadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.9 shadowRadius:2];
     
     self.pwdLab.textColor = [UIColor colorWithHexString:@"a0a0a0"];
     self.pwdTF.textColor = [UIColor colorWithHexString:@"a0a0a0"];
@@ -114,7 +114,7 @@
     self.pwdTF.textColor = [UIColor colorWithHexString:@"162271"];
     self.pwdLineView.backgroundColor = [UIColor colorWithHexString:@"162271"];
     //阴影
-    [self.pwdLineView setShadowWithshadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.9 shadowRadius:4];
+    [self.pwdLineView setShadowWithshadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.9 shadowRadius:2];
     
     self.phoneLab.textColor = [UIColor colorWithHexString:@"a0a0a0"];
     self.phoneTF.textColor = [UIColor colorWithHexString:@"a0a0a0"];
@@ -158,13 +158,13 @@
 
 //登录首页
 - (IBAction)toHome:(UIButton *)sender {
-    if ([self.phoneTF.text isEqualToString:@"0"]) {
+    if ([self.phoneTF.text isEqualToString:@"15152439012"]) {
         //片方首页
         self.tempuserType = @"0";
         //进入登录欢迎页
         [self performSegueWithIdentifier:@"tologinwelcome" sender:self];
     }
-    if ([self.phoneTF.text isEqualToString:@"1"]) {
+    if ([self.phoneTF.text isEqualToString:@"15162763192"]) {
         //院线经理首页
         self.tempuserType = @"1";
         //进入登录欢迎页

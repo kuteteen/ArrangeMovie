@@ -30,7 +30,7 @@
     self.tailImgView.frame = CGRectMake(340, 7, 20, 20);
     self.scrollView.frame = CGRectMake(62, 7, 259, 20);
     
-    self.titleLabel.font = [UIFont systemFontOfSize:14.f];
+    self.titleLabel.font = [UIFont fontWithName:@"DroidSansFallback" size:14.f];
     
     
     
@@ -61,7 +61,7 @@
     
     [self.headImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.2 shadowRadius:2 image:headImg placeholder:@""];
 
-    self.titleLabel.font = [UIFont systemFontOfSize:14.0*autoSizeScaleY];
+    self.titleLabel.font = [UIFont fontWithName:@"DroidSansFallback" size:14.0*autoSizeScaleY];
         
     
 }
