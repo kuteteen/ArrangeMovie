@@ -5,11 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="DroidSansfallBack.TTF">
+        <mutableArray key="DroidSansFallback.TTF">
             <string>DroidSansFallback</string>
             <string>DroidSansFallback</string>
             <string>DroidSansFallback</string>
-            <string>DroidSansFallback</string>
+        </mutableArray>
+        <mutableArray key="DroidSans_Bold.TTF">
+            <string>DroidSans-Bold</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -29,36 +31,67 @@
                             <constraint firstAttribute="width" constant="60" id="iHh-BF-FGS"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="星际迷航3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXN-Av-Ja5">
-                        <rect key="frame" x="99" y="20" width="74" height="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="星际迷航3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXN-Av-Ja5">
+                        <rect key="frame" x="99" y="20" width="73" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="VSc-1V-pEA"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="16"/>
                         <color key="textColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="导演：林诣彬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAN-Q4-jER">
-                        <rect key="frame" x="99" y="53" width="84" height="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导演：林诣彬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAN-Q4-jER">
+                        <rect key="frame" x="99" y="55" width="81" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="Rsj-MU-8Hr"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
                         <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="任务时间：2016/10/18~2016/10/28" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8we-5O-jIt">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务时间：2016/10/18~2016/10/28" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8we-5O-jIt">
                         <rect key="frame" x="99" y="73" width="206" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="VP0-JN-vM9"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
                         <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="200分" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yg4-Ok-fUC">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200分" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yg4-Ok-fUC">
                         <rect key="frame" x="245" y="20" width="60" height="15"/>
-                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="CSM-pQ-I9h"/>
+                            <constraint firstAttribute="height" constant="15" id="aBb-xR-AKn"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
                         <color key="textColor" red="1" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="iAN-Q4-jER" firstAttribute="top" secondItem="hXN-Av-Ja5" secondAttribute="bottom" constant="18" id="5aL-jx-Ufr"/>
+                    <constraint firstItem="iAN-Q4-jER" firstAttribute="leading" secondItem="hXN-Av-Ja5" secondAttribute="leading" id="DRl-Dg-FWY"/>
                     <constraint firstAttribute="bottom" secondItem="kEH-cN-Jti" secondAttribute="bottom" constant="17.5" id="Fh3-fb-trZ"/>
+                    <constraint firstItem="hXN-Av-Ja5" firstAttribute="leading" secondItem="kEH-cN-Jti" secondAttribute="trailing" constant="24" id="GpI-G8-cCJ"/>
+                    <constraint firstItem="8we-5O-jIt" firstAttribute="leading" secondItem="iAN-Q4-jER" secondAttribute="leading" id="J5Q-4x-DRb"/>
+                    <constraint firstItem="8we-5O-jIt" firstAttribute="top" secondItem="iAN-Q4-jER" secondAttribute="bottom" constant="6" id="NEO-S4-3a4"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iAN-Q4-jER" secondAttribute="trailing" constant="15" id="R8D-dx-mL6"/>
                     <constraint firstItem="kEH-cN-Jti" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ROk-U8-VB7"/>
+                    <constraint firstAttribute="trailing" secondItem="8we-5O-jIt" secondAttribute="trailing" constant="15" id="UKq-do-eBT"/>
+                    <constraint firstItem="Yg4-Ok-fUC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="YE6-SZ-c2l"/>
+                    <constraint firstAttribute="bottom" secondItem="8we-5O-jIt" secondAttribute="bottom" constant="17.5" id="dRO-0N-Qpg"/>
                     <constraint firstItem="kEH-cN-Jti" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="djU-nk-sdG"/>
+                    <constraint firstItem="Yg4-Ok-fUC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hXN-Av-Ja5" secondAttribute="trailing" constant="8" id="lTS-pM-LZC"/>
+                    <constraint firstAttribute="trailing" secondItem="Yg4-Ok-fUC" secondAttribute="trailing" constant="15" id="p6J-1O-jqi"/>
+                    <constraint firstItem="8we-5O-jIt" firstAttribute="bottom" secondItem="kEH-cN-Jti" secondAttribute="bottom" id="vCZ-xc-bDy"/>
+                    <constraint firstItem="hXN-Av-Ja5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="yeD-s7-a0h"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="dRO-0N-Qpg"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="directorLabel" destination="iAN-Q4-jER" id="LV2-TN-HNE"/>

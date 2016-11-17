@@ -9,6 +9,6 @@
 #import "SCTableViewCell.h"
 
 @interface ManagerMissionBtnTableViewCell : SCTableViewCell
-@property (weak, nonatomic) IBOutlet UIButton *btn;
+@property (weak, nonatomic) IBOutlet UIImageView *btn;
 
 @end

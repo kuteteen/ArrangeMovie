@@ -4,6 +4,19 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="DroidSansFallback.TTF">
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
+        </mutableArray>
+        <mutableArray key="DroidSans_Bold.TTF">
+            <string>DroidSans-Bold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -17,61 +30,61 @@
                         <constraint firstAttribute="width" constant="76" id="0bB-rt-jce"/>
                         <constraint firstAttribute="height" constant="18" id="4eM-ct-dkS"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="18"/>
                     <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务份数:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypn-Ra-eWT">
-                    <rect key="frame" x="15" y="52" width="60" height="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务份数：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypn-Ra-eWT">
+                    <rect key="frame" x="15" y="52" width="68" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="aKg-TW-GQR"/>
-                        <constraint firstAttribute="width" constant="60" id="uLh-pj-aCa"/>
+                        <constraint firstAttribute="width" constant="68" id="uLh-pj-aCa"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                    <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
                     <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="影院级别:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgd-AN-30m">
-                    <rect key="frame" x="15" y="83" width="60" height="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="影院级别：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgd-AN-30m">
+                    <rect key="frame" x="15" y="83" width="68" height="14"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="60" id="HtP-0P-A2s"/>
+                        <constraint firstAttribute="width" constant="68" id="HtP-0P-A2s"/>
                         <constraint firstAttribute="height" constant="14" id="iAp-Lw-dNB"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                    <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
                     <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="排片要求:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44f-Q3-uwk">
-                    <rect key="frame" x="15" y="114" width="60" height="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="排片要求：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44f-Q3-uwk">
+                    <rect key="frame" x="15" y="114" width="68" height="14"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="60" id="M6R-eU-fW0"/>
+                        <constraint firstAttribute="width" constant="68" id="M6R-eU-fW0"/>
                         <constraint firstAttribute="height" constant="14" id="g5b-XQ-HwS"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                    <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
                     <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3份" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbE-Wx-9Fz">
-                    <rect key="frame" x="75" y="52" width="230" height="14"/>
+                    <rect key="frame" x="83" y="52" width="222" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="ISm-MU-9aS"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                    <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
                     <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A级影院以上" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1a-I0-QsP">
-                    <rect key="frame" x="75" y="83" width="230" height="14"/>
+                    <rect key="frame" x="83" y="83" width="222" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="Mwi-ym-dqx"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                    <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
                     <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天排片30场次以上" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83v-lY-F8h" customClass="SCTopLeftAlignLabel">
-                    <rect key="frame" x="75" y="114" width="230" height="14"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                    <rect key="frame" x="83" y="114" width="222" height="14"/>
+                    <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
                     <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

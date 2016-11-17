@@ -203,7 +203,7 @@
     CGRect originRect = CGRectMake(rect.origin.x+15, rect.origin.y+25, cell.postImgView.frame.size.width, cell.postImgView.frame.size.height);
     cell.imgRect = originRect;
     
-    [((EMINavigationController *)self.navigationController) pushViewController:viewController withImageView:cell.postImgView originRect:originRect desRect:CGRectMake(15, 84, 53, 61)];
+    [((EMINavigationController *)self.navigationController) pushViewController:viewController withImageView:cell.postImgView originRect:originRect desRect:CGRectMake(15, 84, 60, 65)];
 }
 
  #pragma mark - Navigation

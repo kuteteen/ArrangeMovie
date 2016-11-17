@@ -133,7 +133,7 @@
         h = h > 180 ? h : 180;  //89是图片显示的最低高度， 见xib
         return h;
     }
-    return 114.f;
+    return 159.f;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -158,22 +158,22 @@
     }else{
         ManagerMissionBtnTableViewCell *cell = [ManagerMissionBtnTableViewCell cellWithTableView:tableView];
         cell.selectedBackgroundView = [[UIView alloc] init];
-        switch (self.flag) {
-            case 0:
-                [cell.btn setTitle:@"领取任务" forState:UIControlStateNormal];
-                break;
-            case 1:
-                [cell.btn setTitle:@"上传排片任务" forState:UIControlStateNormal];
-                break;
-            case 2:
-                [cell.btn setTitle:@"查看排片任务" forState:UIControlStateNormal];
-                break;
-            case 3:
-                
-                break;
-            default:
-                break;
-        }
+//        switch (self.flag) {
+//            case 0:
+//                [cell.btn setTitle:@"领取任务" forState:UIControlStateNormal];
+//                break;
+//            case 1:
+//                [cell.btn setTitle:@"上传排片任务" forState:UIControlStateNormal];
+//                break;
+//            case 2:
+//                [cell.btn setTitle:@"查看排片任务" forState:UIControlStateNormal];
+//                break;
+//            case 3:
+//                
+//                break;
+//            default:
+//                break;
+//        }
         return cell;
     }
 }

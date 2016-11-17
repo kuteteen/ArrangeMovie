@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>DROIDSANS-BOLD.ttf</string>
 		<string>DroidSansfallBack.TTF</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>

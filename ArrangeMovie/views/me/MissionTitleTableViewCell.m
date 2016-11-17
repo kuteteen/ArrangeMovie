@@ -40,7 +40,11 @@
 }
 
 -(void)setValue:(id)value {
-    [self.postImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:3 image:@"http://cdnq.duitang.com/uploads/item/201506/05/20150605124315_xFQtw.thumb.700_0.jpeg" placeholder:@""];
+    [self.postImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 1.5) shadowOpacity:0.26 shadowRadius:6 image:@"http://cdnq.duitang.com/uploads/item/201506/05/20150605124315_xFQtw.thumb.700_0.jpeg" placeholder:@""];
+    if(screenWidth<375){
+        self.directorLabel.font = [UIFont fontWithName:@"DroidSansFallback" size:12.f];
+        self.missionDateLabel.font = [UIFont fontWithName:@"DroidSansFallback" size:12.f];
+    }
 }
 
 @end

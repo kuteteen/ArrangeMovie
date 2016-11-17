@@ -162,7 +162,7 @@
     
     CGRect originRect = cell.imgRect;
     //    CGRect
-    [((EMINavigationController *)self.navigationController) pushViewController:viewController withImageView:cell.postImgView originRect:originRect desRect:CGRectMake(15, 84, 53, 61)];
+    [((EMINavigationController *)self.navigationController) pushViewController:viewController withImageView:cell.postImgView originRect:originRect desRect:CGRectMake(15, 84, 60, 65)];
 }
 
 -(void)toDelTask:(id)sender {
