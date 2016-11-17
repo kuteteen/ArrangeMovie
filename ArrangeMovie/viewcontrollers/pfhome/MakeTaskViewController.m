@@ -10,6 +10,7 @@
 #import "AMAlertView.h"
 #import "CKAlertViewController.h"
 #import "TouchLabel.h"
+#import "UIBarButtonItem+Extension.h"
 
 
 @interface MakeTaskViewController ()<UICollectionViewDelegateFlowLayout>
@@ -55,7 +56,8 @@
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     negativeSpacer.width = 17;
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:negativeSpacer,rightNavBtn, nil];
-    
+    //返回按钮
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back" highImageName:@"back" target:self action:@selector(back)];
     [self setCollectionView];
 }
 
@@ -74,7 +76,10 @@
 - (void)rightNavBtnClicked:(UIBarButtonItem *)sender{
     
 }
-
+//返回
+- (void)back{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 //添加图片
 - (IBAction)addImg:(UIButton *)sender {
     NSLog(@"%@",@"添加图片");

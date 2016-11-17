@@ -143,6 +143,41 @@
     }
 }
 
+
+//动态改变字体大小
++ (void)storyBoardAutoLabelFont:(UIView *)allView
+{
+    for (UIView *temp in allView.subviews) {
+        //label
+        if ([temp isKindOfClass:[UILabel class]]) {
+            CGFloat fontSize = ((UILabel *)(temp)).font.pointSize;
+            NSString *fontName = ((UILabel *)(temp)).font.fontName;
+            ((UILabel *)(temp)).font = [UIFont fontWithName:fontName size:fontSize*autoSizeScaleY];
+        }
+        //UITextField
+        if ([temp isKindOfClass:[UITextField class]]) {
+            CGFloat fontSize = ((UITextField *)(temp)).font.pointSize;
+            NSString *fontName = ((UITextField *)(temp)).font.fontName;
+            ((UITextField *)(temp)).font = [UIFont fontWithName:fontName size:fontSize*autoSizeScaleY];
+        }
+        //UITextView
+        if ([temp isKindOfClass:[UITextView class]]) {
+            CGFloat fontSize = ((UITextView *)(temp)).font.pointSize;
+            NSString *fontName = ((UITextView *)(temp)).font.fontName;
+            ((UITextView *)(temp)).font = [UIFont fontWithName:fontName size:fontSize*autoSizeScaleY];
+        }
+        //button
+        if ([temp isKindOfClass:[UIButton class]]) {
+            CGFloat fontSize = ((UIButton *)(temp)).titleLabel.font.pointSize;
+            NSString *fontName = ((UIButton *)(temp)).titleLabel.font.fontName;
+            ((UIButton *)(temp)).titleLabel.font = [UIFont fontWithName:fontName size:fontSize*autoSizeScaleY];
+        }
+        if (temp.subviews.count > 0) {
+            [AppDelegate storyBoardAutoLabelFont:temp];
+        }
+    }
+}
+
 CG_INLINE CGRect//注意：这里的代码要放在.m文件最下面的位置
 CGRectMake1(CGFloat x, CGFloat y, CGFloat width, CGFloat height)
 {

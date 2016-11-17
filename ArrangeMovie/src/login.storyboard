@@ -4,6 +4,19 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="DROIDSANS-BOLD_0.TTF">
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+        </mutableArray>
+        <mutableArray key="DroidSansfallBack.TTF">
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="0jY-bh-Jw3">
@@ -30,124 +43,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="cv5-T5-4X8">
-                                <rect key="frame" x="17" y="258" width="341" height="120"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="NTY-fh-6UZ">
+                                <rect key="frame" x="129" y="81" width="118" height="118"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" id="AYg-3X-rq1">
-                                        <rect key="frame" x="14" y="60" width="313" height="1"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.40000000000000002" green="0.51372549019607838" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="Aqi-lx-2uV">
-                                        <rect key="frame" x="0.0" y="0.0" width="341" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_input_tel" id="xkM-RA-hJd">
-                                                <rect key="frame" x="24" y="18" width="20" height="23"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="RfZ-xB-0Fu">
-                                                <rect key="frame" x="60" y="12" width="257" height="36"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="checkTelphoneNum:" destination="lwx-xz-TJC" eventType="editingChanged" id="yO9-L0-weD"/>
-                                                </connections>
-                                            </textField>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="l4C-Ol-ciw">
-                                        <rect key="frame" x="0.0" y="61" width="341" height="59"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_imput_-password" id="XP6-ey-lZO">
-                                                <rect key="frame" x="24" y="18" width="20" height="23"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="mVe-S8-lHo">
-                                                <rect key="frame" x="60" y="12" width="257" height="35"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.34901960784313724" green="0.48627450980392156" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c02-sh-FYR">
-                                <rect key="frame" x="17" y="423" width="341" height="45"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机号" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cpK-RN-gm2">
+                                <rect key="frame" x="61" y="257" width="100" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="登录" backgroundImage="login_btn_normal"/>
+                                <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
+                                <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" id="S3H-BV-L6d">
+                                <rect key="frame" x="61" y="285" width="253" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.086274509799999996" green="0.1333333333" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 <connections>
-                                    <action selector="toHome:" destination="lwx-xz-TJC" eventType="touchUpInside" id="CRB-1v-ghe"/>
+                                    <action selector="checkTelPhone:" destination="lwx-xz-TJC" eventType="editingChanged" id="uN0-kh-JrE"/>
+                                    <action selector="touchPhoneTF:" destination="lwx-xz-TJC" eventType="editingDidBegin" id="g29-Yq-8ae"/>
+                                </connections>
+                            </textField>
+                            <view contentMode="scaleToFill" id="s4E-rY-eJU">
+                                <rect key="frame" x="61" y="311" width="253" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ecb-wa-03K">
+                                <rect key="frame" x="61" y="331" width="100" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
+                                <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" id="0Qb-ao-iNs">
+                                <rect key="frame" x="61" y="359" width="253" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.086274509799999996" green="0.1333333333" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="touchPwdTF:" destination="lwx-xz-TJC" eventType="editingDidBegin" id="5yg-Zc-YkK"/>
+                                </connections>
+                            </textField>
+                            <view contentMode="scaleToFill" id="G6Z-pf-FXi">
+                                <rect key="frame" x="61" y="385" width="253" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Uz-TB-hbn">
+                                <rect key="frame" x="56" y="448" width="262" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="login_btn"/>
+                                <connections>
+                                    <action selector="toHome:" destination="lwx-xz-TJC" eventType="touchUpInside" id="q39-9f-1p1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="A9M-Pb-7i9">
-                                <rect key="frame" x="128" y="493" width="120" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Kha-j1-sSy">
+                                <rect key="frame" x="20" y="532" width="335" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="忘记密码?">
-                                    <color key="titleColor" red="0.79607843137254897" green="0.81176470588235294" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
+                                <state key="normal" title="忘记密码 ？">
+                                    <color key="titleColor" red="0.086274509799999996" green="0.1333333333" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="forgetPwd:" destination="lwx-xz-TJC" eventType="touchUpInside" id="Hhz-5o-waQ"/>
+                                    <action selector="forgetPwd:" destination="lwx-xz-TJC" eventType="touchUpInside" id="sYV-Bo-jk1"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" id="oQb-qW-zCG">
-                                <rect key="frame" x="144" y="623" width="100" height="16"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zPf-Ob-ZEP">
+                                <rect key="frame" x="20" y="625" width="335" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="立即注册" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nXU-xX-HSJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="82" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_-register" id="jRv-eA-kqe">
-                                        <rect key="frame" x="84" y="0.0" width="16" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="16"/>
+                                <state key="normal" title="立即注册   ">
+                                    <color key="titleColor" red="0.086274509799999996" green="0.1333333333" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="baL-3q-AUN" appends="YES" id="rBG-Ah-0pG"/>
+                                    <action selector="toRegister:" destination="lwx-xz-TJC" eventType="touchUpInside" id="42A-wZ-0Lv"/>
                                 </connections>
-                            </view>
-                            <view contentMode="scaleToFill" id="J6j-1m-guj">
-                                <rect key="frame" x="43" y="505" width="80" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.30588235289999999" green="0.36078431370000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="a5Y-tu-D3l">
-                                <rect key="frame" x="253" y="505" width="80" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.30588235289999999" green="0.36078431370000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="NTY-fh-6UZ" customClass="EMIShadowImageView">
-                                <rect key="frame" x="133" y="98" width="110" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -157,14 +134,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="lfG-kg-UBZ"/>
                     <connections>
-                        <outlet property="forgetBtn" destination="A9M-Pb-7i9" id="ZwR-aE-weR"/>
-                        <outlet property="headImgView" destination="NTY-fh-6UZ" id="G6F-5u-5Hr"/>
-                        <outlet property="leftLineView" destination="J6j-1m-guj" id="thT-jc-HmN"/>
-                        <outlet property="loginBtn" destination="c02-sh-FYR" id="Tgz-pe-QIn"/>
-                        <outlet property="outTFView" destination="cv5-T5-4X8" id="PRJ-la-vJD"/>
-                        <outlet property="phoneTF" destination="RfZ-xB-0Fu" id="P2a-Xx-7F5"/>
-                        <outlet property="pwdTF" destination="mVe-S8-lHo" id="KWw-hb-0nU"/>
-                        <outlet property="rightLineView" destination="a5Y-tu-D3l" id="3Vz-eE-8zO"/>
+                        <outlet property="forgetBtn" destination="Kha-j1-sSy" id="Ry0-Fn-qCF"/>
+                        <outlet property="headImgView" destination="NTY-fh-6UZ" id="hhJ-BT-3nZ"/>
+                        <outlet property="loginBtn" destination="3Uz-TB-hbn" id="Wcg-2C-diL"/>
+                        <outlet property="phoneLab" destination="cpK-RN-gm2" id="Rje-Om-b4P"/>
+                        <outlet property="phoneLineView" destination="s4E-rY-eJU" id="J6k-Wr-LSk"/>
+                        <outlet property="phoneTF" destination="S3H-BV-L6d" id="MBi-KN-4l5"/>
+                        <outlet property="pwdLab" destination="ecb-wa-03K" id="E1j-dJ-aAw"/>
+                        <outlet property="pwdLineView" destination="G6Z-pf-FXi" id="dH0-wM-MrP"/>
+                        <outlet property="pwdTF" destination="0Qb-ao-iNs" id="llB-Yv-wMc"/>
                         <segue destination="u65-rD-WZ0" kind="push" identifier="toFgetPwdVC" id="4iQ-N2-ui4"/>
                         <segue destination="dNy-9w-QB9" kind="push" identifier="toRegVC" id="ckC-8E-w7t"/>
                         <segue destination="iV9-px-yGB" kind="push" identifier="tologinwelcome" id="dzJ-fT-o8F"/>
@@ -174,11 +152,6 @@
                 <tapGestureRecognizer id="ZIH-gJ-Jgb">
                     <connections>
                         <action selector="hideKeyBoard:" destination="lwx-xz-TJC" id="146-lC-hHf"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="baL-3q-AUN">
-                    <connections>
-                        <action selector="toRegister:" destination="lwx-xz-TJC" id="Pji-SK-wLw"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -605,7 +578,7 @@
                                 <rect key="frame" x="17" y="246" width="341" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.086274509799999996" green="0.1333333333" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -617,7 +590,7 @@
                     <connections>
                         <outlet property="backLab" destination="i0f-Jd-JE0" id="I09-a0-DvV"/>
                         <outlet property="headView" destination="NFc-OO-B5f" id="HJ4-8K-JvY"/>
-                        <segue destination="AjO-jR-RLc" kind="push" identifier="tologinsuccess" id="AYI-4O-Hez"/>
+                        <segue destination="AjO-jR-RLc" kind="push" identifier="tologinsuccess" animates="NO" id="AYI-4O-Hez"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIm-Ho-KoQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -644,7 +617,7 @@
                                         <rect key="frame" x="45" y="0.0" width="80" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <color key="textColor" red="0.58039215686274503" green="0.63529411764705879" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.086274509799999996" green="0.1333333333" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_success" id="5G6-S0-Kvn">
@@ -657,8 +630,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YJn-Es-y8K">
                                 <rect key="frame" x="10" y="471" width="355" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="21"/>
+                                <color key="textColor" red="0.086274509799999996" green="0.1333333333" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -680,7 +653,7 @@
     <resources>
         <image name="default_head" width="1024" height="1024"/>
         <image name="head_bg" width="320" height="79"/>
-        <image name="login_-register" width="16" height="16"/>
+        <image name="login_btn" width="523" height="108"/>
         <image name="login_btn_normal" width="343" height="45"/>
         <image name="login_imput_-password" width="20" height="23"/>
         <image name="login_input_tel" width="20" height="23"/>

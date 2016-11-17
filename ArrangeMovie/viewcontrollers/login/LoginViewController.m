@@ -28,15 +28,24 @@
     
     
     
+    
     [AppDelegate storyBoradAutoLay:self.view];
+    //字体
+    [AppDelegate storyBoardAutoLabelFont:self.view];
+    
     
     self.headImgView.frame = CGRectMake(self.headImgView.frame.origin.x, self.headImgView.frame.origin.y, self.headImgView.frame.size.height, self.headImgView.frame.size.height);
+    self.headImgView.layer.cornerRadius = self.headImgView.frame.size.height/2;
     
-    [self setHead];
+    //用一层view替换掉顶部状态栏的颜色
+    UIView *statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 20)];
+    statusView.backgroundColor = [UIColor colorWithHexString:@"#162271"];
+    [self.view addSubview:statusView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
     //键盘弹出收起的通知事件
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
@@ -58,67 +67,70 @@
 - (void)keyboardWillShow:(NSNotification *)notification {
 //    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
 //    CGFloat height = keyboardFrame.origin.y;
-    CGRect frame = self.view.frame;
-    frame.origin.y = -self.outTFView.frame.origin.y+64;
-    self.view.frame = frame;
+//    CGRect frame = self.view.frame;
+//    frame.origin.y = -239*autoSizeScaleY;
+//    self.view.frame = frame;
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
     //恢复到默认y为0的状态，有时候要考虑导航栏要+64
-    CGRect frame = self.view.frame;
-    frame.origin.y = 0;
-    self.view.frame = frame;
+//    CGRect frame = self.view.frame;
+//    frame.origin.y = 0;
+//    self.view.frame = frame;
 }
 
 //初始化视图
 - (void)initView{
     
     [self setHead];
-    //outTFView阴影,及圆角4px
-    [self.outTFView setShadowWithshadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.26 shadowRadius:10];
-    self.outTFView.layer.cornerRadius = 2;
-    
-    //登录按钮圆角
-//    self.loginBtn.layer.cornerRadius = 15;
-    [self.loginBtn setShadowWithshadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.26 shadowRadius:5];
-    
-    
-    //忘记密码居中
-    self.forgetBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
-    //忘记密码左右的渐变线
-    CAGradientLayer *gradientLayer1 = [CAGradientLayer layer];  // 设置渐变效果
-    gradientLayer1.bounds = self.leftLineView.bounds;
-    gradientLayer1.borderWidth = 0;
-    
-    gradientLayer1.frame = self.leftLineView.bounds;
-    gradientLayer1.colors = [NSArray arrayWithObjects:
-                             (id)[[UIColor colorWithHexString:@"#465485"] CGColor],
-                             (id)[[UIColor colorWithHexString:@"#4E5D8A"] CGColor],(id)[[UIColor colorWithHexString:@"#54628F"] CGColor], nil];
-    gradientLayer1.startPoint = CGPointMake(0, 0);
-    gradientLayer1.endPoint = CGPointMake(1, 0);
-    
-    [self.leftLineView.layer addSublayer:gradientLayer1];
-    
-    CAGradientLayer *gradientLayer2 = [CAGradientLayer layer];  // 设置渐变效果
-    gradientLayer2.bounds = self.rightLineView.bounds;
-    gradientLayer2.borderWidth = 0;
-    
-    gradientLayer2.frame = self.rightLineView.bounds;
-    gradientLayer2.colors = [NSArray arrayWithObjects:
-                             (id)[[UIColor colorWithHexString:@"#3C4F87"] CGColor],
-                             (id)[[UIColor colorWithHexString:@"#42568A"] CGColor],(id)[[UIColor colorWithHexString:@"#516195"] CGColor], nil];
-    gradientLayer2.startPoint = CGPointMake(1, 0);
-    gradientLayer2.endPoint = CGPointMake(0, 0);
-    [self.rightLineView.layer addSublayer:gradientLayer2];
        
 }
 
 
 - (void)setHead{
     //加载头像
-    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.35 shadowRadius:8 image:@"miller" placeholder:@"miller"];
+    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:@"http://static.cnbetacdn.com/topics/6b6702c2167e5a2.jpg"]];// placeholderImage:[UIImage imageNamed:@"default_head"]
 }
+
+//选中部分字色的变化
+
+//开始输入手机号
+- (IBAction)touchPhoneTF:(UITextField *)sender {
+    self.phoneLab.textColor = [UIColor colorWithHexString:@"162271"];
+    self.phoneTF.textColor = [UIColor colorWithHexString:@"162271"];
+    self.phoneLineView.backgroundColor = [UIColor colorWithHexString:@"162271"];
+    //阴影
+    [self.phoneLineView setShadowWithshadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.9 shadowRadius:2];
+    
+    self.pwdLab.textColor = [UIColor colorWithHexString:@"a0a0a0"];
+    self.pwdTF.textColor = [UIColor colorWithHexString:@"a0a0a0"];
+    self.pwdLineView.backgroundColor = [UIColor colorWithHexString:@"a0a0a0"];
+    //阴影
+    [self.pwdLineView setShadowWithshadowColor:[UIColor clearColor] shadowOffset:CGSizeZero shadowOpacity:0 shadowRadius:0];
+}
+//开始输入密码
+- (IBAction)touchPwdTF:(UITextField *)sender {
+    self.pwdLab.textColor = [UIColor colorWithHexString:@"162271"];
+    self.pwdTF.textColor = [UIColor colorWithHexString:@"162271"];
+    self.pwdLineView.backgroundColor = [UIColor colorWithHexString:@"162271"];
+    //阴影
+    [self.pwdLineView setShadowWithshadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.9 shadowRadius:2];
+    
+    self.phoneLab.textColor = [UIColor colorWithHexString:@"a0a0a0"];
+    self.phoneTF.textColor = [UIColor colorWithHexString:@"a0a0a0"];
+    self.phoneLineView.backgroundColor = [UIColor colorWithHexString:@"a0a0a0"];
+    //阴影
+    [self.phoneLineView setShadowWithshadowColor:[UIColor clearColor] shadowOffset:CGSizeZero shadowOpacity:0 shadowRadius:0];
+}
+//检查手机号
+- (IBAction)checkTelPhone:(UITextField *)sender {
+    if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
+        self.loginBtn.enabled = YES;
+    }else{
+        self.loginBtn.enabled = NO;
+    }
+}
+
 
 //隐藏键盘
 - (IBAction)hideKeyBoard:(UITapGestureRecognizer *)sender {
@@ -129,27 +141,30 @@
         [self.pwdTF resignFirstResponder];
     }
     
+    
+    
+    self.phoneLab.textColor = [UIColor colorWithHexString:@"a0a0a0"];
+    self.phoneTF.textColor = [UIColor colorWithHexString:@"a0a0a0"];
+    self.phoneLineView.backgroundColor = [UIColor colorWithHexString:@"a0a0a0"];
+    //阴影
+    [self.phoneLineView setShadowWithshadowColor:[UIColor clearColor] shadowOffset:CGSizeZero shadowOpacity:0 shadowRadius:0];
+    
+    self.pwdLab.textColor = [UIColor colorWithHexString:@"a0a0a0"];
+    self.pwdTF.textColor = [UIColor colorWithHexString:@"a0a0a0"];
+    self.pwdLineView.backgroundColor = [UIColor colorWithHexString:@"a0a0a0"];
+    //阴影
+    [self.pwdLineView setShadowWithshadowColor:[UIColor clearColor] shadowOffset:CGSizeZero shadowOpacity:0 shadowRadius:0];
 }
-//监测手机号，当合法时，请求头像，登录按钮可点击
-- (IBAction)checkTelphoneNum:(UITextField *)sender {
-//    if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
-//        self.loginBtn.enabled = YES;
-//    }else{
-//        self.loginBtn.enabled = NO;
-//    }
-    
-    
-    
-}
+
 //登录首页
 - (IBAction)toHome:(UIButton *)sender {
-    if ([self.phoneTF.text isEqualToString:@"0"]) {
+    if ([self.phoneTF.text isEqualToString:@"15152439012"]) {
         //片方首页
         self.tempuserType = @"0";
         //进入登录欢迎页
         [self performSegueWithIdentifier:@"tologinwelcome" sender:self];
     }
-    if ([self.phoneTF.text isEqualToString:@"1"]) {
+    if ([self.phoneTF.text isEqualToString:@"15162763192"]) {
         //院线经理首页
         self.tempuserType = @"1";
         //进入登录欢迎页
@@ -164,9 +179,11 @@
     [self performSegueWithIdentifier:@"toFgetPwdVC" sender:self];
 }
 //立即注册
-- (IBAction)toRegister:(UITapGestureRecognizer *)sender {
+- (IBAction)toRegister:(UIButton *)sender {
+
     [self performSegueWithIdentifier:@"toRegVC" sender:self];
 }
+
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
