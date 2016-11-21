@@ -4,6 +4,14 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="DroidSansFallback.ttf">
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -46,7 +54,7 @@
                         <constraint firstAttribute="height" constant="14" id="MPJ-iw-uUV"/>
                         <constraint firstAttribute="width" constant="42" id="Rqb-q4-Ief"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="16"/>
                     <color key="textColor" red="0.08235294118" green="0.08235294118" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -56,7 +64,7 @@
                         <constraint firstAttribute="height" constant="9" id="6xA-y8-g6Y"/>
                         <constraint firstAttribute="width" constant="42" id="IFp-lK-twN"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="11"/>
                     <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -72,7 +80,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="5Gu-RU-ACi"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="16"/>
                     <color key="textColor" red="0.08235294118" green="0.08235294118" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -82,7 +90,7 @@
                         <constraint firstAttribute="width" constant="68" id="LHI-zH-yy3"/>
                         <constraint firstAttribute="height" constant="12" id="O74-K7-8hM"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                    <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
                     <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

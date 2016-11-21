@@ -110,7 +110,7 @@
     // 设置普通状态的文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
-    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+    textAttrs[NSFontAttributeName] = [UIFont fontWithName:@"Droid Sans Fallback" size:13];
 //    textAttrs[NSShadowAttributeName] = [NSValue valueWithUIOffset:UIOffsetZero];
     [appearance setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     

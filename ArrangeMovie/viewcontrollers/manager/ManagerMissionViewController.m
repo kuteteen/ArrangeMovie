@@ -48,9 +48,9 @@
     
     segmentControl = [[LFLUISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, Width, 50)];
     segmentControl.delegate = self;
-    segmentControl.titleFont = [UIFont fontWithName:@"DroidSansFallback" size:16.f];
+    segmentControl.titleFont = [UIFont fontWithName:@"Droid Sans Fallback" size:16.f];
     segmentControl.titleColor = [UIColor colorWithHexString:@"162271"];
-    segmentControl.selectFont = [UIFont fontWithName:@"DroidSansFallback" size:16.f];
+    segmentControl.selectFont = [UIFont fontWithName:@"Droid Sans Fallback" size:16.f];
     segmentControl.selectColor = [UIColor colorWithHexString:@"162271"];
     segmentControl.backgroundColor = [UIColor whiteColor];
     segmentControl.lineColor = [UIColor colorWithHexString:@"162271"];
@@ -165,7 +165,7 @@
     label.text = @"确认是否删除这个任务?";
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor colorWithHexString:@"15151b"];
-    label.font = [UIFont systemFontOfSize:17.f];
+    label.font = [UIFont fontWithName:@"Droid Sans Fallback" size:17.f];
     [amalertview.contentView addSubview:label];
     
     UIButton *sureBtn = [[UIButton alloc] initWithFrame:CGRectMake(15, 76, amalertview.frame.size.width-30, 40)];

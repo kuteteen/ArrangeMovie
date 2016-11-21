@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="DroidSansFallback.TTF">
+        <mutableArray key="DroidSansFallback.ttf">
             <string>DroidSansFallback</string>
         </mutableArray>
     </customFonts>

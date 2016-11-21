@@ -37,8 +37,8 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ManagerNewMissionTableViewCell" owner:nil options:nil] firstObject];
     }
     if(screenWidth<375) {
-        cell.directorLabel.font = [UIFont fontWithName:@"DroidSansFallback" size:12];
-        cell.taskTimeLabel.font = [UIFont fontWithName:@"DroidSansFallback" size:12];
+        cell.directorLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:12];
+        cell.taskTimeLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:12];
     }
     return cell;
 }

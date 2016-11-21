@@ -48,20 +48,14 @@
 
 
 -(void) initButton {
-    [self setBackgroundImage:[UIImage imageWithColor:[UIColor clearColor]] forState:UIControlStateNormal];
-    [self setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"557cce" alpha:1]] forState:UIControlStateHighlighted];
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"cacbcf"]] forState:UIControlStateNormal];
+    [self setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString:@"162271" alpha:1]] forState:UIControlStateHighlighted];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [self setTitleColor:[UIColor colorWithHexString:@"15151b"] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     // 高亮的时候不需要调整内部的图片为灰色
     self.adjustsImageWhenHighlighted = NO;
     [self.layer setMasksToBounds:YES];//设置按钮的圆角半径不会被遮挡
-    [self.layer setCornerRadius:4];
-    [self.layer setBorderWidth:0.5];//设置边界的宽度
-    
-    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-    
-    CGColorRef color = CGColorCreate(colorSpaceRef, (CGFloat[]){187/256,187/256,189/256,0.5});
-    self.layer.borderColor = color;
+    [self.layer setCornerRadius:14];
 }
 
 

@@ -158,7 +158,7 @@
             //下方圆角
             UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, pageView.frame.size.height-62, pageView.frame.size.width, 62)];
             label.textColor = [UIColor colorWithHexString:@"15151b" alpha:1];
-            label.font = [UIFont systemFontOfSize:18.f];
+            label.font = [UIFont fontWithName:@"Droid Sans Fallback" size:18.f];
             label.text = @"2016/09/21排片情况";
             label.backgroundColor = [UIColor whiteColor];
             label.textAlignment = NSTextAlignmentCenter;

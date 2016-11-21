@@ -4,6 +4,12 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="DroidSansFallback.ttf">
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -29,7 +35,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="jdk-Bb-Ne3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="15"/>
                                 <color key="textColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -46,7 +52,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="iJd-TN-bLf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="24"/>
                                 <color key="textColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

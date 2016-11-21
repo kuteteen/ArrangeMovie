@@ -146,7 +146,7 @@
             UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake(pageView.frame.size.width-36, 10, 26, 30)];
             delBtn.tag = index;
             [delBtn addTarget:self action:@selector(delPhoto:) forControlEvents:UIControlEventTouchUpInside];
-            [delBtn setBackgroundImage:[UIImage imageNamed:@"del_normal"] forState:UIControlStateNormal];
+            [delBtn setBackgroundImage:[UIImage imageNamed:@"photo_del"] forState:UIControlStateNormal];
 
 
             //todo

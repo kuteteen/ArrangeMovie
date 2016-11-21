@@ -99,7 +99,7 @@
     
     ///添加排片详情Label
     UILabel *detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, requireView.frame.origin.y+requireView.frame.size.height+17, 76, 18)];
-    detailLabel.font = [UIFont boldSystemFontOfSize:18.f];
+    detailLabel.font = [UIFont fontWithName:@"Droid Sans" size:18.f];
     detailLabel.textColor = [UIColor colorWithHexString:@"404043"];
     detailLabel.text = @"排片详情";
     [scrollView addSubview:detailLabel];

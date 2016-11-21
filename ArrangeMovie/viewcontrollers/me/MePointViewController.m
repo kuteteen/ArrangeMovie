@@ -28,7 +28,7 @@
     
     CKAlertViewController *withdrawVC;//提现VC
     CKAlertViewController *chargeVC;//充值VC
-    
+    CKAlertViewController *getbackVC;//提现说明VC
 }
 
 @property (nonatomic, strong) NSArray *dataArray;
@@ -138,6 +138,7 @@
     self.topView.image = [UIImage imageNamed:@"pfhome_topbg"];
     self.topView.contentMode = UIViewContentModeScaleAspectFill;
     self.topView.clipsToBounds = YES;
+    self.topView.userInteractionEnabled = YES;
     
     //头像
     self.headImgView = [[UIImageView alloc] initWithFrame:CGRectMake((screenWidth-118*autoSizeScaleY)/2,64+15*autoSizeScaleY,118*autoSizeScaleY,118*autoSizeScaleY)];
@@ -148,10 +149,10 @@
     [self setHead];
     [self.topView addSubview:self.headImgView];
     
-    //姓名
+    //
     self.pointlabel = [[UILabel alloc] initWithFrame:CGRectMake(15*autoSizeScaleX, 64+(15+118+20)*autoSizeScaleY, 345*autoSizeScaleY, 14*autoSizeScaleY)];
     self.pointlabel.textAlignment = NSTextAlignmentCenter;
-    self.pointlabel.font = [UIFont fontWithName:@"DroidSansFallback" size:16.0*autoSizeScaleY];
+    self.pointlabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15.0*autoSizeScaleY];
     self.pointlabel.text = @"可用积分：200";
     self.pointlabel.textColor = [UIColor colorWithHexString:@"162271"];
 //    self.pointlabel.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
@@ -159,12 +160,26 @@
     
     self.chargeBtn = [[UIButton alloc] initWithFrame:CGRectMake(32*autoSizeScaleX, 64+(15+118+20+14+25)*autoSizeScaleY, 310*autoSizeScaleX/2, 60*autoSizeScaleY)];
     [self.chargeBtn setBackgroundImage:[UIImage imageNamed:@"integral_btn_left"] forState:UIControlStateNormal];
-    [self.chargeBtn setTitle:@"积分充值" forState:UIControlStateNormal];
+//    self.user.usertype = 0;
+//    if(self.user.usertype==0){
+        [self.chargeBtn setTitle:@"积分充值" forState:UIControlStateNormal];
+        [self.chargeBtn addTarget:self action:@selector(toCharge:) forControlEvents:UIControlEventTouchUpInside];
+//    }else{
+//        [self.chargeBtn setTitle:@"积分提现" forState:UIControlStateNormal];
+//        [self.chargeBtn addTarget:self action:@selector(toWithdraw:) forControlEvents:UIControlEventTouchUpInside];
+//    }
     [self.topView addSubview:self.chargeBtn];
     
     self.getBackbtn = [[UIButton alloc] initWithFrame:CGRectMake(32*autoSizeScaleX+310*autoSizeScaleX/2+1, 64+(15+118+20+14+25)*autoSizeScaleY, 310*autoSizeScaleX/2, 60*autoSizeScaleY)];
     [self.getBackbtn setBackgroundImage:[UIImage imageNamed:@"integral_btn_right"] forState:UIControlStateNormal];
-    [self.getBackbtn setTitle:@"积分提现" forState:UIControlStateNormal];
+    
+//    if(self.user.usertype==0){
+        [self.getBackbtn setTitle:@"积分提现" forState:UIControlStateNormal];
+        [self.getBackbtn addTarget:self action:@selector(toWithdraw:) forControlEvents:UIControlEventTouchUpInside];
+//    }else{
+//        [self.getBackbtn setTitle:@"提现说明" forState:UIControlStateNormal];
+//        [self.getBackbtn addTarget:self action:@selector(withdraw:) forControlEvents:UIControlEventTouchUpInside];
+//    }
     [self.topView addSubview:self.getBackbtn];
     
     
@@ -210,7 +225,7 @@
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 32, 80, 10)];
     titleLabel.textColor = [UIColor colorWithHexString:@"404043"];
-    [titleLabel setFont:[UIFont boldSystemFontOfSize:18.f]];
+    [titleLabel setFont:[UIFont fontWithName:@"Droid Sans" size:18.f]];
     titleLabel.text = @"积分明细";
     [view addSubview:titleLabel];
     
@@ -261,59 +276,68 @@
     [self presentViewController:filterVC animated:NO completion:nil];
 }
 
+
+//充值
 -(void)toCharge:(id)sender {
     if(!chargeVC){
         AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(45*autoSizeScaleX, (Height-247)/2, Width-90*autoSizeScaleX, 247*autoSizeScaleY)];
         [amalertview setTitle:@"积分充值"];
         
         UIView *childView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Width-90*autoSizeScaleX, (247-46)*autoSizeScaleY)];
-        UITextField *textFild = [[UITextField alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, 20*autoSizeScaleY, Width-90*autoSizeScaleX-24, 40*autoSizeScaleY)];
-        textFild.delegate = self;
-        textFild.keyboardType = UIKeyboardTypeNumberPad;
-        textFild.placeholder = @"请填写充值金额(￥)";
-        [textFild setValue:[UIColor colorWithHexString:@"15151b"] forKeyPath:@"_placeholderLabel.textColor"];
-        [textFild setValue:[UIFont systemFontOfSize:17*autoSizeScaleX] forKeyPath:@"_placeholderLabel.font"];
-        textFild.font = [UIFont systemFontOfSize:17*autoSizeScaleX];
-        textFild.layer.cornerRadius = 4*autoSizeScaleY;
-        textFild.layer.masksToBounds = YES;
-        textFild.layer.borderColor = [[UIColor colorWithHexString:@"bbbbbd"] CGColor];
-        textFild.layer.borderWidth = 0.5*autoSizeScaleY;
-        [childView addSubview:textFild];
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, 20*autoSizeScaleY, Width-90*autoSizeScaleX-24, 40*autoSizeScaleY)];
+        textField.delegate = self;
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+        textField.placeholder = @"请填写充值金额(￥)";
+        [textField setValue:[UIColor colorWithHexString:@"15151b"] forKeyPath:@"_placeholderLabel.textColor"];
+        [textField setValue:[UIFont fontWithName:@"Droid Sans Fallback" size:17*autoSizeScaleX] forKeyPath:@"_placeholderLabel.font"];
+        textField.font = [UIFont fontWithName:@"Droid Sans Fallback" size:17*autoSizeScaleX];
+        textField.layer.cornerRadius = 4*autoSizeScaleY;
+        textField.layer.masksToBounds = YES;
+        textField.layer.borderColor = [[UIColor colorWithHexString:@"bbbbbd"] CGColor];
+        textField.layer.borderWidth = 0.5*autoSizeScaleY;
+        [childView addSubview:textField];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleX, 15*autoSizeScaleY)];
         label.text = @"付款方式";
         label.textColor = [UIColor colorWithHexString:@"45454a"];
-        label.font = [UIFont systemFontOfSize:15*autoSizeScaleX];
+        label.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleX];
         [childView addSubview:label];
         
         //支付宝
-        BEMCheckBox *aliPay = [[BEMCheckBox alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+60+20, (20+40+28)*autoSizeScaleY, 15, 15)];
+        BEMCheckBox *aliPay = [[BEMCheckBox alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+60+20, (20+40+28+3)*autoSizeScaleY, 10, 10)];
+        aliPay.onFillColor = [UIColor colorWithHexString:@"162271"];
+        aliPay.onCheckColor = [UIColor colorWithHexString:@"162271"];
+        aliPay.onTintColor = [UIColor colorWithHexString:@"162271"];
         aliPay.on = YES;
         [childView addSubview:aliPay];
         
         UILabel *aliLabel = [[UILabel alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+60+20+15+4, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleY, 15)];
         aliLabel.text = @"支付宝";
         aliLabel.textColor = [UIColor colorWithHexString:@"15151b"];
-        aliLabel.font = [UIFont systemFontOfSize:17.f*autoSizeScaleY];
+        aliLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:17.f*autoSizeScaleY];
         [childView addSubview:aliLabel];
         
         //微信
-        BEMCheckBox *wxPay = [[BEMCheckBox alloc] initWithFrame:CGRectMake(aliLabel.frame.origin.x+60*autoSizeScaleY+8, (20+40+28)*autoSizeScaleY, 15, 15)];
+        BEMCheckBox *wxPay = [[BEMCheckBox alloc] initWithFrame:CGRectMake(aliLabel.frame.origin.x+60*autoSizeScaleY+8, (20+40+28+3)*autoSizeScaleY, 10, 10)];
+        wxPay.onFillColor = [UIColor colorWithHexString:@"162271"];
+        wxPay.onCheckColor = [UIColor colorWithHexString:@"162271"];
+        wxPay.onTintColor = [UIColor colorWithHexString:@"162271"];
         wxPay.on = NO;
         [childView addSubview:wxPay];
         
         UILabel *wxLabel = [[UILabel alloc] initWithFrame:CGRectMake(wxPay.frame.origin.x+15+4, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleY, 15)];
         wxLabel.text = @"微信";
         wxLabel.textColor = [UIColor colorWithHexString:@"15151b"];
-        wxLabel.font = [UIFont systemFontOfSize:17.f*autoSizeScaleY];
+        wxLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:17.f*autoSizeScaleY];
         [childView addSubview:wxLabel];
         
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, (247-46)*autoSizeScaleY-(27+40)*autoSizeScaleY, Width-90*autoSizeScaleX-24, 40*autoSizeScaleY)];
-        [btn setBackgroundColor:[UIColor colorWithHexString:@"557cce"]];
-        [btn setTitle:@"确认充值" forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        btn.layer.masksToBounds = YES;
-        btn.layer.cornerRadius = 4;
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, (247-46)*autoSizeScaleY-(27+40)*autoSizeScaleY, Width-90*autoSizeScaleX-24, 48*autoSizeScaleY)];
+//        [btn setBackgroundColor:[UIColor colorWithHexString:@"557cce"]];
+//        [btn setTitle:@"确认充值" forState:UIControlStateNormal];
+//        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//        btn.layer.masksToBounds = YES;
+//        btn.layer.cornerRadius = 4;
+        [btn setBackgroundImage:[UIImage imageNamed:@"alert_chongzhi"] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(closeChargeVC:) forControlEvents:UIControlEventTouchUpInside];
         [childView addSubview:btn];
         
@@ -323,13 +347,83 @@
     [self presentViewController:chargeVC animated:NO completion:nil];
 }
 
+
 -(void)closeChargeVC:(id)sender {
     if(chargeVC){
         [chargeVC dismissViewControllerAnimated:NO completion:nil];
     }
 }
-
+//提现
 -(void)toWithdraw:(id)sender {
+    if(!withdrawVC){
+        AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(45*autoSizeScaleX, (Height-306)/2, Width-90*autoSizeScaleX, 306*autoSizeScaleY)];
+        [amalertview setTitle:@"积分提现"];
+        
+        UIView *childView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Width-90*autoSizeScaleX, (306-46)*autoSizeScaleY)];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, 23*autoSizeScaleY, 60, 15*autoSizeScaleX)];
+        label.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleX];
+        label.textColor = [UIColor colorWithHexString:@"45454a"];
+        label.text = @"银行卡";
+        [childView addSubview:label];
+        
+        //选中
+        BEMCheckBox *aliPay = [[BEMCheckBox alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, (23+21+14+3)*autoSizeScaleY, 10, 10)];
+        aliPay.onFillColor = [UIColor colorWithHexString:@"162271"];
+        aliPay.onCheckColor = [UIColor colorWithHexString:@"162271"];
+        aliPay.onTintColor = [UIColor colorWithHexString:@"162271"];
+        aliPay.on = YES;
+        [childView addSubview:aliPay];
+        
+        UILabel *cardLabel = [[UILabel alloc] initWithFrame:CGRectMake((12+15+12)*autoSizeScaleX, (23+21+14)*autoSizeScaleY, Width-90*autoSizeScaleX-15-(12+12)*autoSizeScaleX, 15*autoSizeScaleY)];
+        cardLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:17*autoSizeScaleX];
+        cardLabel.textColor = [UIColor colorWithHexString:@"15151b"];
+        cardLabel.text = @"中国银行储蓄卡（789）";
+        [childView addSubview:cardLabel];
+        
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10*autoSizeScaleX, (23+21+14+15+28)*autoSizeScaleY, Width-(90+20)*autoSizeScaleX, 40*autoSizeScaleY)];
+        textField.delegate = self;
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+        textField.placeholder = @"请填写提现积分";
+        [textField setValue:[UIColor colorWithHexString:@"15151b"] forKeyPath:@"_placeholderLabel.textColor"];
+        [textField setValue:[UIFont fontWithName:@"Droid Sans Fallback" size:17*autoSizeScaleX] forKeyPath:@"_placeholderLabel.font"];
+        textField.font = [UIFont fontWithName:@"Droid Sans Fallback" size:17*autoSizeScaleX];
+        textField.layer.cornerRadius = 4*autoSizeScaleY;
+        textField.layer.masksToBounds = YES;
+        textField.layer.borderColor = [[UIColor colorWithHexString:@"bbbbbd"] CGColor];
+        textField.layer.borderWidth = 0.5*autoSizeScaleY;
+        [childView addSubview:textField];
+        
+        UILabel *sumLabel = [[UILabel alloc] initWithFrame:CGRectMake(12*autoSizeScaleX, (23+21+14+15+28+13+40)*autoSizeScaleY, (Width-(90+24)*autoSizeScaleX)/2, 15*autoSizeScaleX)];
+        sumLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleX];
+        sumLabel.textColor = [UIColor colorWithHexString:@"45454a"];
+        sumLabel.text = @"提现金额：";
+        [childView addSubview:sumLabel];
+        
+        UILabel *feeLabel = [[UILabel alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+(Width-(90+24)*autoSizeScaleX)/2, (23+21+14+15+28+13+40)*autoSizeScaleY, (Width-(90+24)*autoSizeScaleX)/2, 15*autoSizeScaleX)];
+        feeLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleX];
+        feeLabel.textColor = [UIColor colorWithHexString:@"45454a"];
+        feeLabel.text = @"手续费：";
+        [childView addSubview:feeLabel];
+        
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(21*autoSizeScaleX, (23+21+14+15+28+13+40+15+30)*autoSizeScaleY, Width-(90+42)*autoSizeScaleX, 48*autoSizeScaleY)];
+        [btn setBackgroundImage:[UIImage imageNamed:@"alert_tixian"] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(closeWithdraw:) forControlEvents:UIControlEventTouchUpInside];
+        [childView addSubview:btn];
+        
+        
+        [amalertview setChildView:childView];
+        withdrawVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
+    }
+    
+    [self presentViewController:withdrawVC animated:NO completion:nil];
+}
+-(void)closeWithdraw:(id)sender {
+    [withdrawVC dismissViewControllerAnimated:NO completion:nil];
+}
+
+//提现说明
+-(void)withdraw:(id)sender {
     
 }
 

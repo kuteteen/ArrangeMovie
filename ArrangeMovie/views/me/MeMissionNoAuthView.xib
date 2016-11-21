@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="DroidSansFallback.ttf">
+            <string>DroidSansFallback</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -17,7 +22,7 @@
                         <constraint firstAttribute="height" constant="15" id="IGm-JU-d0j"/>
                         <constraint firstAttribute="width" constant="128" id="ch1-kw-Bzb"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                    <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
                     <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -41,6 +46,6 @@
         </view>
     </objects>
     <resources>
-        <image name="row_piece_move" width="120" height="100"/>
+        <image name="row_piece_move" width="120" height="99"/>
     </resources>
 </document>

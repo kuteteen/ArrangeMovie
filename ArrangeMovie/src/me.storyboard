@@ -9,13 +9,22 @@
         <mutableArray key="DroidSansFallback.ttf">
             <string>DroidSansFallback</string>
             <string>DroidSansFallback</string>
-            <string>DroidSansFallback</string>
-            <string>DroidSansFallback</string>
-            <string>DroidSansFallback</string>
-            <string>DroidSansFallback</string>
-            <string>DroidSansFallback</string>
-            <string>DroidSansFallback</string>
-            <string>DroidSansFallback</string>
+        </mutableArray>
+        <mutableArray key="DroidSans_Bold.ttf">
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -131,7 +140,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="Y7W-9R-Bw5"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="14"/>
                                         <color key="textColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -178,7 +187,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="XKX-WD-tkh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
                                             <outlet property="delegate" destination="0P6-Ms-0eb" id="17u-jM-kvN"/>
@@ -220,7 +229,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="NhG-NJ-Kmp"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
                                             <outlet property="delegate" destination="0P6-Ms-0eb" id="0zM-6t-5YG"/>
@@ -262,7 +271,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="NIO-xW-mCm"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go"/>
                                         <connections>
                                             <outlet property="delegate" destination="0P6-Ms-0eb" id="dhi-i4-qSk"/>
@@ -283,12 +292,12 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uX-Xt-tYd">
-                                <rect key="frame" x="15" y="381" width="345" height="45"/>
+                                <rect key="frame" x="15" y="381" width="345" height="54"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Its-nK-0WB"/>
+                                    <constraint firstAttribute="height" constant="54" id="Its-nK-0WB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="确认修改" backgroundImage="login_btn_normal"/>
+                                <state key="normal" backgroundImage="forget_btn"/>
                                 <connections>
                                     <action selector="savePwd:" destination="0P6-Ms-0eb" eventType="touchUpInside" id="Fz8-11-OF4"/>
                                 </connections>
@@ -316,9 +325,9 @@
                     <navigationItem key="navigationItem" id="ICj-WV-Cao"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="new2PwdTextField" destination="nxc-yd-wiB" id="Jpm-Lg-beO"/>
-                        <outlet property="newPwdTextField" destination="R0n-yb-TxK" id="gjF-2n-V6J"/>
                         <outlet property="oldPwdTextField" destination="oIu-qf-pWb" id="5d8-I2-b6z"/>
+                        <outlet property="pwdNew2TextField" destination="nxc-yd-wiB" id="Azt-z5-E7n"/>
+                        <outlet property="pwdNewTextField" destination="R0n-yb-TxK" id="bNA-l2-98R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qIK-hf-4YA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -597,7 +606,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="2Kk-LT-icB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -630,7 +639,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="hN3-ry-8fE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -664,7 +673,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="r3t-OD-FJn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -813,7 +822,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="xbL-Ns-ijC"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="15"/>
                                                         <color key="textColor" red="0.58039215690000001" green="0.57647058819999997" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -823,7 +832,7 @@
                                                             <constraint firstAttribute="height" constant="22" id="Wp3-lM-Nic"/>
                                                         </constraints>
                                                         <color key="textColor" red="0.08235294118" green="0.08235294118" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     </textField>
                                                 </subviews>
@@ -852,7 +861,7 @@
                                                             <constraint firstAttribute="height" constant="22" id="DrB-wM-Qma"/>
                                                             <constraint firstAttribute="width" constant="72" id="yrG-mG-BNg"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="15"/>
                                                         <color key="textColor" red="0.58039215690000001" green="0.57647058819999997" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -979,13 +988,13 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="uEx-hv-120"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="15"/>
                                                         <color key="textColor" red="0.58039215690000001" green="0.57647058819999997" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="18252495961" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rg5-dU-I1P">
-                                                        <rect key="frame" x="230" y="24" width="108" height="21"/>
-                                                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18252495961" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rg5-dU-I1P">
+                                                        <rect key="frame" x="235" y="24.5" width="103" height="20"/>
+                                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="17"/>
                                                         <color key="textColor" red="0.08235294118" green="0.08235294118" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -1001,10 +1010,10 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gs-eA-5ai">
-                                                <rect key="frame" x="14" y="320" width="347" height="50"/>
+                                                <rect key="frame" x="15" y="320" width="345" height="54"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="yrS-FF-Ac9"/>
+                                                    <constraint firstAttribute="height" constant="54" id="yrS-FF-Ac9"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" backgroundImage="my_data _preserve_btn"/>
@@ -1017,7 +1026,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="GXj-ga-1HZ"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="15"/>
                                                         <color key="textColor" red="0.58039215686274503" green="0.57647058823529407" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -1027,7 +1036,7 @@
                                                             <constraint firstAttribute="height" constant="22" id="3KM-7S-fpT"/>
                                                         </constraints>
                                                         <color key="textColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                     </textField>
                                                 </subviews>
@@ -1051,10 +1060,11 @@
                                             <constraint firstItem="MG7-Rj-DOs" firstAttribute="top" secondItem="KDy-em-Q4r" secondAttribute="bottom" id="Ikg-F8-L27"/>
                                             <constraint firstItem="o0C-xL-Q2S" firstAttribute="top" secondItem="ZuY-sS-JLa" secondAttribute="top" id="IuU-VU-itb"/>
                                             <constraint firstItem="MG7-Rj-DOs" firstAttribute="centerX" secondItem="ZuY-sS-JLa" secondAttribute="centerX" id="LVN-G8-B1J"/>
-                                            <constraint firstItem="4gs-eA-5ai" firstAttribute="leading" secondItem="ZuY-sS-JLa" secondAttribute="leading" constant="14" id="MOd-IE-1w9"/>
+                                            <constraint firstItem="4gs-eA-5ai" firstAttribute="leading" secondItem="ZuY-sS-JLa" secondAttribute="leading" constant="15" id="MOd-IE-1w9"/>
                                             <constraint firstItem="4gs-eA-5ai" firstAttribute="top" secondItem="MG7-Rj-DOs" secondAttribute="bottom" constant="48" id="Mcj-GN-r92"/>
                                             <constraint firstItem="KDy-em-Q4r" firstAttribute="leading" secondItem="ZuY-sS-JLa" secondAttribute="leading" constant="14" id="Q5l-66-qz4"/>
                                             <constraint firstItem="iPK-I3-hDm" firstAttribute="top" secondItem="o0C-xL-Q2S" secondAttribute="bottom" id="RgX-W1-10j"/>
+                                            <constraint firstAttribute="trailing" secondItem="4gs-eA-5ai" secondAttribute="trailing" constant="15" id="a9i-tG-kIh"/>
                                             <constraint firstItem="KDy-em-Q4r" firstAttribute="centerX" secondItem="ZuY-sS-JLa" secondAttribute="centerX" id="g2m-tl-SmV"/>
                                             <constraint firstItem="iPK-I3-hDm" firstAttribute="leading" secondItem="ZuY-sS-JLa" secondAttribute="leading" constant="14" id="ipl-9C-fcZ"/>
                                             <constraint firstItem="4gs-eA-5ai" firstAttribute="centerX" secondItem="ZuY-sS-JLa" secondAttribute="centerX" id="pM1-1n-d39"/>
@@ -1116,9 +1126,9 @@
     <resources>
         <image name="Icon---Username" width="23" height="23"/>
         <image name="bank_save" width="351" height="54"/>
+        <image name="forget_btn" width="702" height="109"/>
         <image name="icon_bank" width="22" height="22"/>
         <image name="icon_kahao" width="23" height="23"/>
-        <image name="login_btn_normal" width="343" height="45"/>
         <image name="modify_password" width="23" height="23"/>
         <image name="modify_password_phone" width="23" height="23"/>
         <image name="my_data _preserve_btn" width="351" height="54"/>

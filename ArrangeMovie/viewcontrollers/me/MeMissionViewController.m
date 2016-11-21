@@ -51,8 +51,8 @@
     
     segmentControl = [[LFLUISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, Width, 50)];
     segmentControl.delegate = self;
-    segmentControl.titleFont = [UIFont fontWithName:@"DroidSansFallback" size:16.f];
-    segmentControl.selectFont = [UIFont fontWithName:@"DroidSansFallback" size:16.f];
+    segmentControl.titleFont = [UIFont fontWithName:@"Droid Sans Fallback" size:16.f];
+    segmentControl.selectFont = [UIFont fontWithName:@"Droid Sans Fallback" size:16.f];
     segmentControl.titleColor = [UIColor colorWithHexString:@"162271"];
     segmentControl.selectColor = [UIColor colorWithHexString:@"162271"];
     segmentControl.backgroundColor = [UIColor whiteColor];

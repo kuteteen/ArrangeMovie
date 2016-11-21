@@ -32,11 +32,11 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"MeMissionTableViewCell" owner:nil options:nil] firstObject];
     }
     if(screenWidth<375) {
-        cell.directorLabel.font = [UIFont systemFontOfSize:12];
-        cell.taskdateLabel.font = [UIFont systemFontOfSize:12];
+        cell.directorLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:12];
+        cell.taskdateLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:12];
     }else{
-        cell.directorLabel.font = [UIFont systemFontOfSize:13*autoSizeScaleX];
-        cell.taskdateLabel.font = [UIFont systemFontOfSize:13*autoSizeScaleX];
+        cell.directorLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:13*autoSizeScaleX];
+        cell.taskdateLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:13*autoSizeScaleX];
     }
     
     return cell;

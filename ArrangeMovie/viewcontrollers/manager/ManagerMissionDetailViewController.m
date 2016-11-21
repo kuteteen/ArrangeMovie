@@ -100,7 +100,7 @@
         view.backgroundColor = [UIColor whiteColor];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 17, Width-30, 18)];
         label.textColor = [UIColor colorWithHexString:@"404043"];
-        label.font = [UIFont boldSystemFontOfSize:18.f];
+        label.font = [UIFont fontWithName:@"Droid Sans" size:18.f];
         if(section==1){
             label.text = @"主要演员";
         }else if(section==2){

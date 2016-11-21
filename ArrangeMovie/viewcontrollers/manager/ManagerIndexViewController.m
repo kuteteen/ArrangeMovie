@@ -17,6 +17,8 @@
 #import "EMINavigationController.h"
 #import "UIImageView+Webcache.h"
 #import "UILabel+StringFrame.h"
+#import "ManagerTaskWebInterface.h"
+#import "SCHttpOperation.h"
 
 @interface ManagerIndexViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate> {
     Task *selTask;
@@ -25,7 +27,7 @@
 @property (strong, nonatomic) UIImageView *topView;
 
 @property (strong, nonatomic) UIImageView *headImgView;
-@property (strong, nonatomic) UILabel *nameLabel;
+//@property (strong, nonatomic) UILabel *nameLabel;
 @property (strong, nonatomic) UILabel *cinemaLabel;
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic)  UILabel *nameLab;//姓名
@@ -68,7 +70,7 @@
     
     [self initViews];
     
-//    [self showUser];
+    [self showUser];
 }
 
 -(void)initViews {
@@ -99,7 +101,7 @@
     //姓名
     self.nameLab = [[UILabel alloc] initWithFrame:CGRectMake(11*autoSizeScaleX, 64+158*autoSizeScaleY, 118*autoSizeScaleY, 100)];
     self.nameLab.textAlignment = NSTextAlignmentCenter;
-    self.nameLab.font = [UIFont fontWithName:@"DroidSansFallback" size:16.0*autoSizeScaleY];
+    self.nameLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:16.0*autoSizeScaleY];
     self.nameLab.text = @"乔布斯";
     self.nameLab.frame = CGRectMake(11*autoSizeScaleX, 64+(238.5-64)*autoSizeScaleY-self.nameLab.font.capHeight-5, 118*autoSizeScaleY, self.nameLab.font.capHeight+3);
     self.nameLab.textColor = [UIColor colorWithHexString:@"162271"];
@@ -118,7 +120,26 @@
     [self.view addSubview:self.tableView];
     
     [self initLeadView];
+    
+    
+    [self fetchMission];
 }
+
+-(void)fetchMission {
+    ManagerTaskWebInterface *webInterface = [[ManagerTaskWebInterface alloc] init];
+    NSArray *array = @[self.user.userid,@0];
+    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:webInterface.url withparameter:[webInterface inboxObject:array] WithReturnValeuBlock:^(id returnValue) {
+        
+    } WithErrorCodeBlock:^(id errorCode) {
+        
+    } WithFailureBlock:^{
+        
+    }];
+    
+}
+
+
+
 //加载引导相关的视图，只在第一次进入这个应用时加载一次
 - (void)initLeadView{
     //首先，隐藏navigation
@@ -169,7 +190,7 @@
     //积分
     UILabel *pointTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(152*autoSizeScaleX, 64+22*autoSizeScaleY, 100, 100)];
     pointTitleLab.textAlignment = NSTextAlignmentLeft;
-    pointTitleLab.font = [UIFont fontWithName:@"DroidSansFallback" size:10.5*autoSizeScaleY];
+    pointTitleLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:10.5*autoSizeScaleY];
     pointTitleLab.text = @"我的积分";
     pointTitleLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize pointTitleLabSize = [pointTitleLab boundingRectWithSize:CGSizeZero];
@@ -179,7 +200,7 @@
     //积分第一位
     self.pointFirstLab = [[UILabel alloc] initWithFrame:CGRectMake(152*autoSizeScaleX, 0, 100, 100)];
     self.pointFirstLab.textAlignment = NSTextAlignmentLeft;
-    self.pointFirstLab.font = [UIFont fontWithName:@"DroidSansFallback" size:39*autoSizeScaleY];
+    self.pointFirstLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:39*autoSizeScaleY];
     self.pointFirstLab.text = @"2";
     //    self.pointFirstLab.backgroundColor = [UIColor redColor];
     self.pointFirstLab.textColor = [UIColor colorWithHexString:@"162271"];
@@ -190,7 +211,7 @@
     //积分后几位
     self.pointOtherLab = [[UILabel alloc] initWithFrame:CGRectMake(174*autoSizeScaleX, 0, 100, 100)];
     self.pointOtherLab.textAlignment = NSTextAlignmentLeft;
-    self.pointOtherLab.font = [UIFont fontWithName:@"DroidSansFallback" size:15*autoSizeScaleY];
+    self.pointOtherLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleY];
     self.pointOtherLab.text = @"300";
     //    self.pointOtherLab.backgroundColor = [UIColor yellowColor];
     self.pointOtherLab.textColor = [UIColor colorWithHexString:@"162271"];
@@ -202,7 +223,7 @@
     //单位
     UILabel *pointUnitLab = [[UILabel alloc] initWithFrame:CGRectMake(208*autoSizeScaleX, 0, 100, 100)];
     pointUnitLab.textAlignment = NSTextAlignmentLeft;
-    pointUnitLab.font = [UIFont fontWithName:@"DroidSansFallback" size:15*autoSizeScaleY];
+    pointUnitLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleY];
     pointUnitLab.text = @"分";
     pointUnitLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize pointUnitLabSize = [self.pointOtherLab boundingRectWithSize:CGSizeZero];
@@ -212,7 +233,7 @@
     //已领取
     UILabel *releaseTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(268*autoSizeScaleX, 64+22*autoSizeScaleY, 100, 100)];
     releaseTitleLab.textAlignment = NSTextAlignmentLeft;
-    releaseTitleLab.font = [UIFont fontWithName:@"DroidSansFallback" size:10.5*autoSizeScaleY];
+    releaseTitleLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:10.5*autoSizeScaleY];
     releaseTitleLab.text = @"已领取";
     releaseTitleLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize releaseTitleLabSize = [releaseTitleLab boundingRectWithSize:CGSizeZero];
@@ -222,7 +243,7 @@
     //已领取个数 首字母
     self.releaseCountLab = [[UILabel alloc] initWithFrame:CGRectMake(268*autoSizeScaleX, 0, 100, 100)];
     self.releaseCountLab.textAlignment = NSTextAlignmentLeft;
-    self.releaseCountLab.font = [UIFont fontWithName:@"DroidSansFallback" size:39*autoSizeScaleY];
+    self.releaseCountLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:39*autoSizeScaleY];
     self.releaseCountLab.text = @"2";
     self.releaseCountLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize releaseCountLabSize = [self.releaseCountLab boundingRectWithSize:CGSizeZero];
@@ -232,7 +253,7 @@
     //已领取个数其他字母 + / + 已领取总个数
     self.releaseAllCountLab = [[UILabel alloc] initWithFrame:CGRectMake(292*autoSizeScaleX, 0, 100, 100)];
     self.releaseAllCountLab.textAlignment = NSTextAlignmentLeft;
-    self.releaseAllCountLab.font = [UIFont fontWithName:@"DroidSansFallback" size:15*autoSizeScaleY];
+    self.releaseAllCountLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleY];
     self.releaseAllCountLab.text = @""" / 10 个";
     self.releaseAllCountLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize releaseAllCountLabSize = [self.releaseAllCountLab boundingRectWithSize:CGSizeZero];
@@ -242,7 +263,7 @@
     //待审核
     UILabel *shTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(152*autoSizeScaleX, 64+108*autoSizeScaleY, 100, 100)];
     shTitleLab.textAlignment = NSTextAlignmentLeft;
-    shTitleLab.font = [UIFont fontWithName:@"DroidSansFallback" size:10.5*autoSizeScaleY];
+    shTitleLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:10.5*autoSizeScaleY];
     shTitleLab.text = @"待审核";
     shTitleLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize shTitleLabSize = [shTitleLab boundingRectWithSize:CGSizeZero];
@@ -252,7 +273,7 @@
     //待审核 首字母
     self.shCountLab = [[UILabel alloc] initWithFrame:CGRectMake(152*autoSizeScaleX, 0, 100, 100)];
     self.shCountLab.textAlignment = NSTextAlignmentLeft;
-    self.shCountLab.font = [UIFont fontWithName:@"DroidSansFallback" size:39*autoSizeScaleY];
+    self.shCountLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:39*autoSizeScaleY];
     self.shCountLab.text = @"1";
     self.shCountLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize shCountLabSize = [self.shCountLab boundingRectWithSize:CGSizeZero];
@@ -262,7 +283,7 @@
     //待审核个数其他字母 + / + 待审核总个数
     self.shAllCountLab = [[UILabel alloc] initWithFrame:CGRectMake(174*autoSizeScaleX, 0, 100, 100)];
     self.shAllCountLab.textAlignment = NSTextAlignmentLeft;
-    self.shAllCountLab.font = [UIFont fontWithName:@"DroidSansFallback" size:15*autoSizeScaleY];
+    self.shAllCountLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleY];
     self.shAllCountLab.text = @""" / 3 个";
     self.shAllCountLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize shAllCountLabSize = [self.shAllCountLab boundingRectWithSize:CGSizeZero];
@@ -272,7 +293,7 @@
     //已支付
     UILabel *payTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(268*autoSizeScaleX, 64+108*autoSizeScaleY, 100, 100)];
     payTitleLab.textAlignment = NSTextAlignmentLeft;
-    payTitleLab.font = [UIFont fontWithName:@"DroidSansFallback" size:10.5*autoSizeScaleY];
+    payTitleLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:10.5*autoSizeScaleY];
     payTitleLab.text = @"已支付";
     payTitleLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize payTitleLabSize = [payTitleLab boundingRectWithSize:CGSizeZero];
@@ -282,7 +303,7 @@
     //已支付个数 首字母
     self.payCountLab = [[UILabel alloc] initWithFrame:CGRectMake(268*autoSizeScaleX, 0, 100, 100)];
     self.payCountLab.textAlignment = NSTextAlignmentLeft;
-    self.payCountLab.font = [UIFont fontWithName:@"DroidSansFallback" size:39*autoSizeScaleY];
+    self.payCountLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:39*autoSizeScaleY];
     self.payCountLab.text = @"1";
     self.payCountLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize payCountLabSize = [self.payCountLab boundingRectWithSize:CGSizeZero];
@@ -292,7 +313,7 @@
     //已支付个数其他字母 + / 已支付总个数
     self.payAllCountLab = [[UILabel alloc] initWithFrame:CGRectMake(292*autoSizeScaleX, 0, 100, 100)];
     self.payAllCountLab.textAlignment = NSTextAlignmentLeft;
-    self.payAllCountLab.font = [UIFont fontWithName:@"DroidSansFallback" size:15*autoSizeScaleY];
+    self.payAllCountLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleY];
     self.payAllCountLab.text = @""" / 4 个";
     self.payAllCountLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize payAllCountLabSize = [self.payAllCountLab boundingRectWithSize:CGSizeZero];
@@ -311,10 +332,11 @@
 }
 
 -(void)showUser {
-//  [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580" placeholder:@""];
-    // [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor blackColor] shadowOffset:CGSizeZero shadowOpacity:0.3 shadowRadius:10 image:self.user.headimg placeholder:@""];
-//    self.nameLabel.text = self.user.name;
-//    self.cinemaLabel.text = self.user.gradename;
+
+    if(self.user){
+        self.nameLab.text = self.user.nickname;
+        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.user.headimg] placeholderImage:[UIImage imageNamed:@"miller"]];
+    }
 }
 
 -(NSMutableArray *)array {
@@ -352,9 +374,6 @@
     CGFloat imageOffsetY = scrollView.contentOffset.y;
     
     //    NSLog(@"图片上下偏移量 imageOffsetY:%f ->",imageOffsetY);
-    
-    
-    
     //下拉
     if (imageOffsetY < 0) {
         CGFloat totalOffset = imageHeight + ABS(imageOffsetY);
@@ -363,20 +382,13 @@
         //        self.topView.frame = CGRectMake(-(imageWidth * f - imageWidth) * 0.5, imageOffsetY, imageWidth * f, totalOffset);伸缩
         //不伸缩
         self.topView.frame = CGRectMake(0, imageOffsetY, imageWidth, totalOffset);
-        
     }
-    
     //往上推
     if (imageOffsetY > 0) {
         CGFloat totalOffset = imageHeight + ABS(imageOffsetY);
         //            CGFloat f = totalOffset / imageHeight;
-        
         [self.topView setFrame:CGRectMake(0, -imageOffsetY/2, imageWidth, totalOffset)];
-        
-        
     }
-    
-    
     return;
 }
 
