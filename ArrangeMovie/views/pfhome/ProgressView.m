@@ -19,7 +19,7 @@
         [self setCorner:self];
         //底层
         self.bottomView = [[UIView alloc] init];
-        self.bottomView.backgroundColor = [UIColor colorWithHexString:@"#ffffff"];
+        self.bottomView.backgroundColor = [UIColor colorWithHexString:@"#a0a0a0"];
         self.bottomView.alpha = 0.4;
         self.bottomView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         [self addSubview:self.bottomView];
@@ -27,7 +27,7 @@
         [self setCorner:self.bottomView];
         //顶层
         self.topView = [[UIView alloc] init];
-        self.topView.backgroundColor = [UIColor colorWithHexString:@"#ffffff"];
+        self.topView.backgroundColor = [UIColor colorWithHexString:@"#162271"];
         self.topView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         [self addSubview:self.topView];
         [self setCorner:self.topView];

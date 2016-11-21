@@ -26,13 +26,13 @@
     
     //边框
     
-    self.layer.borderWidth = 1.f;
-    self.layer.borderColor = ([UIColor colorWithHexString:@"#9DA9C4"]).CGColor;
+    self.layer.borderWidth = 2.f;
+    self.layer.borderColor = ([UIColor colorWithHexString:@"#c9c9c9"]).CGColor;
     
     //normal状态
     [self setTitle:@"获取验证码" forState:UIControlStateNormal];
-    self.titleLabel.textColor = [UIColor colorWithHexString:@"#c3c8d7"];
-    self.titleLabel.font = [UIFont systemFontOfSize:13.f];
+    [self setTitleColor:[UIColor colorWithHexString:@"a0a0a0"] forState:UIControlStateNormal];
+    self.titleLabel.font = [UIFont fontWithName:@"DroidSans-Bold" size:13.f];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self setBackgroundColor:[UIColor clearColor]];//colorWithHexString:@"#475A90"]
     
@@ -52,7 +52,7 @@
         
         //点击状态
         self.enabled = NO;
-        [self setBackgroundColor:[UIColor colorWithHexString:@"#354d81"]];
+//        [self setBackgroundColor:[UIColor colorWithHexString:@"#354d81"]];
         
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timeMachine:) userInfo:nil repeats:YES];
     }

@@ -12,7 +12,10 @@
 #import "RESideMenu.h"
 
 @interface RegViewController ()<LFLUISegmentedControlDelegate,LCActionSheetDelegate,RESideMenuDelegate>
-
+@property (nonatomic,strong)NSMutableArray <UITextField *>*tfArrays;
+@property (nonatomic,strong)NSMutableArray <UIImageView *>*imgArrays;
+@property (nonatomic,strong)NSMutableArray <UIView *> *lineArrays;
+@property (nonatomic,strong)NSMutableArray <NSString *> *imgnameArrays;
 @end
 
 @implementation RegViewController
@@ -25,9 +28,15 @@
     
     
     [AppDelegate storyBoradAutoLay:self.view];
-    
+    [AppDelegate storyBoardAutoLabelFont:self.view];
     self.yzmBtn.layer.cornerRadius = self.yzmBtn.frame.size.height/2;
     self.headImg.frame = CGRectMake(self.headImg.frame.origin.x, self.headImg.frame.origin.y, self.headImg.frame.size.height, self.headImg.frame.size.height);
+    self.headImg.layer.masksToBounds = YES;
+    self.headImg.layer.cornerRadius = self.headImg.frame.size.height/2;
+    self.tfArrays = [[NSMutableArray alloc] initWithArray:@[self.phoneTF,self.yzmTF,self.npwdTF,self.anpwdTF]];
+    self.imgArrays = [[NSMutableArray alloc] initWithArray:@[self.phoneImg,self.yzmImg,self.npwdImg,self.anpwdImg]];
+    self.lineArrays = [[NSMutableArray alloc] initWithArray:@[self.phoneLineView,self.yzmLineView,self.npwdLineView,self.anpwdLineView]];
+    self.imgnameArrays = [[NSMutableArray alloc] initWithArray:@[@"login_input_tel",@"register_verification_code",@"login_imput_-password",@"login_imput_-password"]];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -75,9 +84,15 @@
     self.mainSegView = [[LFLUISegmentedControl alloc] initWithFrame:CGRectMake(0,0,  self.segmentView.frame.size.width, self.segmentView.frame.size.height)];
     self.mainSegView.isClickable = YES;
     self.mainSegView.delegate = self;
+    self.mainSegView.lineColor = [UIColor colorWithHexString:@"162271"];
+    self.mainSegView.LFLBackGroundColor = [UIColor whiteColor];
+    self.mainSegView.titleColor = [UIColor colorWithHexString:@"162271"];
+    self.mainSegView.titleFont = [UIFont fontWithName:@"DroidSansFallback" size:18.f];
+    self.mainSegView.selectColor = [UIColor colorWithHexString:@"162271"];
+    self.mainSegView.selectFont = [UIFont fontWithName:@"DroidSansFallback" size:18.f];
     [self.mainSegView AddSegumentArray:[NSArray arrayWithObjects:@"片方",@"院线经理", nil]];
     [self.segmentView addSubview:self.mainSegView];
-    
+    [self.view bringSubviewToFront:self.segmentView];
     //提交按钮阴影
     [self.regBtn setShadowWithshadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.26 shadowRadius:5];
     
@@ -133,11 +148,13 @@
     if ([self.anpwdTF isFirstResponder]) {
         [self.anpwdTF resignFirstResponder];
     }
+    
+    [self changeHighLighted:-1];
 }
 //拍照选头像
 - (IBAction)takePhoto:(UITapGestureRecognizer *)sender {
 
-    LCActionSheet *actionAlert = [LCActionSheet sheetWithTitle:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从手机相册选择", nil];
+    LCActionSheet *actionAlert = [LCActionSheet sheetWithTitle:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍一张",@"从手机相册中选择", nil];
     [actionAlert show];
 }
 
@@ -159,8 +176,8 @@
             if (currentimage != nil) {
                 //存进相蒲
 //                UIImageWriteToSavedPhotosAlbum(currentimage, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-                weakSelf.headImg.image = nil;
-                [weakSelf.headImg setCircleBorder:currentimage];
+                weakSelf.headImg.image = currentimage;
+//                [weakSelf.headImg setCircleBorder:currentimage];
             }
             
         }];
@@ -168,16 +185,30 @@
     if (buttonIndex == 2) {
         //从相册选
         TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:nil];
+        [imagePicker.navigationBar setBarTintColor:[UIColor colorWithHexString:@"162271"]];
         //隐藏内部拍照按钮
         imagePicker.allowTakePicture = NO;
         [imagePicker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL flag) {
-            weakSelf.headImg.image = nil;
-            [weakSelf.headImg setCircleBorder:photos[0]];
+            weakSelf.headImg.image = photos[0];
+//            [weakSelf.headImg setCircleBorder:photos[0]];
         }];
         
         [self presentViewController:imagePicker animated:YES completion:nil];
     }
 }
+- (IBAction)touchPhoneTF:(UITextField *)sender {
+    [self changeHighLighted:0];
+}
+- (IBAction)touchYzmTF:(UITextField *)sender {
+    [self changeHighLighted:1];
+}
+- (IBAction)touchNpwdTF:(UITextField *)sender {
+    [self changeHighLighted:2];
+}
+- (IBAction)touchAnpwdTF:(UITextField *)sender {
+    [self changeHighLighted:3];
+}
+
 //检测手机号是否合法
 - (IBAction)checkTelphone:(UITextField *)sender {
     if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
@@ -231,6 +262,33 @@
     //院线经理跳至认证院线经理
     if (self.mainSegView.selectSeugment == 1) {
         [self performSegueWithIdentifier:@"toLoginAuthVC" sender:self];
+    }
+}
+
+
+
+//改变点击高亮效果
+//传入-1，全不高亮
+- (void)changeHighLighted:(int)whichOne{
+    for (int i = 0; i < self.tfArrays.count; i++) {
+        if (i == whichOne) {
+            //高亮
+            self.imgArrays[i].image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_clicked",self.imgnameArrays[i]]];
+            self.tfArrays[i].textColor = [UIColor colorWithHexString:@"162271"];
+            self.lineArrays[i].backgroundColor = [UIColor colorWithHexString:@"162271"];
+            //阴影
+            [self.lineArrays[i] setShadowWithshadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.9 shadowRadius:2];
+            
+            
+        }else{
+            //非高亮
+            
+            self.imgArrays[i].image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",self.imgnameArrays[i]]];
+            self.tfArrays[i].textColor = [UIColor colorWithHexString:@"a0a0a0"];
+            self.lineArrays[i].backgroundColor = [UIColor colorWithHexString:@"a0a0a0"];
+            //阴影
+            [self.lineArrays[i] setShadowWithshadowColor:[UIColor clearColor] shadowOffset:CGSizeZero shadowOpacity:0 shadowRadius:0];
+        }
     }
 }
 /*

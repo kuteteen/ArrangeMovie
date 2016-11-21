@@ -117,6 +117,7 @@
 		C8EB79BA1DC0AD2A005599BC /* ManagerMissionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8EB79B81DC0AD2A005599BC /* ManagerMissionTableViewCell.xib */; };
 		C8EB79BD1DC0B719005599BC /* SCWebInterfaceBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79BC1DC0B719005599BC /* SCWebInterfaceBase.m */; };
 		C8EB79C31DC0BAEA005599BC /* UpdateProfileWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB79C21DC0BAEA005599BC /* UpdateProfileWebInterface.m */; };
+		D60216CE1DDD90EC003E8A0C /* AMActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D60216CD1DDD90EC003E8A0C /* AMActionSheet.m */; };
 		D61686061DD0521E007EAA64 /* UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686051DD0521E007EAA64 /* UploadFile.m */; };
 		D61686101DD05229007EAA64 /* ForgetPwdWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686091DD05229007EAA64 /* ForgetPwdWebInterface.m */; };
 		D61686111DD05229007EAA64 /* LoginWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D616860B1DD05229007EAA64 /* LoginWebInterface.m */; };
@@ -132,11 +133,12 @@
 		D61686761DD45929007EAA64 /* WelcomeBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686751DD45929007EAA64 /* WelcomeBackViewController.m */; };
 		D61686781DD4716B007EAA64 /* FgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */; };
 		D616867B1DD55303007EAA64 /* LoginSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D616867A1DD55303007EAA64 /* LoginSuccessViewController.m */; };
-		D61686B81DD5B902007EAA64 /* CKLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D61686B71DD5B902007EAA64 /* CKLoopScrollView.m */; };
 		D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A064B1DAB5CA8003832A8 /* login.storyboard */; };
 		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
 		D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06591DAB88F7003832A8 /* UIView+Shadow.m */; };
+		D647959E1DDF02C60031AAA2 /* SCFadeSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D647959B1DDF02C60031AAA2 /* SCFadeSlideView.m */; };
+		D647959F1DDF02C60031AAA2 /* SCSlidePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D647959D1DDF02C60031AAA2 /* SCSlidePageView.m */; };
 		D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CC61DB45025004D6C8B /* PFHomeViewController.m */; };
 		D6950CCA1DB459BF004D6C8B /* LFLUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CC91DB459BF004D6C8B /* LFLUISegmentedControl.m */; };
 		D6950CCD1DB45D51004D6C8B /* TableWithNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CCC1DB45D51004D6C8B /* TableWithNoDataView.m */; };
@@ -171,6 +173,7 @@
 		D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BC61DB0B705004666BC /* SCHttpOperation.m */; };
 		D6D94BCA1DB0B705004666BC /* SCHttpOperationMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */; };
 		D6D94BCC1DB0BDA6004666BC /* pfhome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D94BCB1DB0BDA6004666BC /* pfhome.storyboard */; };
+		D6DBDEE31DDD4BA400EB1C10 /* SDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DBDEE21DDD4BA400EB1C10 /* SDTextField.m */; };
 		D6E6EDD41DC6EC0C00ED6475 /* TaskDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E6EDD31DC6EC0C00ED6475 /* TaskDetail.m */; };
 		D6E8691D1DC2E12500BA861B /* PFUploadImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E8691C1DC2E12500BA861B /* PFUploadImgViewController.m */; };
 /* End PBXBuildFile section */
@@ -371,6 +374,8 @@
 		C8EB79BC1DC0B719005599BC /* SCWebInterfaceBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWebInterfaceBase.m; sourceTree = "<group>"; };
 		C8EB79C11DC0BAEA005599BC /* UpdateProfileWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateProfileWebInterface.h; path = me/UpdateProfileWebInterface.h; sourceTree = "<group>"; };
 		C8EB79C21DC0BAEA005599BC /* UpdateProfileWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateProfileWebInterface.m; path = me/UpdateProfileWebInterface.m; sourceTree = "<group>"; };
+		D60216CC1DDD90EC003E8A0C /* AMActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMActionSheet.h; path = views/pfhome/AMActionSheet.h; sourceTree = "<group>"; };
+		D60216CD1DDD90EC003E8A0C /* AMActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMActionSheet.m; path = views/pfhome/AMActionSheet.m; sourceTree = "<group>"; };
 		D61686041DD0521E007EAA64 /* UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFile.h; sourceTree = "<group>"; };
 		D61686051DD0521E007EAA64 /* UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFile.m; sourceTree = "<group>"; };
 		D61686081DD05229007EAA64 /* ForgetPwdWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdWebInterface.h; sourceTree = "<group>"; };
@@ -399,8 +404,6 @@
 		D61686751DD45929007EAA64 /* WelcomeBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeBackViewController.m; path = viewcontrollers/login/WelcomeBackViewController.m; sourceTree = "<group>"; };
 		D61686791DD55303007EAA64 /* LoginSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginSuccessViewController.h; path = viewcontrollers/login/LoginSuccessViewController.h; sourceTree = "<group>"; };
 		D616867A1DD55303007EAA64 /* LoginSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginSuccessViewController.m; path = viewcontrollers/login/LoginSuccessViewController.m; sourceTree = "<group>"; };
-		D61686B61DD5B902007EAA64 /* CKLoopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKLoopScrollView.h; path = views/pfhome/datepicker/CKLoopScrollView.h; sourceTree = "<group>"; };
-		D61686B71DD5B902007EAA64 /* CKLoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKLoopScrollView.m; path = views/pfhome/datepicker/CKLoopScrollView.m; sourceTree = "<group>"; };
 		D62A064B1DAB5CA8003832A8 /* login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = login.storyboard; path = src/login.storyboard; sourceTree = "<group>"; };
 		D62A064E1DAB63D1003832A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = viewcontrollers/login/LoginViewController.h; sourceTree = "<group>"; };
 		D62A064F1DAB63D1003832A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = viewcontrollers/login/LoginViewController.m; sourceTree = "<group>"; };
@@ -411,6 +414,10 @@
 		D62A065C1DAC817A003832A8 /* am.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = am.pch; path = config/am.pch; sourceTree = "<group>"; };
 		D62A065E1DACADAA003832A8 /* FgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FgetPwdViewController.h; path = viewcontrollers/login/FgetPwdViewController.h; sourceTree = "<group>"; };
 		D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FgetPwdViewController.m; path = viewcontrollers/login/FgetPwdViewController.m; sourceTree = "<group>"; };
+		D647959A1DDF02C60031AAA2 /* SCFadeSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFadeSlideView.h; sourceTree = "<group>"; };
+		D647959B1DDF02C60031AAA2 /* SCFadeSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFadeSlideView.m; sourceTree = "<group>"; };
+		D647959C1DDF02C60031AAA2 /* SCSlidePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSlidePageView.h; sourceTree = "<group>"; };
+		D647959D1DDF02C60031AAA2 /* SCSlidePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSlidePageView.m; sourceTree = "<group>"; };
 		D6950CC51DB45025004D6C8B /* PFHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFHomeViewController.h; path = viewcontrollers/pfhome/PFHomeViewController.h; sourceTree = "<group>"; };
 		D6950CC61DB45025004D6C8B /* PFHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFHomeViewController.m; path = viewcontrollers/pfhome/PFHomeViewController.m; sourceTree = "<group>"; };
 		D6950CC81DB459BF004D6C8B /* LFLUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFLUISegmentedControl.h; path = views/base/LFLUISegmentedControl.h; sourceTree = "<group>"; };
@@ -471,6 +478,8 @@
 		D6D94BC71DB0B705004666BC /* SCHttpOperationMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHttpOperationMgr.h; sourceTree = "<group>"; };
 		D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCHttpOperationMgr.m; sourceTree = "<group>"; };
 		D6D94BCB1DB0BDA6004666BC /* pfhome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = pfhome.storyboard; path = src/pfhome.storyboard; sourceTree = "<group>"; };
+		D6DBDEE11DDD4BA400EB1C10 /* SDTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDTextField.h; path = views/pfhome/SDTextField.h; sourceTree = "<group>"; };
+		D6DBDEE21DDD4BA400EB1C10 /* SDTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SDTextField.m; path = views/pfhome/SDTextField.m; sourceTree = "<group>"; };
 		D6E6EDD21DC6EC0C00ED6475 /* TaskDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDetail.h; path = models/TaskDetail.h; sourceTree = "<group>"; };
 		D6E6EDD31DC6EC0C00ED6475 /* TaskDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDetail.m; path = models/TaskDetail.m; sourceTree = "<group>"; };
 		D6E8691B1DC2E12500BA861B /* PFUploadImgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFUploadImgViewController.h; path = viewcontrollers/pfhome/PFUploadImgViewController.h; sourceTree = "<group>"; };
@@ -534,6 +543,7 @@
 		C8329B9B1DAB2FF600B14075 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				D64795991DDF02C60031AAA2 /* scfadeslideview */,
 				D6950CC81DB459BF004D6C8B /* LFLUISegmentedControl.h */,
 				D6950CC91DB459BF004D6C8B /* LFLUISegmentedControl.m */,
 				C8329BA81DABA44100B14075 /* SCTableViewCell.h */,
@@ -887,15 +897,6 @@
 			path = pfhome;
 			sourceTree = "<group>";
 		};
-		D61686B51DD5B89B007EAA64 /* datepicker */ = {
-			isa = PBXGroup;
-			children = (
-				D61686B61DD5B902007EAA64 /* CKLoopScrollView.h */,
-				D61686B71DD5B902007EAA64 /* CKLoopScrollView.m */,
-			);
-			name = datepicker;
-			sourceTree = "<group>";
-		};
 		D62A064D1DAB637C003832A8 /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -932,6 +933,18 @@
 			name = config;
 			sourceTree = "<group>";
 		};
+		D64795991DDF02C60031AAA2 /* scfadeslideview */ = {
+			isa = PBXGroup;
+			children = (
+				D647959A1DDF02C60031AAA2 /* SCFadeSlideView.h */,
+				D647959B1DDF02C60031AAA2 /* SCFadeSlideView.m */,
+				D647959C1DDF02C60031AAA2 /* SCSlidePageView.h */,
+				D647959D1DDF02C60031AAA2 /* SCSlidePageView.m */,
+			);
+			name = scfadeslideview;
+			path = views/base/scfadeslideview;
+			sourceTree = "<group>";
+		};
 		D6950CC41DB44FED004D6C8B /* pfhome */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,7 +969,8 @@
 		D6950CD41DB4BEB9004D6C8B /* pfhome */ = {
 			isa = PBXGroup;
 			children = (
-				D61686B51DD5B89B007EAA64 /* datepicker */,
+				D6DBDEE11DDD4BA400EB1C10 /* SDTextField.h */,
+				D6DBDEE21DDD4BA400EB1C10 /* SDTextField.m */,
 				D61686271DD05258007EAA64 /* TouchLabel.h */,
 				D61686281DD05258007EAA64 /* TouchLabel.m */,
 				D6C490041DBEEB0D009EB672 /* AMAlertView.h */,
@@ -983,6 +997,8 @@
 				D6BAC8141DC1A36200A4EDF6 /* ProgressView.m */,
 				D6AE9F0B1DDC469C002B5272 /* ToTaskSegue.h */,
 				D6AE9F0C1DDC469C002B5272 /* ToTaskSegue.m */,
+				D60216CC1DDD90EC003E8A0C /* AMActionSheet.h */,
+				D60216CD1DDD90EC003E8A0C /* AMActionSheet.m */,
 			);
 			name = pfhome;
 			sourceTree = "<group>";
@@ -1159,7 +1175,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		2B2C68712B953431C3F58C8D /* [CP] Copy Pods Resources */ = {
@@ -1202,6 +1218,7 @@
 				D61686781DD4716B007EAA64 /* FgetPwdViewController.m in Sources */,
 				D6C4901A1DBEEB0D009EB672 /* PFHomeCell.m in Sources */,
 				C8610C161DD0749E00E959E1 /* ReceiveTaskWebInterface.m in Sources */,
+				D647959F1DDF02C60031AAA2 /* SCSlidePageView.m in Sources */,
 				D6C48FF41DBEEA5F009EB672 /* OperateNSUserDefault.m in Sources */,
 				D6BAC8121DC1897E00A4EDF6 /* AMDetailFailedViewController.m in Sources */,
 				C8EB79B51DC0A677005599BC /* ManagerMissionViewController.m in Sources */,
@@ -1218,6 +1235,7 @@
 				C886B0DA1DA8FC0500240283 /* AppDelegate.m in Sources */,
 				C80F064A1DACFDCD00BB75BE /* MeBankCardViewController.m in Sources */,
 				A5A5084D1DBF53BE00CB2491 /* ManagerMissionRequireTableViewCell.m in Sources */,
+				D60216CE1DDD90EC003E8A0C /* AMActionSheet.m in Sources */,
 				D6C48FFA1DBEEA7A009EB672 /* MakeTaskViewController.m in Sources */,
 				C889D9641DB07E90008156B2 /* MeAboutViewController.m in Sources */,
 				C889D9581DAF7429008156B2 /* MePwdViewController.m in Sources */,
@@ -1229,6 +1247,7 @@
 				D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */,
 				C8BDA63F1DC792EA00ADB4DF /* EMIFilterButton.m in Sources */,
 				D61686121DD05229007EAA64 /* MobileCodeWebInterface.m in Sources */,
+				D6DBDEE31DDD4BA400EB1C10 /* SDTextField.m in Sources */,
 				C82AF8EB1DB75BAC00882DB6 /* MeMissionCheckViewController.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				D6950CD71DB4BF06004D6C8B /* PFHomeSectionView.m in Sources */,
@@ -1237,6 +1256,7 @@
 				C8610C131DD06C4500E959E1 /* ManagerTaskWebInterface.m in Sources */,
 				C86DE7531DB5B63600374734 /* MissionActorTableViewCell.m in Sources */,
 				C87E40B11DD2BC8400DD2018 /* MeMissionRequireView.m in Sources */,
+				D647959E1DDF02C60031AAA2 /* SCFadeSlideView.m in Sources */,
 				C8E6513B1DA9D65D00400ABC /* User.m in Sources */,
 				C82C48AB1DCC85F400848128 /* ArrangeDetailWebInterface.m in Sources */,
 				C86161971DCAC94600B3DEB3 /* MePointRecordTableViewCell.m in Sources */,
@@ -1295,7 +1315,6 @@
 				D61686761DD45929007EAA64 /* WelcomeBackViewController.m in Sources */,
 				C8610C041DD0638F00E959E1 /* AddBankWebInterface.m in Sources */,
 				C8EB79B11DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m in Sources */,
-				D61686B81DD5B902007EAA64 /* CKLoopScrollView.m in Sources */,
 				D61686111DD05229007EAA64 /* LoginWebInterface.m in Sources */,
 				D61686291DD05258007EAA64 /* TouchLabel.m in Sources */,
 				C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */,

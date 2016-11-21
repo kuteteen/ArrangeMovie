@@ -57,18 +57,16 @@
     
     //注
     UILabel *zhuLabel = [[UILabel alloc] initWithFrame:CGRectMake(17, 501, 341, 40)];
-    zhuLabel.font = [UIFont systemFontOfSize:16];
-    if (iPhone5S || iPhone4S) {
-        zhuLabel.font = [UIFont systemFontOfSize:14];
-    }
+    zhuLabel.font = [UIFont fontWithName:@"DroidSansFallback" size:16.f];
     zhuLabel.textAlignment = NSTextAlignmentCenter;
     zhuLabel.numberOfLines = 0;
     zhuLabel.text = @"注:认证院线等级越高，可以接到奖励更高的任务";
     zhuLabel.textColor = [UIColor colorWithHexString:@"#9FA6BC"];
     [self.view addSubview:zhuLabel];
     //片方,添加圆形打钩按钮
-    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(158.5, 558, 58, 58)];
-    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
+    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(158.5, 550, 74, 74)];
+//    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
+    OKImgView.image = [UIImage imageNamed:@"row_piece_review"];
     //        OKImgView setHighlightedImage:[UIImage imageNamed:row]
     [self.view addSubview:OKImgView];
     OKImgView.userInteractionEnabled = YES;
@@ -168,6 +166,7 @@
     if (buttonIndex == 2) {
         //从相册选
         TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:9-self.array.count delegate:nil];
+        [imagePicker.navigationBar setBarTintColor:[UIColor colorWithHexString:@"162271"]];
         //隐藏内部拍照按钮
         imagePicker.allowTakePicture = NO;
         [imagePicker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL flag) {
@@ -207,14 +206,14 @@
             
             [pageView addSubview:shadowImageView];
             //删除按钮
-            UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake((375-36)*autoSizeScaleX-84, 10*autoSizeScaleY, 26*autoSizeScaleX, 30*autoSizeScaleY)];
+            UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake((375-36)*autoSizeScaleX-84, 10*autoSizeScaleY, 29*autoSizeScaleX, 29*autoSizeScaleY)];
             delBtn.tag = index;
             [delBtn addTarget:self action:@selector(delPhoto:) forControlEvents:UIControlEventTouchUpInside];
-            [delBtn setBackgroundImage:[UIImage imageNamed:@"del_normal"] forState:UIControlStateNormal];
+            [delBtn setBackgroundImage:[UIImage imageNamed:@"photo_del"] forState:UIControlStateNormal];
             [pageView addSubview:delBtn];
             
         }else{
-            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:@"" placeholder:@""];
+            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.15 shadowRadius:10 image:@"" placeholder:@"scfade_bg"];
             [pageView addSubview:shadowImageView];
             //添加"上传公司证件审核"图片
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(85.5*autoSizeScaleX, 143.5*autoSizeScaleY, 120*autoSizeScaleX, 110*autoSizeScaleY)];
@@ -225,8 +224,8 @@
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 283.5*autoSizeScaleY, 291*autoSizeScaleX, 40*autoSizeScaleY)];
             label.textAlignment = NSTextAlignmentCenter;
             label.text = @"上传认证资质材料";
-            label.textColor = [UIColor colorWithHexString:@"#999999"];
-            label.font = [UIFont systemFontOfSize:18.f];
+            label.textColor = [UIColor colorWithHexString:@"#aeafb3"];
+            label.font = [UIFont fontWithName:@"DroidSansFallback" size:18.f*autoSizeScaleY];
             [pageView addSubview:label];
         }
         
@@ -249,7 +248,7 @@
         [self.view makeToast:@"最多只能选择九张图片!" duration:2.0 position:CSToastPositionCenter];
     }else{
         //点击了最后一个加图的按钮
-        LCActionSheet *actionAlert = [LCActionSheet sheetWithTitle:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从手机相册选择", nil];
+        LCActionSheet *actionAlert = [LCActionSheet sheetWithTitle:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍一张",@"从手机相册中选择", nil];
         [actionAlert show];
     }
     

@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="DROIDSANS-BOLD_0.TTF">
+            <string>DroidSans-Bold</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="Wi1-Qf-Mdx">
@@ -29,15 +34,60 @@
                     <view key="view" contentMode="scaleToFill" id="OEj-Mh-tiV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="XLa-x9-25I">
+                                <rect key="frame" x="25" y="86" width="325" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task_addfilm" id="5LC-1w-GxF">
+                                        <rect key="frame" x="100" y="27" width="20" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加电影封面" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8BM-wo-fbY">
+                                        <rect key="frame" x="128" y="27" width="106" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="17"/>
+                                        <color key="textColor" red="0.85098039215686272" green="0.85882352941176465" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4pi-ol-wpa" appends="YES" id="Pvj-ch-Fbe"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hkJ-gE-eG2" appends="YES" id="y8B-FO-gPt"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="VYG-Ot-dfR"/>
                     <connections>
+                        <outlet property="topView" destination="XLa-x9-25I" id="3cg-y9-hVb"/>
                         <segue destination="h0F-4G-ttt" kind="push" identifier="toChooseFilmVC" id="qr4-Ry-OYE"/>
                         <segue destination="d8H-fX-U0I" kind="push" identifier="toUploadImgVC" id="Aje-XI-pQF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8pG-PY-rxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4pi-ol-wpa">
+                    <connections>
+                        <action selector="addFilm:" destination="gpQ-z6-JqU" id="SGt-8f-We7"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="hkJ-gE-eG2">
+                    <connections>
+                        <action selector="hideKeyBoard:" destination="gpQ-z6-JqU" id="uLi-0Z-6In"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="258.5" y="1000.5"/>
         </scene>
@@ -161,4 +211,7 @@
             <point key="canvasLocation" x="225.5" y="265.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="task_addfilm" width="20" height="18"/>
+    </resources>
 </document>

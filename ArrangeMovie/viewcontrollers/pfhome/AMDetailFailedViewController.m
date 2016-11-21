@@ -167,7 +167,7 @@
             //下方圆角
             UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (397-61.5)*autoSizeScaleY, (375)*autoSizeScaleX-84, 61.5*autoSizeScaleY)];
             label.textColor = [UIColor colorWithHexString:@"15151b" alpha:1];
-            label.font = [UIFont systemFontOfSize:18.f];
+            label.font = [UIFont fontWithName:@"DroidSansFallback" size:18.f*autoSizeScaleY];
             label.text = @"2016-09-21排片情况";
             label.backgroundColor = [UIColor whiteColor];
             label.textAlignment = NSTextAlignmentCenter;
@@ -180,7 +180,7 @@
             label.layer.mask = maskLayer;
             
         }else{
-            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:@"" placeholder:@""];
+            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.15 shadowRadius:10 image:@"" placeholder:@"scfade_bg"];
             [pageView addSubview:shadowImageView];
             //添加"排片未完成"图片
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(85.5*autoSizeScaleX, 143.5*autoSizeScaleY, 120*autoSizeScaleX, 110*autoSizeScaleY)];
@@ -192,8 +192,8 @@
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 283.5*autoSizeScaleY, 291*autoSizeScaleX, 40*autoSizeScaleY)];
             label.textAlignment = NSTextAlignmentCenter;
             label.text = @"排片任务未完成";
-            label.textColor = [UIColor colorWithHexString:@"#999999"];
-            label.font = [UIFont systemFontOfSize:18.f];
+            label.textColor = [UIColor colorWithHexString:@"#aeafb3"];
+            label.font = [UIFont fontWithName:@"DroidSansFallback" size:18.f*autoSizeScaleY];
             [pageView addSubview:label];
         }
         

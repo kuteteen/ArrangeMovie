@@ -11,12 +11,28 @@
 #import "CKAlertViewController.h"
 #import "TouchLabel.h"
 #import "UIBarButtonItem+Extension.h"
+#import "EMICamera.h"
+#import "LCActionSheet.h"
+#import "TZImagePickerController.h"
+#import "SDTextField.h"
+#import "AMActionSheet.h"
+#import "SCDateTools.h"
 
 
-@interface MakeTaskViewController ()<UICollectionViewDelegateFlowLayout>
-@property(nonatomic,strong)NSMutableArray *titleArray;
-@property(nonatomic,strong)NSMutableArray *contentArray;
+@interface MakeTaskViewController ()<LCActionSheetDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 
+
+@property (weak, nonatomic) IBOutlet UIView *topView;//顶部
+//拍照
+@property (strong,nonatomic) EMICamera *camera;
+//联想输入框
+@property (nonatomic,strong) SDTextField *textField;
+
+@property (nonatomic,strong) NSMutableArray <UIButton *>* btnArrays;
+@property (nonatomic,strong) NSArray *btnTitleArray;
+@property (nonatomic,strong) NSMutableArray *btnSelectedStringArray;
+@property (nonatomic,strong) NSString *startTime;//开始时间
+@property (nonatomic,strong) NSString *endTime;//结束时间
 @end
 
 @implementation MakeTaskViewController
@@ -24,11 +40,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.definesPresentationContext = YES;
-    
+    self.btnArrays = [[NSMutableArray alloc] initWithCapacity:0];
+    self.btnTitleArray = @[@"影院级别",@"任务积分",@"任务时间",@"任务发放数"];
+    self.btnSelectedStringArray = [[NSMutableArray alloc] initWithArray:@[@"",@"",@"",@""]];
     [self initView];
     
-    [AppDelegate storyBoradAutoLay:self.view];
 }
 
 
@@ -38,19 +54,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+//隐藏键盘
+- (IBAction)hideKeyBoard:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:YES];
+}
 
 
 - (void)initView{
     
-    
+    self.topView.frame = CGRectMake(self.topView.frame.origin.x*autoSizeScaleX, self.topView.frame.origin.y*autoSizeScaleY, self.topView.frame.size.width*autoSizeScaleX, self.topView.frame.size.height*autoSizeScaleY);
+    [AppDelegate storyBoradAutoLay:self.topView];
+    [AppDelegate storyBoardAutoLabelFont:self.topView];
     
     self.title = @"创建任务";
     
-    self.titleArray = @[@[@"任务名称",@"任务发放数"],@[@"任务积分",@"任务时间"],@[@"影院级别",@"任务类型"]];
-    self.contentArray = @[@[@"选择电影名称(请包含电影名)",@"选择可领取的任务数"],@[@"选择可获得的任务积分",@""],@[@"选择放映的影院级别",@"选择任务类型"]];
     //右侧navBtn
     UIBarButtonItem *rightNavBtn = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStyleDone target:self action:@selector(rightNavBtnClicked:)];
-    [rightNavBtn setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:18],NSFontAttributeName, nil] forState:UIControlStateNormal];
+    [rightNavBtn setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"DroidSans-Bold" size:20.5],NSFontAttributeName, nil] forState:UIControlStateNormal];
     [rightNavBtn setTintColor:[UIColor whiteColor]];
     
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
@@ -58,18 +78,58 @@
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:negativeSpacer,rightNavBtn, nil];
     //返回按钮
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back" highImageName:@"back" target:self action:@selector(back)];
-    [self setCollectionView];
+    
+    //电影名称
+    self.textField = [SDTextField initWithFrame:CGRectMake(35*autoSizeScaleX, 187.5*autoSizeScaleY, 305*autoSizeScaleX, 42*autoSizeScaleY)];
+    self.textField.textfield.textColor = [UIColor colorWithHexString:@"d9dbe0"];
+    self.textField.textfield.font = [UIFont fontWithName:@"DroidSans-Bold" size:17.f*autoSizeScaleY];
+    self.textField.textfield.placeholder = @"请输入电影名称";
+    [self.textField.textfield setValue:[UIColor colorWithHexString:@"d9dbe0"] forKeyPath:@"_placeholderLabel.textColor"];
+    [self.textField.textfield setValue:[UIFont fontWithName:@"DroidSans-Bold" size:17.f*autoSizeScaleY] forKeyPath:@"_placeholderLabel.font"];
+    self.textField.dataArray = [NSMutableArray arrayWithArray:@[@"让子弹飞1",@"让子弹飞A",@"让子弹飞B",@"让子单飞c",@"让子弹飞admin",@"七月与安生",@"奇异博士",@"特殊生物调查科"]];
+    
+    [self.view addSubview:self.textField];
+    //分割线
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(15*autoSizeScaleX, 230*autoSizeScaleY, 345*autoSizeScaleX, 0.5*autoSizeScaleY)];
+    lineView.backgroundColor = [UIColor colorWithHexString:@"162271"];
+    [self.view addSubview:lineView];
+    
+    
+    //
+    [self createButtons];
 }
 
 
-- (void)setCollectionView{
-//    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-//    flowLayout.minimumInteritemSpacing = 0;
-//    flowLayout.minimumLineSpacing = 0;
-    //注册cell
-    [self.collectionView registerNib:[UINib nibWithNibName:@"TaskCellNormal" bundle:nil] forCellWithReuseIdentifier:@"TaskCellNormal"];
+//创建按钮
+- (void)createButtons{
+    CGFloat y = 281.f*autoSizeScaleY;
+    CGFloat btWidth = 311.f*autoSizeScaleX;
+    CGFloat x = 32.f*autoSizeScaleX;
+    CGFloat btHeight = 60.f*autoSizeScaleY;
+    CGFloat space = 32.f*autoSizeScaleY;
+    CGFloat cornerRadius = 13.f*autoSizeScaleY;
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"TaskCellTime" bundle:nil] forCellWithReuseIdentifier:@"TaskCellTime"];
+    
+    for (int i = 0; i < self.btnTitleArray.count; i++) {
+        y = 281.f*autoSizeScaleY +(space+btHeight)*i;
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(x, y, btWidth, btHeight);
+        btn.tag = i;
+        btn.backgroundColor = [UIColor colorWithHexString:@"d9dbe0"];
+        btn.layer.masksToBounds = YES;
+        btn.layer.cornerRadius = cornerRadius;
+        [btn setTitle:self.btnTitleArray[i] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        btn.titleLabel.textColor = [UIColor colorWithHexString:@"ffffff"];
+        btn.titleLabel.font = [UIFont fontWithName:@"DroidSans-Bold" size:15.f*autoSizeScaleY];
+        
+        [self.btnArrays addObject:btn];
+        [self.view addSubview:btn];
+    }
+}
+
+- (void)btnClicked:(UIButton *)sender{
+    [self createScrollView:sender.tag];
 }
 
 //发布
@@ -80,106 +140,126 @@
 - (void)back{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-//添加图片
-- (IBAction)addImg:(UIButton *)sender {
-    NSLog(@"%@",@"添加图片");
+
+//添加电影封面
+- (IBAction)addFilm:(UITapGestureRecognizer *)sender {
     
-    [self performSegueWithIdentifier:@"toUploadImgVC" sender:self];
+    LCActionSheet *actionAlert = [LCActionSheet sheetWithTitle:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍一张",@"从手机相册中选择",@"查看图片", nil];
+    [actionAlert show];
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 3;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 2;
-}
-
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 1  && indexPath.row == 1) {
-        //时间
-        TaskCellTime *cell = [TaskCellTime cellForCollection:collectionView indexPath:indexPath];
-        [cell setTitleTxt:@"任务时间"];
+//弹出框点击事件代理
+- (void)actionSheet:(LCActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    __unsafe_unretained typeof(self) weakSelf = self;
+    if (buttonIndex == 1) {
+        //拍照
+        self.camera = [[EMICamera alloc] init];
+        [self.camera takePhoto:self];
+        //获的照片的回调
         
-        [cell setStartTxt:@"选择任务开始时间"];
-        [cell setEndTxt:@"选择任务结束时间"];
-        cell.parentVC = self;
-        return cell;
+        [self.camera setBlock:^(UIImagePickerController *picker, NSDictionary<NSString *,id> *info) {
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+            //获取图片
+            UIImage *currentimage = [info objectForKey:UIImagePickerControllerOriginalImage];
+            //相机需要把图片存进相蒲
+            
+            if (currentimage != nil) {
+                //存进相蒲
+                //                UIImageWriteToSavedPhotosAlbum(currentimage, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+                
+            }
+            
+        }];
+    }
+    if (buttonIndex == 2) {
+        //从相册选
+        TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:nil];
+        [imagePicker.navigationBar setBarTintColor:[UIColor colorWithHexString:@"162271"]];
+        //隐藏内部拍照按钮
+        imagePicker.allowTakePicture = NO;
+        [imagePicker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL flag) {
+
+        }];
+        
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+    if (buttonIndex == 3) {
+        NSLog(@"%@",@"查看图片");
+    }
+}
+
+
+//创建底部弹出框
+- (void)createScrollView:(long)tag{
+    if (tag == 2) {
+        //时间选择器
+        UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 10+20*autoSizeScaleY, screenWidth, 200*autoSizeScaleY-(10+20*autoSizeScaleY))];
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        [datePicker setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
+        [datePicker addTarget:self action:@selector(selectedTime:) forControlEvents:UIControlEventValueChanged];
+
+        AMActionSheet *am = [[AMActionSheet alloc] initWithBlock:^(AMActionSheet *amactionsheet) {
+            //确定按钮
+            if ([amactionsheet.titleLab.text isEqualToString:@"任务开始时间"]) {
+                self.startTime = [SCDateTools dateToString:datePicker.date];
+                //                NSLog(@"%@",datePicker.date);
+                [amactionsheet setTitle:@"任务结束时间"];
+                return;
+            }
+            if ([amactionsheet.titleLab.text isEqualToString:@"任务结束时间"]) {
+                //                NSLog(@"%@",datePicker.date);
+                self.endTime = [SCDateTools dateToString:datePicker.date];
+                
+                [self.btnArrays[tag] setTitle:[NSString stringWithFormat:@"开始时间:%@ 结束时间:%@",self.startTime,self.endTime] forState:UIControlStateNormal];
+                [self dismissViewControllerAnimated:NO completion:nil];
+                return;
+            }
+        } frame:CGRectMake(0, screenHeight-200*autoSizeScaleY, screenWidth, 200*autoSizeScaleY) childView:datePicker];
+        [am setTitle:@"任务开始时间"];
+        CKAlertViewController *ckAlertVC = [[CKAlertViewController alloc] initWithAlertView:am];
+        
+        [self presentViewController:ckAlertVC animated:NO completion:nil];
     }else{
-        //其他
-        TaskCellNormal *cell = [TaskCellNormal cellForCollection:collectionView indexPath:indexPath];
-        [cell setTitleTxt:self.titleArray[indexPath.section][indexPath.row]];
-        [cell setContentTxt:self.contentArray[indexPath.section][indexPath.row]];
-        return cell;
-    }
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    //电影名称
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        [self performSegueWithIdentifier:@"toChooseFilmVC" sender:self];
-    }
-    //任务发放数
-    if (indexPath.section == 0 && indexPath.row == 1) {
-        [self createAlertView];
-    }
-    //任务积分
-    if (indexPath.section == 1 && indexPath.row == 0) {
-        [self createAlertView];
-    }
-    //任务时间
-    if (indexPath.section == 1 && indexPath.row == 1) {
+        //普通选择器
+        UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 10+20*autoSizeScaleY, screenWidth, 200*autoSizeScaleY-(10+20*autoSizeScaleY))];
+        pickerView.dataSource = self;
+        pickerView.delegate = self;
+        pickerView.tag = tag;
+        AMActionSheet *am = [[AMActionSheet alloc] initWithBlock:^(AMActionSheet *amactionsheet) {
+            //确定按钮
+            [self.btnArrays[pickerView.tag] setTitle:[NSString stringWithFormat:@"%@:%@",self.btnTitleArray[pickerView.tag],self.btnSelectedStringArray[pickerView.tag]] forState:UIControlStateNormal];
+             [self dismissViewControllerAnimated:NO completion:nil];
+        } frame:CGRectMake(0, screenHeight-200*autoSizeScaleY, screenWidth, 200*autoSizeScaleY) childView:pickerView];
+//        [am setSureBtnHidden:YES];
+        [am setTitle:self.btnTitleArray[tag]];
+        CKAlertViewController *ckAlertVC = [[CKAlertViewController alloc] initWithAlertView:am];
         
+        [self presentViewController:ckAlertVC animated:NO completion:nil];
     }
-    //影院级别
-    if (indexPath.section == 2 && indexPath.row == 0) {
-        [self createAlertView];
-    }
-    
-    //任务类型
-    if (indexPath.section == 2 && indexPath.row == 1) {
-        [self createAlertView];
-    }
-    
-}
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
-
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(164*autoSizeScaleX, 170*autoSizeScaleY);
-}
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(7.5*autoSizeScaleX, 6.25*autoSizeScaleY, 7.5*autoSizeScaleX, 6.25*autoSizeScaleX);
+- (void)selectedTime:(UIDatePicker *)sender{
+//    NSLog(@"%@",sender.date);
 }
 
 
-- (void)createAlertView{
-    AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(43.5*autoSizeScaleX, (667/2-173)*autoSizeScaleY, 288*autoSizeScaleX, 346*autoSizeScaleY)];
-    [amalertview setTitle:@"通过审核"];
-    UIScrollView *childView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 288*autoSizeScaleX, 300*autoSizeScaleY)];
-    ;
-    childView.scrollEnabled = YES;
-    childView.showsVerticalScrollIndicator = NO;
-    childView.showsHorizontalScrollIndicator = NO;
-    CGFloat y = 0;
-    for (int i = 0; i <100; i ++) {
-        
-        
-        TouchLabel *label = [[TouchLabel alloc] initWithBlock:^(NSString *str) {
-            NSLog(@"%@",str);
-        } frame:CGRectMake(24*autoSizeScaleX, y, 240*autoSizeScaleX, 40*autoSizeScaleY)];
-        label.text = [NSString stringWithFormat:@"%d份",i+1];
-        y = 40*autoSizeScaleY+y;
-        
-        [childView addSubview:label];
-    }
-    childView.contentSize = CGSizeMake(0, y);
-    [amalertview setChildView:childView];
-    CKAlertViewController *ckAlertVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
-    
-    [self presentViewController:ckAlertVC animated:NO completion:nil];
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return 10;
+}
+
+- (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component __TVOS_PROHIBITED{
+    return [NSString stringWithFormat:@"%ld份",(long)row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component __TVOS_PROHIBITED{
+    NSLog(@"%@",[self pickerView:pickerView titleForRow:row forComponent:component]);
+    NSString *title = [self pickerView:pickerView titleForRow:row forComponent:component];
+    [self.btnSelectedStringArray replaceObjectAtIndex:pickerView.tag withObject:title];
+   
 }
 /*
 #pragma mark - Navigation

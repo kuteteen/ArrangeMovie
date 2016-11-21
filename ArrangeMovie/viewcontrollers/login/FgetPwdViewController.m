@@ -9,7 +9,10 @@
 #import "FgetPwdViewController.h"
 
 @interface FgetPwdViewController ()
-
+@property (nonatomic,strong)NSMutableArray <UITextField *>*tfArrays;
+@property (nonatomic,strong)NSMutableArray <UIImageView *>*imgArrays;
+@property (nonatomic,strong)NSMutableArray <UIView *> *lineArrays;
+@property (nonatomic,strong)NSMutableArray <NSString *> *imgnameArrays;
 @end
 
 @implementation FgetPwdViewController
@@ -23,11 +26,15 @@
     
     
     [AppDelegate storyBoradAutoLay:self.view];
-    
-    self.headImgView.frame = CGRectMake(self.headImgView.frame.origin.x, self.headImgView.frame.origin.y, self.headImgView.frame.size.height, self.headImgView.frame.size.height);
-    
-    [self setHead];
+    [AppDelegate storyBoardAutoLabelFont:self.view];
     self.yzmBtn.layer.cornerRadius = self.yzmBtn.frame.size.height/2;
+    self.headImgView.frame = CGRectMake(self.headImgView.frame.origin.x, self.headImgView.frame.origin.y, self.headImgView.frame.size.height, self.headImgView.frame.size.height);
+    self.headImgView.layer.masksToBounds = YES;
+    self.headImgView.layer.cornerRadius = self.headImgView.frame.size.height/2;
+    self.tfArrays = [[NSMutableArray alloc] initWithArray:@[self.phoneTF,self.yzmTF,self.npwdTF,self.anpwdTF]];
+    self.imgArrays = [[NSMutableArray alloc] initWithArray:@[self.phoneImg,self.yzmImg,self.npwdImg,self.anpwdImg]];
+    self.lineArrays = [[NSMutableArray alloc] initWithArray:@[self.phoneLineView,self.yzmLineView,self.npwdLineView,self.anpwdLineView]];
+    self.imgnameArrays = [[NSMutableArray alloc] initWithArray:@[@"login_input_tel",@"register_verification_code",@"login_imput_-password",@"login_imput_-password"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -70,14 +77,12 @@
     self.title = @"忘记密码";
     //头像
     [self setHead];
-    //提交按钮阴影
-    [self.tjBtn setShadowWithshadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.26 shadowRadius:5];
     
     
     //获取验证码按钮
     self.yzmBtn = [[YZMButton alloc] initWithTime:60];
     
-    self.yzmBtn.frame = CGRectMake(230, 18, 101, 28);
+    self.yzmBtn.frame = CGRectMake(230, 20, 101, 28);
     [self.yzmView addSubview:self.yzmBtn];
     self.yzmBtn.layer.cornerRadius = self.yzmBtn.frame.size.height/2;
 //    __unsafe_unretained typeof(self) weakSelf = self;
@@ -93,7 +98,7 @@
 
 - (void)setHead{
     //加载头像
-    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.35 shadowRadius:8 image:@"miller" placeholder:@"miller"];
+    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:@"http://static.cnbetacdn.com/topics/6b6702c2167e5a2.jpg"]];// placeholderImage:[UIImage imageNamed:@"default_head"]
 }
 //隐藏键盘
 - (IBAction)hideKeyBoard:(UITapGestureRecognizer *)sender {
@@ -109,6 +114,20 @@
     if ([self.anpwdTF isFirstResponder]) {
         [self.anpwdTF resignFirstResponder];
     }
+    
+    [self changeHighLighted:-1];
+}
+- (IBAction)touchPhone:(UITextField *)sender {
+    [self changeHighLighted:0];
+}
+- (IBAction)touchYzm:(UITextField *)sender {
+    [self changeHighLighted:1];
+}
+- (IBAction)touchNpwd:(UITextField *)sender {
+    [self changeHighLighted:2];
+}
+- (IBAction)touchAnpwd:(UITextField *)sender {
+    [self changeHighLighted:3];
 }
 
 //检查手机号
@@ -137,7 +156,30 @@
     //返回登录界面
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+//改变点击高亮效果
+//传入-1，全不高亮
+- (void)changeHighLighted:(int)whichOne{
+    for (int i = 0; i < self.tfArrays.count; i++) {
+        if (i == whichOne) {
+            //高亮
+            self.imgArrays[i].image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_clicked",self.imgnameArrays[i]]];
+            self.tfArrays[i].textColor = [UIColor colorWithHexString:@"162271"];
+            self.lineArrays[i].backgroundColor = [UIColor colorWithHexString:@"162271"];
+            //阴影
+            [self.lineArrays[i] setShadowWithshadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.9 shadowRadius:2];
+            
+            
+        }else{
+            //非高亮
+            
+            self.imgArrays[i].image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",self.imgnameArrays[i]]];
+            self.tfArrays[i].textColor = [UIColor colorWithHexString:@"a0a0a0"];
+            self.lineArrays[i].backgroundColor = [UIColor colorWithHexString:@"a0a0a0"];
+            //阴影
+            [self.lineArrays[i] setShadowWithshadowColor:[UIColor clearColor] shadowOffset:CGSizeZero shadowOpacity:0 shadowRadius:0];
+        }
+    }
+}
 /*
 #pragma mark - Navigation
 

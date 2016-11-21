@@ -34,7 +34,6 @@ PODS:
     - MBProgressHUD
     - SDWebImage
   - RESideMenu (4.0.7)
-  - SCFadeSlideView (0.0.2)
   - SDAutoLayout (1.53)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
@@ -53,7 +52,6 @@ DEPENDENCIES:
   - MJRefresh (= 3.1.12)
   - PYPhotoBrowser (= 1.0.5)
   - RESideMenu (~> 4.0.7)
-  - SCFadeSlideView (= 0.0.2)
   - SDAutoLayout (~> 1.31)
   - SDWebImage (~> 3.8)
   - Toast (~> 3.0)
@@ -73,7 +71,6 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   PYPhotoBrowser: fc524d991a5be9dd31c0cc52bc1c5613c36887ad
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
-  SCFadeSlideView: 5c3d48e168380e3a3cc0b55c8d0a28f6363baa28
   SDAutoLayout: ea6e2ae9fbb438aa2feb0c4363dba9297e98638a
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
@@ -81,6 +78,6 @@ SPEC CHECKSUMS:
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: 5c5847da9f33b474963e1d2565464e63e08c1cc5
+PODFILE CHECKSUM: dbac4824b858a2bb7f55291508ed2676e1866c46
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

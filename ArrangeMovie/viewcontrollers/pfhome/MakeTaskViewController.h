@@ -11,7 +11,5 @@
 #import "TaskCellTime.h"
 
 @interface MakeTaskViewController : EMIBaseViewController
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIButton *imgBtn;
 
 @end
