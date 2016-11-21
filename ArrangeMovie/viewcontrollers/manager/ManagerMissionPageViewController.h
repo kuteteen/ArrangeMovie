@@ -12,7 +12,7 @@
 @protocol ManagerMissionPageViewControllerDelegate <NSObject>
 
 -(void)checkMission:(ManagerMissionTableViewCell *)cell;
-
+-(void)toDelTask:(Task *)task;
 @end
 
 
@@ -20,5 +20,5 @@
 ///第N页
 @property (nonatomic, assign) NSInteger pageIndex;
 @property(assign,nonatomic)id<ManagerMissionPageViewControllerDelegate> delegate;
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

@@ -47,7 +47,7 @@
 		C83C79261DD163CD002EEAF3 /* OUNavAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C79251DD163CD002EEAF3 /* OUNavAnimation.m */; };
 		C83C792C1DD179C2002EEAF3 /* MeMissionTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */; };
 		C83C792E1DD179FC002EEAF3 /* MeMissionTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */; };
-		C83FDE6E1DDADCB500173655 /* DroidSans_Bold.TTF in Resources */ = {isa = PBXBuildFile; fileRef = C83FDE6D1DDADCB500173655 /* DroidSans_Bold.TTF */; };
+		C83FDE6E1DDADCB500173655 /* DroidSans_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C83FDE6D1DDADCB500173655 /* DroidSans_Bold.ttf */; };
 		C84C7C4F1DD5953B00D134DD /* loading_120.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84C7C4E1DD5953B00D134DD /* loading_120.gif */; };
 		C859974F1DC04C1E0057C417 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = C859974E1DC04C1E0057C417 /* Task.m */; };
 		C85997521DC0565F0057C417 /* TakeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997511DC0565F0057C417 /* TakeTask.m */; };
@@ -70,7 +70,7 @@
 		C86161971DCAC94600B3DEB3 /* MePointRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86161951DCAC94600B3DEB3 /* MePointRecordTableViewCell.m */; };
 		C86161981DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86161961DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib */; };
 		C861619B1DCAD7A000B3DEB3 /* ManagerMissionPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C861619A1DCAD7A000B3DEB3 /* ManagerMissionPageViewController.m */; };
-		C86292431DD981D00066FD1A /* DroidSansFallback.TTF in Resources */ = {isa = PBXBuildFile; fileRef = C86292421DD981D00066FD1A /* DroidSansFallback.TTF */; };
+		C86292431DD981D00066FD1A /* DroidSansFallback.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C86292421DD981D00066FD1A /* DroidSansFallback.ttf */; };
 		C86DE7531DB5B63600374734 /* MissionActorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */; };
 		C86DE7541DB5B63600374734 /* MissionActorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */; };
 		C86DE7581DB5BD5300374734 /* MissionRequireTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C86DE7561DB5BD5300374734 /* MissionRequireTableViewCell.m */; };
@@ -250,7 +250,7 @@
 		C83C792A1DD179C2002EEAF3 /* MeMissionTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMissionTitleView.h; path = views/me/MeMissionTitleView.h; sourceTree = "<group>"; };
 		C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionTitleView.m; path = views/me/MeMissionTitleView.m; sourceTree = "<group>"; };
 		C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionTitleView.xib; path = views/me/MeMissionTitleView.xib; sourceTree = "<group>"; };
-		C83FDE6D1DDADCB500173655 /* DroidSans_Bold.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = DroidSans_Bold.TTF; path = src/DroidSans_Bold.TTF; sourceTree = "<group>"; };
+		C83FDE6D1DDADCB500173655 /* DroidSans_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = DroidSans_Bold.ttf; path = src/DroidSans_Bold.ttf; sourceTree = "<group>"; };
 		C84C7C4E1DD5953B00D134DD /* loading_120.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading_120.gif; path = src/loading_120.gif; sourceTree = "<group>"; };
 		C859974D1DC04C1E0057C417 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = models/Task.h; sourceTree = "<group>"; };
 		C859974E1DC04C1E0057C417 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = models/Task.m; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 		C86161961DCAC94600B3DEB3 /* MePointRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MePointRecordTableViewCell.xib; path = views/me/MePointRecordTableViewCell.xib; sourceTree = "<group>"; };
 		C86161991DCAD7A000B3DEB3 /* ManagerMissionPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ManagerMissionPageViewController.h; path = viewcontrollers/manager/ManagerMissionPageViewController.h; sourceTree = "<group>"; };
 		C861619A1DCAD7A000B3DEB3 /* ManagerMissionPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ManagerMissionPageViewController.m; path = viewcontrollers/manager/ManagerMissionPageViewController.m; sourceTree = "<group>"; };
-		C86292421DD981D00066FD1A /* DroidSansFallback.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = DroidSansFallback.TTF; path = src/DroidSansFallback.TTF; sourceTree = "<group>"; };
+		C86292421DD981D00066FD1A /* DroidSansFallback.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = DroidSansFallback.ttf; path = src/DroidSansFallback.ttf; sourceTree = "<group>"; };
 		C86DE7501DB5B63600374734 /* MissionActorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionActorTableViewCell.h; path = views/me/MissionActorTableViewCell.h; sourceTree = "<group>"; };
 		C86DE7511DB5B63600374734 /* MissionActorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionActorTableViewCell.m; path = views/me/MissionActorTableViewCell.m; sourceTree = "<group>"; };
 		C86DE7521DB5B63600374734 /* MissionActorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MissionActorTableViewCell.xib; path = views/me/MissionActorTableViewCell.xib; sourceTree = "<group>"; };
@@ -653,8 +653,8 @@
 		C8E6512E1DA9D52000400ABC /* src */ = {
 			isa = PBXGroup;
 			children = (
-				C83FDE6D1DDADCB500173655 /* DroidSans_Bold.TTF */,
-				C86292421DD981D00066FD1A /* DroidSansFallback.TTF */,
+				C83FDE6D1DDADCB500173655 /* DroidSans_Bold.ttf */,
+				C86292421DD981D00066FD1A /* DroidSansFallback.ttf */,
 				C84C7C4E1DD5953B00D134DD /* loading_120.gif */,
 				D6C48FFF1DBEEABD009EB672 /* launch.storyboard */,
 				C8E6513C1DA9E6CC00400ABC /* me.storyboard */,
@@ -1129,7 +1129,7 @@
 				C86DE7591DB5BD5300374734 /* MissionRequireTableViewCell.xib in Resources */,
 				D6C4901F1DBEEB0D009EB672 /* TaskCellTime.xib in Resources */,
 				D6C4901B1DBEEB0D009EB672 /* PFHomeCell.xib in Resources */,
-				C83FDE6E1DDADCB500173655 /* DroidSans_Bold.TTF in Resources */,
+				C83FDE6E1DDADCB500173655 /* DroidSans_Bold.ttf in Resources */,
 				D62A064C1DAB5CA8003832A8 /* login.storyboard in Resources */,
 				C82AF8E51DB70A0600882DB6 /* MissionNoAuthTableViewCell.xib in Resources */,
 				C886B0E21DA8FC0500240283 /* Assets.xcassets in Resources */,
@@ -1149,7 +1149,7 @@
 				C8B64E801DB49C8900B4311D /* MeMissionTableViewCell.xib in Resources */,
 				C87E40B51DD2EEC500DD2018 /* MeMissionRowPieceView.xib in Resources */,
 				A5A5083C1DBF2CF800CB2491 /* manager.storyboard in Resources */,
-				C86292431DD981D00066FD1A /* DroidSansFallback.TTF in Resources */,
+				C86292431DD981D00066FD1A /* DroidSansFallback.ttf in Resources */,
 				D6C490001DBEEABD009EB672 /* launch.storyboard in Resources */,
 				C87E40B31DD2BC9800DD2018 /* MeMissionRequireView.xib in Resources */,
 				A5A508491DBF466900CB2491 /* ManagerNewMissionTableViewCell.xib in Resources */,

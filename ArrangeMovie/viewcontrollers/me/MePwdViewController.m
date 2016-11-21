@@ -8,7 +8,10 @@
 
 #import "MePwdViewController.h"
 
-@interface MePwdViewController ()
+@interface MePwdViewController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *oldPwdTextField;
+@property (weak, nonatomic) IBOutlet UITextField *pwdNewTextField;
+@property (weak, nonatomic) IBOutlet UITextField *pwdNew2TextField;
 
 @end
 
@@ -25,6 +28,48 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if([textField isEqual:self.oldPwdTextField]){
+        [self.oldPwdTextField resignFirstResponder];
+        [self.pwdNewTextField becomeFirstResponder];
+    }
+    if ([textField isEqual:self.pwdNewTextField]) {
+        [self.pwdNewTextField resignFirstResponder];
+        [self.pwdNew2TextField becomeFirstResponder];
+    }
+    if ([textField isEqual:self.pwdNew2TextField]) {
+        [self.pwdNew2TextField resignFirstResponder];
+        
+        [self checkPwd];
+    }
+    return YES;
+}
+
+-(void)checkPwd {
+    NSString *oldPwd = self.oldPwdTextField.text;
+    if (oldPwd.length>0) {
+        
+        NSString *pwdNew = self.pwdNewTextField.text;
+        NSString *pwdNew2 = self.pwdNew2TextField.text;
+        if([pwdNew isEqualToString:pwdNew2]&&pwdNew.length>0){
+            
+        }else{
+            [self.view makeToast:@"请输入新密码!或两次新密码不一致" duration:3.0 position:CSToastPositionCenter];
+        }
+        
+    }else {
+        [self.view makeToast:@"请输入原密码!" duration:3.0 position:CSToastPositionCenter];
+    }
+}
+
+- (IBAction)savePwd:(id)sender {
+    [self.oldPwdTextField resignFirstResponder];
+    [self.pwdNewTextField resignFirstResponder];
+    [self.pwdNew2TextField resignFirstResponder];
+    
+    [self checkPwd];
 }
 
 /*

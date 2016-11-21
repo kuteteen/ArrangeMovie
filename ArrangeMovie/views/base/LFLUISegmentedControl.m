@@ -12,7 +12,7 @@
 {
 //    CGFloat widthFloat;
     NSInteger seugemtNumber;
-    UIView* buttonDown;
+    
 }
 @end
 
@@ -31,11 +31,11 @@
         [button addTarget:self action:@selector(changeTheSegument:) forControlEvents:UIControlEventTouchUpInside];
         if (i==0) {
             //            默认下划线高  3
-            buttonDown=[[UIView alloc]initWithFrame:CGRectMake(i*((self.bounds.size.width)/seugemtNumber), self.bounds.size.height-3, ((self.bounds.size.width)/seugemtNumber), 3)];
+            self.buttonDown=[[UIView alloc]initWithFrame:CGRectMake(i*((self.bounds.size.width)/seugemtNumber), self.bounds.size.height-3, ((self.bounds.size.width)/seugemtNumber), 3)];
             
 #pragma mark -----buttonDown 设置下划线颜色
-            [buttonDown setBackgroundColor:self.lineColor];
-            [self addSubview:buttonDown];
+            [self.buttonDown setBackgroundColor:self.lineColor];
+            [self addSubview:self.buttonDown];
         }
         [self addSubview:button];
         [self.ButtonArray addObject:button];
@@ -58,7 +58,7 @@
         [self.ButtonArray[segument] setSelected:YES];
         [((UIButton *)self.ButtonArray[segument]).titleLabel setFont:self.selectFont];
         [UIView animateWithDuration:0.1 animations:^{
-            [buttonDown setFrame:CGRectMake(segument*((self.bounds.size.width)/seugemtNumber),self.bounds.size.height-buttonDown.frame.size.height, ((self.bounds.size.width)/seugemtNumber), buttonDown.frame.size.height)];
+            [self.buttonDown setFrame:CGRectMake(segument*((self.bounds.size.width)/seugemtNumber),self.bounds.size.height-3, ((self.bounds.size.width)/seugemtNumber), 3)];
         }];
         self.selectSeugment=segument;
         [self.delegate uisegumentSelectionChange:self.selectSeugment];

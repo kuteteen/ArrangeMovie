@@ -8,7 +8,11 @@
 
 #import "MeNewCardViewController.h"
 
-@interface MeNewCardViewController ()
+@interface MeNewCardViewController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *noTextField;
+@property (weak, nonatomic) IBOutlet UITextField *bankNameTextField;
+@property (weak, nonatomic) IBOutlet UIButton *saveBankBtn;
 
 @end
 
@@ -21,6 +25,25 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.layer.contents = [UIColor whiteColor];
+    
+    
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([textField isEqual:self.nameTextField]) {
+        [self.nameTextField resignFirstResponder];
+        [self.noTextField becomeFirstResponder];
+    }else if ([textField isEqual:self.noTextField]){
+        [self.noTextField resignFirstResponder];
+        [self.bankNameTextField becomeFirstResponder];
+    }else{
+        [self.bankNameTextField resignFirstResponder];
+    }
+    return YES;
 }
 
 @end

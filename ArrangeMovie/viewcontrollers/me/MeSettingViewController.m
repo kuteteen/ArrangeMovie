@@ -59,7 +59,7 @@
     if(section==0){
         return 68.f;
     }
-    return 46.f;
+    return 50.f;
 }
 
 //group_header
@@ -67,7 +67,7 @@
     if(section==0){
         return 0.1f;
     }
-    return 44.f;
+    return 45.f;
 }
 
 //group_footer

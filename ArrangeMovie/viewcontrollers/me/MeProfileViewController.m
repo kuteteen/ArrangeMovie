@@ -13,11 +13,12 @@
 #import "EMICamera.h"
 #import "UpdateProfileWebInterface.h"
 #import "SCHttpOperation.h"
+#import "UIImageView+Webcache.h"
 
-@interface MeProfileViewController()<LCActionSheetDelegate>
+@interface MeProfileViewController()<LCActionSheetDelegate,UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *headBackView;
-@property (weak, nonatomic) IBOutlet EMIShadowImageView *headImgView;
+@property (weak, nonatomic) IBOutlet UIImageView *headImgView;
 @property (weak, nonatomic) IBOutlet EMIShadowImageView *editHeadImageView;
 @property (weak, nonatomic) IBOutlet UITextField *NickNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -29,6 +30,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveProfileBtn;
 
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+
+
 @property(nonatomic,strong) EMICamera *camera;
 
 @end
@@ -37,7 +42,10 @@
 
 -(void)viewDidLoad {
     self.title = @"我的资料";
-    self.headBackView.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"head_bg"].CGImage));
+    self.scrollView.contentInset=UIEdgeInsetsMake(-64, 0, 0, 0);
+    
+    self.NickNameTextField.delegate = self;
+    self.nameTextField.delegate = self;
     
     [self.editHeadImageView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.26 shadowRadius:10 image:@"" placeholder:@"profile_revision"];
     
@@ -61,6 +69,16 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
                                                         object:self
                                                       userInfo:nil];
+    
+    UITapGestureRecognizer *headBGTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenKeyBoard)];
+    [self.headBackView addGestureRecognizer:headBGTap];
+    UITapGestureRecognizer *bottomTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenKeyBoard)];
+    [self.bottomView addGestureRecognizer:bottomTap];
+}
+
+-(void)hiddenKeyBoard {
+    [self.NickNameTextField resignFirstResponder];
+    [self.nameTextField resignFirstResponder];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -71,7 +89,10 @@
 }
 
 -(void)showUser {
-    [self.headImgView setShadowWithType:EMIShadowPathCircle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 0) shadowOpacity:0.35 shadowRadius:10 image:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580" placeholder:@"miller"];
+    
+    self.headImgView.layer.masksToBounds = YES;
+    self.headImgView.layer.cornerRadius = self.headImgView.frame.size.width/2;
+    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:@"http://static.cnbetacdn.com/topics/6b6702c2167e5a2.jpg"]];// placeholderImage:[UIImage imageNamed:@"default_head"]
     
     [self.NickNameTextField setText:self.user.nickname];
     [self.nameTextField setText:self.user.name];
@@ -83,10 +104,6 @@
     self.phoneLabel.text = self.user.dn;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
-}
 
 -(void)setMale {
     [_maleCheck setOn:YES];
@@ -101,6 +118,8 @@
 }
 
 -(void)takePicture {
+    [self hiddenKeyBoard];
+    
     LCActionSheet *actionAlert = [LCActionSheet sheetWithTitle:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从手机相册选择", nil];
     [actionAlert show];
 }
@@ -144,6 +163,18 @@
     } WithFailureBlock:^{
         
     }];
+}
+
+
+# pragma mark - UITextField delegate 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if ([textField isEqual:self.NickNameTextField]) {
+        [self.NickNameTextField resignFirstResponder];
+        [self.nameTextField becomeFirstResponder];
+    }else {
+        [textField resignFirstResponder];
+    }
+    return YES;
 }
 
 @end
