@@ -17,7 +17,7 @@
 @interface MeViewController ()<MBProgressHUDDelegate>
 @property (nonatomic, strong) NSArray *array;//存放列表item
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UITableView *tableView;
 
 @end
 
@@ -28,7 +28,28 @@
     // Do any additional setup after loading the view.
     self.title = @"我的";
     
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back_normal" highImageName:@"back_normal" target:self action:@selector(showRootViewontroller:)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back" highImageName:@"back_click" target:self action:@selector(showRootViewontroller:)];
+        
+    
+    if (iPhone4S) {
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, screenWidth, screenHeight-64) style:UITableViewStylePlain];
+    }else {
+        if(self.user.usertype==0){
+            if ((screenHeight - 68 * 7)/2>64) {
+                self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (screenHeight - 68 * 7)/2, screenWidth, 68*7) style:UITableViewStylePlain];
+                self.tableView.scrollEnabled = NO;
+            }else {
+                self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, screenWidth, screenHeight-64) style:UITableViewStylePlain];
+            }
+        }else {
+            if ((screenHeight - 68 * 6)/2>64) {
+                self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (screenHeight - 68 * 6)/2, screenWidth, 68*6) style:UITableViewStylePlain];
+                self.tableView.scrollEnabled = NO;
+            }else {
+                self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, screenWidth, screenHeight-64) style:UITableViewStylePlain];
+            }
+        }
+    }
     
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
     self.tableView.separatorColor = [UIColor colorWithHexString:@"4C6EAB"];
@@ -39,7 +60,7 @@
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     
-    
+    [self.view addSubview:self.tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

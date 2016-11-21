@@ -93,22 +93,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ArrangeMovie/viewcontrollers/me/MeMissionViewController.m"
-            timestampString = "500285083.959174"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "-pageViewController:didFinishAnimating:previousViewControllers:transitionCompleted:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ArrangeMovie/viewcontrollers/me/MeMissionDetailViewController.m"
             timestampString = "500545215.899894"
             startingColumnNumber = "9223372036854775807"
@@ -122,7 +106,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ArrangeMovie/viewcontrollers/me/MeMissionDetailViewController.m"
@@ -142,11 +126,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ArrangeMovie/viewcontrollers/manager/ManagerMissionViewController.m"
-            timestampString = "500807663.978641"
+            timestampString = "501147360.998618"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "-scrollViewDidScroll:"
             landmarkType = "5">
          </BreakpointContent>

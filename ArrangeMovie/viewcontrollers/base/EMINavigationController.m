@@ -91,7 +91,8 @@
     // 设置文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
-    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:20.5f];
+    textAttrs[NSFontAttributeName] = [UIFont fontWithName:@"Droid Sans" size:20.5f];
+//    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:20.5f];
     // UIOffsetZero是结构体, 只要包装成NSValue对象, 才能放进字典\数组中
 //    textAttrs[NSShadowAttributeName] = [NSValue valueWithUIOffset:UIOffsetZero];
     [appearance setTitleTextAttributes:textAttrs];
@@ -138,7 +139,7 @@
         // 设置导航栏按钮
         
         viewController.navigationItem.hidesBackButton = YES;
-        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back" highImageName:@"back" target:self action:@selector(back)];
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back" highImageName:@"back_click" target:self action:@selector(back)];
         viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigationbar_more" highImageName:@"navigationbar_more_highlighted" target:self action:@selector(more)];
     }
     

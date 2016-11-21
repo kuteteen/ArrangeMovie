@@ -27,7 +27,7 @@
     
     
     self.title = @"我的银行卡";
-    self.view.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     self.array = [[NSArray alloc] initWithObjects:@"",@"", nil];
     
@@ -84,7 +84,9 @@
     if(section==0){
         MeBankCardTableViewCell *cell = [MeBankCardTableViewCell cellWithTableView:tableView];
         if(row!=0){
-            cell.mainView.backgroundColor = [UIColor colorWithHexString:@"ffffff" alpha:0.5];
+            cell.mainView.backgroundColor = [UIColor colorWithHexString:@"f8f8f8" alpha:1];
+        }else{
+            cell.mainView.backgroundColor = [UIColor colorWithHexString:@"e7e7e7" alpha:1];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;

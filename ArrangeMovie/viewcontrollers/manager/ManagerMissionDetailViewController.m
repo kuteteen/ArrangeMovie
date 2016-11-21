@@ -40,7 +40,7 @@
     [headView sd_setImageWithURL:[NSURL URLWithString:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:headView];
     }];
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back_normal" highImageName:@"back_pressed" target:self action:@selector(backToUp)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back" highImageName:@"back_click" target:self action:@selector(backToUp)];
     
     
     for(UIView *view in self.view.superview.subviews){
@@ -118,14 +118,14 @@
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if(section==0){
-        return 99.f;
+        return 103.f;
     }else if(section==1){
         return 44.f;
     }else if(section==2){
         //需要根据内容计算高度
         ManagerMissionRequireTableViewCell *cell = (ManagerMissionRequireTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
         CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-        CGFloat width = Width - 64 - 30;
+        CGFloat width = Width - 68 - 30;
         
         CGSize textViewSize = [cell.requireLabel sizeThatFits:CGSizeMake(width, FLT_MAX)];
         [cell.requireLabel sizeToFit];

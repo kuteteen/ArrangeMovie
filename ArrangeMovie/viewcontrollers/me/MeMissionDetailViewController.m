@@ -31,7 +31,7 @@
     // Do any additional setup after loading the view.
     isAuthed = YES;
     self.title = @"任务详情";
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back_normal" highImageName:@"back_pressed" target:self action:@selector(backToUp)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back" highImageName:@"back_click" target:self action:@selector(backToUp)];
     
 //    self.tableView.tableFooterView = [[UIView alloc] init];
     for(UIView *view in self.view.superview.subviews){

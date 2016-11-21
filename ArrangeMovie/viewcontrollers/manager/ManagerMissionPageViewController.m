@@ -11,7 +11,7 @@
 
 
 @interface ManagerMissionPageViewController ()<UITableViewDataSource,UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (strong,nonatomic) NSMutableArray *array;//显示用的数据
 @end
 
@@ -100,9 +100,21 @@
         cell.flagLabel.hidden = YES;
         cell.delTaskBtn.hidden = NO;
     }
+    
+    cell.delTaskBtn.tag = 1000+indexPath.row;
+    
     [cell.delTaskBtn addTarget:self action:@selector(toDelTask:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
+
+-(void)toDelTask:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    NSInteger tag = btn.tag-1000;
+    if([self.delegate respondsToSelector:@selector(toDelTask:)]){
+        [self.delegate performSelector:@selector(toDelTask:) withObject:self.array[tag]];
+    }
+}
+
 /*
 #pragma mark - Navigation
 

@@ -29,7 +29,7 @@
 @property(strong,nonatomic)UIColor *lineColor;/**< 下划线的颜色 */
 @property(assign,nonatomic)NSInteger selectSeugment;//当前选中的位置
 @property(assign,nonatomic)BOOL isClickable;//按钮是否可以点击 ,默认不可以点击
-
+@property(strong,nonatomic)UIView* buttonDown;
 -(void)AddSegumentArray:(NSArray *)SegumentArray;
 -(instancetype)initWithFrame:(CGRect)frame;
 -(void)selectTheSegument:(NSInteger)segument;

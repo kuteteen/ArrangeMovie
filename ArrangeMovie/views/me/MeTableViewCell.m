@@ -35,15 +35,15 @@
     
     NSString *imgname;
     if([title isEqualToString:@"我的资料"]){
-        imgname = @"my_profile";
+        imgname = @"Icon---Username_click";
     }else if([title isEqualToString:@"任务历史"]){
         imgname = @"my_task";
     }else if([title isEqualToString:@"我的积分"]){
         imgname = @"my_integral";
     }else if([title isEqualToString:@"我的银行卡"]){
-        imgname = @"bank_card_number";
+        imgname = @"icon_kahao_click";
     }else if([title isEqualToString:@"修改密码"]){
-        imgname = @"login_imput_-password";
+        imgname = @"Icon---Password_click";
     }else if([title isEqualToString:@"资料审核"]){
         imgname = @"my_review";
     }else if([title isEqualToString:@"设置"]){

@@ -42,6 +42,12 @@
 @property (strong,nonatomic) UILabel *payCountLab;//已支付个数首字母
 @property (strong,nonatomic) UILabel *payAllCountLab;//已支付个数其他字母+/已支付总个数
 
+
+@property(nonatomic,strong)UIImageView *leadaddView;//引导图片
+@property(nonatomic,strong)UIImageView *leadmyView;//引导图片
+@property(nonatomic,strong)UITapGestureRecognizer *removeLeadGes;//清除引导图片的手势
+
+
 @property (strong, nonatomic) NSMutableArray *array;//数据源
 
 @end
@@ -55,7 +61,7 @@
 
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"theatres_index_view_task" highImageName:@"theatres_index_view_task" target:self action:@selector(toMyMission)];
 
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_index_my" highImageName:@"film_index_my" target:self action:@selector(presentRightMenuViewController:)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_home_my" highImageName:@"film_home_my" target:self action:@selector(presentRightMenuViewController:)];
 
 //    self.tableView.tableFooterView = [[UIView alloc] init];
 
@@ -110,7 +116,48 @@
     [self.tableView sendSubviewToBack:self.tableView.tableHeaderView];
     
     [self.view addSubview:self.tableView];
+    
+    [self initLeadView];
 }
+//加载引导相关的视图，只在第一次进入这个应用时加载一次
+- (void)initLeadView{
+    //首先，隐藏navigation
+    [self.navigationController setNavigationBarHidden:YES];
+    
+    self.leadmyView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    self.leadmyView.tag = 0;
+    self.leadmyView.image = [UIImage imageNamed:@"cinema_manager_my_new"];
+    self.leadmyView.userInteractionEnabled = YES;
+    [self.view addSubview:self.leadmyView];
+    
+    self.leadaddView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    self.leadaddView.tag = 1;
+    self.leadaddView.image = [UIImage imageNamed:@"cinema_manager_task_new"];
+    self.leadaddView.userInteractionEnabled = YES;
+    [self.view addSubview:self.leadaddView];
+    
+    self.removeLeadGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeLead:)];
+    [self.leadaddView addGestureRecognizer:self.removeLeadGes];
+    
+}
+
+//清除引导相关视图
+- (void)removeLead:(UITapGestureRecognizer *)sender{
+    //点击leadaddView
+    if (sender.view.tag == 1) {
+        [self.leadaddView removeFromSuperview];
+        [self.leadaddView removeGestureRecognizer:self.removeLeadGes];
+        [self.leadmyView addGestureRecognizer:self.removeLeadGes];
+        return;
+    }
+    //点击leadaddView
+    if (sender.view.tag == 0) {
+        [self.leadmyView removeFromSuperview];
+        [self.navigationController setNavigationBarHidden:NO];
+        return;
+    }
+}
+
 
 - (void)setHead{
     //加载头像

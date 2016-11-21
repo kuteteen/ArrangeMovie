@@ -17,7 +17,7 @@
 
 #define Width [UIScreen mainScreen].bounds.size.width
 
-@interface ManagerMissionViewController ()<LFLUISegmentedControlDelegate,UIScrollViewDelegate,ManagerMissionPageViewControllerDelegate> {
+@interface ManagerMissionViewController ()<LFLUISegmentedControlDelegate,UIScrollViewDelegate,ManagerMissionPageViewControllerDelegate,UITableViewDelegate,UITableViewDataSource> {
     LFLUISegmentedControl *segmentControl;
     CKAlertViewController *ckAlertVC;
     
@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 //@property (strong,nonatomic) NSMutableArray *dataArray;//所有数据
-//@property (strong,nonatomic) NSMutableArray *array;//显示用的数据
+@property (strong,nonatomic) NSMutableArray *array;//显示用的数据
 
 ///页数
 @property (nonatomic, assign) NSInteger pageCount;
@@ -48,9 +48,9 @@
     
     segmentControl = [[LFLUISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, Width, 50)];
     segmentControl.delegate = self;
-    segmentControl.titleFont = [UIFont systemFontOfSize:16.f];
+    segmentControl.titleFont = [UIFont fontWithName:@"DroidSansFallback" size:16.f];
     segmentControl.titleColor = [UIColor colorWithHexString:@"162271"];
-    segmentControl.selectFont = [UIFont systemFontOfSize:16.f];
+    segmentControl.selectFont = [UIFont fontWithName:@"DroidSansFallback" size:16.f];
     segmentControl.selectColor = [UIColor colorWithHexString:@"162271"];
     segmentControl.backgroundColor = [UIColor whiteColor];
     segmentControl.lineColor = [UIColor colorWithHexString:@"162271"];
@@ -63,20 +63,21 @@
     if(!viewControllers){
         viewControllers = [[NSMutableArray alloc] initWithCapacity:self.pageCount];
     }
-    for(NSInteger i = 0;i<self.pageCount;i++){
-        [self setContentViewController:i];
+//    for(NSInteger i = 0;i<self.pageCount;i++){
+//        [self setContentViewController:i];
+//    }
+    for (NSInteger i = 0; i<_pageCount; i++) {
+        UITableView *tableView  = [[UITableView alloc] initWithFrame:CGRectMake(i*screenWidth, 0, screenWidth, self.scrollView.frame.size.height) style:UITableViewStylePlain];
+        
+        tableView.tag = 1000+i;
+        
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        tableView.tableFooterView = [[UIView alloc] init];
+        
+        [self.scrollView addSubview:tableView];
     }
-    self.scrollView.contentSize = CGSizeMake(self.pageCount*screenWidth, 0);
-//    pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managerpageviewcontroller"];
-//    self.pageCount = 4;
-//    
-//    pageViewController.delegate = self;
-//    pageViewController.dataSource = self;
-//    [self setContentViewController:0];
-//    pageViewController.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
-//    [self addChildViewController:pageViewController];
-//    [self.contentView addSubview:pageViewController.view];
-//    [pageViewController didMoveToParentViewController:self];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,62 +85,53 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setContentViewController:(NSInteger)pageIndex {
-    ManagerMissionPageViewController *startingViewController = [self viewControllerAtIndex:pageIndex];
-    [self.scrollView addSubview:startingViewController.view];
-    [viewControllers addObject:startingViewController];
-}
 
--(ManagerMissionPageViewController *)viewControllerAtIndex:(NSInteger)index {
-    if(index>=self.pageCount) {
-        return nil;
-    }
-    ManagerMissionPageViewController *pageContentViewController;
-    pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managermissionpagecontent"];
-    pageContentViewController.pageIndex = index;
-    pageContentViewController.delegate = self;
+
+
+//-(void)setContentViewController:(NSInteger)pageIndex {
+//    ManagerMissionPageViewController *startingViewController = [self viewControllerAtIndex:pageIndex];
+//    
+//     NSLog(@"pageContentViewController宽度：%f",startingViewController.view.frame.size.width);
+//    [self.scrollView addSubview:startingViewController.view];
+//    [viewControllers addObject:startingViewController];
+//}
+
+- (void)viewDidLayoutSubviews {
     
-    pageContentViewController.view.frame = CGRectMake(index*screenWidth, 0, screenWidth, self.scrollView.frame.size.height);
-    [pageContentViewController viewWillAppear:YES];
-    return pageContentViewController;
+    [super viewDidLayoutSubviews];
+    
+    self.scrollView.contentSize = CGSizeMake(self.pageCount*screenWidth, 0);
+    [self.view layoutSubviews];
+    
+    
+    for (UIView *view in self.scrollView.subviews) {
+        NSLog(@"childView宽度：%f",view.frame.size.width);
+    }
+}
+#pragma mark - UITableView delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 144.f;
 }
 
-//#pragma mark -UIPageViewControllerDataSource
-//
-//-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-//    ManagerMissionPageViewController *vc = (ManagerMissionPageViewController *)viewController;
-//    self.pageIndex = vc.pageIndex;
-//    if(self.pageIndex<self.pageCount-1){
-//        self.pageIndex++;
-//        return [viewControllers objectAtIndex:self.pageIndex];
-//    }else{
-//        return nil;
-//    }
-//}
-//
-//-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-//    ManagerMissionPageViewController *vc = (ManagerMissionPageViewController *)viewController;
-//    self.pageIndex = vc.pageIndex;
-//    if(self.pageIndex == 0){
-//        return nil;
-//    }
-//    self.pageIndex --;
-//    //    [segmentControl selectTheSegument:self.pageIndex];
-//    return [viewControllers objectAtIndex:self.pageIndex];
-//}
-//
-//-(void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
-//    ManagerMissionPageViewController *vc = (ManagerMissionPageViewController *)previousViewControllers[0];
-//    NSInteger page;
-//    if((self.pageIndex==0&&self.pageIndex==vc.pageIndex)||self.pageIndex>vc.pageIndex){
-//        page = vc.pageIndex+1;
-//    }else{
-//        page = vc.pageIndex-1;
-//    }
-//    [segmentControl selectTheSegument:page];
-//}
-
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //任务详情
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中
+    
+    NSInteger tag = tableView.tag-1000;
+    
+    ManagerMissionTableViewCell *cell = (ManagerMissionTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    ///cell在tableView的位置
+    CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
+    
+    //cell在scrollview中的位置
+    CGRect rect = [tableView convertRect:rectInTableView toView:[tableView superview]];
+    CGRect originRect = CGRectMake(rect.origin.x+15-screenWidth*tag, rect.origin.y+63+50+64, cell.postImgView.frame.size.width, cell.postImgView.frame.size.height);
+    cell.imgRect = originRect;
+    [self startAnimationForIndexPath:cell];
+    //跳转到任务详情
+    //    [self performSegueWithIdentifier:@"tomanagermissiondetail" sender:nil];
+}
 
 
 #pragma mark - LFLUISegmentedControl delegate
@@ -188,6 +180,57 @@
     ckAlertVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
     [self presentViewController:ckAlertVC animated:NO completion:nil];
 }
+-(NSMutableArray *)array {
+    if(!_array){
+        _array = [[NSMutableArray alloc] init];
+        for(int i = 0;i<4;i++){
+            Task *task = [[Task alloc] init];
+            task.filmname = @"让子弹飞";
+            task.filmdirector = @"姜文";
+            task.startdate = @"2016/10/28";
+            task.enddate = @"2016/11/28";
+            task.taskpoints = @"200";
+            task.filmstars = @"本尼迪克特·康伯巴奇,马丁·弗瑞曼,安德鲁·斯科特,马克·加蒂斯";
+            task.startdate = @"2016-10-31";
+            task.enddate = @"2016-11-21";
+            task.shownum = @"30";
+            task.tasknum = @"10";
+            task.surplusnum = @"7";
+            task.dn = @"18252495961";
+            task.gradename = @"A级影院";
+            [_array addObject:task];
+        }
+    }
+    return _array;
+}
+
+#pragma mark - UITableView dataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.array.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ManagerMissionTableViewCell *cell = [ManagerMissionTableViewCell cellWithTableView:tableView];
+    UIView *backview = [[UIView alloc] init];
+    backview.backgroundColor = [UIColor colorWithHexString:@"f6f6f6"];
+    cell.selectedBackgroundView = backview;
+    
+    [cell setValue:self.array[indexPath.row]];
+    
+    if(self.pageIndex==2){
+        cell.flagLabel.hidden = NO;
+        cell.delTaskBtn.hidden = YES;
+    }else{
+        cell.flagLabel.hidden = YES;
+        cell.delTaskBtn.hidden = NO;
+    }
+    
+    cell.delTaskBtn.tag = 1000+indexPath.row;
+    
+    [cell.delTaskBtn addTarget:self action:@selector(toDelTask:) forControlEvents:UIControlEventTouchUpInside];
+    return cell;
+}
 
 -(void)delTask:(id)sender {
     [ckAlertVC dismissViewControllerAnimated:NO completion:nil];
@@ -197,20 +240,8 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     ///X方向上的滑动距离
     CGFloat offSetX = scrollView.contentOffset.x;
-    NSLog(@"在X方向上的滑动距离：%f",offSetX);
-}
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    NSString *identifier = segue.identifier;
-    if ([identifier isEqualToString:@"tomanagermissiondetail"]) {
-        ManagerMissionDetailViewController *viewController = [segue destinationViewController];
-        viewController.flag = segmentControl.selectSeugment;
-    }
+    
+    segmentControl.buttonDown.center = CGPointMake(screenWidth/(_pageCount*2) + offSetX/_pageCount, segmentControl.buttonDown.center.y);
 }
 
 
