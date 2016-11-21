@@ -105,7 +105,7 @@
     
     //片方,添加圆形打钩按钮
     //片方,添加圆形打钩按钮
-    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(158.5, 550, 74, 74)];
+    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(150.5, 550, 74, 74)];
     //    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
     OKImgView.image = [UIImage imageNamed:@"row_piece_review"];
     //        OKImgView setHighlightedImage:[UIImage imageNamed:row]
@@ -204,7 +204,7 @@
         pageView.coverView.backgroundColor = [UIColor clearColor];
         
         EMIShadowImageView *shadowImageView;
-        shadowImageView = [[EMIShadowImageView alloc] initWithFrame:pageView.frame];
+        shadowImageView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(9*autoSizeScaleX, 9*autoSizeScaleY, pageView.frame.size.width-18*autoSizeScaleX, pageView.frame.size.height-18*autoSizeScaleY)];
         shadowImageView.contentMode = UIViewContentModeScaleAspectFit;
         
         
@@ -217,8 +217,8 @@
             
             //添加时间label
             //下方圆角
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (397-61.5)*autoSizeScaleY, (375)*autoSizeScaleX-84, 61.5*autoSizeScaleY)];
-            label.textColor = [UIColor colorWithHexString:@"15151b" alpha:1];
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (397-61.5-18)*autoSizeScaleY, (375)*autoSizeScaleX-84-18*autoSizeScaleX, 61.5*autoSizeScaleY)];
+            label.textColor = [UIColor colorWithHexString:@"aeafb3" alpha:1];
             label.font = [UIFont fontWithName:@"DroidSansFallback" size:18.f*autoSizeScaleY];
             label.text = @"2016-09-21排片情况";
             label.backgroundColor = [UIColor whiteColor];

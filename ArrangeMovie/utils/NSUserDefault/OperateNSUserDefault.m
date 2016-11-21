@@ -39,4 +39,12 @@
     //同步到磁盘
     [[self shareInstance] synchronize];
 }
+
+
+/*
+ 本项目
+ userDefault使用记录
+ 
+ filmCover:电影封面图片
+ */
 @end

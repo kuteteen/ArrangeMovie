@@ -5,24 +5,26 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="DROIDSANS-BOLD_0.TTF">
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
+        <mutableArray key="DroidSansFallback.TTF">
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
         </mutableArray>
-        <mutableArray key="DroidSansfallBack.TTF">
-            <string>DroidSansFallback</string>
-            <string>DroidSansFallback</string>
+        <mutableArray key="DroidSans_Bold.TTF">
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -616,13 +618,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_head" id="NFc-OO-B5f">
-                                <rect key="frame" x="133" y="110" width="110" height="110"/>
+                                <rect key="frame" x="108" y="128" width="158" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎回来" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i0f-Jd-JE0">
                                 <rect key="frame" x="17" y="246" width="341" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="18"/>
                                 <color key="textColor" red="0.086274509799999996" green="0.1333333333" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -661,7 +663,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登陆成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0nR-bM-egM">
                                         <rect key="frame" x="45" y="0.0" width="80" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="19"/>
                                         <color key="textColor" red="0.086274509799999996" green="0.1333333333" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -696,7 +698,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="default_head" width="1024" height="1024"/>
+        <image name="default_head" width="317" height="184"/>
         <image name="forget_btn" width="702" height="109"/>
         <image name="login_btn" width="523" height="108"/>
         <image name="login_imput_-password" width="40" height="46"/>

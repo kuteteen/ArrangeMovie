@@ -154,7 +154,7 @@
     UILabel *releaseTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(268*autoSizeScaleX, 64+22*autoSizeScaleY, 100, 100)];
     releaseTitleLab.textAlignment = NSTextAlignmentLeft;
     releaseTitleLab.font = [UIFont fontWithName:@"DroidSansFallback" size:10.5*autoSizeScaleY];
-    releaseTitleLab.text = @"已领取";
+    releaseTitleLab.text = @"已发布";
     releaseTitleLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize releaseTitleLabSize = [releaseTitleLab boundingRectWithSize:CGSizeZero];
     releaseTitleLab.frame = CGRectMake(268*autoSizeScaleX, 64+22*autoSizeScaleY, releaseTitleLabSize.width, releaseTitleLabSize.height);

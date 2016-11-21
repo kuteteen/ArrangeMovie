@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "iphone",
-      "filename" : "1024.png",
+      "filename" : "jingyu.png",
       "scale" : "1x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "1024-1.png",
+      "filename" : "jingyu-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "1024-2.png",
+      "filename" : "jingyu-2.png",
       "scale" : "3x"
     }
   ],

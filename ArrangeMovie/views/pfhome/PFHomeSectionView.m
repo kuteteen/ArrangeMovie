@@ -84,7 +84,7 @@
     //根据比例布局
     [AppDelegate storyBoradAutoLay:self];
     
-    [self.headImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"#0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.2 shadowRadius:3 image:imageName placeholder:@""];
+    [self.headImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"#0a0e16"] shadowOffset:CGSizeMake(0, 1.5) shadowOpacity:0.26 shadowRadius:6 image:imageName placeholder:@""];
     self.titleLab.font = [UIFont fontWithName:@"DroidSansFallback" size:17*autoSizeScaleY];
     
     self.bigNumLab.font = [UIFont fontWithName:@"DroidSansFallback" size:40*autoSizeScaleY];

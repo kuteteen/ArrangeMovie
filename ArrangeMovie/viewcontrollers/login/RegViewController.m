@@ -87,9 +87,9 @@
     self.mainSegView.lineColor = [UIColor colorWithHexString:@"162271"];
     self.mainSegView.LFLBackGroundColor = [UIColor whiteColor];
     self.mainSegView.titleColor = [UIColor colorWithHexString:@"162271"];
-    self.mainSegView.titleFont = [UIFont fontWithName:@"DroidSansFallback" size:18.f];
+    self.mainSegView.titleFont = [UIFont fontWithName:@"DroidSansFallback" size:18.f*autoSizeScaleY];
     self.mainSegView.selectColor = [UIColor colorWithHexString:@"162271"];
-    self.mainSegView.selectFont = [UIFont fontWithName:@"DroidSansFallback" size:18.f];
+    self.mainSegView.selectFont = [UIFont fontWithName:@"DroidSansFallback" size:18.f*autoSizeScaleY];
     [self.mainSegView AddSegumentArray:[NSArray arrayWithObjects:@"片方",@"院线经理", nil]];
     [self.segmentView addSubview:self.mainSegView];
     [self.view bringSubviewToFront:self.segmentView];
