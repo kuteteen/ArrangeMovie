@@ -1,1 +1,0 @@
-../../../SCFadeSlideView/Classes/SCSlidePageView.h

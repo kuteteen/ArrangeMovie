@@ -159,6 +159,7 @@
             CGFloat fontSize = ((UITextField *)(temp)).font.pointSize;
             NSString *fontName = ((UITextField *)(temp)).font.fontName;
             ((UITextField *)(temp)).font = [UIFont fontWithName:fontName size:fontSize*autoSizeScaleY];
+            [((UITextField *)(temp)) setValue:[UIFont fontWithName:fontName size:fontSize*autoSizeScaleY] forKeyPath:@"_placeholderLabel.font"];
         }
         //UITextView
         if ([temp isKindOfClass:[UITextView class]]) {

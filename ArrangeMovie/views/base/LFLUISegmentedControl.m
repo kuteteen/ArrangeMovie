@@ -58,7 +58,7 @@
         [self.ButtonArray[segument] setSelected:YES];
         [((UIButton *)self.ButtonArray[segument]).titleLabel setFont:self.selectFont];
         [UIView animateWithDuration:0.1 animations:^{
-            [buttonDown setFrame:CGRectMake(segument*((self.bounds.size.width)/seugemtNumber),self.bounds.size.height-3, ((self.bounds.size.width)/seugemtNumber), 3)];
+            [buttonDown setFrame:CGRectMake(segument*((self.bounds.size.width)/seugemtNumber),self.bounds.size.height-buttonDown.frame.size.height, ((self.bounds.size.width)/seugemtNumber), buttonDown.frame.size.height)];
         }];
         self.selectSeugment=segument;
         [self.delegate uisegumentSelectionChange:self.selectSeugment];

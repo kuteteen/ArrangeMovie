@@ -104,8 +104,10 @@
     
     
     //片方,添加圆形打钩按钮
-    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(158.5, 572, 58, 58)];
-    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
+    //片方,添加圆形打钩按钮
+    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(158.5, 550, 74, 74)];
+    //    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
+    OKImgView.image = [UIImage imageNamed:@"row_piece_review"];
     //        OKImgView setHighlightedImage:[UIImage imageNamed:row]
     [self.view addSubview:OKImgView];
     OKImgView.userInteractionEnabled = YES;
@@ -217,7 +219,7 @@
             //下方圆角
             UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (397-61.5)*autoSizeScaleY, (375)*autoSizeScaleX-84, 61.5*autoSizeScaleY)];
             label.textColor = [UIColor colorWithHexString:@"15151b" alpha:1];
-            label.font = [UIFont systemFontOfSize:18.f];
+            label.font = [UIFont fontWithName:@"DroidSansFallback" size:18.f*autoSizeScaleY];
             label.text = @"2016-09-21排片情况";
             label.backgroundColor = [UIColor whiteColor];
             label.textAlignment = NSTextAlignmentCenter;
