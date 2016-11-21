@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "iphone",
-      "filename" : "jingyu.png",
+      "filename" : "alert_tongguo.png",
       "scale" : "1x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "jingyu-1.png",
+      "filename" : "alert_tongguo-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "jingyu-2.png",
+      "filename" : "alert_tongguo-2.png",
       "scale" : "3x"
     }
   ],

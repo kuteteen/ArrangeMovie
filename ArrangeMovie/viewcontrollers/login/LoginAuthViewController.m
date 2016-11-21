@@ -64,7 +64,7 @@
     zhuLabel.textColor = [UIColor colorWithHexString:@"#9FA6BC"];
     [self.view addSubview:zhuLabel];
     //片方,添加圆形打钩按钮
-    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(158.5, 550, 74, 74)];
+    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(150.5, 550, 74, 74)];
 //    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
     OKImgView.image = [UIImage imageNamed:@"row_piece_review"];
     //        OKImgView setHighlightedImage:[UIImage imageNamed:row]
@@ -129,7 +129,7 @@
 
 #pragma mark SCFadeSlideView delegate
 -(CGSize)sizeForPageInSlideView:(SCFadeSlideView *)slideView {
-    return CGSizeMake(375*autoSizeScaleX-84, 397*autoSizeScaleY);
+    return CGSizeMake(375*autoSizeScaleX-84, (397)*autoSizeScaleY);
 }
 
 //- (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
@@ -190,14 +190,15 @@
 -(UIView *)slideView:(SCFadeSlideView *)slideView cellForPageAtIndex:(NSInteger)index {
     SCSlidePageView *pageView = (SCSlidePageView *)[slideView dequeueReusableCell];
     if(!pageView){
-        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, 375*autoSizeScaleX-84, 397*autoSizeScaleY)];
-        pageView.layer.cornerRadius = 4;
+        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, 375*autoSizeScaleX-84, (397)*autoSizeScaleY)];
+        pageView.layer.cornerRadius = 2;
         pageView.layer.masksToBounds = YES;
+//        [pageView setCornerRadiusShadowWithshadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.15 shadowRadius:4.5*autoSizeScaleY];
         pageView.backgroundColor = [UIColor clearColor];
         pageView.coverView.backgroundColor = [UIColor clearColor];
         
         EMIShadowImageView *shadowImageView;
-        shadowImageView = [[EMIShadowImageView alloc] initWithFrame:pageView.frame];
+        shadowImageView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(9*autoSizeScaleX, 9*autoSizeScaleY, pageView.frame.size.width-18*autoSizeScaleX, pageView.frame.size.height-18*autoSizeScaleY)];
         shadowImageView.contentMode = UIViewContentModeScaleAspectFit;
         
         if(self.array.count>0&&index<self.array.count){
@@ -206,14 +207,14 @@
             
             [pageView addSubview:shadowImageView];
             //删除按钮
-            UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake((375-36)*autoSizeScaleX-84, 10*autoSizeScaleY, 29*autoSizeScaleX, 29*autoSizeScaleY)];
+            UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake((375-41)*autoSizeScaleX-84, 12*autoSizeScaleY, 29*autoSizeScaleX, 29*autoSizeScaleY)];
             delBtn.tag = index;
             [delBtn addTarget:self action:@selector(delPhoto:) forControlEvents:UIControlEventTouchUpInside];
             [delBtn setBackgroundImage:[UIImage imageNamed:@"photo_del"] forState:UIControlStateNormal];
             [pageView addSubview:delBtn];
             
         }else{
-            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.15 shadowRadius:10 image:@"" placeholder:@"scfade_bg"];
+            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.15 shadowRadius:9 image:@"" placeholder:@"scfade_bg"];
             [pageView addSubview:shadowImageView];
             //添加"上传公司证件审核"图片
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(85.5*autoSizeScaleX, 143.5*autoSizeScaleY, 120*autoSizeScaleX, 110*autoSizeScaleY)];

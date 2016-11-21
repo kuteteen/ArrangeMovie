@@ -16,6 +16,7 @@
 #import "RESideMenu.h"
 #import "EMIRootViewController.h"
 #import "SCFadeSlideView.h"
+#import "LFLUISegmentedControl.h"
 
 @interface AppDelegate ()<RESideMenuDelegate>
 
@@ -148,6 +149,13 @@
 + (void)storyBoardAutoLabelFont:(UIView *)allView
 {
     for (UIView *temp in allView.subviews) {
+        
+        
+        if ([temp isKindOfClass:[LFLUISegmentedControl class]]) {
+            return;
+        }
+        
+        
         //label
         if ([temp isKindOfClass:[UILabel class]]) {
             CGFloat fontSize = ((UILabel *)(temp)).font.pointSize;

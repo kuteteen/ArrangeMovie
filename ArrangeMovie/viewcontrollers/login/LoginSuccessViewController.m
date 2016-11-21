@@ -34,8 +34,6 @@
     self.headImgView.layer.masksToBounds = YES;
      self.headImgView.layer.cornerRadius = self.headImgView.frame.size.height/2;
     [self setHead];
-    self.nameLab.font = [UIFont systemFontOfSize:21.0*autoSizeScaleY];
-    self.bottomLab.font = [UIFont systemFontOfSize:19.0*autoSizeScaleY];
     
     //动画改变视图透明度和位置
     [UIView animateWithDuration:3.0f animations:^{
@@ -53,7 +51,7 @@
     }];
     
     //停留5秒，跳至首页
-    double delayInSeconds = 2.0;
+    double delayInSeconds = 4.0;
     __block LoginSuccessViewController* bself = self;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){

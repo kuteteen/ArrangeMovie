@@ -158,13 +158,13 @@
     SCSlidePageView *pageView = (SCSlidePageView *)[slideView dequeueReusableCell];
     if(!pageView){
         pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, (375)*autoSizeScaleX-84, 397*autoSizeScaleY)];
-        pageView.layer.cornerRadius = 4;
+        pageView.layer.cornerRadius = 2;
         pageView.layer.masksToBounds = YES;
         pageView.backgroundColor = [UIColor clearColor];
         pageView.coverView.backgroundColor = [UIColor clearColor];
         
         EMIShadowImageView *shadowImageView;
-        shadowImageView = [[EMIShadowImageView alloc] initWithFrame:pageView.frame];
+        shadowImageView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(9*autoSizeScaleX, 9*autoSizeScaleY, pageView.frame.size.width-18*autoSizeScaleX, pageView.frame.size.height-18*autoSizeScaleY)];
         shadowImageView.contentMode = UIViewContentModeScaleAspectFit;
         
         if(self.array.count>0&&index<self.array.count){
@@ -177,8 +177,8 @@
             
             //添加时间label
             //下方圆角
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (397-61.5)*autoSizeScaleY, (375)*autoSizeScaleX-84, 61.5*autoSizeScaleY)];
-            label.textColor = [UIColor colorWithHexString:@"15151b" alpha:1];
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (397-61.5-18)*autoSizeScaleY, (375)*autoSizeScaleX-84-18*autoSizeScaleX, 61.5*autoSizeScaleY)];
+            label.textColor = [UIColor colorWithHexString:@"aeafb3" alpha:1];
             label.font = [UIFont fontWithName:@"DroidSansFallback" size:18.f*autoSizeScaleY];
             label.text = @"2016-09-21排片情况";
             label.backgroundColor = [UIColor whiteColor];
@@ -192,7 +192,7 @@
             label.layer.mask = maskLayer;
             
         }else{
-            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.15 shadowRadius:10 image:@"" placeholder:@"scfade_bg"];
+            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.15 shadowRadius:9 image:@"" placeholder:@"scfade_bg"];
             [pageView addSubview:shadowImageView];
             //添加"暂无排片"图片
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(85.5*autoSizeScaleX, 143.5*autoSizeScaleY, 120*autoSizeScaleX, 110*autoSizeScaleY)];

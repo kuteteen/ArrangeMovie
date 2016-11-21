@@ -17,6 +17,12 @@
     shadowOpacity:(float)opacity
      shadowRadius:(CGFloat)radius;
 
+//圆角阴影
+
+- (void)setCornerRadiusShadowWithshadowColor:(UIColor *)color
+                                shadowOffset:(CGSize)offset
+                               shadowOpacity:(float)opacity
+                                shadowRadius:(CGFloat)radius;
 
 //设置一个环形边框,给头像用的
 - (void)setCircleBorder:(UIImage *)image;

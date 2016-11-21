@@ -22,7 +22,20 @@
     self.layer.shadowRadius = radius;//半径
 }
 
-
+- (void)setCornerRadiusShadowWithshadowColor:(UIColor *)color
+                                shadowOffset:(CGSize)offset
+                               shadowOpacity:(float)opacity
+                                shadowRadius:(CGFloat)radius{
+    CALayer *shadowLayer = [CALayer layer];
+    
+    shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0-2, 0-2, self.frame.size.width+4, self.frame.size.height+4) cornerRadius:2].CGPath;
+    shadowLayer.shadowColor = color.CGColor;//阴影颜色
+    shadowLayer.shadowOffset = offset;//偏移距离
+    shadowLayer.shadowOpacity = opacity;//不透明度
+    shadowLayer.shadowRadius = radius;//半径
+    
+    [self.layer insertSublayer:shadowLayer atIndex:0];
+}
 - (void)setCircleBorder:(UIImage *)image{
     if(self.frame.size.height==self.frame.size.width){
         //新图片
@@ -62,10 +75,10 @@
         //                [self addSubview:self];
         
         //描出圆形图片imageView阴影路径
-        self.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.width) cornerRadius:self.frame.size.width/2].CGPath;
+        self.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) cornerRadius:self.frame.size.width/2].CGPath;
         self.layer.shadowColor = [UIColor colorWithHexString:@"0a0e16"].CGColor;//阴影颜色
         self.layer.shadowOffset = CGSizeMake(0, 0);//偏移距离
-        self.layer.shadowOpacity = 0.35;//不透明度
+        self.layer.shadowOpacity = 0.26;//不透明度
         self.layer.shadowRadius = 8;//半径
         //清除子视图
         for (UIView *item in self.subviews) {
@@ -96,11 +109,11 @@
     
     CALayer *shadowLayer = [CALayer layer];
     
-    shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0-4, 0-4, self.frame.size.width+8, self.frame.size.width+8) cornerRadius:2].CGPath;
+    shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0-2, 0-2, self.frame.size.width+4, self.frame.size.height+4) cornerRadius:2].CGPath;
     shadowLayer.shadowColor = [UIColor colorWithHexString:@"0a0e16"].CGColor;//阴影颜色
     shadowLayer.shadowOffset = CGSizeZero;//偏移距离
-    shadowLayer.shadowOpacity = 0.26;//不透明度
-    shadowLayer.shadowRadius = 10;//半径
+    shadowLayer.shadowOpacity = 0.15;//不透明度
+    shadowLayer.shadowRadius = 9;//半径
     
     [self.layer insertSublayer:shadowLayer atIndex:0];
     

@@ -17,6 +17,7 @@
 #import "SDTextField.h"
 #import "AMActionSheet.h"
 #import "SCDateTools.h"
+#import "PYPhotoBrowseView.h"
 
 
 @interface MakeTaskViewController ()<LCActionSheetDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
@@ -52,6 +53,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    //清除NSUserDefault中存的电影封面图片data
+    [OperateNSUserDefault removeUserDefaultWithKey:@"filmCover"];
 }
 
 //隐藏键盘
@@ -166,7 +173,7 @@
             if (currentimage != nil) {
                 //存进相蒲
                 //                UIImageWriteToSavedPhotosAlbum(currentimage, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-                
+                [OperateNSUserDefault addUserDefaultWithKeyAndValue:@"filmCover" value:UIImagePNGRepresentation(currentimage)];
             }
             
         }];
@@ -178,13 +185,30 @@
         //隐藏内部拍照按钮
         imagePicker.allowTakePicture = NO;
         [imagePicker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL flag) {
-
+            [OperateNSUserDefault addUserDefaultWithKeyAndValue:@"filmCover" value:UIImagePNGRepresentation(photos[0])];
         }];
         
         [self presentViewController:imagePicker animated:YES completion:nil];
     }
     if (buttonIndex == 3) {
         NSLog(@"%@",@"查看图片");
+        NSData *filmCover = (NSData *)[OperateNSUserDefault readUserDefaultWithKey:@"filmCover"];
+        if (filmCover == nil) {
+            [self.view makeToast:@"尚未上传图片！"];
+        }else{
+            //    跳转到排片详情的图片浏览器
+            // 1. 创建photoBroseView对象
+            PYPhotoBrowseView *photoBroseView = [[PYPhotoBrowseView alloc] init];
+            
+            // 2.1 设置图片源(UIImageView)数组
+            //    photoBroseView.sourceImgageViews = imageViews;
+            photoBroseView.images = @[[UIImage imageWithData:filmCover]];
+            // 2.2 设置初始化图片下标（即当前点击第几张图片）
+            photoBroseView.currentIndex = 0;
+            
+            // 3.显示(浏览)
+            [photoBroseView show];
+        }
     }
 }
 

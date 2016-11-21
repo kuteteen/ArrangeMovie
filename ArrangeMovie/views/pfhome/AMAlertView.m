@@ -16,7 +16,7 @@
         self.frame = frame;
         self.topViewHeight.constant = 46*autoSizeScaleY;
         self.titleLabelHeight.constant = 22*autoSizeScaleY;
-        self.titleLabel.font = [UIFont systemFontOfSize:18.f*autoSizeScaleY];
+        self.titleLabel.font = [UIFont fontWithName:@"DroidSansFallback" size:18.f*autoSizeScaleY];
         self.closeBtnWidth.constant = 22*autoSizeScaleY;
         self.closeBtnHeight.constant = 22*autoSizeScaleY;
         self.alpha = 1;
