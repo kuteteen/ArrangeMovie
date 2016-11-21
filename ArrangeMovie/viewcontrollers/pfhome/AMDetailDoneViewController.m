@@ -124,16 +124,12 @@
     UIView *childView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 288*autoSizeScaleX, 145*autoSizeScaleY)];
     UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     sureBtn.frame = CGRectMake(24*autoSizeScaleX, 77*autoSizeScaleY, 240*autoSizeScaleX, 41*autoSizeScaleY);
-    sureBtn.backgroundColor = [UIColor colorWithHexString:@"557cce"];
-    sureBtn.layer.masksToBounds = YES;
-    sureBtn.layer.cornerRadius = 4.f;
-    [sureBtn setTitle:@"审核通过" forState:UIControlStateNormal];
-    sureBtn.titleLabel.font = [UIFont boldSystemFontOfSize:16.f];
+    [sureBtn setBackgroundImage:[UIImage imageNamed:@"pf_shenhe_btn"] forState:UIControlStateNormal];
     [sureBtn addTarget:self action:@selector(sure:) forControlEvents:UIControlEventTouchUpInside];
     [childView addSubview:sureBtn];
     
     UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(24*autoSizeScaleX, 0, 240*autoSizeScaleX, 77*autoSizeScaleY)];
-    lab.font = [UIFont systemFontOfSize:15.f];
+    lab.font = [UIFont fontWithName:@"DroidSansFallback" size:17.f*autoSizeScaleY];
     lab.textColor = [UIColor colorWithHexString:@"15151b"];
     lab.text = @"确认是否通过本次排片任务？";
     lab.textAlignment = NSTextAlignmentCenter;
@@ -148,7 +144,7 @@
 
 //审核通过
 - (void)sure:(UIButton *)sender{
-    
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 //控制进度条显示与隐藏
