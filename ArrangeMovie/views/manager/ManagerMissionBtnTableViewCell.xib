@@ -1,44 +1,49 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ManagerMissionBtnTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="158.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4F-5v-nj0">
-                        <rect key="frame" x="15" y="67" width="290" height="46"/>
-                        <color key="backgroundColor" red="0.33333333333333331" green="0.49019607843137253" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task_receive" translatesAutoresizingMaskIntoConstraints="NO" id="f2w-Bt-pLR">
+                        <rect key="frame" x="10" y="63" width="300" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="46" id="bXd-LO-2hx"/>
+                            <constraint firstAttribute="height" constant="50" id="LG6-tV-QrV"/>
                         </constraints>
-                        <state key="normal" title="领取新任务"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="23"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </button>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="x4F-5v-nj0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Jwk-4a-aIi"/>
-                    <constraint firstAttribute="bottom" secondItem="x4F-5v-nj0" secondAttribute="bottom" constant="0.5" id="Zme-xr-W5Z"/>
-                    <constraint firstAttribute="trailing" secondItem="x4F-5v-nj0" secondAttribute="trailing" constant="15" id="cd3-Qu-5HK"/>
+                    <constraint firstAttribute="bottom" secondItem="f2w-Bt-pLR" secondAttribute="bottom" constant="45" id="AMA-LE-NUj"/>
+                    <constraint firstItem="f2w-Bt-pLR" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Rwq-So-OOP"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f2w-Bt-pLR" secondAttribute="trailing" constant="10" id="S7r-9r-zBF"/>
+                    <constraint firstItem="f2w-Bt-pLR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="cp9-F9-Dfd"/>
+                    <constraint firstItem="f2w-Bt-pLR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="epd-3E-utD"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="f2w-Bt-pLR" secondAttribute="trailing" constant="2" id="tmB-oo-QVP"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="epd-3E-utD"/>
+                        <exclude reference="tmB-oo-QVP"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="btn" destination="x4F-5v-nj0" id="aov-zR-Won"/>
+                <outlet property="btn" destination="f2w-Bt-pLR" id="5wJ-Qw-yl1"/>
             </connections>
             <point key="canvasLocation" x="241" y="172"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="task_receive" width="351" height="54"/>
+    </resources>
 </document>
