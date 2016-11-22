@@ -17,6 +17,7 @@
 #import "UIImage+GIF.h"
 #import "MBProgressHUD.h"
 #import "UIImageView+Webcache.h"
+#import "WXApiRequestHandler.h"
 
 
 #define Width [UIScreen mainScreen].bounds.size.width
@@ -349,6 +350,15 @@
 
 
 -(void)closeChargeVC:(id)sender {
+    
+    //微信支付
+    NSString *res = [WXApiRequestHandler jumpToBizPay];
+    if( ![@"" isEqual:res] ){
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"支付失败" message:res delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alter show];
+    }
+    
     if(chargeVC){
         [chargeVC dismissViewControllerAnimated:NO completion:nil];
     }

@@ -17,6 +17,8 @@
 #import "EMIRootViewController.h"
 #import "SCFadeSlideView.h"
 #import "LFLUISegmentedControl.h"
+#import "WXApi.h"
+#import "WXApiManager.h"
 
 @interface AppDelegate ()<RESideMenuDelegate>
 
@@ -92,6 +94,10 @@
 
     [self.window setRootViewController:loginnav];
 
+    
+    //微信支付
+    //向微信注册wxd930ea5d5a258f4f
+    [WXApi registerApp:@"wxb4ba3c02aa476ea1" withDescription:@"爱排片积分充值"];
     return YES;
 }
 
@@ -102,6 +108,14 @@
     UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return scaledImage;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

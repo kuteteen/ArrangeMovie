@@ -137,6 +137,13 @@
 		D62A06501DAB63D1003832A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A064F1DAB63D1003832A8 /* LoginViewController.m */; };
 		D62A06571DAB7D5F003832A8 /* ValidateMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06561DAB7D5F003832A8 /* ValidateMobile.m */; };
 		D62A065A1DAB88F7003832A8 /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A06591DAB88F7003832A8 /* UIView+Shadow.m */; };
+		D64164C41DE4404B00E6CA6C /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D64164BF1DE4404B00E6CA6C /* libWeChatSDK.a */; };
+		D64164C51DE4404B00E6CA6C /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D64164C21DE4404B00E6CA6C /* WXApiManager.m */; };
+		D64164C81DE4412000E6CA6C /* WXApiRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D64164C71DE4412000E6CA6C /* WXApiRequestHandler.m */; };
+		D64164CA1DE4438A00E6CA6C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D64164C91DE4438A00E6CA6C /* libsqlite3.tbd */; };
+		D64164CC1DE443A400E6CA6C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D64164CB1DE443A400E6CA6C /* libz.tbd */; };
+		D64164CE1DE443AF00E6CA6C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D64164CD1DE443AF00E6CA6C /* libc++.tbd */; };
+		D64164D01DE4441C00E6CA6C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64164CF1DE4441C00E6CA6C /* CoreTelephony.framework */; };
 		D647959E1DDF02C60031AAA2 /* SCFadeSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D647959B1DDF02C60031AAA2 /* SCFadeSlideView.m */; };
 		D647959F1DDF02C60031AAA2 /* SCSlidePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D647959D1DDF02C60031AAA2 /* SCSlidePageView.m */; };
 		D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CC61DB45025004D6C8B /* PFHomeViewController.m */; };
@@ -414,6 +421,17 @@
 		D62A065C1DAC817A003832A8 /* am.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = am.pch; path = config/am.pch; sourceTree = "<group>"; };
 		D62A065E1DACADAA003832A8 /* FgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FgetPwdViewController.h; path = viewcontrollers/login/FgetPwdViewController.h; sourceTree = "<group>"; };
 		D62A065F1DACADAA003832A8 /* FgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FgetPwdViewController.m; path = viewcontrollers/login/FgetPwdViewController.m; sourceTree = "<group>"; };
+		D64164BF1DE4404B00E6CA6C /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		D64164C01DE4404B00E6CA6C /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		D64164C11DE4404B00E6CA6C /* WXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
+		D64164C21DE4404B00E6CA6C /* WXApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiManager.m; sourceTree = "<group>"; };
+		D64164C31DE4404B00E6CA6C /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		D64164C61DE4412000E6CA6C /* WXApiRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiRequestHandler.h; sourceTree = "<group>"; };
+		D64164C71DE4412000E6CA6C /* WXApiRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiRequestHandler.m; sourceTree = "<group>"; };
+		D64164C91DE4438A00E6CA6C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		D64164CB1DE443A400E6CA6C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D64164CD1DE443AF00E6CA6C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		D64164CF1DE4441C00E6CA6C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		D647959A1DDF02C60031AAA2 /* SCFadeSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFadeSlideView.h; sourceTree = "<group>"; };
 		D647959B1DDF02C60031AAA2 /* SCFadeSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFadeSlideView.m; sourceTree = "<group>"; };
 		D647959C1DDF02C60031AAA2 /* SCSlidePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSlidePageView.h; sourceTree = "<group>"; };
@@ -491,6 +509,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D64164D01DE4441C00E6CA6C /* CoreTelephony.framework in Frameworks */,
+				D64164CE1DE443AF00E6CA6C /* libc++.tbd in Frameworks */,
+				D64164CC1DE443A400E6CA6C /* libz.tbd in Frameworks */,
+				D64164CA1DE4438A00E6CA6C /* libsqlite3.tbd in Frameworks */,
+				D64164C41DE4404B00E6CA6C /* libWeChatSDK.a in Frameworks */,
 				B730A82A1DE3FE68B55FF505 /* libPods-ArrangeMovie.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +524,10 @@
 		A39C1F25603B279C817ED382 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D64164CF1DE4441C00E6CA6C /* CoreTelephony.framework */,
+				D64164CD1DE443AF00E6CA6C /* libc++.tbd */,
+				D64164CB1DE443A400E6CA6C /* libz.tbd */,
+				D64164C91DE4438A00E6CA6C /* libsqlite3.tbd */,
 				3FB27B15B9D74F725098C316 /* libPods-ArrangeMovie.a */,
 			);
 			name = Frameworks;
@@ -589,6 +616,7 @@
 		C886B0D41DA8FC0500240283 /* ArrangeMovie */ = {
 			isa = PBXGroup;
 			children = (
+				D64164BE1DE4404B00E6CA6C /* SDKExport */,
 				C8E6512C1DA9D44D00400ABC /* views */,
 				D6D94BC41DB0B705004666BC /* net */,
 				D62A065B1DAC813C003832A8 /* config */,
@@ -933,6 +961,20 @@
 			name = config;
 			sourceTree = "<group>";
 		};
+		D64164BE1DE4404B00E6CA6C /* SDKExport */ = {
+			isa = PBXGroup;
+			children = (
+				D64164C61DE4412000E6CA6C /* WXApiRequestHandler.h */,
+				D64164C71DE4412000E6CA6C /* WXApiRequestHandler.m */,
+				D64164BF1DE4404B00E6CA6C /* libWeChatSDK.a */,
+				D64164C01DE4404B00E6CA6C /* WXApi.h */,
+				D64164C11DE4404B00E6CA6C /* WXApiManager.h */,
+				D64164C21DE4404B00E6CA6C /* WXApiManager.m */,
+				D64164C31DE4404B00E6CA6C /* WXApiObject.h */,
+			);
+			path = SDKExport;
+			sourceTree = "<group>";
+		};
 		D64795991DDF02C60031AAA2 /* scfadeslideview */ = {
 			isa = PBXGroup;
 			children = (
@@ -1249,6 +1291,7 @@
 				D61686121DD05229007EAA64 /* MobileCodeWebInterface.m in Sources */,
 				D6DBDEE31DDD4BA400EB1C10 /* SDTextField.m in Sources */,
 				C82AF8EB1DB75BAC00882DB6 /* MeMissionCheckViewController.m in Sources */,
+				D64164C81DE4412000E6CA6C /* WXApiRequestHandler.m in Sources */,
 				C8E651401DA9E77000400ABC /* EMINavigationController.m in Sources */,
 				D6950CD71DB4BF06004D6C8B /* PFHomeSectionView.m in Sources */,
 				C87E40B81DD2EEDA00DD2018 /* MeMissionRowPieceView.m in Sources */,
@@ -1292,6 +1335,7 @@
 				D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
 				C8610BF21DD047F300E959E1 /* TaskDetailWebInterface.m in Sources */,
+				D64164C51DE4404B00E6CA6C /* WXApiManager.m in Sources */,
 				C83C79261DD163CD002EEAF3 /* OUNavAnimation.m in Sources */,
 				C8B64E7B1DB475AC00B4311D /* MeMissionViewController.m in Sources */,
 				C82C48A81DCC6C5E00848128 /* PFTaskListWebInterface.m in Sources */,
@@ -1450,6 +1494,10 @@
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ArrangeMovie/SDKExport",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.emi365.ArrangeMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1472,6 +1520,10 @@
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ArrangeMovie/SDKExport",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.emi365.ArrangeMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
