@@ -8,9 +8,9 @@
         <mutableArray key="DroidSansFallback.ttf">
             <string>DroidSansFallback</string>
             <string>DroidSansFallback</string>
-            <string>DroidSansFallback</string>
         </mutableArray>
         <mutableArray key="DroidSans_Bold.ttf">
+            <string>DroidSans-Bold</string>
             <string>DroidSans-Bold</string>
         </mutableArray>
     </customFonts>
@@ -29,7 +29,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="eiL-hb-4h9"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="18"/>
                         <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,25 +45,25 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="Yzl-TY-UFM"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="15"/>
                         <color key="textColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="导演：郭敬明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="803-fR-bHE">
-                        <rect key="frame" x="92" y="93" width="88" height="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导演：郭敬明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="803-fR-bHE">
+                        <rect key="frame" x="92" y="92" width="78" height="13"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="12" id="Kgm-nS-gX2"/>
+                            <constraint firstAttribute="height" constant="13" id="Kgm-nS-gX2"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务时间：2016/09/10-2016/09/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iem-um-4ev">
-                        <rect key="frame" x="92" y="110" width="213" height="17"/>
+                        <rect key="frame" x="92" y="111" width="213" height="13"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="17" id="KRJ-b2-5aa"/>
+                            <constraint firstAttribute="height" constant="13" id="KRJ-b2-5aa"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
+                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13"/>
                         <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
