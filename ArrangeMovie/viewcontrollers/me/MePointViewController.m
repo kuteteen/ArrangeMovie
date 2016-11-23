@@ -17,7 +17,7 @@
 #import "UIImage+GIF.h"
 #import "MBProgressHUD.h"
 #import "UIImageView+Webcache.h"
-#import "WXApiRequestHandler.h"
+//#import "WXApiRequestHandler.h"
 
 
 #define Width [UIScreen mainScreen].bounds.size.width
@@ -224,7 +224,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Width, 54)];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 32, 80, 10)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 32, 80, 18)];
     titleLabel.textColor = [UIColor colorWithHexString:@"404043"];
     [titleLabel setFont:[UIFont fontWithName:@"Droid Sans" size:18.f]];
     titleLabel.text = @"积分明细";
@@ -312,7 +312,7 @@
         aliPay.on = YES;
         [childView addSubview:aliPay];
         
-        UILabel *aliLabel = [[UILabel alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+60+20+15+4, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleY, 15)];
+        UILabel *aliLabel = [[UILabel alloc] initWithFrame:CGRectMake(12*autoSizeScaleX+60+20+15+4, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleY, 15*autoSizeScaleY)];
         aliLabel.text = @"支付宝";
         aliLabel.textColor = [UIColor colorWithHexString:@"15151b"];
         aliLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:17.f*autoSizeScaleY];
@@ -326,7 +326,7 @@
         wxPay.on = NO;
         [childView addSubview:wxPay];
         
-        UILabel *wxLabel = [[UILabel alloc] initWithFrame:CGRectMake(wxPay.frame.origin.x+15+4, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleY, 15)];
+        UILabel *wxLabel = [[UILabel alloc] initWithFrame:CGRectMake(wxPay.frame.origin.x+15+4, (20+40+28)*autoSizeScaleY, 60*autoSizeScaleY, 15*autoSizeScaleY)];
         wxLabel.text = @"微信";
         wxLabel.textColor = [UIColor colorWithHexString:@"15151b"];
         wxLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:17.f*autoSizeScaleY];
@@ -352,13 +352,13 @@
 -(void)closeChargeVC:(id)sender {
     
     //微信支付
-    NSString *res = [WXApiRequestHandler jumpToBizPay];
-    if( ![@"" isEqual:res] ){
-        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"支付失败" message:res delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-        [alter show];
-    }
-    
+//    NSString *res = [WXApiRequestHandler jumpToBizPay];
+//    if( ![@"" isEqual:res] ){
+//        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"支付失败" message:res delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//        
+//        [alter show];
+//    }
+//    
     if(chargeVC){
         [chargeVC dismissViewControllerAnimated:NO completion:nil];
     }

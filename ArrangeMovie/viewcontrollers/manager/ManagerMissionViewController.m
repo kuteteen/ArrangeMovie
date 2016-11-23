@@ -77,9 +77,9 @@
         
         [self.scrollView addSubview:tableView];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
-                                                        object:self
-                                                      userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
+//                                                        object:self
+//                                                      userInfo:nil];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -53,9 +53,9 @@
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
-                                                        object:self
-                                                      userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
+//                                                        object:self
+//                                                      userInfo:nil];
 }
 
 -(void)backToUp {

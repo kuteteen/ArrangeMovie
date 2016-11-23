@@ -17,8 +17,8 @@
 #import "EMIRootViewController.h"
 #import "SCFadeSlideView.h"
 #import "LFLUISegmentedControl.h"
-#import "WXApi.h"
-#import "WXApiManager.h"
+//#import "WXApi.h"
+//#import "WXApiManager.h"
 
 @interface AppDelegate ()<RESideMenuDelegate>
 
@@ -97,7 +97,7 @@
     
     //微信支付
     //向微信注册wxd930ea5d5a258f4f
-    [WXApi registerApp:@"wxb4ba3c02aa476ea1" withDescription:@"爱排片积分充值"];
+//    [WXApi registerApp:@"wxb4ba3c02aa476ea1" withDescription:@"爱排片积分充值"];
     return YES;
 }
 
@@ -110,13 +110,13 @@
     return scaledImage;
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
-}
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
-}
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+////    return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+//}
+//
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+////    return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
