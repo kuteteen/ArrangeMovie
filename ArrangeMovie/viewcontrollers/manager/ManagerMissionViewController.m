@@ -77,7 +77,9 @@
         tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
         [self.scrollView addSubview:tableView];
     }
-    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
+//                                                        object:self
+//                                                      userInfo:nil];
 }
 
 - (void)didReceiveMemoryWarning {
