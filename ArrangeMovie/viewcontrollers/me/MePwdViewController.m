@@ -23,6 +23,10 @@
     self.title = @"修改密码";
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.layer.contents = [UIColor whiteColor];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
+                                                        object:self
+                                                      userInfo:nil];
 }
 
 - (void)didReceiveMemoryWarning {

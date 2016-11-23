@@ -35,8 +35,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
 /**
  *  当第一次使用这个类的时候调用1次
  */

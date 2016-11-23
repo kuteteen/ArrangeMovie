@@ -55,6 +55,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     //清除NSUserDefault中存的电影封面图片data

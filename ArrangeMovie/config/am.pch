@@ -21,6 +21,10 @@
 
 #define autoSizeScaleX [[UIScreen mainScreen] bounds].size.width/375.0f
 #define autoSizeScaleY [[UIScreen mainScreen] bounds].size.height/667.0f
+
+//微信支付的APP_ID
+#define WX_APP_ID @"wx241c56461cdb424f"
+
 //Toast
 #import "UIView+Toast.h"
 //userDefault

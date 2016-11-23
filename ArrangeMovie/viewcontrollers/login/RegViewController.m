@@ -10,6 +10,7 @@
 #import "PFHomeViewController.h"
 #import "EMIRootViewController.h"
 #import "RESideMenu.h"
+#import "MakeTaskViewController.h"
 
 @interface RegViewController ()<LFLUISegmentedControlDelegate,LCActionSheetDelegate,RESideMenuDelegate>
 @property (nonatomic,strong)NSMutableArray <UITextField *>*tfArrays;
@@ -239,7 +240,7 @@
         UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
         MeViewController *meVC = [me instantiateViewControllerWithIdentifier:@"me"];
         EMINavigationController *meNav = [[EMINavigationController alloc] initWithRootViewController:meVC];
-        
+
         
         EMIRootViewController *sideMenuViewController = [[EMIRootViewController alloc] initWithContentViewController:nav leftMenuViewController:nil rightMenuViewController:meNav];
             sideMenuViewController.backgroundImage = [UIImage imageNamed:@"all_bg"];

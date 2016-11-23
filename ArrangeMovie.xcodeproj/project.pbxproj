@@ -176,6 +176,8 @@
 		D6C4901D1DBEEB0D009EB672 /* TaskCellNormal.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C490111DBEEB0D009EB672 /* TaskCellNormal.xib */; };
 		D6C4901E1DBEEB0D009EB672 /* TaskCellTime.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C490131DBEEB0D009EB672 /* TaskCellTime.m */; };
 		D6C4901F1DBEEB0D009EB672 /* TaskCellTime.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C490141DBEEB0D009EB672 /* TaskCellTime.xib */; };
+		D6CD294A1DE531AA00C9008C /* NSDictionary+ToJsonStr.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CD29491DE531AA00C9008C /* NSDictionary+ToJsonStr.m */; };
+		D6CD294D1DE5386400C9008C /* RSAUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CD294C1DE5386400C9008C /* RSAUtil.m */; };
 		D6D94BBC1DB0AB62004666BC /* EMICamera.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BBB1DB0AB62004666BC /* EMICamera.m */; };
 		D6D94BC91DB0B705004666BC /* SCHttpOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BC61DB0B705004666BC /* SCHttpOperation.m */; };
 		D6D94BCA1DB0B705004666BC /* SCHttpOperationMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D94BC81DB0B705004666BC /* SCHttpOperationMgr.m */; };
@@ -489,6 +491,10 @@
 		D6C490121DBEEB0D009EB672 /* TaskCellTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskCellTime.h; path = views/pfhome/TaskCellTime.h; sourceTree = "<group>"; };
 		D6C490131DBEEB0D009EB672 /* TaskCellTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskCellTime.m; path = views/pfhome/TaskCellTime.m; sourceTree = "<group>"; };
 		D6C490141DBEEB0D009EB672 /* TaskCellTime.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TaskCellTime.xib; path = views/pfhome/TaskCellTime.xib; sourceTree = "<group>"; };
+		D6CD29481DE531AA00C9008C /* NSDictionary+ToJsonStr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+ToJsonStr.h"; path = "utils/category/NSDictionary+ToJsonStr.h"; sourceTree = "<group>"; };
+		D6CD29491DE531AA00C9008C /* NSDictionary+ToJsonStr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+ToJsonStr.m"; path = "utils/category/NSDictionary+ToJsonStr.m"; sourceTree = "<group>"; };
+		D6CD294B1DE5386400C9008C /* RSAUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSAUtil.h; path = utils/RSAUtil.h; sourceTree = "<group>"; };
+		D6CD294C1DE5386400C9008C /* RSAUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSAUtil.m; path = utils/RSAUtil.m; sourceTree = "<group>"; };
 		D6D94BBA1DB0AB62004666BC /* EMICamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EMICamera.h; path = views/base/EMICamera.h; sourceTree = "<group>"; };
 		D6D94BBB1DB0AB62004666BC /* EMICamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EMICamera.m; path = views/base/EMICamera.m; sourceTree = "<group>"; };
 		D6D94BC51DB0B705004666BC /* SCHttpOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHttpOperation.h; sourceTree = "<group>"; };
@@ -649,6 +655,8 @@
 				D6C48FF11DBEEA5F009EB672 /* NSUserDefault */,
 				D62A06511DAB7CE4003832A8 /* regex */,
 				C8E651441DA9EA8800400ABC /* category */,
+				D6CD294B1DE5386400C9008C /* RSAUtil.h */,
+				D6CD294C1DE5386400C9008C /* RSAUtil.m */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -833,6 +841,8 @@
 				C8E651491DA9EAF100400ABC /* UIColor+Hex.m */,
 				C81371111DAA2BAE006479D6 /* UIImage+SCUtil.h */,
 				C81371121DAA2BAE006479D6 /* UIImage+SCUtil.m */,
+				D6CD29481DE531AA00C9008C /* NSDictionary+ToJsonStr.h */,
+				D6CD29491DE531AA00C9008C /* NSDictionary+ToJsonStr.m */,
 			);
 			name = category;
 			sourceTree = "<group>";
@@ -1361,6 +1371,7 @@
 				C8EB79B11DC0A09D005599BC /* ManagerMissionBtnTableViewCell.m in Sources */,
 				D61686111DD05229007EAA64 /* LoginWebInterface.m in Sources */,
 				D61686291DD05258007EAA64 /* TouchLabel.m in Sources */,
+				D6CD294D1DE5386400C9008C /* RSAUtil.m in Sources */,
 				C8329BA11DAB34F200B14075 /* UIBarButtonItem+Extension.m in Sources */,
 				A5AC11891DABA69100CBBE05 /* MeBankCardTableViewCell.m in Sources */,
 				D61686241DD05233007EAA64 /* PFAuditWebInterface.m in Sources */,
@@ -1371,6 +1382,7 @@
 				C8610C0D1DD0690400E959E1 /* FeedbackWebInterface.m in Sources */,
 				D6C490191DBEEB0D009EB672 /* CKAlertViewController.m in Sources */,
 				C8E651371DA9D62C00400ABC /* EMIBaseViewController.m in Sources */,
+				D6CD294A1DE531AA00C9008C /* NSDictionary+ToJsonStr.m in Sources */,
 				D6BAC80C1DC188BF00A4EDF6 /* AMDetailUnDoViewController.m in Sources */,
 				C886B0D71DA8FC0500240283 /* main.m in Sources */,
 				C8EB79C31DC0BAEA005599BC /* UpdateProfileWebInterface.m in Sources */,
@@ -1419,6 +1431,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1464,6 +1477,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1486,10 +1500,12 @@
 			baseConfigurationReference = 1DA6FC1FE50EC84548300DD3 /* Pods-ArrangeMovie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = NO;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ArrangeMovie/config/am.pch;
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1512,10 +1528,12 @@
 			baseConfigurationReference = 693ABFA56142BD986F8A6BE6 /* Pods-ArrangeMovie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = NO;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = ArrangeMovie/config/am.pch;
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

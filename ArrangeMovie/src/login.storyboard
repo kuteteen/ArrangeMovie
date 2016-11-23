@@ -5,13 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="DroidSansFallback.TTF">
+        <mutableArray key="DroidSansFallback.ttf">
             <string>DroidSansFallback</string>
             <string>DroidSansFallback</string>
             <string>DroidSansFallback</string>
             <string>DroidSansFallback</string>
         </mutableArray>
-        <mutableArray key="DroidSans_Bold.TTF">
+        <mutableArray key="DroidSans_Bold.ttf">
             <string>DroidSans-Bold</string>
             <string>DroidSans-Bold</string>
             <string>DroidSans-Bold</string>
@@ -32,6 +32,7 @@
         <scene sceneID="0jY-bh-Jw3">
             <objects>
                 <navigationController storyboardIdentifier="loginnav" id="lOq-sl-teF" customClass="EMINavigationController" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="boL-c2-WCl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -105,7 +106,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Uz-TB-hbn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Uz-TB-hbn">
                                 <rect key="frame" x="56" y="448" width="262" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="login_btn"/>
@@ -143,6 +144,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="lfG-kg-UBZ"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="forgetBtn" destination="Kha-j1-sSy" id="Ry0-Fn-qCF"/>
                         <outlet property="headImgView" destination="NTY-fh-6UZ" id="hhJ-BT-3nZ"/>

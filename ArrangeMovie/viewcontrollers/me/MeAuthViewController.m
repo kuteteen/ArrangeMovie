@@ -18,7 +18,7 @@
 #define Height [UIScreen mainScreen].bounds.size.height
 
 @interface MeAuthViewController ()<SCFadeSlideViewDelegate,SCFadeSlideViewDataSource,LCActionSheetDelegate> {
-    SCFadeSlideView *slideView;
+    SCFadeSlideView *_slideView;
 }
 
 @property(nonatomic,strong) EMICamera *camera;
@@ -40,38 +40,47 @@
 //    self.array = [[NSMutableArray alloc] init];
     self.array = @[@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580"];
     [self initViewsWithUserType:self.user.usertype];
-
+    [AppDelegate storyBoradAutoLay:self.view];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
+                                                        object:self
+                                                      userInfo:nil];
 }
 
 -(void)initViewsWithUserType:(int)type {
     //添加滑动的图片浏览
-    slideView = [[SCFadeSlideView alloc] initWithFrame:CGRectMake(0, 0, Width, Height-143-104)];
-    slideView.backgroundColor = [UIColor clearColor];
-    slideView.delegate = self;
-    slideView.datasource = self;
-    slideView.minimumPageAlpha = 0.4;
-    slideView.minimumPageScale = 0.85;
+    _slideView = [[SCFadeSlideView alloc] initWithFrame:CGRectMake(0, 0, 375*autoSizeScaleX, 397*autoSizeScaleY)];
+    _slideView.backgroundColor = [UIColor clearColor];
+    _slideView.delegate = self;
+    _slideView.datasource = self;
+    _slideView.minimumPageAlpha = 0.4;
+    _slideView.minimumPageScale = 0.85;
 
     ///添加初始的添加按钮图片
-    slideView.orginPageCount = 1;
-    slideView.orientation = SCFadeSlideViewOrientationHorizontal;
+    _slideView.orginPageCount = 1;
+    _slideView.orientation = SCFadeSlideViewOrientationHorizontal;
 
     /****************************
      使用导航控制器(UINavigationController)
      如果控制器中不存在UIScrollView或者继承自UIScrollView的UI控件
      请使用UIScrollView作为SCFadeSlideView的容器View,才会显示正常,如下
      *****************************/
-    UIScrollView *bottomScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 104, Width, Height-143-104)];
-    [bottomScrollView addSubview:slideView];
+    UIScrollView *bottomScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 94, 375, 397)];
+    [bottomScrollView addSubview:_slideView];
     [self.view addSubview:bottomScrollView];
 
 
     if(type==0){
         //片方,添加圆形打钩按钮
-        EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake((Width-58)/2, Height-110, 58, 58)];
-        [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
-//        OKImgView setHighlightedImage:[UIImage imageNamed:row]
+        EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(150.5, 550, 74, 74)];
+        //    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
+        OKImgView.image = [UIImage imageNamed:@"row_piece_review"];
+        //        OKImgView setHighlightedImage:[UIImage imageNamed:row]
         [self.view addSubview:OKImgView];
+        OKImgView.userInteractionEnabled = YES;
+        //打钩的点击手势
+        UITapGestureRecognizer *okGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(okImgClicked:)];
+        [OKImgView addGestureRecognizer:okGesture];
     }else if(type ==1){
         //添加下部Label文字说明
 
@@ -94,7 +103,10 @@
     }
 }
 
-
+//蓝色完成圆勾点击事件
+- (void)okImgClicked:(UITapGestureRecognizer *)sender{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -102,7 +114,7 @@
 
 #pragma mark SCFadeSlideView delegate
 -(CGSize)sizeForPageInSlideView:(SCFadeSlideView *)slideView {
-    return CGSizeMake(slideView.frame.size.width-84, slideView.frame.size.height);
+    return CGSizeMake(375*autoSizeScaleX-84, (397)*autoSizeScaleY);
 }
 
 //- (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
@@ -118,32 +130,24 @@
 -(UIView *)slideView:(SCFadeSlideView *)slideView cellForPageAtIndex:(NSInteger)index {
     SCSlidePageView *pageView = (SCSlidePageView *)[slideView dequeueReusableCell];
     if(!pageView){
-        pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(2, 2, slideView.frame.size.width-84, slideView.frame.size.height-4)];
-        pageView.layer.cornerRadius = 4;
+       pageView = [[SCSlidePageView alloc] initWithFrame:CGRectMake(0, 0, 375*autoSizeScaleX-84, (397)*autoSizeScaleY)];
+        pageView.layer.cornerRadius = 2;
         pageView.layer.masksToBounds = YES;
         pageView.backgroundColor = [UIColor clearColor];
 //        pageView.coverView.backgroundColor =
         pageView.coverView.backgroundColor = [UIColor clearColor];
 
         EMIShadowImageView *shadowImageView;
-        shadowImageView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(0, 0, pageView.frame.size.width, pageView.frame.size.height)];
+        shadowImageView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(9*autoSizeScaleX, 9*autoSizeScaleY, pageView.frame.size.width-18*autoSizeScaleX, pageView.frame.size.height-18*autoSizeScaleY)];
         shadowImageView.contentMode = UIViewContentModeScaleAspectFit;
-        CALayer *shadowLayer = [CALayer layer];
 
-        shadowLayer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, pageView.frame.size.width, pageView.frame.size.width) cornerRadius:2].CGPath;
-        shadowLayer.shadowColor = [UIColor colorWithRed:10/256 green:14/256 blue:22/256 alpha:1].CGColor;//阴影颜色
-        shadowLayer.shadowOffset = CGSizeMake(0, 0);//偏移距离
-        shadowLayer.shadowOpacity = 1;//不透明度
-        shadowLayer.shadowRadius = 40;//半径
-
-        [pageView.layer insertSublayer:shadowLayer atIndex:1];
         if(self.array.count>0&&index<self.array.count){
             
             [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:self.array[index] placeholder:@""];
 
 
-            //添加删除按钮
-            UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake(pageView.frame.size.width-36, 10, 26, 30)];
+            //删除按钮
+            UIButton *delBtn = [[UIButton alloc] initWithFrame:CGRectMake((375-41)*autoSizeScaleX-84, 12*autoSizeScaleY, 29*autoSizeScaleX, 29*autoSizeScaleY)];
             delBtn.tag = index;
             [delBtn addTarget:self action:@selector(delPhoto:) forControlEvents:UIControlEventTouchUpInside];
             [delBtn setBackgroundImage:[UIImage imageNamed:@"photo_del"] forState:UIControlStateNormal];
@@ -153,19 +157,20 @@
             [pageView addSubview:shadowImageView];
             [pageView addSubview:delBtn];
         }else{
-            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:10 image:@"" placeholder:@""];
-            //添加"上传公司证件审核"图片
+            [shadowImageView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"162271"] shadowOffset:CGSizeZero shadowOpacity:0.15 shadowRadius:9 image:@"" placeholder:@"scfade_bg"];
             [pageView addSubview:shadowImageView];
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((pageView.frame.size.width-120)/2, (pageView.frame.size.height-110)/2, 120, 110)];
+            //添加"上传公司证件审核"图片
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(85.5*autoSizeScaleX, 143.5*autoSizeScaleY, 120*autoSizeScaleX, 110*autoSizeScaleY)];
             [button setImage:[UIImage imageNamed:@"row_piece_upload_photo"] forState:UIControlStateNormal];
             [button addTarget:self action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
             [pageView addSubview:button];
-
             //添加"上传公司证件审核"Label
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, button.frame.origin.y+120+30, pageView.frame.size.width, 40)];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 283.5*autoSizeScaleY, 291*autoSizeScaleX, 40*autoSizeScaleY)];
             label.textAlignment = NSTextAlignmentCenter;
-            label.text = @"上传公司证件审核";
-            [shadowImageView addSubview:label];
+            label.text = @"上传认证资质材料";
+            label.textColor = [UIColor colorWithHexString:@"#aeafb3"];
+            label.font = [UIFont fontWithName:@"DroidSansFallback" size:18.f*autoSizeScaleY];
+            [pageView addSubview:label];
         }
 
     }
@@ -182,7 +187,7 @@
         }
     }
     self.array = [[NSMutableArray alloc] initWithArray:tempArray];
-    [slideView reloadData];
+    [_slideView reloadData];
 }
 
 -(void)takePicture {

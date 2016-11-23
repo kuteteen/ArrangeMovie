@@ -57,6 +57,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
 
 - (void)viewWillDisappear:(BOOL)animated{
     //移除通知
@@ -125,9 +128,9 @@
 //检查手机号
 - (IBAction)checkTelPhone:(UITextField *)sender {
     if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
-        self.loginBtn.enabled = YES;
+//        self.loginBtn.enabled = YES;
     }else{
-        self.loginBtn.enabled = NO;
+//        self.loginBtn.enabled = NO;
     }
 }
 
@@ -158,13 +161,13 @@
 
 //登录首页
 - (IBAction)toHome:(UIButton *)sender {
-    if ([self.phoneTF.text isEqualToString:@"15152439012"]) {
+    if ([self.phoneTF.text isEqualToString:@"0"]) {
         //片方首页
         self.tempuserType = @"0";
         //进入登录欢迎页
         [self performSegueWithIdentifier:@"tologinwelcome" sender:self];
     }
-    if ([self.phoneTF.text isEqualToString:@"15162763192"]) {
+    if ([self.phoneTF.text isEqualToString:@"1"]) {
         //院线经理首页
         self.tempuserType = @"1";
         //进入登录欢迎页

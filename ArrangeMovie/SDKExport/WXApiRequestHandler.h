@@ -13,6 +13,6 @@
 
 
 
-+ (NSString *)jumpToBizPay;
++ (NSString *)jumpToBizPay:(NSString *)userid price:(NSNumber *)price;
 
 @end

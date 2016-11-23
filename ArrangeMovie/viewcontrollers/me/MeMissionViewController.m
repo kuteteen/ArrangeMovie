@@ -48,7 +48,7 @@
     
     self.title = @"查看任务";
     self.scrollView.delegate = self;
-    
+    self.scrollView.tag = 0;
     segmentControl = [[LFLUISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, Width, 50)];
     segmentControl.delegate = self;
     segmentControl.titleFont = [UIFont fontWithName:@"Droid Sans Fallback" size:16.f];
@@ -78,9 +78,14 @@
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.tableFooterView = [[UIView alloc] init];
-        
+        tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
         [self.scrollView addSubview:tableView];
     }
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
+                                                        object:self
+                                                      userInfo:nil];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -184,10 +189,15 @@
     return cell;
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    ///X方向上的滑动距离
-    CGFloat offSetX = scrollView.contentOffset.x;
     
-    segmentControl.buttonDown.center = CGPointMake(screenWidth/(_pageCount*2) + offSetX/_pageCount, segmentControl.buttonDown.center.y);
+    if (scrollView.tag == 0) {
+        ///X方向上的滑动距离
+        CGFloat offSetX = scrollView.contentOffset.x;
+        
+        segmentControl.buttonDown.center = CGPointMake(screenWidth/(_pageCount*2) + offSetX/_pageCount, segmentControl.buttonDown.center.y);
+    }
+    
+    
 }
 /*
 #pragma mark - Navigation

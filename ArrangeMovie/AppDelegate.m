@@ -97,7 +97,7 @@
     
     //微信支付
     //向微信注册wxd930ea5d5a258f4f
-    [WXApi registerApp:@"wxb4ba3c02aa476ea1" withDescription:@"爱排片积分充值"];
+    [WXApi registerApp:WX_APP_ID withDescription:@"爱排片积分充值"];
     return YES;
 }
 

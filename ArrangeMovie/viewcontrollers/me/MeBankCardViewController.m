@@ -39,6 +39,9 @@
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 0.1)];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
+                                                        object:self
+                                                      userInfo:nil];
 }
 
 

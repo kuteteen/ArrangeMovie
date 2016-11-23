@@ -56,7 +56,7 @@
     segmentControl.lineColor = [UIColor colorWithHexString:@"162271"];
     [segmentControl AddSegumentArray:@[@"新任务",@"已领取",@"审核中",@"已完成"]];
     [self.segmentView addSubview:segmentControl];
-    
+    self.scrollView.tag = 0;
     self.scrollView.delegate = self;
     
     _pageCount = 4;
@@ -74,7 +74,7 @@
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.tableFooterView = [[UIView alloc] init];
-        
+        tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
         [self.scrollView addSubview:tableView];
     }
     
@@ -158,27 +158,30 @@
 }
 
 -(void)toDelTask:(id)sender {
-    AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(45, (screenHeight-191)/2, screenWidth-90, 191)];
+    
+    AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(43.5*autoSizeScaleX, (667/2-95.5)*autoSizeScaleY, 288*autoSizeScaleX, 191*autoSizeScaleY)];
     [amalertview setTitle:@"删除任务"];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 30, amalertview.frame.size.width-30, 16)];
-    label.text = @"确认是否删除这个任务?";
-    label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor colorWithHexString:@"15151b"];
-    label.font = [UIFont fontWithName:@"Droid Sans Fallback" size:17.f];
-    [amalertview.contentView addSubview:label];
-    
-    UIButton *sureBtn = [[UIButton alloc] initWithFrame:CGRectMake(15, 76, amalertview.frame.size.width-30, 40)];
-    [sureBtn setTitle:@"确认删除" forState:UIControlStateNormal];
-    [sureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    sureBtn.layer.masksToBounds = YES;
-    sureBtn.layer.cornerRadius = 4;
-    sureBtn.backgroundColor = [UIColor colorWithHexString:@"557dcf"];
+    UIView *childView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 288*autoSizeScaleX, 145*autoSizeScaleY)];
+    UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    sureBtn.frame = CGRectMake(24*autoSizeScaleX, 77*autoSizeScaleY, 240*autoSizeScaleX, 41*autoSizeScaleY);
+    [sureBtn setBackgroundImage:[UIImage imageNamed:@"alert_shanchu"] forState:UIControlStateNormal];
     [sureBtn addTarget:self action:@selector(delTask:) forControlEvents:UIControlEventTouchUpInside];
-    [amalertview.contentView addSubview:sureBtn];
+    [childView addSubview:sureBtn];
     
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(24*autoSizeScaleX, 0, 240*autoSizeScaleX, 77*autoSizeScaleY)];
+    lab.font = [UIFont fontWithName:@"DroidSansFallback" size:17.f*autoSizeScaleY];
+    lab.textColor = [UIColor colorWithHexString:@"15151b"];
+    lab.text = @"确认是否删除这个任务?";
+    lab.textAlignment = NSTextAlignmentCenter;
+    [childView addSubview:lab];
+    
+    [amalertview setChildView:childView];
     ckAlertVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
+    
     [self presentViewController:ckAlertVC animated:NO completion:nil];
+    
+    
+    
 }
 -(NSMutableArray *)array {
     if(!_array){
@@ -238,10 +241,14 @@
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    ///X方向上的滑动距离
-    CGFloat offSetX = scrollView.contentOffset.x;
     
-    segmentControl.buttonDown.center = CGPointMake(screenWidth/(_pageCount*2) + offSetX/_pageCount, segmentControl.buttonDown.center.y);
+    if (scrollView.tag == 0) {
+        ///X方向上的滑动距离
+        CGFloat offSetX = scrollView.contentOffset.x;
+        
+        segmentControl.buttonDown.center = CGPointMake(screenWidth/(_pageCount*2) + offSetX/_pageCount, segmentControl.buttonDown.center.y);
+    }
+    
 }
 
 

@@ -70,7 +70,7 @@
     
     [self initViews];
     
-    [self showUser];
+//    [self showUser];
 }
 
 -(void)initViews {
@@ -122,7 +122,7 @@
     [self initLeadView];
     
     
-    [self fetchMission];
+//    [self fetchMission];
 }
 
 -(void)fetchMission {

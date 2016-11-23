@@ -37,6 +37,11 @@
     self.tableView.dataSource = self;
     
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
+                                                        object:self
+                                                      userInfo:nil];
 }
 
 -(NSArray *)array {
