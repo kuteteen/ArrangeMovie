@@ -48,6 +48,7 @@
 		C83C792C1DD179C2002EEAF3 /* MeMissionTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */; };
 		C83C792E1DD179FC002EEAF3 /* MeMissionTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */; };
 		C83FDE6E1DDADCB500173655 /* DroidSans_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C83FDE6D1DDADCB500173655 /* DroidSans_Bold.ttf */; };
+		C8428CD21DE3E26E000F0ADB /* Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = C8428CD11DE3E26E000F0ADB /* Encryption.m */; };
 		C84C7C4F1DD5953B00D134DD /* loading_120.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84C7C4E1DD5953B00D134DD /* loading_120.gif */; };
 		C859974F1DC04C1E0057C417 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = C859974E1DC04C1E0057C417 /* Task.m */; };
 		C85997521DC0565F0057C417 /* TakeTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C85997511DC0565F0057C417 /* TakeTask.m */; };
@@ -251,6 +252,8 @@
 		C83C792B1DD179C2002EEAF3 /* MeMissionTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMissionTitleView.m; path = views/me/MeMissionTitleView.m; sourceTree = "<group>"; };
 		C83C792D1DD179FC002EEAF3 /* MeMissionTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeMissionTitleView.xib; path = views/me/MeMissionTitleView.xib; sourceTree = "<group>"; };
 		C83FDE6D1DDADCB500173655 /* DroidSans_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = DroidSans_Bold.ttf; path = src/DroidSans_Bold.ttf; sourceTree = "<group>"; };
+		C8428CD01DE3E26E000F0ADB /* Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Encryption.h; path = utils/Encryption.h; sourceTree = "<group>"; };
+		C8428CD11DE3E26E000F0ADB /* Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Encryption.m; path = utils/Encryption.m; sourceTree = "<group>"; };
 		C84C7C4E1DD5953B00D134DD /* loading_120.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading_120.gif; path = src/loading_120.gif; sourceTree = "<group>"; };
 		C859974D1DC04C1E0057C417 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = models/Task.h; sourceTree = "<group>"; };
 		C859974E1DC04C1E0057C417 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = models/Task.m; sourceTree = "<group>"; };
@@ -568,6 +571,20 @@
 			name = base;
 			sourceTree = "<group>";
 		};
+		C8428CD31DE3EA6D000F0ADB /* wxpay */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = wxpay;
+			sourceTree = "<group>";
+		};
+		C8428CD41DE3EA77000F0ADB /* alipay */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = alipay;
+			sourceTree = "<group>";
+		};
 		C886B0C91DA8FC0500240283 = {
 			isa = PBXGroup;
 			children = (
@@ -589,6 +606,8 @@
 		C886B0D41DA8FC0500240283 /* ArrangeMovie */ = {
 			isa = PBXGroup;
 			children = (
+				C8428CD41DE3EA77000F0ADB /* alipay */,
+				C8428CD31DE3EA6D000F0ADB /* wxpay */,
 				C8E6512C1DA9D44D00400ABC /* views */,
 				D6D94BC41DB0B705004666BC /* net */,
 				D62A065B1DAC813C003832A8 /* config */,
@@ -621,6 +640,8 @@
 				D6C48FF11DBEEA5F009EB672 /* NSUserDefault */,
 				D62A06511DAB7CE4003832A8 /* regex */,
 				C8E651441DA9EA8800400ABC /* category */,
+				C8428CD01DE3E26E000F0ADB /* Encryption.h */,
+				C8428CD11DE3E26E000F0ADB /* Encryption.m */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -1340,6 +1361,7 @@
 				D6C490171DBEEB0D009EB672 /* ChooseFilmCell.m in Sources */,
 				D6950CDD1DB4CAC1004D6C8B /* UILabel+StringFrame.m in Sources */,
 				C82AF8E41DB70A0600882DB6 /* MissionNoAuthTableViewCell.m in Sources */,
+				C8428CD21DE3E26E000F0ADB /* Encryption.m in Sources */,
 				C87E40BB1DD3003D00DD2018 /* MeMissionNoAuthView.m in Sources */,
 				C8EB79B91DC0AD2A005599BC /* ManagerMissionTableViewCell.m in Sources */,
 				D6C490151DBEEB0D009EB672 /* AMAlertView.m in Sources */,
@@ -1446,6 +1468,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ArrangeMovie/alipay",
+				);
 				GCC_PREFIX_HEADER = ArrangeMovie/config/am.pch;
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1468,6 +1494,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ArrangeMovie/alipay",
+				);
 				GCC_PREFIX_HEADER = ArrangeMovie/config/am.pch;
 				INFOPLIST_FILE = ArrangeMovie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

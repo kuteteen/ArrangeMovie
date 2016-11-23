@@ -122,7 +122,7 @@
     [self initLeadView];
     
     
-    [self fetchMission];
+//    [self fetchMission];
 }
 
 -(void)fetchMission {
