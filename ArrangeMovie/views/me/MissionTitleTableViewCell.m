@@ -8,12 +8,14 @@
 
 #import "MissionTitleTableViewCell.h"
 #import "EMIShadowImageView.h"
+#import "Task.h"
 
 @interface MissionTitleTableViewCell ()
 @property (weak, nonatomic) IBOutlet EMIShadowImageView *postImgView;
 @property (weak, nonatomic) IBOutlet UILabel *movieTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *directorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *missionDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *taskPointLabel;
 
 @end
 
@@ -40,7 +42,12 @@
 }
 
 -(void)setValue:(id)value {
-    [self.postImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 1.5) shadowOpacity:0.26 shadowRadius:6 image:@"http://cdnq.duitang.com/uploads/item/201506/05/20150605124315_xFQtw.thumb.700_0.jpeg" placeholder:@""];
+    Task *selectedTask = (Task *)value;
+    [self.postImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 1.5) shadowOpacity:0.26 shadowRadius:6 image:selectedTask.img placeholder:@""];
+    self.movieTitleLabel.text = selectedTask.filmname;
+    self.directorLabel.text = [NSString stringWithFormat:@"导演：%@",selectedTask.filmdirector];
+    self.taskPointLabel.text = [NSString stringWithFormat:@"%@分",selectedTask.taskpoints];
+    self.missionDateLabel.text = [NSString stringWithFormat:@"任务时间：%@-%@",selectedTask.startdate,selectedTask.enddate];
     if(screenWidth<375){
         self.directorLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:12.f];
         self.missionDateLabel.font = [UIFont fontWithName:@"Droid Sans Fallback" size:12.f];

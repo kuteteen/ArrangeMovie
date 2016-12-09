@@ -42,9 +42,14 @@
  */
 +(NSDate *)stringToDateTime:(NSString *)dateString
 {
+    NSString *a = [dateString substringWithRange:NSMakeRange(dateString.length-2, 1)];
+    if ([a isEqualToString:@"."]) {
+        a = [dateString substringToIndex:dateString.length-2];
+    }
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-    return [formatter dateFromString:dateString];
+    return [formatter dateFromString:a];
 }
 
 /**
@@ -198,7 +203,42 @@
     }
     
     NSInteger days = (NSInteger)difference/(24*3600);
-    return 0;
+    return days;
 }
+
+
++ (NSDate *)dateAfterPointDate:(NSDate *)nowDate afterday:(NSInteger)afterday{
+
+    
+    NSDate* theDate;
+    
+    
+    
+    if(afterday!=0)
+        
+    {
+        
+        NSTimeInterval  oneDay = 24*60*60*1;  //1天的长度
+        
+        
+        theDate = [nowDate initWithTimeIntervalSinceNow: +oneDay*afterday ];
+        
+        //or
+        
+//        theDate = [nowDate initWithTimeIntervalSinceNow: -oneDay*afterday ];
+        
+    }
+    
+    else
+        
+    {
+        
+        theDate = nowDate;
+        
+    }
+    
+    return theDate;
+}
+
 
 @end

@@ -25,4 +25,7 @@
  */
 -(void)pushViewController:(UIViewController *)viewController withImageView:(EMIShadowImageView*)imageView originRect:(CGRect)originRect desRect:(CGRect)desRect;
 
+
+//screenEdgePanGestureRecognizer是和UINavigationController.view绑定的，因此可以遍历UINavigationController.view.gestureRecognizers来获取
+- (UIScreenEdgePanGestureRecognizer *)screenEdgePanGestureRecognizer;
 @end

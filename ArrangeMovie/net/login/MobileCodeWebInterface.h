@@ -8,6 +8,7 @@
 
 #import "SCWebInterfaceBase.h"
 
+//验证码
 @interface MobileCodeWebInterface : SCWebInterfaceBase
 
 @end

@@ -14,6 +14,12 @@
 
 @interface EMIBaseViewController : UIViewController
 
+//全局用户信息
 @property (strong,nonatomic) User *user;
-
+//全局用户头像
+@property (strong,nonatomic) NSString *headimg;
+//全局用户手机号
+@property (strong,nonatomic) NSString *dn;
+//是否是第一次使用的标志
+@property (strong,nonatomic) NSString *isFirstUse;
 @end

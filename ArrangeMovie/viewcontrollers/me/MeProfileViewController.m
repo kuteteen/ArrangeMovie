@@ -14,8 +14,10 @@
 #import "UpdateProfileWebInterface.h"
 #import "SCHttpOperation.h"
 #import "UIImageView+Webcache.h"
+#import "UploadFile.h"
+#import "OperateNSUserDefault.h"
 
-@interface MeProfileViewController()<LCActionSheetDelegate,UITextFieldDelegate>
+@interface MeProfileViewController()<LCActionSheetDelegate,UITextFieldDelegate,UploadFileDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *headBackView;
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;
@@ -36,13 +38,23 @@
 
 @property(nonatomic,strong) EMICamera *camera;
 
+@property (nonatomic,strong)UIImage *lastHead;//最后要上传的image，为空就不传
+
+@property (nonatomic,strong)UploadFile *uploadUtil;//上传图片的类
 @end
 
 @implementation MeProfileViewController
 
 -(void)viewDidLoad {
+    [super viewDidLoad];
     self.title = @"我的资料";
-    self.scrollView.contentInset=UIEdgeInsetsMake(-64, 0, 0, 0);
+    self.scrollView.contentInset=UIEdgeInsetsMake(0, 0, 0, 0);
+    
+    //上传图片的工具类
+    if (self.uploadUtil == nil) {
+        self.uploadUtil = [[UploadFile alloc] initWithViewController:self];
+        self.uploadUtil.delegate = self;
+    }
     
     self.NickNameTextField.delegate = self;
     self.nameTextField.delegate = self;
@@ -66,9 +78,6 @@
     
     [self.saveProfileBtn addTarget:self action:@selector(saveUser) forControlEvents:UIControlEventTouchUpInside];
     
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
-//                                                        object:self
-//                                                      userInfo:nil];
     
     UITapGestureRecognizer *headBGTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenKeyBoard)];
     [self.headBackView addGestureRecognizer:headBGTap];
@@ -92,29 +101,34 @@
     
     self.headImgView.layer.masksToBounds = YES;
     self.headImgView.layer.cornerRadius = self.headImgView.frame.size.width/2;
-    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:@"http://static.cnbetacdn.com/topics/6b6702c2167e5a2.jpg"]];// placeholderImage:[UIImage imageNamed:@"default_head"]
+    if (self.headimg == nil) {
+        [self.headImgView setImage:defaultheadimage];// todo
+    }else{
+        //有默认用户头像
+        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.headimg] placeholderImage:defaultheadimage];
+    }
     
-    [self.NickNameTextField setText:self.user.nickname];
-    [self.nameTextField setText:self.user.name];
-    if(self.user.sex==1){
+    [self.NickNameTextField setText:self.user.nickname == nil ? @"":self.user.nickname];
+    [self.nameTextField setText:self.user.name == nil ? @"":self.user.name];
+    if(self.user.sex == nil || [self.user.sex isEqualToString:@"男"]){
         [self setMale];
     }else{
         [self setFemale];
     }
-    self.phoneLabel.text = self.user.dn;
+    self.phoneLabel.text = self.user.dn == nil ?@"":self.user.dn;
 }
 
 
 -(void)setMale {
     [_maleCheck setOn:YES];
     [_femaleCheck setOn:NO];
-    self.user.sex = 1;
+    self.user.sex = @"男";
 }
 
 -(void)setFemale {
     [_maleCheck setOn:NO];
     [_femaleCheck setOn:YES];
-    self.user.sex = 0;
+    self.user.sex = @"女";
 }
 
 -(void)takePicture {
@@ -133,8 +147,17 @@
         //获的照片的回调
         __unsafe_unretained typeof(self) weakSelf = self;
         [self.camera setBlock:^(UIImagePickerController *picker, NSDictionary<NSString *,id> *info) {
-            NSLog(@"%@",info);
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
+            //获取图片
+            UIImage *currentimage = [info objectForKey:UIImagePickerControllerOriginalImage];
+            //相机需要把图片存进相蒲
+            
+            if (currentimage != nil) {
+                //存进相蒲
+                //                UIImageWriteToSavedPhotosAlbum(currentimage, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+                weakSelf.headImgView.image = currentimage;
+                weakSelf.lastHead = currentimage;
+            }
         }];
     }
     if (buttonIndex == 2) {
@@ -142,27 +165,121 @@
         TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:nil];
         //隐藏内部拍照按钮
         imagePicker.allowTakePicture = NO;
+        __unsafe_unretained typeof(self) weakSelf = self;
         [imagePicker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL flag) {
-            NSLog(@"%@",photos[0]);
+            weakSelf.headImgView.image = photos[0];
+            weakSelf.lastHead = photos[0];
         }];
         
         [self presentViewController:imagePicker animated:YES completion:nil];
     }
 }
 
--(void)saveUser {
-    UpdateProfileWebInterface *webInterface = [[UpdateProfileWebInterface alloc] init];
-    NSDictionary *param = [webInterface inboxObject:self.user];
-    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:webInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
-        if (returnValue) {
-            NSArray *result = [webInterface unboxObject:returnValue];
-            
-        }
-    } WithErrorCodeBlock:^(id errorCode) {
+
+
+
+
+//上传图片
+- (void)uploadHead:(UIImage *)image{
+    
+    //原本设置过头像，可以不再设置
+    if (image == nil && self.headimg != nil) {
+        //直接请求注册接口
+        __unsafe_unretained typeof(self) weakself = self;
+        UpdateProfileWebInterface *webInterface = [[UpdateProfileWebInterface alloc] init];
+        NSDictionary *param = [webInterface inboxObject:@[@(self.user.userid),self.NickNameTextField.text,self.nameTextField.text,self.user.sex,self.headimg,@(self.user.usertype)]];
+        [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:webInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+            if (returnValue) {
+                NSArray *result = [webInterface unboxObject:returnValue];
+                if ([result[0] intValue] == 1) {
+                    [weakself.view makeToast:@"修改成功" duration:2.0 position:CSToastPositionCenter];
+                    //修改self.user的内容
+                    weakself.user.nickname = weakself.NickNameTextField.text;
+                    weakself.user.name = weakself.nameTextField.text;
+                    weakself.user.sex = weakself.user.sex;
+                    [OperateNSUserDefault saveUser:weakself.user];
+                    [weakself.navigationController popViewControllerAnimated:YES];
+                }else{
+                    [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+                }
+                
+            }
+        } WithErrorCodeBlock:^(id errorCode) {
+            [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+        } WithFailureBlock:^{
+            [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+        }];
+    }else{
+        NSData *imgdata = UIImagePNGRepresentation(image);
         
-    } WithFailureBlock:^{
+        [self.uploadUtil uploadFileWithURL:[NSURL URLWithString:imgUploadServerIP] data:imgdata];
+    }
+    
+    
+    
+}
+
+//图片上传成功的代理
+- (void)returnImagePath:(NSArray *)resultimg{
+    
+    
+    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:resultimg[1]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
+        
+        //头像加载成功，再去请求修改个人资料接口
+        __unsafe_unretained typeof(self) weakself = self;
+        UpdateProfileWebInterface *webInterface = [[UpdateProfileWebInterface alloc] init];
+        NSDictionary *param = [webInterface inboxObject:@[@(self.user.userid),self.NickNameTextField.text,self.nameTextField.text,self.user.sex,resultimg[0],@(self.user.usertype)]];
+        [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:webInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+            if (returnValue) {
+                NSArray *result = [webInterface unboxObject:returnValue];
+                if ([result[0] intValue] == 1) {
+                    [weakself.view makeToast:@"修改成功" duration:2.0 position:CSToastPositionCenter];
+                    //修改self.user的内容
+                    weakself.user.headimg = resultimg[1];
+                    weakself.user.nickname = weakself.NickNameTextField.text;
+                    weakself.user.name = weakself.nameTextField.text;
+                    weakself.user.sex = weakself.user.sex;
+                    [OperateNSUserDefault saveUser:weakself.user];
+                    
+                    
+                    //修改头像
+                    [OperateNSUserDefault addUserDefaultWithKeyAndValue:@"headimg" value:resultimg[1]];
+                    [weakself.navigationController popViewControllerAnimated:YES];
+                }else{
+                    [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+                }
+                
+            }
+        } WithErrorCodeBlock:^(id errorCode) {
+            [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+        } WithFailureBlock:^{
+            [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+        }];
     }];
+}
+
+
+-(void)saveUser {
+    
+    if (self.headimg == nil && self.lastHead == nil) {
+        [self.view makeToast:@"请上传一张头像" duration:2.0 position:CSToastPositionCenter];
+        return;
+    }
+    
+    if ([self.NickNameTextField.text isEqualToString:@""] || self.NickNameTextField.text == nil) {
+        [self.view makeToast:@"请输入昵称" duration:2.0 position:CSToastPositionCenter];
+        return;
+    }
+    if ([self.nameTextField.text isEqualToString:@""] || self.nameTextField.text == nil) {
+        [self.view makeToast:@"请输入姓名" duration:2.0 position:CSToastPositionCenter];
+        return;
+    }
+    
+    
+    [self uploadHead:self.lastHead];
+    
+    
 }
 
 

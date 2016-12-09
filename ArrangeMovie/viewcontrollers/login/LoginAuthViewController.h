@@ -16,4 +16,5 @@
 @interface LoginAuthViewController : EMIBaseViewController
 //拍照
 @property (strong,nonatomic) EMICamera *camera;
+
 @end

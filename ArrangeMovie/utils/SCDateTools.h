@@ -46,4 +46,13 @@
  */
 +(NSInteger)daysBetween:(NSDate *)start and:(NSDate *)end;
 
+/**
+ *  获取指定日期之后几天的日期
+ *
+ *  @param nowDate  指定日期
+ *  @param afterday 之后几天
+ *
+ *  @return 计算后的日期
+ */
++ (NSDate *)dateAfterPointDate:(NSDate *)nowDate afterday:(NSInteger)afterday;
 @end

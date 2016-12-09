@@ -9,14 +9,27 @@
 #import "RegViewController.h"
 #import "PFHomeViewController.h"
 #import "EMIRootViewController.h"
-#import "RESideMenu.h"
 #import "MakeTaskViewController.h"
+#import "UploadFile.h"
+#import "MobileCodeWebInterface.h"
+#import "SCHttpOperation.h"
+#import "RegisterWebInterface.h"
+#import "Encryption.h"
+#import "LoginWebInterface.h"
 
-@interface RegViewController ()<LFLUISegmentedControlDelegate,LCActionSheetDelegate,RESideMenuDelegate>
+@interface RegViewController ()<LFLUISegmentedControlDelegate,LCActionSheetDelegate,RESideMenuDelegate,UploadFileDelegate>
 @property (nonatomic,strong)NSMutableArray <UITextField *>*tfArrays;
 @property (nonatomic,strong)NSMutableArray <UIImageView *>*imgArrays;
 @property (nonatomic,strong)NSMutableArray <UIView *> *lineArrays;
 @property (nonatomic,strong)NSMutableArray <NSString *> *imgnameArrays;
+
+
+//用户类型
+@property (nonatomic,assign) int usertype;
+
+@property (nonatomic,strong)UIImage *lastHead;//最后要上传的image，为空就不传
+
+@property (nonatomic,strong)UploadFile *uploadUtil;//上传图片的类
 @end
 
 @implementation RegViewController
@@ -77,6 +90,12 @@
 - (void)initView{
     self.title = @"注册";
     
+    //上传图片的工具类
+    if (self.uploadUtil == nil) {
+        self.uploadUtil = [[UploadFile alloc] initWithViewController:self];
+        self.uploadUtil.delegate = self;
+    }
+    
     //头像
     self.headImg.userInteractionEnabled = YES;
     [self.headImg setImage:[UIImage imageNamed:@"register_head"]];
@@ -103,12 +122,24 @@
     self.yzmBtn.frame = CGRectMake(230, 18, 101, 28);
     [self.yzmView addSubview:self.yzmBtn];
     self.yzmBtn.layer.cornerRadius = self.yzmBtn.frame.size.height/2;
-    //    __unsafe_unretained typeof(self) weakSelf = self;
+     __unsafe_unretained typeof(self) weakself = self;
     self.yzmBtn.clickBlock = ^(){
         
-        
-        //网络请求
-        
+        //获取验证码
+        MobileCodeWebInterface *codeInterface = [[MobileCodeWebInterface alloc] init];
+        NSDictionary *param = [codeInterface inboxObject:@[weakself.phoneTF.text]];
+        [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:codeInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+            NSMutableArray *result = [codeInterface unboxObject:returnValue];
+            if ([result[0] intValue] == 1) {
+                [weakself.view makeToast:@"验证码发送成功" duration:2.0 position:CSToastPositionCenter];
+            }else{
+                [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+            }
+        } WithErrorCodeBlock:^(id errorCode) {
+            [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+        } WithFailureBlock:^{
+            [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+        }];
         
     };
 }
@@ -162,6 +193,9 @@
 //弹出框点击事件代理
 - (void)actionSheet:(LCActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     __unsafe_unretained typeof(self) weakSelf = self;
+    
+    
+    
     if (buttonIndex == 1) {
         //拍照
         self.camera = [[EMICamera alloc] init];
@@ -178,7 +212,7 @@
                 //存进相蒲
 //                UIImageWriteToSavedPhotosAlbum(currentimage, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), nil);
                 weakSelf.headImg.image = currentimage;
-//                [weakSelf.headImg setCircleBorder:currentimage];
+                weakSelf.lastHead = currentimage;
             }
             
         }];
@@ -191,12 +225,105 @@
         imagePicker.allowTakePicture = NO;
         [imagePicker setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL flag) {
             weakSelf.headImg.image = photos[0];
-//            [weakSelf.headImg setCircleBorder:photos[0]];
+            weakSelf.lastHead = photos[0];
         }];
         
         [self presentViewController:imagePicker animated:YES completion:nil];
     }
 }
+
+
+//上传图片
+- (void)uploadHead:(UIImage *)image{
+    
+    if (image == nil) {
+        //直接请求注册接口
+        __unsafe_unretained typeof(self) weakself = self;
+        RegisterWebInterface *regInterface = [[RegisterWebInterface alloc] init];
+        NSDictionary *param = [regInterface inboxObject:@[self.phoneTF.text,@(self.usertype),self.yzmTF.text,[Encryption md5EncryptWithString:self.npwdTF.text]]];
+        [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:regInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+            NSMutableArray *result = [regInterface unboxObject:returnValue];
+            if ([result[0] intValue] == 1) {
+                [weakself.view makeToast:@"注册成功" duration:2.0 position:CSToastPositionCenter];
+                //注册成功后 回到登录页，自己去登
+                
+                if (weakself.usertype == 0) {
+                    //片方返回登录页
+                    [weakself.navigationController popViewControllerAnimated:YES];
+                }
+                
+//                //院线经理跳至认证院线经理
+//                if (weakself.usertype == 1) {
+//                    [weakself performSegueWithIdentifier:@"toLoginAuthVC" sender:weakself];
+//                }
+                if (weakself.usertype == 1) {
+                    //院线经理返回登录页
+                    [weakself.navigationController popViewControllerAnimated:YES];
+                }
+                
+            }else{
+                [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+            }
+        } WithErrorCodeBlock:^(id errorCode) {
+            [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+        } WithFailureBlock:^{
+             [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+        }];
+    }else{
+        NSData *imgdata = UIImagePNGRepresentation(image);
+        
+        [self.uploadUtil uploadFileWithURL:[NSURL URLWithString:imgUploadServerIP] data:imgdata];
+    }
+   
+    
+
+}
+
+//图片上传成功的回调(图片完整地址)
+- (void)returnImagePath:(NSArray *)resultimg{
+    [self.headImg sd_setImageWithURL:[NSURL URLWithString:resultimg[1]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        
+        //头像加载成功，再去请求注册接口
+        __unsafe_unretained typeof(self) weakself = self;
+        RegisterWebInterface *regInterface = [[RegisterWebInterface alloc] init];
+        NSDictionary *param = [regInterface inboxObject:@[self.phoneTF.text,@(self.usertype),self.yzmTF.text,[Encryption md5EncryptWithString:self.npwdTF.text],resultimg[0]]];
+        [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:regInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+            NSMutableArray *result = [regInterface unboxObject:returnValue];
+            if ([result[0] intValue] == 1) {
+                [weakself.view makeToast:@"注册成功" duration:2.0 position:CSToastPositionCenter];
+                //注册成功后 回到登录页，自己去登
+                
+                if (weakself.usertype == 0) {
+                    //片方返回登录页
+                    [weakself.navigationController popViewControllerAnimated:YES];
+                }
+                
+//                //院线经理跳至认证院线经理
+//                if (weakself.usertype == 1) {
+//                    [weakself performSegueWithIdentifier:@"toLoginAuthVC" sender:weakself];
+//                }
+                if (weakself.usertype == 1) {
+                    //院线经理返回登录页
+                    [weakself.navigationController popViewControllerAnimated:YES];
+                }
+                    
+                    
+                    
+                    
+                
+                
+            }else{
+                [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+            }
+        } WithErrorCodeBlock:^(id errorCode) {
+            [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+        } WithFailureBlock:^{
+            [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+        }];
+    }];
+}
+
 - (IBAction)touchPhoneTF:(UITextField *)sender {
     [self changeHighLighted:0];
 }
@@ -221,7 +348,7 @@
         self.regBtn.enabled = YES;
     }else{
         self.yzmBtn.enabled = NO;
-//        self.regBtn.enabled = NO;
+        self.regBtn.enabled = NO;
     }
 }
 //检测密码是否一致
@@ -232,38 +359,20 @@
 }
 //立即注册
 - (IBAction)registerClicked:(UIButton *)sender {
-    //片方跳至首页
-    if (self.mainSegView.selectSeugment == 0) {
-        UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
-        PFHomeViewController *viewController = [pfhome instantiateViewControllerWithIdentifier:@"pfhome"];
-        EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
-        UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
-        MeViewController *meVC = [me instantiateViewControllerWithIdentifier:@"me"];
-        EMINavigationController *meNav = [[EMINavigationController alloc] initWithRootViewController:meVC];
+    
+    
+    if (![self.anpwdTF.text isEqualToString:self.npwdTF.text]) {
+        [self.view makeToast:@"两次输入密码不一致" duration:1.5 position:CSToastPositionCenter];
+        return;
+    }
+    
+    self.usertype = (int)(self.mainSegView.selectSeugment);
+    
+    [self uploadHead:self.lastHead];
 
-        
-        EMIRootViewController *sideMenuViewController = [[EMIRootViewController alloc] initWithContentViewController:nav leftMenuViewController:nil rightMenuViewController:meNav];
-            sideMenuViewController.backgroundImage = [UIImage imageNamed:@"all_bg"];
-            sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
-            sideMenuViewController.delegate = self;
-            sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
-            sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
-            sideMenuViewController.contentViewShadowOpacity = 0.6;
-            sideMenuViewController.contentViewShadowRadius = 12;
-            sideMenuViewController.contentViewShadowEnabled = YES;
-        
-        
-            sideMenuViewController.scaleContentView = NO;
-            sideMenuViewController.scaleMenuView = NO;
-            sideMenuViewController.panGestureEnabled = YES;
-            sideMenuViewController.contentViewInPortraitOffsetCenterX = screenWidth;
-        
-        [self presentViewController:sideMenuViewController animated:YES completion:nil];
-    }
-    //院线经理跳至认证院线经理
-    if (self.mainSegView.selectSeugment == 1) {
-        [self performSegueWithIdentifier:@"toLoginAuthVC" sender:self];
-    }
+    
+    
+    
 }
 
 

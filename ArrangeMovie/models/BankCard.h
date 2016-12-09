@@ -10,7 +10,7 @@
 
 @interface BankCard : NSObject
 //银行id
-@property (nonatomic,copy) NSString *bankid;
+@property (nonatomic,assign) int bankid;
 //银行名称
 @property (nonatomic,copy) NSString *bankname;
 //开户行
@@ -20,6 +20,8 @@
 //卡号
 @property (nonatomic,copy) NSString *account;
 //是否默认 1：默认 0：非默认
-@property (nonatomic,copy) NSString *isdefault;
+@property (nonatomic,assign) int isdefault;
+//银行卡图标
+@property (nonatomic,copy) NSString *img;
 
 @end

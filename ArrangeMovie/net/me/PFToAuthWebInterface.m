@@ -13,7 +13,7 @@
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"uploadcertfile.do"];
     }
     return self;
 }
@@ -21,11 +21,12 @@
 -(NSDictionary *)inboxObject:(id)param {
     NSArray *array = param;
     if(array.count>0){
-        NSString *userid = array[0];
+        int userid = [array[0] intValue];
         NSArray *imgs = array[1];
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:3];
-        [dict setObject:userid forKey:@"userid"];
+        [dict setObject:@(userid) forKey:@"userid"];
         [dict setObject:imgs forKey:@"imgs"];
+        [dict setObject:array[2] forKey:@"usertype"];
         return dict;
     }
     return nil;

@@ -13,7 +13,7 @@
 #import "PFHomeCell.h"
 #import "MeViewController.h"
 
-@interface PFHomeViewController : EMIBaseViewController
+@interface PFHomeViewController : EMIBaseViewController<UIViewControllerTransitioningDelegate>
 @property (strong,nonatomic)   UIView *head;
 @property (strong, nonatomic)  UIImageView *topView;
 @property (strong, nonatomic)  UIImageView *headImgView;//头像

@@ -59,7 +59,7 @@
     headRect.size.height = headRect.size.width;
     self.headImgView.frame = headRect;
     
-    [self.headImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 1.5) shadowOpacity:0.1 shadowRadius:1.5 image:headImg placeholder:@""];
+    [self.headImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeMake(0, 1.5) shadowOpacity:0.1 shadowRadius:1.5 image:headImg placeholder:@"default_head"];
 
     self.titleLabel.font = [UIFont fontWithName:@"DroidSansFallback" size:14.0*autoSizeScaleY];
         

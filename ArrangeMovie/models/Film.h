@@ -11,7 +11,7 @@
 @interface Film : NSObject
 
 ///电影id
-@property (nonatomic, strong) NSString *filmid;
+@property (nonatomic, assign) int filmid;
 ///电影名称
 @property (nonatomic, strong) NSString *filmname;
 ///导演

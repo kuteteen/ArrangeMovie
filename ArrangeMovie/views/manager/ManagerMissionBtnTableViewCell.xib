@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,30 +14,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="158"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task_receive" translatesAutoresizingMaskIntoConstraints="NO" id="f2w-Bt-pLR">
-                        <rect key="frame" x="10" y="63" width="300" height="50"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zjc-YH-edN">
+                        <rect key="frame" x="11" y="63" width="299" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="LG6-tV-QrV"/>
+                            <constraint firstAttribute="height" constant="50" id="DGK-vs-aTA"/>
                         </constraints>
-                    </imageView>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="领取任务" backgroundImage="task_receive">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="btnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uUv-nU-2Cu"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="f2w-Bt-pLR" secondAttribute="bottom" constant="45" id="AMA-LE-NUj"/>
-                    <constraint firstItem="f2w-Bt-pLR" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Rwq-So-OOP"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f2w-Bt-pLR" secondAttribute="trailing" constant="10" id="S7r-9r-zBF"/>
-                    <constraint firstItem="f2w-Bt-pLR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="cp9-F9-Dfd"/>
-                    <constraint firstItem="f2w-Bt-pLR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="epd-3E-utD"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="f2w-Bt-pLR" secondAttribute="trailing" constant="2" id="tmB-oo-QVP"/>
+                    <constraint firstItem="Zjc-YH-edN" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="C1w-7h-fRy"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zjc-YH-edN" secondAttribute="trailing" constant="10" id="M2B-kX-yW8"/>
+                    <constraint firstAttribute="bottom" secondItem="Zjc-YH-edN" secondAttribute="bottom" constant="45" id="meN-kO-vZg"/>
+                    <constraint firstItem="Zjc-YH-edN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="mis-vR-0Kf"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="epd-3E-utD"/>
-                        <exclude reference="tmB-oo-QVP"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="btn" destination="f2w-Bt-pLR" id="5wJ-Qw-yl1"/>
+                <outlet property="btn" destination="Zjc-YH-edN" id="pnA-gV-2Ef"/>
             </connections>
             <point key="canvasLocation" x="241" y="172"/>
         </tableViewCell>

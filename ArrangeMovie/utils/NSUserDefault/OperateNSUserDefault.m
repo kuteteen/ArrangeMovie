@@ -8,6 +8,15 @@
 
 #import "OperateNSUserDefault.h"
 
+
+
+
+//爱排片 NSUserDefaults存取一览：key   type       decription    usage        清除时间
+                            //user   User类     用户所有信息    很多地方要用   退出登录时
+                            //headimg Nsstring  头像地址       user已有，单独再存为了重新登录时有个默认用户      登陆了新的用户
+                            //dn     NSstring   用户手机号     user已有，单独再存为了重新登录时有个默认用户       登陆了新的用户
+                            //isFirstUse NSString  是否第一次使用(0或nil(没设置过为nil)是，1不是)  决定首页的引导图是否显示      退出登录时
+
 @implementation OperateNSUserDefault
 
 //返回[NSUserDefaults standardUserDefaults]
@@ -17,7 +26,51 @@
 
 //将user信息存入userDefault中
 + (void)saveUser:(User *)user{
-    [[self shareInstance] setObject:user forKey:@"user"];
+    
+    NSMutableDictionary *userDic = [[NSMutableDictionary alloc] initWithCapacity:0];
+    
+    [userDic setObject:@(user.userid) forKey:@"userid"];
+    
+    [userDic setObject:user.dn forKey:@"dn"];
+    
+    [userDic setObject:@(user.usertype) forKey:@"usertype"];
+    
+    [userDic setObject:user.nickname forKey:@"nickname"];
+    
+    [userDic setObject:user.name forKey:@"name"];
+    
+    [userDic setObject:user.sex forKey:@"sex"];
+    
+    [userDic setObject:@(user.userpoints) forKey:@"userpoints"];
+    
+    [userDic setObject:@(user.userstatus) forKey:@"userstatus"];
+    @try {
+    
+        [userDic setObject:user.headimg forKey:@"headimg"];
+   
+    } @catch (NSException *exception) {
+        
+    } @finally {
+        
+    }
+    @try {
+        
+        [userDic setObject:@(user.gradeid) forKey:@"gradeid"];
+        
+        [userDic setObject:user.gradename forKey:@"gradename"];
+        
+        [userDic setObject:user.gradeicon forKey:@"gradeicon"];
+        
+    } @catch (NSException *exception) {
+        
+    } @finally {
+        
+    }
+    
+    
+    
+    
+    [[self shareInstance] setObject:userDic forKey:@"user"];
     //同步到磁盘
     [[self shareInstance] synchronize];
 }

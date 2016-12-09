@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="DroidSansFallback.ttf">
+            <string>DroidSansFallback</string>
             <string>DroidSansFallback</string>
             <string>DroidSansFallback</string>
         </mutableArray>
@@ -50,11 +51,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导演：郭敬明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="803-fR-bHE">
-                        <rect key="frame" x="92" y="92" width="78" height="13"/>
+                        <rect key="frame" x="92" y="92" width="69" height="13"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="Kgm-nS-gX2"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="11.5"/>
                         <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -63,7 +64,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="KRJ-b2-5aa"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13"/>
+                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="11.5"/>
                         <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -83,6 +84,9 @@
                             <constraint firstAttribute="width" constant="16" id="Pji-lg-M9J"/>
                         </constraints>
                         <state key="normal" image="del_normal"/>
+                        <connections>
+                            <action selector="delTaskClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Eir-aU-EEO"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -105,9 +109,13 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="deltaskBtn" destination="v4M-5i-ybZ" id="brw-MR-j5l"/>
                 <outlet property="directorLabel" destination="803-fR-bHE" id="fMN-dE-MQP"/>
+                <outlet property="filmnameLabel" destination="KcD-kb-fhQ" id="ZsW-KS-5ex"/>
                 <outlet property="postImgView" destination="N3N-HP-Neo" id="M1h-f3-GiA"/>
                 <outlet property="taskdateLabel" destination="iem-um-4ev" id="dnC-7B-zpQ"/>
+                <outlet property="taskpointLabel" destination="Uyn-cG-hEk" id="uQr-ZX-czk"/>
+                <outlet property="taskstatusLabel" destination="ENL-ie-sre" id="PVG-kE-Unx"/>
             </connections>
         </tableViewCell>
     </objects>

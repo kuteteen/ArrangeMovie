@@ -14,7 +14,7 @@
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"addBankCard.do"];
     }
     return self;
 }
@@ -22,11 +22,22 @@
 -(NSDictionary *)inboxObject:(id)param {
     NSArray *array = param;
     if(array.count>0){
-        NSString *userid = array[0];
-        BankCard *bankcard = array[1];
-        NSDictionary *bank = [bankcard mj_keyValues];
-        NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:bank];
-        [dict setObject:userid forKey:@"userid"];
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        
+        @try {
+            [dict setObject:array[0] forKey:@"userid"];
+            [dict setObject:array[1] forKey:@"usertype"];
+            [dict setObject:array[2] forKey:@"bankname"];
+            [dict setObject:array[3] forKey:@"banktype"];
+            [dict setObject:array[4] forKey:@"openaccount"];
+            [dict setObject:array[5] forKey:@"name"];
+            [dict setObject:array[6] forKey:@"account"];
+            [dict setObject:array[7] forKey:@"isdefault"];
+        } @catch (NSException *exception) {
+            NSLog(@"%@",exception);
+        } @finally {
+            
+        }
         return dict;
     }
     return nil;

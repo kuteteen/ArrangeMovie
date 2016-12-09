@@ -7,13 +7,14 @@
 //
 
 #import "UploadProofWebInterface.h"
+#import "SCDateTools.h"
 
 @implementation UploadProofWebInterface
 
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"moviemanageruploadcert.do"];
     }
     return self;
 }
@@ -21,13 +22,24 @@
 -(NSDictionary *)inboxObject:(id)param {
     NSArray *array = param;
     if(array.count>0){
-        NSString *userid = array[0];
+        int userid = [array[0] intValue];
         NSArray *imgs = array[1];
-        NSString *imgtype = array[2];
+        int imgtype = [array[2] intValue];//0认证信息
+        int usertype = [array[3] intValue];
+        
+        
+        
+        
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:3];
-        [dict setObject:userid forKey:@"userid"];
+        [dict setObject:@(userid) forKey:@"userid"];
         [dict setObject:imgs forKey:@"imgs"];
-        [dict setObject:imgtype forKey:@"imgtype"];
+        [dict setObject:@(imgtype) forKey:@"imgtype"];
+        [dict setObject:@(usertype) forKey:@"usertype"];
+        
+        [dict setObject:@(0) forKey:@"taskid"];
+        [dict setObject:@(0) forKey:@"taskdetailid"];
+        [dict setObject:[SCDateTools dateToString:[NSDate date]] forKey:@"tdate"];
+        
         return dict;
     }
     return nil;
@@ -40,7 +52,12 @@
         [array addObject:@1];
     }else {
         [array addObject:@2];
-        [array addObject:[result valueForKey:@"msg"]];
+        if ([result objectForKey:@"msg"] != nil) {
+           [array addObject:[result valueForKey:@"msg"]];
+        }else{
+            [array addObject:@"出现异常"];
+        }
+        
     }
     return array;
 }

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Film.h"
 
 @interface SDTextField : UIView
 
@@ -25,7 +26,7 @@
 @property(nonatomic,strong)UITextField *textfield;
 
 //诱导输入查询的数据源(存储的为字符串类型)
-@property(nonatomic,strong)NSMutableArray<NSString *> *dataArray;
+@property(nonatomic,strong)NSMutableArray<Film *> *dataArray;
 
 //诱导输入列表的背景颜色(默认的是浅灰色(RGB值约为0.94,0.94,0.94,1.0))
 @property(nonatomic,strong)UIColor *listBackgroundColor;
@@ -36,4 +37,7 @@
 //列表与输入框的高度比例,默认为3
 @property(nonatomic,assign)int  heightMultiple;
 
+
+//电影id
+@property(nonatomic,assign)int filmid;
 @end

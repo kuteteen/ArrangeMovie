@@ -13,5 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet SCTopLeftAlignLabel *requireContentLabel;
 -(instancetype)initNibWithFrame:(CGRect)frame;
+@property (weak, nonatomic) IBOutlet UILabel *taskCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cinemaLevelLabel;
 
 @end

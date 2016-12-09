@@ -8,6 +8,7 @@
 
 #import "SCWebInterfaceBase.h"
 
+//忘记密码
 @interface ForgetPwdWebInterface : SCWebInterfaceBase
 
 @end

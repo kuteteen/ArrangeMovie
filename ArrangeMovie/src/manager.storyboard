@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -132,6 +132,44 @@
             </objects>
             <point key="canvasLocation" x="907.5" y="101.5"/>
         </scene>
+        <!--Manager Upload Cert View Controller-->
+        <scene sceneID="rIR-eK-Fb5">
+            <objects>
+                <viewController storyboardIdentifier="uploadCertVC" id="kyx-gG-cko" customClass="ManagerUploadCertViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="snh-No-FgX"/>
+                        <viewControllerLayoutGuide type="bottom" id="bRF-g0-pNL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RRk-pH-Hoc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jD9-ja-yw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1390.5" y="148.5"/>
+        </scene>
+        <!--Maneger Look Cert View Controller-->
+        <scene sceneID="btu-VW-KGl">
+            <objects>
+                <viewController storyboardIdentifier="lookCertVC" id="0PE-53-OSr" customClass="ManegerLookCertViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="80Z-lu-hlD"/>
+                        <viewControllerLayoutGuide type="bottom" id="p3i-y1-c4M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XL6-bc-3h6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHi-Q8-GqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1933.5" y="135.5"/>
+        </scene>
         <!--Page View Controller-->
         <scene sceneID="t5v-OZ-idS">
             <objects>
@@ -178,6 +216,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="IqZ-Mg-ndf"/>
+        <segue reference="eN5-Nj-Jgl"/>
     </inferredMetricsTieBreakers>
 </document>

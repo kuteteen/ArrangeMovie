@@ -17,6 +17,12 @@
 #import "AMAlertView.h"
 #import "CKAlertViewController.h"
 #import "UIColor+Hex.h"
+#import "UIImage+GIF.h"
+#import "MBProgressHUD.h"
+#import "PFAMDetailWebInterface.h"
+#import "SCHttpOperation.h"
+#import "TaskDetail.h"
+#import "PFAuditWebInterface.h"
 
 @interface AMDetailDoneViewController ()<SCFadeSlideViewDelegate,SCFadeSlideViewDataSource>
 @property (nonatomic,strong) NSMutableArray *array;//数据源
@@ -24,6 +30,7 @@
 
 @property (strong,nonatomic) ProgressView *proView;
 
+@property (strong,nonatomic) MBProgressHUD *HUD;
 @end
 
 @implementation AMDetailDoneViewController
@@ -32,17 +39,16 @@
     [super viewDidLoad];
     
     self.title = @"排片详情";
-    [self setRightNav:@""];
+    [self setRightNav:self.selectedTakeTask.headimg];
     
     self.array = [[NSMutableArray alloc] initWithCapacity:0];
     
-    //假数据
-    [self.array addObject:@"http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580"];
-    [self.array addObject:@"http://img.hb.aicdn.com/d2024a8a998c8d3e4ba842e40223c23dfe1026c8bbf3-OudiPA_fw580"];
     
     [self initViews];
     
     [AppDelegate storyBoradAutoLay:self.view];
+    
+    [self fetchData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +56,51 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+//请求网络数据
+- (void)fetchData{
+    //加载动图
+    UIImageView *loadimageView = [[UIImageView alloc] initWithImage:[UIImage sd_animatedGIFNamed:@"loading_120"]];
+    
+    self.HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.HUD.backgroundColor = [UIColor colorWithHexString:@"000000" alpha:0.2];
+    self.HUD.bezelView.backgroundColor = [UIColor colorWithHexString:@"ffffff" alpha:0.8];
+    //        HUD.bezelView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loading_bj"]];
+    //        HUD.bezelView.tintColor = [UIColor clearColor];
+    
+    self.HUD.bezelView.layer.cornerRadius = 16;
+    self.HUD.mode = MBProgressHUDModeCustomView;
+    //        HUD.mode = MBProgressHUDModeIndeterminate;
+    self.HUD.customView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.HUD.customView = loadimageView;
+    self.HUD.margin = 5;
+    NSLog(@"HUD的margin:%f",self.HUD.margin);
+    //    HUD.delegate = self;
+    self.HUD.square = YES;
+    [self.HUD showAnimated:YES];
+    
+    __unsafe_unretained typeof (self) weakself = self;
+    PFAMDetailWebInterface *pfamdetailInterface = [[PFAMDetailWebInterface alloc] init];
+    NSDictionary *param = [pfamdetailInterface inboxObject:@[@(self.user.userid),@(self.selectedTaskId),@(self.selectedTakeTask.taskdetailid),@(self.user.usertype)]];
+    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:pfamdetailInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+        NSMutableArray *result = [pfamdetailInterface unboxObject:returnValue];
+        if ([result[0] intValue] == 1) {
+            self.array = [[NSMutableArray alloc] initWithArray:result[1]];
+            //刷新
+            [self.slideView reloadData];
+        }else{
+            [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+        }
+        [self.HUD hideAnimated:YES];
+    } WithErrorCodeBlock:^(id errorCode) {
+        [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+        [self.HUD hideAnimated:YES];
+    } WithFailureBlock:^{
+        [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+        [self.HUD hideAnimated:YES];
+    }];
+    
+}
 
 /**
  *  设置右边的头像
@@ -63,10 +114,10 @@
     headImgView.layer.masksToBounds = YES;
     headImgView.layer.cornerRadius = 14;
     
-    if ([headImgUrl isEqualToString:@""]) {
-        headImgView.image = [UIImage imageNamed:@"miller"];
+    if ([headImgUrl isEqualToString:@""] || headImgUrl == nil) {
+        headImgView.image = defaultheadimage;
     }else{
-        [headImgView sd_setImageWithURL:[NSURL URLWithString:headImgUrl] placeholderImage:[UIImage imageNamed:@"miller"]];
+        [headImgView sd_setImageWithURL:[NSURL URLWithString:headImgUrl] placeholderImage:defaultheadimage];
     }
     
     UIBarButtonItem *rightNav = [[UIBarButtonItem alloc] initWithCustomView:headImgView];
@@ -102,18 +153,19 @@
     [self.view addSubview:self.proView];
     [self showProView];
     
-    
-    //片方,添加圆形打钩按钮
-    //片方,添加圆形打钩按钮
-    EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(150.5, 550, 74, 74)];
-    //    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
-    OKImgView.image = [UIImage imageNamed:@"row_piece_review"];
-    //        OKImgView setHighlightedImage:[UIImage imageNamed:row]
-    [self.view addSubview:OKImgView];
-    OKImgView.userInteractionEnabled = YES;
-    //打钩的点击手势
-    UITapGestureRecognizer *okGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(okImgClicked:)];
-    [OKImgView addGestureRecognizer:okGesture];
+    if (self.showOKBtn == 0) {
+        //片方,添加圆形打钩按钮
+        EMIShadowImageView *OKImgView = [[EMIShadowImageView alloc] initWithFrame:CGRectMake(150.5, 550, 74, 74)];
+        //    [OKImgView setShadowWithType:EMIShadowPathRound shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.35 shadowRadius:10 image:@"" placeholder:@"row_piece_review"];
+        OKImgView.image = [UIImage imageNamed:@"row_piece_review"];
+        //        OKImgView setHighlightedImage:[UIImage imageNamed:row]
+        [self.view addSubview:OKImgView];
+        OKImgView.userInteractionEnabled = YES;
+        //打钩的点击手势
+        UITapGestureRecognizer *okGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(okImgClicked:)];
+        [OKImgView addGestureRecognizer:okGesture];
+    }
+   
 }
 
 
@@ -123,11 +175,15 @@
     [amalertview setTitle:@"通过审核"];
     UIView *childView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 288*autoSizeScaleX, 145*autoSizeScaleY)];
     UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    sureBtn.frame = CGRectMake(24*autoSizeScaleX, 77*autoSizeScaleY, 240*autoSizeScaleX, 41*autoSizeScaleY);
-    [sureBtn setBackgroundImage:[UIImage imageNamed:@"pf_shenhe_btn"] forState:UIControlStateNormal];
+    sureBtn.frame = CGRectMake(24*autoSizeScaleX, 77*autoSizeScaleY, 120*autoSizeScaleX, 41*autoSizeScaleY);
+    [sureBtn setBackgroundImage:[UIImage imageNamed:@"sh_tongguo"] forState:UIControlStateNormal];
     [sureBtn addTarget:self action:@selector(sure:) forControlEvents:UIControlEventTouchUpInside];
     [childView addSubview:sureBtn];
-    
+    UIButton *nosureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    nosureBtn.frame = CGRectMake(144*autoSizeScaleX, 77*autoSizeScaleY, 120*autoSizeScaleX, 41*autoSizeScaleY);
+    [nosureBtn setBackgroundImage:[UIImage imageNamed:@"sh_notongguo"] forState:UIControlStateNormal];
+    [nosureBtn addTarget:self action:@selector(nosure:) forControlEvents:UIControlEventTouchUpInside];
+    [childView addSubview:nosureBtn];
     UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(24*autoSizeScaleX, 0, 240*autoSizeScaleX, 77*autoSizeScaleY)];
     lab.font = [UIFont fontWithName:@"DroidSansFallback" size:17.f*autoSizeScaleY];
     lab.textColor = [UIColor colorWithHexString:@"15151b"];
@@ -144,9 +200,52 @@
 
 //审核通过
 - (void)sure:(UIButton *)sender{
-    [self dismissViewControllerAnimated:NO completion:nil];
+    
+    __unsafe_unretained typeof (self) weakself = self;
+    PFAuditWebInterface *pfauditInterface = [[PFAuditWebInterface alloc] init];
+    NSDictionary *param = [pfauditInterface inboxObject:@[@(self.user.userid),@(self.selectedTakeTask.taskdetailid),@(self.user.usertype),@(4)]];//4是通过
+    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:pfauditInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+        NSMutableArray *result = [pfauditInterface unboxObject:returnValue];
+        if ([result[0] intValue] == 2) {
+             [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+        }else{
+            [weakself.view makeToast:@"审核成功" duration:2.0 position:CSToastPositionCenter];
+            [weakself dismissViewControllerAnimated:NO completion:^{
+                [weakself.navigationController popViewControllerAnimated:YES];//回到首页
+            }];
+        }
+        
+    } WithErrorCodeBlock:^(id errorCode) {
+        [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+    } WithFailureBlock:^{
+        [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+    }];
+   
 }
-
+//审核不通过
+- (void)nosure:(UIButton *)sender{
+    
+    __unsafe_unretained typeof (self) weakself = self;
+    PFAuditWebInterface *pfauditInterface = [[PFAuditWebInterface alloc] init];
+    NSDictionary *param = [pfauditInterface inboxObject:@[@(self.user.userid),@(self.selectedTakeTask.taskdetailid),@(self.user.usertype),@(3)]];//3是不通过
+    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:pfauditInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+        NSMutableArray *result = [pfauditInterface unboxObject:returnValue];
+        if ([result[0] intValue] == 2) {
+            [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+        }else{
+            [weakself.view makeToast:@"审核成功" duration:2.0 position:CSToastPositionCenter];
+            [weakself dismissViewControllerAnimated:NO completion:^{
+                [weakself.navigationController popViewControllerAnimated:YES];//回到首页
+            }];
+        }
+        
+    } WithErrorCodeBlock:^(id errorCode) {
+        [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+    } WithFailureBlock:^{
+        [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+    }];
+    
+}
 //控制进度条显示与隐藏
 - (void)showProView{
     if (self.proView != nil) {
@@ -167,13 +266,14 @@
 
 - (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
     NSLog(@"点击了第%ld项",(long)subIndex);
+    TaskDetail *taskdetail = [TaskDetail mj_objectWithKeyValues:self.array[subIndex]];
     //    跳转到排片详情的图片浏览器
     // 1. 创建photoBroseView对象
     PYPhotoBrowseView *photoBroseView = [[PYPhotoBrowseView alloc] init];
     
     // 2.1 设置图片源(UIImageView)数组
     //    photoBroseView.sourceImgageViews = imageViews;
-    photoBroseView.imagesURL = self.array;
+    photoBroseView.imagesURL = taskdetail.imgs;
     // 2.2 设置初始化图片下标（即当前点击第几张图片）
     photoBroseView.currentIndex = 0;
     
@@ -204,10 +304,10 @@
         shadowImageView.contentMode = UIViewContentModeScaleAspectFit;
         
         
+       TaskDetail *taskdetail = [TaskDetail mj_objectWithKeyValues:self.array[index]];
             
             
-            
-            [shadowImageView setRectangleBorder:self.array[index]];
+            [shadowImageView setRectangleBorder:taskdetail.imgs[0]];
             
             [pageView addSubview:shadowImageView];
             
@@ -216,7 +316,7 @@
             UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, (397-61.5-18)*autoSizeScaleY, (375)*autoSizeScaleX-84-18*autoSizeScaleX, 61.5*autoSizeScaleY)];
             label.textColor = [UIColor colorWithHexString:@"aeafb3" alpha:1];
             label.font = [UIFont fontWithName:@"DroidSansFallback" size:18.f*autoSizeScaleY];
-            label.text = @"2016-09-21排片情况";
+            label.text = [NSString stringWithFormat:@"%@排片详情",taskdetail.imgdate];
             label.backgroundColor = [UIColor whiteColor];
             label.textAlignment = NSTextAlignmentCenter;
             [shadowImageView addSubview:label];

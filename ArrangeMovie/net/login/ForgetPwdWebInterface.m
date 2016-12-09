@@ -12,7 +12,7 @@
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"forgetPassword.do"];
     }
     return self;
 }
@@ -24,8 +24,8 @@
         
         @try {
             [dict setObject:array[0] forKey:@"dn"];
-            [dict setObject:array[2] forKey:@"code"];
-            [dict setObject:array[3] forKey:@"password"];
+            [dict setObject:array[1] forKey:@"code"];
+            [dict setObject:array[2] forKey:@"password"];
         } @catch (NSException *exception) {
             NSLog(@"%@",exception);
         } @finally {

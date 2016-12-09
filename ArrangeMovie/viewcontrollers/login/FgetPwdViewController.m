@@ -7,6 +7,10 @@
 //
 
 #import "FgetPwdViewController.h"
+#import "MobileCodeWebInterface.h"
+#import "SCHttpOperation.h"
+#import "ForgetPwdWebInterface.h"
+#import "Encryption.h"
 
 @interface FgetPwdViewController ()
 @property (nonatomic,strong)NSMutableArray <UITextField *>*tfArrays;
@@ -85,11 +89,25 @@
     self.yzmBtn.frame = CGRectMake(230, 20, 101, 28);
     [self.yzmView addSubview:self.yzmBtn];
     self.yzmBtn.layer.cornerRadius = self.yzmBtn.frame.size.height/2;
-//    __unsafe_unretained typeof(self) weakSelf = self;
+    __unsafe_unretained typeof(self) weakself = self;
     self.yzmBtn.clickBlock = ^(){
         
         
-        //网络请求
+        //获取验证码
+        MobileCodeWebInterface *codeInterface = [[MobileCodeWebInterface alloc] init];
+        NSDictionary *param = [codeInterface inboxObject:@[weakself.phoneTF.text]];
+        [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:codeInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+            NSMutableArray *result = [codeInterface unboxObject:returnValue];
+            if ([result[0] intValue] == 1) {
+                [weakself.view makeToast:@"验证码发送成功" duration:2.0 position:CSToastPositionCenter];
+            }else{
+                [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+            }
+        } WithErrorCodeBlock:^(id errorCode) {
+            [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+        } WithFailureBlock:^{
+            [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+        }];
         
         
     };
@@ -98,7 +116,20 @@
 
 - (void)setHead{
     //加载头像
-    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:@"http://static.cnbetacdn.com/topics/6b6702c2167e5a2.jpg"]];// placeholderImage:[UIImage imageNamed:@"default_head"]
+    
+    if (self.headimg == nil) {
+        [self.headImgView setImage:defaultheadimage];// todo
+    }else{
+        //有默认用户头像
+        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.headimg] placeholderImage:defaultheadimage];
+    }
+    
+    if (self.dn != nil) {
+        //有默认用户手机号
+        self.phoneTF.text = self.dn;
+        self.tjBtn.enabled = YES;
+        self.yzmBtn.enabled = YES;
+    }
 }
 //隐藏键盘
 - (IBAction)hideKeyBoard:(UITapGestureRecognizer *)sender {
@@ -153,8 +184,36 @@
 
 //提交
 - (IBAction)submit:(UIButton *)sender {
-    //返回登录界面
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    if (![self.anpwdTF.text isEqualToString:self.npwdTF.text]) {
+        [self.view makeToast:@"两次输入密码不一致" duration:1.5 position:CSToastPositionCenter];
+        return;
+    }
+    
+    //请求忘记密码的接口
+     __unsafe_unretained typeof(self) weakself = self;
+    ForgetPwdWebInterface *fgtInterface = [[ForgetPwdWebInterface alloc] init];
+    NSDictionary *param = [fgtInterface inboxObject:@[self.phoneTF.text,self.yzmTF.text,[Encryption md5EncryptWithString:self.npwdTF.text]]];
+    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:fgtInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+        NSMutableArray *result = [fgtInterface unboxObject:returnValue];
+        if ([result[0] intValue] == 1) {
+            [weakself.view makeToast:@"提交成功" duration:2.0 position:CSToastPositionCenter];
+            
+            //返回登录界面
+            [weakself.navigationController popViewControllerAnimated:YES];
+        }else{
+            [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+        }
+    } WithErrorCodeBlock:^(id errorCode) {
+        [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+    } WithFailureBlock:^{
+        [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+    }];
+    
+    
+    
+    
+    
 }
 //改变点击高亮效果
 //传入-1，全不高亮

@@ -14,7 +14,7 @@
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"movieTaskList.do"];
     }
     return self;
 }
@@ -22,11 +22,12 @@
 -(NSDictionary *)inboxObject:(id)param {
     NSArray *array = param;
     if(array.count>0){
-        NSString *userid = array[0];
-        NSString *taskstatus = array[1];
+        int userid = [array[0] intValue];
+        int taskstatus = [array[1] intValue];
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:2];
-        [dict setObject:userid forKey:@"userid"];
-        [dict setObject:taskstatus forKey:@"taskstatus"];
+        [dict setObject:@(userid) forKey:@"userid"];
+        [dict setObject:@(taskstatus) forKey:@"taskstatus"];//0新任务，1已领取2审核中3已完成
+        [dict setObject:array[2] forKey:@"usertype"];
         return dict;
     }
     return nil;
@@ -37,9 +38,16 @@
     NSInteger success = [[result objectForKey:@"success"] integerValue];
     if (success==1) {
         [array addObject:@1];
+        [array addObject:[result objectForKey:@"canreceive"]];//可领取
+        [array addObject:[result objectForKey:@"received"]];//已领取
+        [array addObject:[result objectForKey:@"needpay"]];//需要支付
+        [array addObject:[result objectForKey:@"payed"]];//已支付 
+        [array addObject:[result objectForKey:@"needaudit"]];//待审核
+        [array addObject:[result objectForKey:@"audited"]];//已审核
         NSArray *tasks = [result objectForKey:@"data"];
         [array addObject:[Task mj_objectArrayWithKeyValuesArray:tasks]];
     }else {
+        [array addObject:@2];
         [array addObject:[result valueForKey:@"msg"]];
     }
     return array;

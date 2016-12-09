@@ -13,7 +13,7 @@
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"commitTask.do"];
     }
     return self;
 }
@@ -21,13 +21,14 @@
 -(NSDictionary *)inboxObject:(id)param {
     NSArray *array = param;
     if(array.count>0){
-        NSString *userid = array[0];
-        NSString *taskid = array[1];
-        NSString *taskdetailid = array[2];
+        int userid = [array[0] intValue];
+        int taskid = [array[1] intValue];
+        int taskdetailid = [array[2] intValue];
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:3];
-        [dict setObject:userid forKey:@"userid"];
-        [dict setObject:taskid forKey:@"taskid"];
-        [dict setObject:taskdetailid forKey:@"taskdetailid"];
+        [dict setObject:@(userid) forKey:@"userid"];
+        [dict setObject:@(taskid) forKey:@"taskid"];
+        [dict setObject:@(taskdetailid) forKey:@"taskdetailid"];
+        [dict setObject:array[3] forKey:@"usertype"];
         return dict;
     }
     return nil;

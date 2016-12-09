@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.interactivePopGestureRecognizerEnabled = NO;//如果中间的contentViewController是NavigationController，让它继续执行手势的滑动，而不是NavigationController自带的滑动返回(本应用中，刚好就是)
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(disableRESideMenu)

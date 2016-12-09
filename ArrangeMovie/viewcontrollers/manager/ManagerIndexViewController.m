@@ -19,6 +19,10 @@
 #import "UILabel+StringFrame.h"
 #import "ManagerTaskWebInterface.h"
 #import "SCHttpOperation.h"
+#import "DismissAnimation.h"
+#import "PresentAnimation.h"
+#import "MJRefreshGifHeader.h"
+#import "UIImage+GIF.h"
 
 @interface ManagerIndexViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate> {
     Task *selTask;
@@ -50,33 +54,109 @@
 @property(nonatomic,strong)UITapGestureRecognizer *removeLeadGes;//清除引导图片的手势
 
 
-@property (strong, nonatomic) NSMutableArray *array;//数据源
-
+@property (strong, nonatomic) NSArray <Task *> *array;//数据源
+@property (nonatomic, retain) UIPercentDrivenInteractiveTransition * percentDrivenTransition;
 @end
 
 @implementation ManagerIndexViewController
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
     self.title = @"";
-
+    
+    self.array = [[NSArray alloc] init];
+    
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"theatres_index_view_task" highImageName:@"theatres_index_view_task" target:self action:@selector(toMyMission)];
-
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_home_my" highImageName:@"film_home_my" target:self action:@selector(presentRightMenuViewController:)];
-
-//    self.tableView.tableFooterView = [[UIView alloc] init];
-
+    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_home_my" highImageName:@"film_home_my" target:self action:@selector(tomy)];
+    
     
     [self initViews];
     
-//    [self showUser];
+    
+    //动画代理
+    self.transitioningDelegate = self;
+    [self addScreenEdgePanGestureRecognizer:self.view edges:UIRectEdgeRight]; // 为self.view增加右侧的手势，用于push
+}
+
+//跳转至我的
+- (void)tomy{
+    UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
+    
+    MeViewController * secondVC = [me instantiateViewControllerWithIdentifier:@"me"];
+    
+    
+    
+    EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:secondVC];
+    nav.transitioningDelegate = self; // 必须second同样设置delegate才有动画
+    [self addScreenEdgePanGestureRecognizer:secondVC.view edges:UIRectEdgeLeft];
+    [self presentViewController:nav animated:YES completion:^{
+    }];
+}
+
+// present动画
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source{
+    return [[PresentAnimation alloc] init];
+}
+// dismiss动画
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
+    return [[DismissAnimation alloc] init];
+}
+
+// 添加手势的方法
+- (void)addScreenEdgePanGestureRecognizer:(UIView *)view edges:(UIRectEdge)edges{
+    UIScreenEdgePanGestureRecognizer * edgePan = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgePanGesture:)]; // viewController和SecondViewController的手势都由self管理
+    edgePan.edges = edges;
+    [view addGestureRecognizer:edgePan];
+}
+
+// 手势的监听方法
+- (void)edgePanGesture:(UIScreenEdgePanGestureRecognizer *)edgePan{
+    CGFloat progress = fabs([edgePan translationInView:[UIApplication sharedApplication].keyWindow].x / [UIApplication sharedApplication].keyWindow.bounds.size.width);// 有两个手势，所以这里计算百分比使用的是 KeyWindow
+    
+    if(edgePan.state == UIGestureRecognizerStateBegan){
+        self.percentDrivenTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
+        if(edgePan.edges == UIRectEdgeRight){
+            // present，避免重复，直接调用点击方法
+            [self tomy];
+        }else if(edgePan.edges == UIRectEdgeLeft){
+            [self dismissViewControllerAnimated:YES completion:^{
+            }];
+        }
+    }else if(edgePan.state == UIGestureRecognizerStateChanged){
+        [self.percentDrivenTransition updateInteractiveTransition:progress];
+    }else if(edgePan.state == UIGestureRecognizerStateCancelled || edgePan.state == UIGestureRecognizerStateEnded){
+        if(progress > 0.5){
+            [_percentDrivenTransition finishInteractiveTransition];
+        }else{
+            [_percentDrivenTransition cancelInteractiveTransition];
+        }
+        _percentDrivenTransition = nil;
+    }
+}
+
+// 百分比present
+- (id<UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id<UIViewControllerAnimatedTransitioning>)animator{
+    return _percentDrivenTransition;
+}
+// 百分比dismiss
+- (id<UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<UIViewControllerAnimatedTransitioning>)animator{
+    return _percentDrivenTransition;
 }
 
 -(void)initViews {
     
     //tabelview
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, screenWidth, screenHeight-64)];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -85,25 +165,25 @@
     self.tableView.bounces = YES;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.head = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 64+199.25*autoSizeScaleY)];
+    self.head = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 192*autoSizeScaleY)];
     
-    self.topView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 64+199.25*autoSizeScaleY)];
+    self.topView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 192*autoSizeScaleY)];
     self.topView.image = [UIImage imageNamed:@"pfhome_topbg"];
     self.topView.contentMode = UIViewContentModeScaleAspectFill;
     self.topView.clipsToBounds = YES;
     //头像
-    self.headImgView = [[UIImageView alloc] initWithFrame:CGRectMake(11*autoSizeScaleX,64+22*autoSizeScaleY,118*autoSizeScaleY,118*autoSizeScaleY)];
+    self.headImgView = [[UIImageView alloc] initWithFrame:CGRectMake(11*autoSizeScaleX,22*autoSizeScaleY,118*autoSizeScaleY,118*autoSizeScaleY)];
     self.headImgView.layer.masksToBounds =YES;
     self.headImgView.layer.cornerRadius = 118*autoSizeScaleY/2;
     self.headImgView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self setHead];
     [self.topView addSubview:self.headImgView];
     //姓名
-    self.nameLab = [[UILabel alloc] initWithFrame:CGRectMake(11*autoSizeScaleX, 64+158*autoSizeScaleY, 118*autoSizeScaleY, 100)];
+    self.nameLab = [[UILabel alloc] initWithFrame:CGRectMake(11*autoSizeScaleX, 172*autoSizeScaleY, 118*autoSizeScaleY, 100)];
     self.nameLab.textAlignment = NSTextAlignmentCenter;
     self.nameLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:16.0*autoSizeScaleY];
-    self.nameLab.text = @"乔布斯";
-    self.nameLab.frame = CGRectMake(11*autoSizeScaleX, 64+(238.5-64)*autoSizeScaleY-self.nameLab.font.capHeight-5, 118*autoSizeScaleY, self.nameLab.font.capHeight+3);
+    self.nameLab.text = self.user.nickname;
+    self.nameLab.frame = CGRectMake(11*autoSizeScaleX, 172*autoSizeScaleY-self.nameLab.font.capHeight-8, 118*autoSizeScaleY, self.nameLab.font.capHeight+8);
     self.nameLab.textColor = [UIColor colorWithHexString:@"162271"];
     self.nameLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:self.nameLab];
@@ -119,29 +199,79 @@
     
     [self.view addSubview:self.tableView];
     
-    [self initLeadView];
-    
-    
-//    [self fetchMission];
+    if (self.isFirstUse == nil) {
+        [self initLeadView];
+    }else{
+        [self setupRefresh];
+    }
 }
 
--(void)fetchMission {
-    ManagerTaskWebInterface *webInterface = [[ManagerTaskWebInterface alloc] init];
-    NSArray *array = @[self.user.userid,@0];
-    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:webInterface.url withparameter:[webInterface inboxObject:array] WithReturnValeuBlock:^(id returnValue) {
-        
-    } WithErrorCodeBlock:^(id errorCode) {
-        
-    } WithFailureBlock:^{
-        
-    }];
+/**
+ *  集成下拉刷新
+ */
+-(void)setupRefresh
+{
     
+    UIImage *loadimage =[UIImage sd_animatedGIFNamed:@"loading_120"];
+    
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData:)];
+    // 设置普通状态的动画图片
+    [header setImages:@[loadimage] forState:MJRefreshStateIdle];
+    // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
+    [header setImages:@[loadimage] forState:MJRefreshStatePulling];
+    // 设置正在刷新状态的动画图片
+    [header setImages:@[loadimage] forState:MJRefreshStateRefreshing];
+    // 隐藏时间
+    header.stateLabel.hidden = YES;
+    header.lastUpdatedTimeLabel.hidden = YES;
+    [self.tableView addSubview:header];
+    
+    [header beginRefreshing];
 }
+
+
+- (void)loadNewData:(MJRefreshGifHeader *)sender{
+    ManagerTaskWebInterface *homeInterface = [[ManagerTaskWebInterface alloc] init];
+    __unsafe_unretained typeof(self) weakself = self;
+    NSDictionary *param = [homeInterface inboxObject:@[@(self.user.userid),@(0),@(self.user.usertype)]];//首页展示的都是新任务
+    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:homeInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+        NSMutableArray *result = [homeInterface unboxObject:returnValue];
+        if ([result[0] intValue] == 1) {
+            weakself.releaseAllCountLab.text = [NSString stringWithFormat:@""" / %@ 个",result[1]];
+            weakself.releaseCountLab.text = [NSString stringWithFormat:@"%@",result[2]];
+            weakself.payAllCountLab.text = [NSString stringWithFormat:@""" / %@ 个",result[3]];
+            weakself.payCountLab.text = [NSString stringWithFormat:@"%@",result[4]];
+            weakself.shAllCountLab.text = [NSString stringWithFormat:@""" / %@ 个",result[5]];
+            weakself.shCountLab.text = [NSString stringWithFormat:@"%@",result[6]];
+            [weakself layoutLabs];
+            
+            weakself.array = result[7];
+            
+            [weakself.tableView reloadData];
+        }else{
+            [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+        }
+        
+        [sender endRefreshing];
+    } WithErrorCodeBlock:^(id errorCode) {
+        [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+        [sender endRefreshing];
+    } WithFailureBlock:^{
+        [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+        [sender endRefreshing];
+    }];
+}
+
+
+
 
 
 
 //加载引导相关的视图，只在第一次进入这个应用时加载一次
 - (void)initLeadView{
+    
+    //做上不是本app不是第一次使用的标记
+    [OperateNSUserDefault addUserDefaultWithKeyAndValue:@"isFirstUse" value:@"1"];
     //首先，隐藏navigation
     [self.navigationController setNavigationBarHidden:YES];
     
@@ -175,192 +305,208 @@
     if (sender.view.tag == 0) {
         [self.leadmyView removeFromSuperview];
         [self.navigationController setNavigationBarHidden:NO];
+        [self setupRefresh];
         return;
     }
 }
 
 
 - (void)setHead{
-    //加载头像
-    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:@"http://static.cnbetacdn.com/topics/6b6702c2167e5a2.jpg"]];// placeholderImage:[UIImage imageNamed:@"default_head"]
+    if (self.headimg == nil) {
+        [self.headImgView setImage:defaultheadimage];
+    }else{
+        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.headimg] placeholderImage:defaultheadimage];
+    }
 }
 
 //创建其他labs
 - (void)createLabs{
     //积分
-    UILabel *pointTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(152*autoSizeScaleX, 64+22*autoSizeScaleY, 100, 100)];
+    UILabel *pointTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(152*autoSizeScaleX, 22*autoSizeScaleY, 100, 100)];
     pointTitleLab.textAlignment = NSTextAlignmentLeft;
     pointTitleLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:10.5*autoSizeScaleY];
     pointTitleLab.text = @"我的积分";
     pointTitleLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize pointTitleLabSize = [pointTitleLab boundingRectWithSize:CGSizeZero];
-    pointTitleLab.frame = CGRectMake(152*autoSizeScaleX, 64+22*autoSizeScaleY, pointTitleLabSize.width, pointTitleLabSize.height);
+    pointTitleLab.frame = CGRectMake(152*autoSizeScaleX, 22*autoSizeScaleY, pointTitleLabSize.width, pointTitleLabSize.height);
     pointTitleLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:pointTitleLab];
     //积分第一位
     self.pointFirstLab = [[UILabel alloc] initWithFrame:CGRectMake(152*autoSizeScaleX, 0, 100, 100)];
     self.pointFirstLab.textAlignment = NSTextAlignmentLeft;
     self.pointFirstLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:39*autoSizeScaleY];
-    self.pointFirstLab.text = @"2";
+    self.pointFirstLab.text = [[NSString stringWithFormat:@"%.0f",self.user.userpoints] substringToIndex:1];
     //    self.pointFirstLab.backgroundColor = [UIColor redColor];
     self.pointFirstLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize pointFirstLabSize = [self.pointFirstLab boundingRectWithSize:CGSizeZero];
-    self.pointFirstLab.frame = CGRectMake(152*autoSizeScaleX, 64+(153-64)*autoSizeScaleY-self.pointFirstLab.font.capHeight-5, pointFirstLabSize.width, self.pointFirstLab.font.capHeight+3);
+    self.pointFirstLab.frame = CGRectMake(152*autoSizeScaleX, 89*autoSizeScaleY-self.pointFirstLab.font.capHeight-4.5, pointFirstLabSize.width, self.pointFirstLab.font.capHeight+4.5);
     self.pointFirstLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:self.pointFirstLab];
     //积分后几位
     self.pointOtherLab = [[UILabel alloc] initWithFrame:CGRectMake(174*autoSizeScaleX, 0, 100, 100)];
     self.pointOtherLab.textAlignment = NSTextAlignmentLeft;
-    self.pointOtherLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleY];
-    self.pointOtherLab.text = @"300";
+    self.pointOtherLab.font = [UIFont fontWithName:@"DroidSansFallback" size:15*autoSizeScaleY];
+    self.pointOtherLab.text = [NSString stringWithFormat:@"%.0f",self.user.userpoints].length == 1 ? @"" : [[NSString stringWithFormat:@"%.0f",self.user.userpoints] substringFromIndex:1];
     //    self.pointOtherLab.backgroundColor = [UIColor yellowColor];
     self.pointOtherLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize pointOtherLabSize = [self.pointOtherLab boundingRectWithSize:CGSizeZero];
-    self.pointOtherLab.frame = CGRectMake(177*autoSizeScaleX, 64+(153-64)*autoSizeScaleY-self.pointOtherLab.font.capHeight-4, pointOtherLabSize.width, self.pointOtherLab.font.capHeight+3);
+    self.pointOtherLab.frame = CGRectMake(177*autoSizeScaleX, 89*autoSizeScaleY-self.pointOtherLab.font.capHeight-3, pointOtherLabSize.width, self.pointOtherLab.font.capHeight+3);
     self.pointOtherLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:self.pointOtherLab];
     
     //单位
     UILabel *pointUnitLab = [[UILabel alloc] initWithFrame:CGRectMake(208*autoSizeScaleX, 0, 100, 100)];
     pointUnitLab.textAlignment = NSTextAlignmentLeft;
-    pointUnitLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleY];
+    pointUnitLab.font = [UIFont fontWithName:@"DroidSansFallback" size:15*autoSizeScaleY];
     pointUnitLab.text = @"分";
     pointUnitLab.textColor = [UIColor colorWithHexString:@"162271"];
-    CGSize pointUnitLabSize = [self.pointOtherLab boundingRectWithSize:CGSizeZero];
-    pointUnitLab.frame = CGRectMake(208*autoSizeScaleX, 64+(153-64)*autoSizeScaleY-pointUnitLab.font.capHeight-4, pointUnitLabSize.width, pointUnitLab.font.capHeight+4);
+    CGSize pointUnitLabSize = [pointUnitLab boundingRectWithSize:CGSizeZero];
+    pointUnitLab.frame = CGRectMake(177*autoSizeScaleX+pointOtherLabSize.width+3, 89*autoSizeScaleY-pointUnitLab.font.capHeight-4, pointUnitLabSize.width, pointUnitLab.font.capHeight+4);
     pointUnitLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:pointUnitLab];
     //已领取
-    UILabel *releaseTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(268*autoSizeScaleX, 64+22*autoSizeScaleY, 100, 100)];
+    UILabel *releaseTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(268*autoSizeScaleX, 22*autoSizeScaleY, 100, 100)];
     releaseTitleLab.textAlignment = NSTextAlignmentLeft;
     releaseTitleLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:10.5*autoSizeScaleY];
     releaseTitleLab.text = @"已领取";
     releaseTitleLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize releaseTitleLabSize = [releaseTitleLab boundingRectWithSize:CGSizeZero];
-    releaseTitleLab.frame = CGRectMake(268*autoSizeScaleX, 64+22*autoSizeScaleY, releaseTitleLabSize.width, releaseTitleLabSize.height);
+    releaseTitleLab.frame = CGRectMake(268*autoSizeScaleX, 22*autoSizeScaleY, releaseTitleLabSize.width, releaseTitleLabSize.height);
     releaseTitleLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:releaseTitleLab];
     //已领取个数 首字母
     self.releaseCountLab = [[UILabel alloc] initWithFrame:CGRectMake(268*autoSizeScaleX, 0, 100, 100)];
     self.releaseCountLab.textAlignment = NSTextAlignmentLeft;
     self.releaseCountLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:39*autoSizeScaleY];
-    self.releaseCountLab.text = @"2";
+    self.releaseCountLab.text = @"0";
     self.releaseCountLab.textColor = [UIColor colorWithHexString:@"162271"];
-    CGSize releaseCountLabSize = [self.releaseCountLab boundingRectWithSize:CGSizeZero];
-    self.releaseCountLab.frame = CGRectMake(268*autoSizeScaleX, 64+(153-64)*autoSizeScaleY-self.releaseCountLab.font.capHeight-5, releaseCountLabSize.width, self.releaseCountLab.font.capHeight+3);
+//    CGSize releaseCountLabSize = [self.releaseCountLab boundingRectWithSize:CGSizeZero];
+//    self.releaseCountLab.frame = CGRectMake(268*autoSizeScaleX, 89*autoSizeScaleY-self.releaseCountLab.font.capHeight-3, releaseCountLabSize.width, self.releaseCountLab.font.capHeight+3);
     self.releaseCountLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:self.releaseCountLab];
     //已领取个数其他字母 + / + 已领取总个数
     self.releaseAllCountLab = [[UILabel alloc] initWithFrame:CGRectMake(292*autoSizeScaleX, 0, 100, 100)];
     self.releaseAllCountLab.textAlignment = NSTextAlignmentLeft;
     self.releaseAllCountLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleY];
-    self.releaseAllCountLab.text = @""" / 10 个";
+    self.releaseAllCountLab.text = @""" / 0 个";
     self.releaseAllCountLab.textColor = [UIColor colorWithHexString:@"162271"];
-    CGSize releaseAllCountLabSize = [self.releaseAllCountLab boundingRectWithSize:CGSizeZero];
-    self.releaseAllCountLab.frame = CGRectMake(292*autoSizeScaleX, 64+(153-64)*autoSizeScaleY-self.releaseAllCountLab.font.capHeight-4, releaseAllCountLabSize.width, self.releaseAllCountLab.font.capHeight+3);
+//    CGSize releaseAllCountLabSize = [self.releaseAllCountLab boundingRectWithSize:CGSizeZero];
+//    self.releaseAllCountLab.frame = CGRectMake(292*autoSizeScaleX, 89*autoSizeScaleY-self.releaseAllCountLab.font.capHeight-3, releaseAllCountLabSize.width, self.releaseAllCountLab.font.capHeight+3);
     self.releaseAllCountLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:self.releaseAllCountLab];
     //待审核
-    UILabel *shTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(152*autoSizeScaleX, 64+108*autoSizeScaleY, 100, 100)];
+    UILabel *shTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(152*autoSizeScaleX, 106.5*autoSizeScaleY, 100, 100)];
     shTitleLab.textAlignment = NSTextAlignmentLeft;
     shTitleLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:10.5*autoSizeScaleY];
     shTitleLab.text = @"待审核";
     shTitleLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize shTitleLabSize = [shTitleLab boundingRectWithSize:CGSizeZero];
-    shTitleLab.frame = CGRectMake(152*autoSizeScaleX, 64+108*autoSizeScaleY, shTitleLabSize.width, shTitleLabSize.height);
+    shTitleLab.frame = CGRectMake(152*autoSizeScaleX, 106.5*autoSizeScaleY, shTitleLabSize.width, shTitleLabSize.height);
     shTitleLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:shTitleLab];
     //待审核 首字母
     self.shCountLab = [[UILabel alloc] initWithFrame:CGRectMake(152*autoSizeScaleX, 0, 100, 100)];
     self.shCountLab.textAlignment = NSTextAlignmentLeft;
     self.shCountLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:39*autoSizeScaleY];
-    self.shCountLab.text = @"1";
+    self.shCountLab.text = @"0";
     self.shCountLab.textColor = [UIColor colorWithHexString:@"162271"];
-    CGSize shCountLabSize = [self.shCountLab boundingRectWithSize:CGSizeZero];
-    self.shCountLab.frame = CGRectMake(152*autoSizeScaleX, 64+(238.5-64)*autoSizeScaleY-self.shCountLab.font.capHeight-5, shCountLabSize.width, self.shCountLab.font.capHeight+3);
+//    CGSize shCountLabSize = [self.shCountLab boundingRectWithSize:CGSizeZero];
+//    self.shCountLab.frame = CGRectMake(152*autoSizeScaleX, 172*autoSizeScaleY-self.shCountLab.font.capHeight-3, shCountLabSize.width, self.shCountLab.font.capHeight+3);
     self.shCountLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:self.shCountLab];
     //待审核个数其他字母 + / + 待审核总个数
     self.shAllCountLab = [[UILabel alloc] initWithFrame:CGRectMake(174*autoSizeScaleX, 0, 100, 100)];
     self.shAllCountLab.textAlignment = NSTextAlignmentLeft;
     self.shAllCountLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleY];
-    self.shAllCountLab.text = @""" / 3 个";
+    self.shAllCountLab.text = @""" / 0 个";
     self.shAllCountLab.textColor = [UIColor colorWithHexString:@"162271"];
-    CGSize shAllCountLabSize = [self.shAllCountLab boundingRectWithSize:CGSizeZero];
-    self.shAllCountLab.frame = CGRectMake(174*autoSizeScaleX, 64+(238.5-64)*autoSizeScaleY-self.shAllCountLab.font.capHeight-4, shAllCountLabSize.width, self.shAllCountLab.font.capHeight+3);
+//    CGSize shAllCountLabSize = [self.shAllCountLab boundingRectWithSize:CGSizeZero];
+//    self.shAllCountLab.frame = CGRectMake(174*autoSizeScaleX, 172*autoSizeScaleY-self.shAllCountLab.font.capHeight-3, shAllCountLabSize.width, self.shAllCountLab.font.capHeight+3);
     self.shAllCountLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:self.shAllCountLab];
     //已支付
-    UILabel *payTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(268*autoSizeScaleX, 64+108*autoSizeScaleY, 100, 100)];
+    UILabel *payTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(268*autoSizeScaleX, 106.5*autoSizeScaleY, 100, 100)];
     payTitleLab.textAlignment = NSTextAlignmentLeft;
     payTitleLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:10.5*autoSizeScaleY];
     payTitleLab.text = @"已支付";
     payTitleLab.textColor = [UIColor colorWithHexString:@"162271"];
     CGSize payTitleLabSize = [payTitleLab boundingRectWithSize:CGSizeZero];
-    payTitleLab.frame = CGRectMake(268*autoSizeScaleX, 64+108*autoSizeScaleY, payTitleLabSize.width, payTitleLabSize.height);
+    payTitleLab.frame = CGRectMake(268*autoSizeScaleX, 106.5*autoSizeScaleY, payTitleLabSize.width, payTitleLabSize.height);
     payTitleLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:payTitleLab];
     //已支付个数 首字母
     self.payCountLab = [[UILabel alloc] initWithFrame:CGRectMake(268*autoSizeScaleX, 0, 100, 100)];
     self.payCountLab.textAlignment = NSTextAlignmentLeft;
     self.payCountLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:39*autoSizeScaleY];
-    self.payCountLab.text = @"1";
+    self.payCountLab.text = @"0";
     self.payCountLab.textColor = [UIColor colorWithHexString:@"162271"];
-    CGSize payCountLabSize = [self.payCountLab boundingRectWithSize:CGSizeZero];
-    self.payCountLab.frame = CGRectMake(268*autoSizeScaleX, 64+(238.5-64)*autoSizeScaleY-self.payCountLab.font.capHeight-5, payCountLabSize.width, self.payCountLab.font.capHeight+3);
+//    CGSize payCountLabSize = [self.payCountLab boundingRectWithSize:CGSizeZero];
+//    self.payCountLab.frame = CGRectMake(268*autoSizeScaleX, 172*autoSizeScaleY-self.payCountLab.font.capHeight-3, payCountLabSize.width, self.payCountLab.font.capHeight+3);
     self.payCountLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:self.payCountLab];
     //已支付个数其他字母 + / 已支付总个数
     self.payAllCountLab = [[UILabel alloc] initWithFrame:CGRectMake(292*autoSizeScaleX, 0, 100, 100)];
     self.payAllCountLab.textAlignment = NSTextAlignmentLeft;
     self.payAllCountLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:15*autoSizeScaleY];
-    self.payAllCountLab.text = @""" / 4 个";
+    self.payAllCountLab.text = @""" / 0 个";
     self.payAllCountLab.textColor = [UIColor colorWithHexString:@"162271"];
-    CGSize payAllCountLabSize = [self.payAllCountLab boundingRectWithSize:CGSizeZero];
-    self.payAllCountLab.frame = CGRectMake(292*autoSizeScaleX, 64+(238.5-64)*autoSizeScaleY-self.payAllCountLab.font.capHeight-4, payAllCountLabSize.width, self.payAllCountLab.font.capHeight+3);
+//    CGSize payAllCountLabSize = [self.payAllCountLab boundingRectWithSize:CGSizeZero];
+//    self.payAllCountLab.frame = CGRectMake(292*autoSizeScaleX, 172*autoSizeScaleY-self.payAllCountLab.font.capHeight-3, payAllCountLabSize.width, self.payAllCountLab.font.capHeight+3);
     self.payAllCountLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:self.payAllCountLab];
     //分割线
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(15, 64+192.3*autoSizeScaleY, 345*autoSizeScaleX, 0.5)];
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(15, 191.5*autoSizeScaleY, 345*autoSizeScaleX, 0.5)];
     lineView.backgroundColor = [UIColor colorWithHexString:@"162271"];
     lineView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
     [self.topView addSubview:lineView];
+    
+    
+    //给labels集中布局，（在赋值之后）
+    [self layoutLabs];
 }
+
+
+//给labels集中布局，（在赋值之后）
+- (void)layoutLabs{
+    
+    CGFloat y = 0;
+    
+    //判断下拉刷新有没有加载
+    for (UIView *item in self.tableView.subviews) {
+        if ([item isKindOfClass:[MJRefreshGifHeader class]]) {
+            y = item.frame.size.height;
+            break;
+        }
+    }
+    
+    //已发布个数 首字母
+    CGSize releaseCountLabSize = [self.releaseCountLab boundingRectWithSize:CGSizeZero];
+    self.releaseCountLab.frame = CGRectMake(268*autoSizeScaleX, 89*autoSizeScaleY-self.releaseCountLab.font.capHeight-4.5+y, releaseCountLabSize.width, self.releaseCountLab.font.capHeight+4.5);
+    //已发布个数其他字母 + / + 已领取总个数
+    CGSize releaseAllCountLabSize = [self.releaseAllCountLab boundingRectWithSize:CGSizeZero];
+    self.releaseAllCountLab.frame = CGRectMake(292*autoSizeScaleX, 89*autoSizeScaleY-self.releaseAllCountLab.font.capHeight-3+y, releaseAllCountLabSize.width, self.releaseAllCountLab.font.capHeight+3);
+    //待审核 首字母
+    CGSize shCountLabSize = [self.shCountLab boundingRectWithSize:CGSizeZero];
+    self.shCountLab.frame = CGRectMake(152*autoSizeScaleX, (172)*autoSizeScaleY-self.shCountLab.font.capHeight-4.5+y, shCountLabSize.width, self.shCountLab.font.capHeight+4.5);
+    //待审核个数其他字母 + / + 待审核总个数
+    CGSize shAllCountLabSize = [self.shAllCountLab boundingRectWithSize:CGSizeZero];
+    self.shAllCountLab.frame = CGRectMake(174*autoSizeScaleX, 172*autoSizeScaleY-self.shAllCountLab.font.capHeight-3+y, shAllCountLabSize.width, self.shAllCountLab.font.capHeight+3);;
+    //已支付个数 首字母
+    CGSize payCountLabSize = [self.payCountLab boundingRectWithSize:CGSizeZero];
+    self.payCountLab.frame = CGRectMake(268*autoSizeScaleX, 172*autoSizeScaleY-self.payCountLab.font.capHeight-4.5+y, payCountLabSize.width, self.payCountLab.font.capHeight+4.5);
+    //已支付个数其他字母 + / 已支付总个数
+    CGSize payAllCountLabSize = [self.payAllCountLab boundingRectWithSize:CGSizeZero];
+    self.payAllCountLab.frame = CGRectMake(292*autoSizeScaleX, 172*autoSizeScaleY-self.payAllCountLab.font.capHeight-3+y, payAllCountLabSize.width, self.payAllCountLab.font.capHeight+3);
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)showUser {
 
-    if(self.user){
-        self.nameLab.text = self.user.nickname;
-        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.user.headimg] placeholderImage:[UIImage imageNamed:@"miller"]];
-    }
-}
 
--(NSMutableArray *)array {
-    if(!_array){
-        _array = [[NSMutableArray alloc] init];
-        for(int i = 0;i<10;i++){
-            Task *task = [[Task alloc] init];
-            task.filmname = @"让子弹飞";
-            task.filmdirector = @"姜文";
-            task.startdate = @"2016/10/28";
-            task.enddate = @"2016/11/28";
-            task.taskpoints = @"200";
-            task.filmstars = @"本尼迪克特·康伯巴奇,马丁·弗瑞曼,安德鲁·斯科特,马克·加蒂斯";
-            task.startdate = @"2016-10-31";
-            task.enddate = @"2016-11-21";
-            task.shownum = @"30";
-            task.tasknum = @"10";
-            task.surplusnum = @"7";
-            task.gradename = @"A级影院";
-            [_array addObject:task];
-        }
-    }
-    return _array;
-}
+
 
 
 //滑动
@@ -377,7 +523,7 @@
     //下拉
     if (imageOffsetY < 0) {
         CGFloat totalOffset = imageHeight + ABS(imageOffsetY);
-        CGFloat f = totalOffset / imageHeight;
+//        CGFloat f = totalOffset / imageHeight;
         
         //        self.topView.frame = CGRectMake(-(imageWidth * f - imageWidth) * 0.5, imageOffsetY, imageWidth * f, totalOffset);伸缩
         //不伸缩
@@ -417,9 +563,8 @@
 -(void)startAnimationForIndexPath:(NSIndexPath*)indexPath{
     
     ManagerMissionDetailViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managermissiondetail"];
-    viewController.user = self.user;
     viewController.task = selTask;
-    
+    viewController.flag = 0;
     ManagerNewMissionTableViewCell *cell = (ManagerNewMissionTableViewCell *)[self tableView:self.tableView cellForRowAtIndexPath:indexPath];
     ///cell在tableView的位置
     CGRect rectInTableView = [self.tableView rectForRowAtIndexPath:indexPath];
@@ -441,11 +586,9 @@
      NSString *identifier = segue.identifier;
      if([identifier isEqualToString:@"tomanagermission"]){
          ManagerMissionViewController *viewController = (ManagerMissionViewController *)segue.destinationViewController;
-         viewController.user = self.user;
-//         viewController.user = self.user;
+
      }else if([identifier isEqualToString:@"tomissiondetail"]){
          ManagerMissionDetailViewController *viewController = (ManagerMissionDetailViewController *)segue.destinationViewController;
-         viewController.user = self.user;
          viewController.task = selTask;
      }
  }
@@ -461,7 +604,6 @@
     
    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"me" bundle:nil];
     MeViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"me"];
-    viewController.user = self.user;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 @end

@@ -10,13 +10,15 @@
 
 @protocol UploadFileDelegate <NSObject>
 
-- (void)returnImagePath:(NSString *)imagepath;
+- (void)returnImagePath:(NSArray *)resultimg;//[0]imgpath[1]imgurl
 
 @end
 
 @interface UploadFile : NSObject
 
 @property (nonatomic, strong) id<UploadFileDelegate> delegate;
+
+- (instancetype)initWithViewController:(UIViewController *)viewController;
 
 - (void)uploadFileWithURL:(NSURL *)url data:(NSData *)data;
 @end

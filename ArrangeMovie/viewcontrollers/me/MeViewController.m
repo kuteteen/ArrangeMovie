@@ -13,6 +13,13 @@
 #import "RESideMenu.h"
 #import "MBProgressHUD.h"
 #import "UIImage+GIF.h"
+#import "MeProfileViewController.h"
+#import "MePointViewController.h"
+#import "MeBankCardViewController.h"
+#import "MePwdViewController.h"
+#import "MeSettingViewController.h"
+#import "MeAuthViewController.h"
+#import "MeMissionViewController.h"
 
 @interface MeViewController ()<MBProgressHUDDelegate>
 @property (nonatomic, strong) NSArray *array;//存放列表item
@@ -66,15 +73,10 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"enableRESideMenu"
-                                                        object:self
-                                                      userInfo:nil];
 }
 
 -(void)showRootViewontroller:(id)sender {
-    if(self.sideMenuViewController) {
-        [self.sideMenuViewController hideMenuViewController];
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(NSArray *)array {
@@ -101,7 +103,7 @@
 
 #pragma mark - tableView datasource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.array.count;
+    return [self array].count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -119,23 +121,37 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *title = self.array[indexPath.row];
 //    NSLog(@"点击了:%@",title);
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中
+    UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
     if([title isEqualToString:@"我的资料"]){
-        [self performSegueWithIdentifier:@"metoprofile" sender:nil];
+        MeProfileViewController *profileVC = [me instantiateViewControllerWithIdentifier:@"meprofile"];
+        [self.navigationController pushViewController:profileVC animated:YES];
+//        [self performSegueWithIdentifier:@"metoprofile" sender:nil];
     }else if([title isEqualToString:@"我的积分"]){
-        [self performSegueWithIdentifier:@"metopoint" sender:nil];
+        MePointViewController *pointVC = [me instantiateViewControllerWithIdentifier:@"mepoint"];
+        [self.navigationController pushViewController:pointVC animated:YES];
+//        [self performSegueWithIdentifier:@"metopoint" sender:nil];
     }else if([title isEqualToString:@"我的银行卡"]){
-        [self performSegueWithIdentifier:@"metobank" sender:nil];
+        MeBankCardViewController *bankVC = [me instantiateViewControllerWithIdentifier:@"mebank"];
+        [self.navigationController pushViewController:bankVC animated:YES];
+//        [self performSegueWithIdentifier:@"metobank" sender:nil];
     }else if([title isEqualToString:@"修改密码"]){
-        [self performSegueWithIdentifier:@"metopwd" sender:nil];
+        MePwdViewController *pwdVC = [me instantiateViewControllerWithIdentifier:@"mepwd"];
+        [self.navigationController pushViewController:pwdVC animated:YES];
+//        [self performSegueWithIdentifier:@"metopwd" sender:nil];
     }else if([title isEqualToString:@"设置"]){
-        [self performSegueWithIdentifier:@"metosetting" sender:nil];
+        MeSettingViewController *settingVC = [me instantiateViewControllerWithIdentifier:@"mesetting"];
+        [self.navigationController pushViewController:settingVC animated:YES];
+//        [self performSegueWithIdentifier:@"metosetting" sender:nil];
     }else if([title isEqualToString:@"资料审核"]||[title isEqualToString:@"认证院线经理"]){
-        [self performSegueWithIdentifier:@"metoauth" sender:nil];
+        MeAuthViewController *authVC = [me instantiateViewControllerWithIdentifier:@"meauth"];
+        [self.navigationController pushViewController:authVC animated:YES];
+//        [self performSegueWithIdentifier:@"metoauth" sender:nil];
     }else if([title isEqualToString:@"任务历史"]){
-        [self performSegueWithIdentifier:@"metomission" sender:nil];
+        MeMissionViewController *missionVC = [me instantiateViewControllerWithIdentifier:@"memission"];
+        [self.navigationController pushViewController:missionVC animated:YES];
+//        [self performSegueWithIdentifier:@"metomission" sender:nil];
     }
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];// 取消选中
 }
 
 

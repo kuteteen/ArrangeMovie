@@ -20,6 +20,36 @@
 //    self.view.layer.contents = (__bridge id _Nullable)(([UIImage imageNamed:@"all_bg"].CGImage));
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    
+    //user
+    self.user = [User mj_objectWithKeyValues:(NSMutableDictionary *)([OperateNSUserDefault readUserDefaultWithKey:@"user"])];
+    
+    self.headimg = [OperateNSUserDefault readUserDefaultWithKey:@"headimg"];
+    
+    self.dn = [OperateNSUserDefault readUserDefaultWithKey:@"dn"];
+    
+    self.isFirstUse = [OperateNSUserDefault readUserDefaultWithKey:@"isFirstUse"];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    
+    //user
+    self.user = [User mj_objectWithKeyValues:(NSMutableDictionary *)([OperateNSUserDefault readUserDefaultWithKey:@"user"])];
+    
+    self.headimg = [OperateNSUserDefault readUserDefaultWithKey:@"headimg"];
+    
+    self.dn = [OperateNSUserDefault readUserDefaultWithKey:@"dn"];
+    
+    self.isFirstUse = [OperateNSUserDefault readUserDefaultWithKey:@"isFirstUse"];
 }
 
 

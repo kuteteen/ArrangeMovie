@@ -8,6 +8,7 @@
 
 #import "SCWebInterfaceBase.h"
 
+//登录
 @interface LoginWebInterface : SCWebInterfaceBase
 
 @end

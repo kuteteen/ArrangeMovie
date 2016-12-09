@@ -7,11 +7,15 @@
 //
 
 #import "MePwdViewController.h"
+#import "ChangePswWebInterface.h"
+#import "SCHttpOperation.h"
+#import "Encryption.h"
 
 @interface MePwdViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *oldPwdTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pwdNewTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pwdNew2TextField;
+@property (weak, nonatomic) IBOutlet UILabel *dnLabel;
 
 @end
 
@@ -24,9 +28,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.layer.contents = [UIColor whiteColor];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
-                                                        object:self
-                                                      userInfo:nil];
+    self.dnLabel.text = self.user.dn;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,7 +61,24 @@
         NSString *pwdNew = self.pwdNewTextField.text;
         NSString *pwdNew2 = self.pwdNew2TextField.text;
         if([pwdNew isEqualToString:pwdNew2]&&pwdNew.length>0){
-            
+            //修改密码
+            __unsafe_unretained typeof (self) weakself = self;
+            ChangePswWebInterface *changepwdInterface = [[ChangePswWebInterface alloc] init];
+            NSDictionary *param = [changepwdInterface inboxObject:@[self.dnLabel.text,[Encryption md5EncryptWithString:self.oldPwdTextField.text],[Encryption md5EncryptWithString:self.pwdNewTextField.text]]];
+            [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:changepwdInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+                NSArray *result = [changepwdInterface unboxObject:returnValue];
+                if ([result[0] intValue] == 1) {
+                    [weakself.view makeToast:@"修改成功" duration:2.0 position:CSToastPositionCenter];
+                    //返回上一页
+                    [weakself.navigationController popViewControllerAnimated:YES];
+                }else{
+                    [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+                }
+            } WithErrorCodeBlock:^(id errorCode) {
+                [weakself.view makeToast:@"请求错误" duration:2.0 position:CSToastPositionCenter];
+            } WithFailureBlock:^{
+                [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+            }];
         }else{
             [self.view makeToast:@"请输入新密码!或两次新密码不一致" duration:3.0 position:CSToastPositionCenter];
         }

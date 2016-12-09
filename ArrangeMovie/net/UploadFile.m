@@ -7,20 +7,24 @@
 //
 
 #import "UploadFile.h"
+#import "MBProgressHUD.h"
+#import "UIImage+GIF.h"
 
 @interface UploadFile()
 
+@property (nonatomic,strong) UIViewController *viewController;//当前正在上传图片的viewController
+@property (nonatomic,strong) MBProgressHUD *HUD;//加载视图
 @property (nonatomic, strong) NSMutableData *receiveData;
-@property (nonatomic, copy) NSString *imgpath;
-
+@property (nonatomic, copy) NSString *imgpath;//图片文件夹地址，形如”/upload/1243243543.jpg”
+@property (nonatomic, copy) NSString *imgUrl;//图片完整路径，形如”http://......./upload/1243243543.jpg”
 @end
 
 @implementation UploadFile
 
-- (instancetype) init {
+- (instancetype)initWithViewController:(UIViewController *)viewController{
     self = [super init];
-    if(self){
-
+    if (self) {
+        self.viewController = viewController;
     }
     return self;
 }
@@ -91,6 +95,25 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setValue:[contentLength description] forHTTPHeaderField:@"Content-Length"];
     NSURLConnection *task = [NSURLConnection connectionWithRequest:request delegate:self];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage sd_animatedGIFNamed:@"loading_120"]];
+    self.HUD = [MBProgressHUD showHUDAddedTo:self.viewController.view animated:YES];
+    self.HUD.backgroundColor = [UIColor colorWithHexString:@"000000" alpha:0.2];
+    self.HUD.bezelView.backgroundColor = [UIColor colorWithHexString:@"ffffff" alpha:0.8];
+    //        HUD.bezelView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loading_bj"]];
+    //        HUD.bezelView.tintColor = [UIColor clearColor];
+    
+    self.HUD.bezelView.layer.cornerRadius = 16;
+    self.HUD.mode = MBProgressHUDModeCustomView;
+    //        HUD.mode = MBProgressHUDModeIndeterminate;
+    self.HUD.customView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.HUD.customView = imageView;
+    self.HUD.margin = 5;
+    NSLog(@"HUD的margin:%f",self.HUD.margin);
+    //    HUD.delegate = self;
+    self.HUD.square = YES;
+    [self.HUD showAnimated:YES];
+
 }
 
 //接收到服务器回应的时候调用此方法
@@ -111,6 +134,11 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    
+    //上传动作完成
+    [self.HUD hideAnimated:YES];
+    
+    
     NSData  *infoData = [[NSMutableData alloc] init];
     infoData =self.receiveData;
 //    NSString *receiveStr = [[NSString alloc]initWithData:infoData encoding:NSUTF8StringEncoding];
@@ -122,9 +150,15 @@
         long success = [(NSNumber *)[InfoDic objectForKey:@"success"] longValue];
         if(success==1){
            self.imgpath = [InfoDic objectForKey:@"imgpath"];
-            if([self.delegate respondsToSelector:@selector(returnImagePath:)]){
-                [self.delegate performSelector:@selector(returnImagePath:) withObject:self.imgpath];
-            }
+           self.imgUrl = [InfoDic objectForKey:@"imgUrl"];
+           if([self.delegate respondsToSelector:@selector(returnImagePath:)]){
+               //完整地址
+               [self.delegate performSelector:@selector(returnImagePath:) withObject:@[self.imgpath,self.imgUrl]];
+           }
+        }else{
+            //提示错误信息
+            NSString *msg = [InfoDic objectForKey:@"msg"];
+            [self.viewController.view makeToast:msg];
         }
     }else{
         NSLog(@"%@",error);

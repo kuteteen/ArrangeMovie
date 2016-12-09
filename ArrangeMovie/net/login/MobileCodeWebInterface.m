@@ -12,7 +12,7 @@
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"getCheckCode.do"];
     }
     return self;
 }
@@ -39,7 +39,6 @@
     NSInteger success = [[result objectForKey:@"success"] integerValue];
     if (success==1) {
         [array addObject:@1];
-        [array addObject:[result valueForKey:@"code"]];//cktodo
     }else {
         [array addObject:@2];
         [array addObject:[result valueForKey:@"msg"]];

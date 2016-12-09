@@ -12,7 +12,7 @@
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"aduitTask.do"];
     }
     return self;
 }
@@ -25,6 +25,8 @@
         @try {
             [dict setObject:array[0] forKey:@"userid"];
             [dict setObject:array[1] forKey:@"taskdetailid"];
+            [dict setObject:array[2] forKey:@"usertype"];
+            [dict setObject:array[3] forKey:@"state"];
         } @catch (NSException *exception) {
             NSLog(@"%@",exception);
         } @finally {

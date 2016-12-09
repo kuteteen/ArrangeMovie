@@ -11,8 +11,8 @@
 
 @interface WXApiRequestHandler : NSObject
 
+@property(nonatomic,strong) void(^ wxreturnBlock)(NSString *returnStr);
 
-
-+ (NSString *)jumpToBizPay:(NSString *)userid price:(NSNumber *)price;
+- (void)jumpToBizPay:(NSString *)userid price:(NSNumber *)price;
 
 @end

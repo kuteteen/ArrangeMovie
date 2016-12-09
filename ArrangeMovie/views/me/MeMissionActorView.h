@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MeMissionActorView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *actorLabel;
+
+
 -(instancetype)initNibWithFrame:(CGRect)frame;
 @end

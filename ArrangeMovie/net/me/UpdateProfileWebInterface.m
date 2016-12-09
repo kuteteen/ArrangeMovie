@@ -14,7 +14,7 @@
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"modifyDetail.do"];
     }
     return self;
 }
@@ -22,8 +22,20 @@
 -(NSDictionary *)inboxObject:(id)param {
     NSArray *array = param;
     if(array.count>0){
-        User *user = (User *)array[0];
-        NSDictionary *dict = [user mj_keyValues];
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        
+        @try {
+            [dict setObject:array[0] forKey:@"userid"];
+            [dict setObject:array[1] forKey:@"nickname"];
+            [dict setObject:array[2] forKey:@"name"];
+            [dict setObject:array[3] forKey:@"sex"];
+            [dict setObject:array[4] forKey:@"headimg"];
+            [dict setObject:array[5] forKey:@"usertype"];
+        } @catch (NSException *exception) {
+            NSLog(@"%@",exception);
+        } @finally {
+            
+        }
         return dict;
     }
     return nil;

@@ -8,6 +8,7 @@
 
 #import "SCWebInterfaceBase.h"
 
+//注册
 @interface RegisterWebInterface : SCWebInterfaceBase
 
 @end

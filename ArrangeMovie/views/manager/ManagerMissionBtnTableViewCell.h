@@ -7,8 +7,17 @@
 //
 
 #import "SCTableViewCell.h"
+#import "ManagerMissionDetailViewController.h"
+#import "Task.h"
 
 @interface ManagerMissionBtnTableViewCell : SCTableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *btn;
+
+@property (nonatomic, strong) Task *task;
+
+@property (nonatomic,assign) int flag;
+
+@property (strong,nonatomic) ManagerMissionDetailViewController *viewController;
+
+@property (weak, nonatomic) IBOutlet UIButton *btn;
 
 @end

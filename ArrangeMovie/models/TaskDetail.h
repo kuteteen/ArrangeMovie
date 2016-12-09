@@ -10,7 +10,7 @@
 
 @interface TaskDetail : NSObject
 //排片日期
-@property (nonatomic,copy) NSString *piecedate;
+@property (nonatomic,copy) NSString *imgdate;
 //图片列表
 @property (nonatomic,strong) NSArray<NSString *> *imgs;
 @end

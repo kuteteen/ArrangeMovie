@@ -12,7 +12,7 @@
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"addTask.do"];
     }
     return self;
 }
@@ -30,8 +30,10 @@
             [dict setObject:array[4] forKey:@"startdate"];
             [dict setObject:array[5] forKey:@"enddate"];
             [dict setObject:array[6] forKey:@"gradeid"];
-            [dict setObject:array[7] forKey:@"tasktype"];
-            [dict setObject:array[8] forKey:@"imgs"];//是个数组，存着图片地址
+//            [dict setObject:array[7] forKey:@"tasktype"];
+            [dict setObject:array[7] forKey:@"img"];//电影封面
+            
+            [dict setObject:array[8] forKey:@"usertype"];//电影封面
         } @catch (NSException *exception) {
             NSLog(@"%@",exception);
         } @finally {

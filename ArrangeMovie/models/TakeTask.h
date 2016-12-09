@@ -11,9 +11,9 @@
 @interface TakeTask : NSObject
 
 ///院线接受任务记录id
-@property (nonatomic,copy) NSString *taskdetailid;
-///院线完成任务状态0进行中，1已完成，2任务未完成
-@property (nonatomic,copy) NSString *taskdetailstatus;
+@property (nonatomic,assign) int taskdetailid;
+//0接受 1完成  2放弃 3片方审核未完成 4片方审核完成 5平台审核未完成 6平台审核完成
+@property (nonatomic,assign) int taskdetailstatus;
 ///任务接受时间
 @property (nonatomic,copy) NSString *taskdetaildate;
 ///任务接受信息
@@ -21,7 +21,7 @@
 ///接受任务的院线头像地址
 @property (nonatomic,copy) NSString *headimg;
 ///接受任务的院线id
-@property (nonatomic,copy) NSString *userid;
+@property (nonatomic,assign) int userid;
 //接受任务的用户手机号码
 @property (nonatomic,copy) NSString *dn;
 //任务完成度

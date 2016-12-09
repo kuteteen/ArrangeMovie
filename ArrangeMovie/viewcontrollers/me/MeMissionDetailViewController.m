@@ -14,14 +14,20 @@
 #import "MeMissionRowPieceView.h"
 #import "MeMissionNoAuthView.h"
 #import "EMINavigationController.h"
+#import "TaskDetailWebInterface.h"
+#import "SCHttpOperation.h"
+#import "UIImage+GIF.h"
+#import "MBProgressHUD.h"
+#import "SCDateTools.h"
 
 #define Width [UIScreen mainScreen].bounds.size.width
 
 @interface MeMissionDetailViewController () <UIScrollViewDelegate>{
     BOOL isAuthed;
     CGFloat originY;
+    Task *detailTask;
 }
-
+@property (strong,nonatomic) MBProgressHUD *HUD;
 @end
 
 @implementation MeMissionDetailViewController
@@ -45,23 +51,45 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
-//                                                        object:self
-//                                                      userInfo:nil];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+    //请求数据
+    [self fetchData];
+    [self createswipToLastViewGesture];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     }
-    [self initViews];
+}
+
+//自定义滑动返回
+- (void)createswipToLastViewGesture{
+    // 加入左侧边界手势
+    UIScreenEdgePanGestureRecognizer * edgePan = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgePanGesture:)];
+    edgePan.edges = UIRectEdgeLeft;
+    [self.view addGestureRecognizer:edgePan];
+}
+
+- (void)edgePanGesture:(UIScreenEdgePanGestureRecognizer  *)edgePan{
     
-    [self.navigationController.interactivePopGestureRecognizer addTarget:self action:@selector(handleGesture:)];
-}
-
-
--(void)handleGesture:(id)sender {
+    for(UIView *view in self.view.superview.subviews){
+        if ([view isKindOfClass:[UIImageView class]]) {
+            view.alpha = 1;
+        }
+    }
     [self.navigationController popViewControllerAnimated:YES];
+    
+    
 }
+
+
+
 -(void)backToUp {
     
     for(UIView *view in self.view.superview.subviews){
@@ -76,6 +104,52 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//请求数据
+- (void)fetchData{
+
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage sd_animatedGIFNamed:@"loading_120"]];
+    self.HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.HUD.backgroundColor = [UIColor colorWithHexString:@"000000" alpha:0.2];
+    self.HUD.bezelView.backgroundColor = [UIColor colorWithHexString:@"ffffff" alpha:0.8];
+    //        HUD.bezelView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loading_bj"]];
+    //        HUD.bezelView.tintColor = [UIColor clearColor];
+    
+    self.HUD.bezelView.layer.cornerRadius = 16;
+    self.HUD.mode = MBProgressHUDModeCustomView;
+    //        HUD.mode = MBProgressHUDModeIndeterminate;
+    self.HUD.customView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.HUD.customView = imageView;
+    self.HUD.margin = 5;
+    NSLog(@"HUD的margin:%f",self.HUD.margin);
+    //    HUD.delegate = self;
+    self.HUD.square = YES;
+    [self.HUD showAnimated:YES];
+    
+    //请求到数据之后才initView
+    __unsafe_unretained typeof(self) weakself = self;
+    TaskDetailWebInterface *taskdetailInterface = [[TaskDetailWebInterface alloc] init];
+    NSDictionary *param = [taskdetailInterface inboxObject:@[@(self.user.userid),@(self.user.usertype),@(self.task.taskid)]];
+    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:taskdetailInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+        NSArray *result = [taskdetailInterface unboxObject:returnValue];
+        if ([result[0] intValue] == 1) {
+            detailTask = result[1];
+            [weakself initViews];
+            [weakself.HUD hideAnimated:YES];
+        }else{
+            [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+            [weakself.HUD hideAnimated:YES];
+        }
+    } WithErrorCodeBlock:^(id errorCode) {
+        [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+        [weakself.HUD hideAnimated:YES];
+    } WithFailureBlock:^{
+        [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+        [weakself.HUD hideAnimated:YES];
+    }];
+}
+
 
 -(void)initViews {
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
@@ -104,22 +178,30 @@
     detailLabel.text = @"排片详情";
     [scrollView addSubview:detailLabel];
     
+    //有状态的接受任务记录0接受 1完成  2放弃 3片方审核未完成 4片方审核完成 5平台审核未完成 6平台审核完成
+    //要从中筛选出0接受 1完成  2放弃 这三中
+//    NSPredicate *preicate = [NSPredicate predicateWithFormat:@"taskdetailstatus='0' || taskdetailstatus='1' || taskdetailstatus='2'"];
+//   NSPredicate *preicate =  [NSPredicate predicateWithFormat:@"taskdetailstatus<3"];
     
-//    if(self.task.data.count>0){
-    NSInteger count = 5;
-//        NSInteger count = self.task.data.count;
+//    NSArray <TakeTask *> *needtakeTask = [detailTask.data filteredArrayUsingPredicate:preicate];
+    
+    if(detailTask.data.count>0){
+        NSInteger count = detailTask.data.count;
         for(int i = 0;i<count;i ++){
             MeMissionRowPieceView *pieceView = [[MeMissionRowPieceView alloc] initNibWithFrame:CGRectMake(0, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height+i*84, screenWidth, 84)];
+            pieceView.viewController = self;
+            pieceView.taskid = self.task.taskid;
+            [pieceView setTakeTaskValues:detailTask.data[i]];
             pieceView.tag = 1000+i;
             [scrollView addSubview:pieceView];
         }
     scrollView.contentSize = CGSizeMake(screenWidth, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height+count*84+17);
-//    }else{
-//        MeMissionNoAuthView *noAuthView = [[MeMissionNoAuthView alloc] initNibWithFrame:CGRectMake(0, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height, screenWidth, 134)];
-//        [scrollView addSubview:noAuthView];
-//        scrollView.contentSize = CGSizeMake(screenWidth, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height+134);
-//    }
-    
+    }else{
+        MeMissionNoAuthView *noAuthView = [[MeMissionNoAuthView alloc] initNibWithFrame:CGRectMake(0, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height, screenWidth, 134)];
+        [scrollView addSubview:noAuthView];
+        scrollView.contentSize = CGSizeMake(screenWidth, 17+detailLabel.frame.origin.y+detailLabel.frame.size.height+134);
+    }
+
     [self.view addSubview:scrollView];
 }
 
@@ -142,7 +224,11 @@
  *  @param titleView
  */
 -(void)showTitleView:(MeMissionTitleView *)titleView {
-    [titleView.postImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:2 image:@"http://cdnq.duitang.com/uploads/item/201506/05/20150605124315_xFQtw.thumb.700_0.jpeg" placeholder:@"miller"];
+    [titleView.postImgView setShadowWithType:EMIShadowPathRoundRectangle shadowColor:[UIColor colorWithHexString:@"0a0e16"] shadowOffset:CGSizeZero shadowOpacity:0.26 shadowRadius:2 image:detailTask.img placeholder:@""];
+    titleView.filmNameLabel.text = detailTask.filmname;
+    titleView.directorLabel.text = [NSString stringWithFormat:@"导演：%@",detailTask.filmdirector];
+    titleView.dateLabel.text = [NSString stringWithFormat:@"任务时间：%@~%@",detailTask.startdate,detailTask.enddate];
+    titleView.pointsLabel.text = [NSString stringWithFormat:@"%@分",detailTask.taskpoints];
 }
 
 /**
@@ -151,16 +237,23 @@
  *  @param actorView
  */
 -(void)showActor:(MeMissionActorView *)actorView {
-    
+    actorView.actorLabel.text = detailTask.filmstars;
 }
 
 /**
  *  self.task 展示任务要求信息
  *
- *  @param actorView
+ *  @param requireView
  */
 -(void)showRequire:(MeMissionRequireView *)requireView {
-    requireView.requireContentLabel.text = [NSString stringWithFormat:@"%@开始为期%@天的任务,每天排片量在%@以上",self.task.startdate,@"",self.task.shownum];
+    
+    requireView.taskCountLabel.text = [NSString stringWithFormat:@"%@份",detailTask.tasknum];
+    requireView.cinemaLevelLabel.text = [NSString stringWithFormat:@"%@级影院以上",detailTask.gradename];
+    
+    
+    
+    
+    requireView.requireContentLabel.text = [NSString stringWithFormat:@"%@开始为期%ld天的任务",detailTask.startdate,(long)[SCDateTools daysBetween:[SCDateTools stringToDate:detailTask.startdate] and:[SCDateTools stringToDate:detailTask.enddate]]];
     CGSize size = [requireView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     CGFloat width = screenWidth - 60 - 30;
 

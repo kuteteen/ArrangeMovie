@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,11 +9,9 @@
         <mutableArray key="DroidSansFallback.ttf">
             <string>DroidSansFallback</string>
             <string>DroidSansFallback</string>
+            <string>DroidSansFallback</string>
         </mutableArray>
         <mutableArray key="DroidSans_Bold.ttf">
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
-            <string>DroidSans-Bold</string>
             <string>DroidSans-Bold</string>
             <string>DroidSans-Bold</string>
             <string>DroidSans-Bold</string>
@@ -77,7 +75,7 @@
         <!--Me Point View Controller-->
         <scene sceneID="pYE-Xe-4ca">
             <objects>
-                <viewController id="rpS-R7-VOY" customClass="MePointViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mepoint" id="rpS-R7-VOY" customClass="MePointViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7e0-1z-JZd"/>
                         <viewControllerLayoutGuide type="bottom" id="wvi-K1-Ohb"/>
@@ -116,7 +114,7 @@
         <!--Me Pwd View Controller-->
         <scene sceneID="mkO-Zn-vvu">
             <objects>
-                <viewController id="0P6-Ms-0eb" customClass="MePwdViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mepwd" id="0P6-Ms-0eb" customClass="MePwdViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Shh-YT-STv"/>
                         <viewControllerLayoutGuide type="bottom" id="AWp-in-ST6"/>
@@ -135,13 +133,13 @@
                                             <constraint firstAttribute="width" constant="22" id="yvs-dS-2v8"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18262394956" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e53-ej-MXR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e53-ej-MXR">
                                         <rect key="frame" x="61" y="23" width="299" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="Y7W-9R-Bw5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="14"/>
-                                        <color key="textColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZI-qJ-RqH">
@@ -187,6 +185,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="XKX-WD-tkh"/>
                                         </constraints>
+                                        <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
@@ -229,6 +228,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="NhG-NJ-Kmp"/>
                                         </constraints>
+                                        <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <connections>
@@ -271,6 +271,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="NIO-xW-mCm"/>
                                         </constraints>
+                                        <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go"/>
                                         <connections>
@@ -325,6 +326,7 @@
                     <navigationItem key="navigationItem" id="ICj-WV-Cao"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="dnLabel" destination="e53-ej-MXR" id="EE0-ko-zSl"/>
                         <outlet property="oldPwdTextField" destination="oIu-qf-pWb" id="5d8-I2-b6z"/>
                         <outlet property="pwdNew2TextField" destination="nxc-yd-wiB" id="Azt-z5-E7n"/>
                         <outlet property="pwdNewTextField" destination="R0n-yb-TxK" id="bNA-l2-98R"/>
@@ -337,7 +339,7 @@
         <!--Me Setting View Controller-->
         <scene sceneID="hF9-fv-7jE">
             <objects>
-                <viewController id="2k3-PH-9nk" customClass="MeSettingViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mesetting" id="2k3-PH-9nk" customClass="MeSettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y0Y-bd-tkq"/>
                         <viewControllerLayoutGuide type="bottom" id="Ee8-YA-492"/>
@@ -383,9 +385,26 @@
                     <view key="view" contentMode="scaleToFill" id="IEh-yy-LCd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="说点什么吧！！！！！！" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uAc-Eb-Jg0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5az-io-eiO" firstAttribute="top" secondItem="uAc-Eb-Jg0" secondAttribute="bottom" id="9r8-Xh-enF"/>
+                            <constraint firstItem="uAc-Eb-Jg0" firstAttribute="top" secondItem="cma-4R-332" secondAttribute="bottom" id="RyA-zX-hKx"/>
+                            <constraint firstItem="uAc-Eb-Jg0" firstAttribute="leading" secondItem="IEh-yy-LCd" secondAttribute="leading" id="Ukh-c3-Wwt"/>
+                            <constraint firstAttribute="trailing" secondItem="uAc-Eb-Jg0" secondAttribute="trailing" id="aod-mU-kjt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tuI-SP-9Ft"/>
+                    <connections>
+                        <outlet property="contentTV" destination="uAc-Eb-Jg0" id="sAs-bU-FT2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1JT-zB-oVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -394,7 +413,7 @@
         <!--Me Auth View Controller-->
         <scene sceneID="2bG-W7-wix">
             <objects>
-                <viewController id="6Un-ta-auF" customClass="MeAuthViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="meauth" id="6Un-ta-auF" customClass="MeAuthViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iDW-dr-wYU"/>
                         <viewControllerLayoutGuide type="bottom" id="pVp-Fi-5hK"/>
@@ -414,7 +433,7 @@
         <!--Me Bank Card View Controller-->
         <scene sceneID="2kk-Zt-c9i">
             <objects>
-                <viewController id="Qo5-PZ-tNj" customClass="MeBankCardViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mebank" id="Qo5-PZ-tNj" customClass="MeBankCardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PDr-Pj-L12"/>
                         <viewControllerLayoutGuide type="bottom" id="V21-A9-Ywx"/>
@@ -451,7 +470,7 @@
         <!--Me Mission View Controller-->
         <scene sceneID="T2T-gY-M1I">
             <objects>
-                <viewController id="3tz-3d-LUx" customClass="MeMissionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="memission" id="3tz-3d-LUx" customClass="MeMissionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JgG-U8-EWX"/>
                         <viewControllerLayoutGuide type="bottom" id="dea-1h-sJV"/>
@@ -601,12 +620,13 @@
                                     <constraint firstAttribute="height" constant="22" id="wG9-kC-Qs6"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="持卡人" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ygm-aV-jrT">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="持卡人" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ygm-aV-jrT">
                                 <rect key="frame" x="61" y="87" width="299" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="2Kk-LT-icB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
+                                <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -634,12 +654,13 @@
                                     <constraint firstAttribute="width" constant="22" id="sRb-qi-wda"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="卡号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cR0-sD-hpi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="卡号" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cR0-sD-hpi">
                                 <rect key="frame" x="61" y="156" width="299" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="hN3-ry-8fE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
+                                <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -662,18 +683,19 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_bank" translatesAutoresizingMaskIntoConstraints="NO" id="pDm-Bf-NM4">
-                                <rect key="frame" x="15" y="225" width="22" height="22"/>
+                                <rect key="frame" x="15" y="293" width="22" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="M7S-pV-903"/>
-                                    <constraint firstAttribute="height" constant="22" id="X4d-wI-6Oc"/>
+                                    <constraint firstAttribute="width" constant="22" id="Sll-2v-B3Y"/>
+                                    <constraint firstAttribute="height" constant="22" id="Umq-N5-TXw"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="开户行" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="70O-KP-DfC">
-                                <rect key="frame" x="61" y="225" width="299" height="22"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="开户行" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="70O-KP-DfC">
+                                <rect key="frame" x="61" y="293" width="299" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="r3t-OD-FJn"/>
+                                    <constraint firstAttribute="height" constant="22" id="RSj-dO-6RU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
+                                <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
@@ -688,49 +710,101 @@
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19X-Lf-CQN">
-                                <rect key="frame" x="15" y="270" width="345" height="1"/>
+                                <rect key="frame" x="15" y="338" width="345" height="1"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="n0T-vI-zdk"/>
+                                    <constraint firstAttribute="height" constant="1" id="SJL-e1-hig"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mtk-kC-UeA">
+                                <rect key="frame" x="15" y="202" width="345" height="68"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_bank" translatesAutoresizingMaskIntoConstraints="NO" id="k1z-r0-fgH">
+                                        <rect key="frame" x="0.0" y="23" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="UbS-N0-1of"/>
+                                            <constraint firstAttribute="height" constant="22" id="yeV-Y3-BKr"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择银行类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7j-Rc-9qe">
+                                        <rect key="frame" x="46" y="23" width="284" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="xGa-bD-g1h"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jN-zs-DUC">
+                                        <rect key="frame" x="0.0" y="66" width="345" height="1"/>
+                                        <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="eGd-Id-7vT"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="1jN-zs-DUC" secondAttribute="bottom" constant="1" id="0Jp-yf-axc"/>
+                                    <constraint firstItem="b7j-Rc-9qe" firstAttribute="leading" secondItem="k1z-r0-fgH" secondAttribute="trailing" constant="24" id="FzI-au-b22"/>
+                                    <constraint firstItem="k1z-r0-fgH" firstAttribute="leading" secondItem="Mtk-kC-UeA" secondAttribute="leading" id="Gw7-dU-4ic"/>
+                                    <constraint firstItem="k1z-r0-fgH" firstAttribute="top" secondItem="Mtk-kC-UeA" secondAttribute="top" constant="23" id="RRv-Rc-Qo5"/>
+                                    <constraint firstItem="b7j-Rc-9qe" firstAttribute="top" secondItem="Mtk-kC-UeA" secondAttribute="top" constant="23" id="dG3-Ej-qjt"/>
+                                    <constraint firstAttribute="trailing" secondItem="b7j-Rc-9qe" secondAttribute="trailing" constant="15" id="e3h-cU-D2G"/>
+                                    <constraint firstAttribute="height" constant="68" id="fgH-AF-Wrl"/>
+                                    <constraint firstAttribute="bottom" secondItem="k1z-r0-fgH" secondAttribute="bottom" constant="23" id="hJa-sM-AAD"/>
+                                    <constraint firstAttribute="trailing" secondItem="1jN-zs-DUC" secondAttribute="trailing" id="hNA-sg-OEf"/>
+                                    <constraint firstItem="1jN-zs-DUC" firstAttribute="leading" secondItem="Mtk-kC-UeA" secondAttribute="leading" id="rhj-kV-Lhq"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="u3y-Zl-DFS" appends="YES" id="xVm-Rh-TNC"/>
+                                </connections>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYC-5E-IqI">
-                                <rect key="frame" x="15" y="316" width="345" height="54"/>
+                                <rect key="frame" x="15" y="364" width="345" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="Xjf-dL-EZ3"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="bank_save"/>
+                                <connections>
+                                    <action selector="addBankCard:" destination="yoo-JF-i70" eventType="touchUpInside" id="r3p-s1-eMA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hYC-5E-IqI" firstAttribute="top" secondItem="19X-Lf-CQN" secondAttribute="bottom" constant="45" id="0nU-ya-VtG"/>
-                            <constraint firstItem="pDm-Bf-NM4" firstAttribute="top" secondItem="lAh-3F-tlV" secondAttribute="bottom" constant="23" id="1ZB-yg-g9D"/>
+                            <constraint firstItem="Mtk-kC-UeA" firstAttribute="top" secondItem="lAh-3F-tlV" secondAttribute="bottom" id="1ep-Qe-qQy"/>
                             <constraint firstAttribute="trailing" secondItem="hYC-5E-IqI" secondAttribute="trailing" constant="15" id="3SJ-mg-naG"/>
+                            <constraint firstAttribute="trailing" secondItem="70O-KP-DfC" secondAttribute="trailing" constant="15" id="4YY-Eu-7An"/>
                             <constraint firstItem="hYC-5E-IqI" firstAttribute="leading" secondItem="Rd7-MV-DT0" secondAttribute="leading" constant="15" id="6Bv-mM-TFd"/>
                             <constraint firstItem="Ygm-aV-jrT" firstAttribute="leading" secondItem="3up-sh-Ov2" secondAttribute="trailing" constant="24" id="6mt-pR-fmU"/>
+                            <constraint firstItem="Mtk-kC-UeA" firstAttribute="leading" secondItem="Rd7-MV-DT0" secondAttribute="leading" constant="15" id="7fr-4i-fsY"/>
                             <constraint firstAttribute="trailing" secondItem="lAh-3F-tlV" secondAttribute="trailing" constant="15" id="8Te-ae-ULt"/>
                             <constraint firstItem="oxo-CV-jac" firstAttribute="top" secondItem="UaI-zJ-1nl" secondAttribute="bottom" constant="23" id="DB2-LN-bnc"/>
-                            <constraint firstItem="70O-KP-DfC" firstAttribute="leading" secondItem="pDm-Bf-NM4" secondAttribute="trailing" constant="24" id="IKa-rs-GQo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ygm-aV-jrT" secondAttribute="trailing" constant="15" id="IoT-ea-Rd3"/>
                             <constraint firstItem="3up-sh-Ov2" firstAttribute="top" secondItem="SMX-fk-btN" secondAttribute="bottom" constant="23" id="Jco-Vn-Qo9"/>
+                            <constraint firstAttribute="trailing" secondItem="19X-Lf-CQN" secondAttribute="trailing" constant="15" id="Jh7-UZ-Q0q"/>
                             <constraint firstItem="UaI-zJ-1nl" firstAttribute="leading" secondItem="Rd7-MV-DT0" secondAttribute="leading" constant="15" id="Jrd-KX-Q2Y"/>
                             <constraint firstItem="UaI-zJ-1nl" firstAttribute="top" secondItem="3up-sh-Ov2" secondAttribute="bottom" constant="23" id="MR5-tQ-Oxh"/>
+                            <constraint firstItem="pDm-Bf-NM4" firstAttribute="top" secondItem="Mtk-kC-UeA" secondAttribute="bottom" constant="23" id="T63-F1-mdz"/>
                             <constraint firstItem="oxo-CV-jac" firstAttribute="leading" secondItem="Rd7-MV-DT0" secondAttribute="leading" constant="15" id="U7b-jv-Qhf"/>
                             <constraint firstAttribute="trailing" secondItem="Ygm-aV-jrT" secondAttribute="trailing" constant="15" id="Vgf-O6-Zx2"/>
                             <constraint firstItem="cR0-sD-hpi" firstAttribute="leading" secondItem="oxo-CV-jac" secondAttribute="trailing" constant="24" id="WdV-v3-jBb"/>
                             <constraint firstItem="lAh-3F-tlV" firstAttribute="leading" secondItem="Rd7-MV-DT0" secondAttribute="leading" constant="15" id="YEI-ey-Hez"/>
-                            <constraint firstAttribute="trailing" secondItem="70O-KP-DfC" secondAttribute="trailing" constant="15" id="YI7-sw-Q42"/>
-                            <constraint firstItem="19X-Lf-CQN" firstAttribute="top" secondItem="pDm-Bf-NM4" secondAttribute="bottom" constant="23" id="bog-zM-S5o"/>
-                            <constraint firstItem="70O-KP-DfC" firstAttribute="top" secondItem="pDm-Bf-NM4" secondAttribute="top" id="byX-Vb-0kE"/>
+                            <constraint firstItem="hYC-5E-IqI" firstAttribute="top" secondItem="19X-Lf-CQN" secondAttribute="bottom" constant="25" id="bAf-xK-WB6"/>
+                            <constraint firstAttribute="trailing" secondItem="Mtk-kC-UeA" secondAttribute="trailing" constant="15" id="cRH-uT-ofd"/>
+                            <constraint firstItem="19X-Lf-CQN" firstAttribute="leading" secondItem="Rd7-MV-DT0" secondAttribute="leading" constant="15" id="d7a-6g-XtG"/>
                             <constraint firstItem="cR0-sD-hpi" firstAttribute="top" secondItem="oxo-CV-jac" secondAttribute="top" id="en4-6w-bPe"/>
                             <constraint firstAttribute="trailing" secondItem="cR0-sD-hpi" secondAttribute="trailing" constant="15" id="fwz-zV-spL"/>
                             <constraint firstAttribute="trailing" secondItem="UaI-zJ-1nl" secondAttribute="trailing" constant="15" id="hKT-tf-umF"/>
-                            <constraint firstItem="19X-Lf-CQN" firstAttribute="leading" secondItem="Rd7-MV-DT0" secondAttribute="leading" constant="15" id="iAD-mA-vVk"/>
-                            <constraint firstAttribute="trailing" secondItem="19X-Lf-CQN" secondAttribute="trailing" constant="15" id="ohu-Vh-l4d"/>
                             <constraint firstItem="Ygm-aV-jrT" firstAttribute="top" secondItem="SMX-fk-btN" secondAttribute="bottom" constant="23" id="q6M-BN-HMa"/>
+                            <constraint firstItem="70O-KP-DfC" firstAttribute="leading" secondItem="pDm-Bf-NM4" secondAttribute="trailing" constant="24" id="qog-9B-L7i"/>
+                            <constraint firstItem="70O-KP-DfC" firstAttribute="top" secondItem="Mtk-kC-UeA" secondAttribute="bottom" constant="23" id="si6-yP-yK8"/>
+                            <constraint firstItem="19X-Lf-CQN" firstAttribute="top" secondItem="70O-KP-DfC" secondAttribute="bottom" constant="23" id="uPF-ns-rg4"/>
+                            <constraint firstItem="pDm-Bf-NM4" firstAttribute="leading" secondItem="Rd7-MV-DT0" secondAttribute="leading" constant="15" id="v42-lz-dpf"/>
                             <constraint firstItem="lAh-3F-tlV" firstAttribute="top" secondItem="oxo-CV-jac" secondAttribute="bottom" constant="23" id="w1w-P2-6xx"/>
-                            <constraint firstItem="pDm-Bf-NM4" firstAttribute="leading" secondItem="Rd7-MV-DT0" secondAttribute="leading" constant="15" id="wsG-LS-xhz"/>
                             <constraint firstItem="3up-sh-Ov2" firstAttribute="leading" secondItem="Rd7-MV-DT0" secondAttribute="leading" constant="15" id="yQm-RQ-zPy"/>
                         </constraints>
                         <variation key="default">
@@ -743,19 +817,63 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="bankNameTextField" destination="70O-KP-DfC" id="icX-dd-7HN"/>
+                        <outlet property="bankTypeLabel" destination="b7j-Rc-9qe" id="UvN-oF-NlK"/>
                         <outlet property="nameTextField" destination="Ygm-aV-jrT" id="LL6-Ah-etB"/>
                         <outlet property="noTextField" destination="cR0-sD-hpi" id="hIl-Rz-kis"/>
                         <outlet property="saveBankBtn" destination="hYC-5E-IqI" id="PLm-gp-GVD"/>
+                        <segue destination="h1r-7X-stp" kind="show" identifier="tobanktypeVC" id="Bg8-5R-Xby"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJu-mC-y6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="u3y-Zl-DFS">
+                    <connections>
+                        <action selector="selectBankType:" destination="yoo-JF-i70" id="gpU-9n-MaB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="809.5" y="1075.5"/>
+        </scene>
+        <!--Me Bank Type View Controller-->
+        <scene sceneID="Bwt-gH-V3Z">
+            <objects>
+                <viewController id="h1r-7X-stp" customClass="MeBankTypeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bnM-Zm-5Pt"/>
+                        <viewControllerLayoutGuide type="bottom" id="iRi-lP-6pP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HXG-MO-Yae">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lfW-G3-DcK">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="h1r-7X-stp" id="0cI-93-9S2"/>
+                                    <outlet property="delegate" destination="h1r-7X-stp" id="5tk-mY-d8r"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lfW-G3-DcK" firstAttribute="leading" secondItem="HXG-MO-Yae" secondAttribute="leading" id="0Jk-ZC-g1X"/>
+                            <constraint firstItem="lfW-G3-DcK" firstAttribute="top" secondItem="bnM-Zm-5Pt" secondAttribute="bottom" id="7xh-Kd-Gcz"/>
+                            <constraint firstAttribute="trailing" secondItem="lfW-G3-DcK" secondAttribute="trailing" id="YxJ-Us-WLh"/>
+                            <constraint firstItem="iRi-lP-6pP" firstAttribute="top" secondItem="lfW-G3-DcK" secondAttribute="bottom" id="u99-cJ-XIt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="lfW-G3-DcK" id="Od7-9g-Su2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLb-hE-fmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1325.5" y="1499.5"/>
         </scene>
         <!--Me Profile View Controller-->
         <scene sceneID="iyo-GL-4Hw">
             <objects>
-                <viewController id="gDQ-57-LuU" customClass="MeProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="meprofile" id="gDQ-57-LuU" customClass="MeProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="khb-62-bCy"/>
                         <viewControllerLayoutGuide type="bottom" id="rhx-DD-IK1"/>
@@ -771,21 +889,21 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f4h-73-hAK">
-                                                <rect key="frame" x="128.5" y="21" width="118" height="118"/>
+                                                <rect key="frame" x="129" y="21" width="118" height="118"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="118" id="CjZ-4U-dzZ"/>
                                                     <constraint firstAttribute="width" constant="118" id="GSC-Jy-DPR"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l3p-FI-rCk" customClass="EMIShadowImageView">
-                                                <rect key="frame" x="226.5" y="90" width="40" height="40"/>
+                                                <rect key="frame" x="227" y="90" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="4KK-Z3-Ewd"/>
                                                     <constraint firstAttribute="height" constant="40" id="zpF-Gh-nk2"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqc-PB-eVX">
-                                                <rect key="frame" x="15" y="164.5" width="345" height="0.5"/>
+                                                <rect key="frame" x="15" y="165" width="345" height="0.0"/>
                                                 <color key="backgroundColor" red="0.086274509799999996" green="0.1333333333" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="0.5" id="JNy-z2-zOd"/>
@@ -794,7 +912,6 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="eqc-PB-eVX" firstAttribute="top" secondItem="f4h-73-hAK" secondAttribute="bottom" constant="25.5" id="5CH-T5-Llu"/>
                                             <constraint firstItem="l3p-FI-rCk" firstAttribute="top" secondItem="f4h-73-hAK" secondAttribute="bottom" constant="-40" id="5uS-aV-El9"/>
                                             <constraint firstAttribute="bottom" secondItem="eqc-PB-eVX" secondAttribute="bottom" id="8oz-Zc-yXw"/>
                                             <constraint firstItem="eqc-PB-eVX" firstAttribute="leading" secondItem="7Nb-oD-jHf" secondAttribute="leading" constant="15" id="Ika-Ks-YRT"/>
@@ -993,7 +1110,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18252495961" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rg5-dU-I1P">
-                                                        <rect key="frame" x="235" y="24.5" width="103" height="20"/>
+                                                        <rect key="frame" x="235" y="25" width="103" height="20"/>
                                                         <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="17"/>
                                                         <color key="textColor" red="0.08235294118" green="0.08235294118" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>

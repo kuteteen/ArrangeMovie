@@ -96,9 +96,12 @@
     if(self.pageIndex==2){
         cell.flagLabel.hidden = NO;
         cell.delTaskBtn.hidden = YES;
-    }else{
+    }else if(self.pageIndex==1){
         cell.flagLabel.hidden = YES;
         cell.delTaskBtn.hidden = NO;
+    }else{
+        cell.flagLabel.hidden = YES;
+        cell.delTaskBtn.hidden = YES;
     }
     
     cell.delTaskBtn.tag = 1000+indexPath.row;

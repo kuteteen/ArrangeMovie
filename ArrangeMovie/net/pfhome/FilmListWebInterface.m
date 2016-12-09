@@ -12,7 +12,7 @@
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"getMovieList.do"];
     }
     return self;
 }
@@ -24,6 +24,7 @@
         
         @try {
             [dict setObject:array[0] forKey:@"userid"];
+            [dict setObject:array[1] forKey:@"usertype"];
         } @catch (NSException *exception) {
             NSLog(@"%@",exception);
         } @finally {

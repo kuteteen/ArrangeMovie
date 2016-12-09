@@ -100,7 +100,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SDtableViewCell"];
-    
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
     
     cell.backgroundColor = [UIColor clearColor];
@@ -108,8 +108,8 @@
     cell.selectionStyle = UITableViewCellSeparatorStyleNone;
 
     if (self.searchList.count !=0) {
-        
-        cell.textLabel.text = self.searchList[indexPath.row];
+         Film *film = (Film *)self.searchList[indexPath.row];
+        cell.textLabel.text = film.filmname;
         
     }
     
@@ -124,6 +124,7 @@
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
     self.textfield.text = cell.textLabel.text;
+    self.filmid = ((Film *)self.searchList[indexPath.row]).filmid;
     [self hiddenTableView];
 
 }
@@ -166,7 +167,7 @@
         [self hiddenTableView];
     }
     NSString *searchString = self.textfield.text;
-    NSPredicate *preicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] %@", searchString];
+    NSPredicate *preicate = [NSPredicate predicateWithFormat:@"filmname CONTAINS[c] %@", searchString];
     if (self.searchList!= nil) {
         [self.searchList removeAllObjects];
     }

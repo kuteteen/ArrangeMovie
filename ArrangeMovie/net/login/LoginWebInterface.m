@@ -13,7 +13,7 @@
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"login.do"];
     }
     return self;
 }
@@ -42,21 +42,19 @@
     if (success==1) {
         [array addObject:@1];
         
-//        User *user1 = [User mj_objectWithKeyValues:result];
-        
         User *user = [[User alloc] init];
-        user.userid = [result objectForKey:@"userid"];
+        user.userid = [[result objectForKey:@"userid"] intValue];
         user.dn = [result objectForKey:@"dn"];
         user.usertype = [[result objectForKey:@"usertype"] intValue];
         user.nickname = [result objectForKey:@"nickname"];
         user.name = [result objectForKey:@"name"];
-        user.sex = [[result objectForKey:@"sex"] intValue];
+        user.sex = [result objectForKey:@"sex"];
         user.headimg = [result objectForKey:@"headimg"];
-        user.userpoints = [result objectForKey:@"userpoints"];
-        user.gradeid = [result objectForKey:@"gradeid"];
+        user.userpoints = [[result objectForKey:@"userpoints"] doubleValue];
+        user.gradeid = [[result objectForKey:@"gradeid"] intValue];
         user.gradename = [result objectForKey:@"gradename"];
         user.gradeicon = [result objectForKey:@"gradeicon"];
-        
+        user.userstatus = [[result objectForKey:@"userstatus"] intValue];
         [array addObject:user];
     }else {
         [array addObject:@2];

@@ -14,10 +14,16 @@
 #import "CKAlertViewController.h"
 #import "ManagerMissionPageViewController.h"
 #import "EMINavigationController.h"
+#import "UIScrollView+AllowPanGestureEventPass.h"
+#import "UIImage+GIF.h"
+#import "MJRefreshGifHeader.h"
+#import "ManagerTaskWebInterface.h"
+#import "SCHttpOperation.h"
+
 
 #define Width [UIScreen mainScreen].bounds.size.width
 
-@interface ManagerMissionViewController ()<LFLUISegmentedControlDelegate,UIScrollViewDelegate,ManagerMissionPageViewControllerDelegate,UITableViewDelegate,UITableViewDataSource> {
+@interface ManagerMissionViewController ()<LFLUISegmentedControlDelegate,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource> {
     LFLUISegmentedControl *segmentControl;
     CKAlertViewController *ckAlertVC;
     
@@ -30,12 +36,13 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 //@property (strong,nonatomic) NSMutableArray *dataArray;//所有数据
-@property (strong,nonatomic) NSMutableArray *array;//显示用的数据
+@property (strong,nonatomic) NSMutableArray <NSArray  <Task *> *> *array;//显示用的数据
 
 ///页数
 @property (nonatomic, assign) NSInteger pageCount;
 ///第N页
 @property (nonatomic, assign) NSInteger pageIndex;
+
 
 @end
 
@@ -44,6 +51,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableViewArray = [[NSMutableArray alloc] initWithCapacity:0];
+    self.array = [[NSMutableArray alloc] initWithArray:@[@[],@[],@[],@[]]];//存放四个Task数组
+    
     self.title = @"查看任务";
     
     segmentControl = [[LFLUISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, Width, 50)];
@@ -58,7 +68,7 @@
     [self.segmentView addSubview:segmentControl];
     self.scrollView.tag = 0;
     self.scrollView.delegate = self;
-    
+    [self.scrollView.panGestureRecognizer requireGestureRecognizerToFail:[((EMINavigationController *)(self.navigationController)) screenEdgePanGestureRecognizer]];//在navigationcontroller自带的滑动返回失败后，才去执行scrollview的滑动
     _pageCount = 4;
     if(!viewControllers){
         viewControllers = [[NSMutableArray alloc] initWithCapacity:self.pageCount];
@@ -75,11 +85,31 @@
         tableView.dataSource = self;
         tableView.tableFooterView = [[UIView alloc] init];
         tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
+        
+        
+        //设置下拉刷新和上拉加载
+        UIImage *loadimage =[UIImage sd_animatedGIFNamed:@"loading_120"];
+        MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData:)];
+        // 设置普通状态的动画图片
+        [header setImages:@[loadimage] forState:MJRefreshStateIdle];
+        // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
+        [header setImages:@[loadimage] forState:MJRefreshStatePulling];
+        // 设置正在刷新状态的动画图片
+        [header setImages:@[loadimage] forState:MJRefreshStateRefreshing];
+        // 隐藏时间
+        header.stateLabel.hidden = YES;
+        header.lastUpdatedTimeLabel.hidden = YES;
+        header.tag = i;
+        
+        
+        tableView.mj_header = header;
+        if (i == 0) {
+            [tableView.mj_header beginRefreshing];
+        }
+        
+        [self.tableViewArray addObject:tableView];
         [self.scrollView addSubview:tableView];
     }
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
-//                                                        object:self
-//                                                      userInfo:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,7 +117,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (void)loadNewData:(MJRefreshGifHeader *)sender {
+    ManagerTaskWebInterface *homeInterface = [[ManagerTaskWebInterface alloc] init];
+    __unsafe_unretained typeof(self) weakself = self;
+    NSDictionary *param = [homeInterface inboxObject:@[@(self.user.userid),@(sender.tag),@(self.user.usertype)]];//首页展示的都是新任务
+    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:homeInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
+        NSMutableArray *result = [homeInterface unboxObject:returnValue];
+        if ([result[0] intValue] == 1) {
+            
+            weakself.array[sender.tag]  = result[7];
+            
+            [weakself.tableViewArray[sender.tag] reloadData];
+        }else{
+            [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+        }
+        
+        [sender endRefreshing];
+    } WithErrorCodeBlock:^(id errorCode) {
+        [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+        [sender endRefreshing];
+    } WithFailureBlock:^{
+        [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+        [sender endRefreshing];
+    }];
+}
 
 
 //-(void)setContentViewController:(NSInteger)pageIndex {
@@ -139,80 +192,31 @@
 #pragma mark - LFLUISegmentedControl delegate
 -(void)uisegumentSelectionChange:(NSInteger)selection {
     NSLog(@"滑动到第%ld页",(long)selection);
+    //reloadData
+    self.pageIndex = selection;
+    //刷新数据
+    [self.tableViewArray[self.pageIndex].mj_header beginRefreshing];
 }
 
--(void)checkMission:(ManagerMissionTableViewCell *)cell {
-    //跳转到详情
-    //    [self performSegueWithIdentifier:@"metomissiondetail" sender:nil];
-    [self startAnimationForIndexPath:cell];
-}
+
 
 #pragma mark animation
 -(void)startAnimationForIndexPath:(ManagerMissionTableViewCell *)cell{
     
     ManagerMissionDetailViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"managermissiondetail"];
-    viewController.user = self.user;
     viewController.task = cell.task;
-    
+    viewController.flag = self.pageIndex;
     CGRect originRect = cell.imgRect;
     //    CGRect
     [((EMINavigationController *)self.navigationController) pushViewController:viewController withImageView:cell.postImgView originRect:originRect desRect:CGRectMake(15, 84, 60, 65)];
 }
 
--(void)toDelTask:(id)sender {
-    
-    AMAlertView *amalertview = [[AMAlertView alloc] initWithconsFrame:CGRectMake(43.5*autoSizeScaleX, (667/2-95.5)*autoSizeScaleY, 288*autoSizeScaleX, 191*autoSizeScaleY)];
-    [amalertview setTitle:@"删除任务"];
-    UIView *childView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 288*autoSizeScaleX, 145*autoSizeScaleY)];
-    UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    sureBtn.frame = CGRectMake(24*autoSizeScaleX, 77*autoSizeScaleY, 240*autoSizeScaleX, 41*autoSizeScaleY);
-    [sureBtn setBackgroundImage:[UIImage imageNamed:@"alert_shanchu"] forState:UIControlStateNormal];
-    [sureBtn addTarget:self action:@selector(delTask:) forControlEvents:UIControlEventTouchUpInside];
-    [childView addSubview:sureBtn];
-    
-    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(24*autoSizeScaleX, 0, 240*autoSizeScaleX, 77*autoSizeScaleY)];
-    lab.font = [UIFont fontWithName:@"DroidSansFallback" size:17.f*autoSizeScaleY];
-    lab.textColor = [UIColor colorWithHexString:@"15151b"];
-    lab.text = @"确认是否删除这个任务?";
-    lab.textAlignment = NSTextAlignmentCenter;
-    [childView addSubview:lab];
-    
-    [amalertview setChildView:childView];
-    ckAlertVC = [[CKAlertViewController alloc] initWithAlertView:amalertview];
-    
-    [self presentViewController:ckAlertVC animated:NO completion:nil];
-    
-    
-    
-}
--(NSMutableArray *)array {
-    if(!_array){
-        _array = [[NSMutableArray alloc] init];
-        for(int i = 0;i<4;i++){
-            Task *task = [[Task alloc] init];
-            task.filmname = @"让子弹飞";
-            task.filmdirector = @"姜文";
-            task.startdate = @"2016/10/28";
-            task.enddate = @"2016/11/28";
-            task.taskpoints = @"200";
-            task.filmstars = @"本尼迪克特·康伯巴奇,马丁·弗瑞曼,安德鲁·斯科特,马克·加蒂斯";
-            task.startdate = @"2016-10-31";
-            task.enddate = @"2016-11-21";
-            task.shownum = @"30";
-            task.tasknum = @"10";
-            task.surplusnum = @"7";
-            task.dn = @"18252495961";
-            task.gradename = @"A级影院";
-            [_array addObject:task];
-        }
-    }
-    return _array;
-}
+
 
 #pragma mark - UITableView dataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.array.count;
+    return self.array[tableView.tag-1000].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -220,26 +224,24 @@
     UIView *backview = [[UIView alloc] init];
     backview.backgroundColor = [UIColor colorWithHexString:@"f6f6f6"];
     cell.selectedBackgroundView = backview;
+    cell.viewController = self;
+    cell.pageIndex = (int)(tableView.tag-1000);
+    [cell setValue:self.array[tableView.tag-1000][indexPath.row]];
     
-    [cell setValue:self.array[indexPath.row]];
-    
-    if(self.pageIndex==2){
+    if(tableView.tag-1000==2){
         cell.flagLabel.hidden = NO;
         cell.delTaskBtn.hidden = YES;
-    }else{
+    }else if(tableView.tag-1000==1){
         cell.flagLabel.hidden = YES;
         cell.delTaskBtn.hidden = NO;
+    }else{
+        cell.flagLabel.hidden = YES;
+        cell.delTaskBtn.hidden = YES;
     }
-    
-    cell.delTaskBtn.tag = 1000+indexPath.row;
-    
-    [cell.delTaskBtn addTarget:self action:@selector(toDelTask:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
--(void)delTask:(id)sender {
-    [ckAlertVC dismissViewControllerAnimated:NO completion:nil];
-}
+
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -252,6 +254,12 @@
     }
     
 }
-
+//停止滑动了
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    if (scrollView.tag == 0) {
+        NSInteger count = (int)(scrollView.contentOffset.x/screenWidth);
+        [segmentControl selectTheSegument:count];
+    }
+}
 
 @end

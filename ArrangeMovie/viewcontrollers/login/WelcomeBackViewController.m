@@ -12,10 +12,13 @@
 #import "EMINavigationController.h"
 #import "EMIRootViewController.h"
 #import "LoginSuccessViewController.h"
+#import "LoginWebInterface.h"
+#import "SCHttpOperation.h"
+#import "OperateNSUserDefault.h"
+#import "ManagerIndexViewController.h"
 
-@interface WelcomeBackViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *headView;
-@property (weak, nonatomic) IBOutlet UILabel *backLab;
+@interface WelcomeBackViewController ()<UIGestureRecognizerDelegate>
+
 
 @end
 
@@ -23,6 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     
     //禁止返回
     self.navigationItem.backBarButtonItem = nil;
@@ -34,21 +39,37 @@
     [AppDelegate storyBoardAutoLabelFont:self.view];
 
     
-    //欢迎回来 渐变
-    [UIView animateWithDuration:3.0 animations:^{
-        self.backLab.alpha = 1;
-    }];
-    //todo此处暂无请求，使线程睡眠5秒，页面跳转
-    double delayInSeconds = 3.0;
+    
+    //使线程睡眠4秒，页面跳转
+    double delayInSeconds = 4.0;
     __block WelcomeBackViewController* bself = self;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [bself performSegueWithIdentifier:@"tologinsuccess" sender:self];
-    });
+        
+        
+            
+            if (bself.user.usertype == 0) {
+                UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
+                PFHomeViewController *viewController = [pfhome instantiateViewControllerWithIdentifier:@"pfhome"];
+                EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+                
+                [bself presentViewController:nav animated:YES completion:nil];
+            }
+            if (bself.user.usertype == 1) {
+                UIStoryboard *manager = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
+                ManagerIndexViewController *managerIndexVC = [manager instantiateViewControllerWithIdentifier:@"manager"];
+                EMINavigationController *managerNav = [[EMINavigationController alloc] initWithRootViewController:managerIndexVC];
+                [bself presentViewController:managerNav animated:YES completion:nil];
+            }
+        });
+        
+        
+        
     
     
     
-    //进行网络请求，请求成功跳至登陆成功页面
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,13 +77,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;//隐藏为YES，显示为NO
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"tologinsuccess"]) {
-        LoginSuccessViewController *losVC = segue.destinationViewController;
-        losVC.tempuserType = self.tempuserType;
+//        LoginSuccessViewController *losVC = segue.destinationViewController;
+
     }
 }
-
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    return NO;
+}
 
 @end

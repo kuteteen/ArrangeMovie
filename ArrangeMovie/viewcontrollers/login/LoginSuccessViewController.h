@@ -9,5 +9,5 @@
 #import "EMIBaseViewController.h"
 
 @interface LoginSuccessViewController : EMIBaseViewController
-@property (strong,nonatomic)NSString *tempuserType;//临时变量，用以判断跳转的首页
+
 @end

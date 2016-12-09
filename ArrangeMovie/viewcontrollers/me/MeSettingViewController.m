@@ -9,6 +9,10 @@
 #import "MeSettingViewController.h"
 #import "MeSettingTableViewCell.h"
 #import "MeSettingSignOutTableViewCell.h"
+#import "OperateNSUserDefault.h"
+#import "LoginViewController.h"
+#import "EMINavigationController.h"
+#import "SDImageCache.h"
 
 #define width [UIScreen mainScreen].bounds.size.width
 
@@ -39,9 +43,7 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableRESideMenu"
-                                                        object:self
-                                                      userInfo:nil];
+   
 }
 
 -(NSArray *)array {
@@ -113,7 +115,8 @@
         if(row<2){
             cell.descLabel.hidden = YES;
         }else{
-            cell.descLabel.text = @"1200M";
+            NSUInteger size = [[SDImageCache sharedImageCache] getSize];
+            cell.descLabel.text = size < 1024*1024 ? (size<1024 ? @"0":[NSString stringWithFormat:@"%luK",size/1024]):[NSString stringWithFormat:@"%luM",size/1024/1024];
         }
         return cell;
     }else{
@@ -139,12 +142,22 @@
         }
         if(row==2){
             //删除缓存数据
+            [[SDImageCache sharedImageCache] clearDisk];
+            [self.tableView reloadData];
         }
     }
     if(section==1){
         if(row==0){
             //退出登录
-            NSLog(@"退出登录");
+            //先把存在NSUseDefault中的一些信息删除
+            [OperateNSUserDefault removeUserDefaultWithKey:@"user"];
+            [OperateNSUserDefault removeUserDefaultWithKey:@"isFirstUse"];
+            
+            UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+            LoginViewController *loginvc = [login instantiateViewControllerWithIdentifier:@"login"];
+            EMINavigationController *loginnav = [[EMINavigationController alloc] initWithRootViewController:loginvc];
+            [self presentViewController:loginnav animated:NO completion:nil];
+            
         }
     }
     

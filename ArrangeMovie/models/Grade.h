@@ -10,7 +10,7 @@
 
 @interface Grade : NSObject
 ///院线级别id
-@property (nonatomic,copy) NSString *gradeid;
+@property (nonatomic,assign) int gradeid;
 ///院线级别名称
 @property (nonatomic,copy) NSString *gradename;
 @end

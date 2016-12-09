@@ -13,7 +13,8 @@
 -(instancetype) init {
     self = [super init];
     if(self){
-        self.server = @"";
+        self.server = @"http://116.62.42.99/app/";
+//        self.server = @"http://192.168.2.199:8080/movie/app/";
     }
     return self;
 }

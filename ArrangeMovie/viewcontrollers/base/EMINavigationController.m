@@ -36,6 +36,7 @@
 {
     [super viewDidLoad];
     
+    self.interactivePopGestureRecognizer.delegate = nil;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
@@ -55,13 +56,13 @@
 }
 
 //图片缩放
-//+ (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
-//    UIGraphicsBeginImageContext(size);
-//    [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
-//    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    return scaledImage;
-//}
++ (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
+    UIGraphicsBeginImageContext(size);
+    [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return scaledImage;
+}
 
 /**
  *  设置UINavigationBarTheme的主题
@@ -74,24 +75,22 @@
     
     // 设置导航栏背景
     
-//    UIImage *image = [UIImage imageNamed:@"navigation"];
+
     
-////    UIImage *image = [UIImage imageNamed:@"navigation"];
-//    CGSize titleSize = appearance.bounds.size;
-//    titleSize.height = titleSize.height+20;
-//    NSLog(@"导航栏宽度%f",titleSize.height);
-//    image = [self scaleToSize:image size:titleSize];
-//    [appearance setBackgroundImage:image
-//                    forBarPosition:UIBarPositionAny
-//                        barMetrics:UIBarMetricsDefault];
+    UIImage *image = [UIImage imageNamed:@"navigation"];
+    CGSize titleSize = appearance.bounds.size;
+    titleSize.height = 64;
+    titleSize.width = screenWidth;
+    image = [self scaleToSize:image size:titleSize];
+    [appearance setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
 //    [appearance setShadowImage:[UIImage new]];
     
     
 //    UIColor *color = [UIColor colorWithPatternImage:image];
-    appearance.barTintColor = [UIColor colorWithHexString:@"#162271"];
+//    appearance.barTintColor = color;
     
-    appearance.barStyle = UIBarStyleBlackTranslucent;
-    appearance.translucent = YES;
+    appearance.barStyle = UIBarStyleBlack;
+    appearance.translucent = NO;
     // 设置文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
@@ -197,6 +196,24 @@
         self.delegate = nil;
     }
     return self.animation;
+}
+
+- (UIScreenEdgePanGestureRecognizer *)screenEdgePanGestureRecognizer
+{
+    UIScreenEdgePanGestureRecognizer *screenEdgePanGestureRecognizer = nil;
+    if (self.view.gestureRecognizers.count > 0)
+    {
+        for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers)
+        {
+            if ([recognizer isKindOfClass:[UIScreenEdgePanGestureRecognizer class]])
+            {
+                screenEdgePanGestureRecognizer = (UIScreenEdgePanGestureRecognizer *)recognizer;
+                break;
+            }
+        }
+    }
+    
+    return screenEdgePanGestureRecognizer;
 }
 
 @end

@@ -14,7 +14,7 @@
 -(instancetype)init {
     self = [super init];
     if(self){
-        self.url = [NSString stringWithFormat:@"%@%@",self.server,@""];
+        self.url = [NSString stringWithFormat:@"%@%@",self.server,@"bankList.do"];
     }
     return self;
 }
@@ -22,9 +22,16 @@
 -(NSDictionary *)inboxObject:(id)param {
     NSArray *array = param;
     if(array.count>0){
-        NSString *userid = array[0];
-        NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:3];
-        [dict setObject:userid forKey:@"userid"];
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        
+        @try {
+            [dict setObject:array[0] forKey:@"userid"];
+            [dict setObject:array[1] forKey:@"usertype"];
+        } @catch (NSException *exception) {
+            NSLog(@"%@",exception);
+        } @finally {
+            
+        }
         return dict;
     }
     return nil;
@@ -38,6 +45,7 @@
         NSArray *tasks = [result objectForKey:@"data"];
         [array addObject:[BankCard mj_objectArrayWithKeyValuesArray:tasks]];
     }else {
+        [array addObject:@2];
         [array addObject:[result valueForKey:@"msg"]];
     }
     return array;

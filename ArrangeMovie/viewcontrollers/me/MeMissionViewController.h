@@ -9,5 +9,6 @@
 #import "EMIBaseViewController.h"
 
 @interface MeMissionViewController : EMIBaseViewController
-
+//所有tableview
+@property (strong,nonatomic) NSMutableArray <UITableView *> *tableViewArray;
 @end

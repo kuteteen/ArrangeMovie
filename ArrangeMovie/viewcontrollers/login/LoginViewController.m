@@ -11,9 +11,14 @@
 #import "EMINavigationController.h"
 #import "ManagerIndexViewController.h"
 #import "WelcomeBackViewController.h"
+#import "Encryption.h"
+#import "LoginWebInterface.h"
+#import "SCHttpOperation.h"
+#import "MBProgressHUD.h"
+#import "UIImage+GIF.h"
 
 @interface LoginViewController ()
-@property (strong,nonatomic)NSString *tempuserType;
+@property(strong,nonatomic)MBProgressHUD *HUD;
 @end
 
 @implementation LoginViewController
@@ -92,7 +97,21 @@
 
 - (void)setHead{
     //加载头像
-    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:@"http://static.cnbetacdn.com/topics/6b6702c2167e5a2.jpg"]];// placeholderImage:[UIImage imageNamed:@"default_head"]
+
+    if (self.headimg == nil) {
+        [self.headImgView setImage:defaultheadimage];// todo
+    }else{
+        //有默认用户头像
+        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.headimg] placeholderImage:defaultheadimage];
+    }
+    
+    if (self.dn != nil) {
+        //有默认用户手机号
+        self.phoneTF.text = self.dn;
+        self.loginBtn.enabled = YES;
+    }
+    
+    
 }
 
 //选中部分字色的变化
@@ -128,9 +147,9 @@
 //检查手机号
 - (IBAction)checkTelPhone:(UITextField *)sender {
     if ([ValidateMobile ValidateMobile:self.phoneTF.text]) {
-//        self.loginBtn.enabled = YES;
+        self.loginBtn.enabled = YES;
     }else{
-//        self.loginBtn.enabled = NO;
+        self.loginBtn.enabled = NO;
     }
 }
 
@@ -161,18 +180,72 @@
 
 //登录首页
 - (IBAction)toHome:(UIButton *)sender {
-    if ([self.phoneTF.text isEqualToString:@"0"]) {
-        //片方首页
-        self.tempuserType = @"0";
-        //进入登录欢迎页
-        [self performSegueWithIdentifier:@"tologinwelcome" sender:self];
-    }
-    if ([self.phoneTF.text isEqualToString:@"1"]) {
-        //院线经理首页
-        self.tempuserType = @"1";
-        //进入登录欢迎页
-        [self performSegueWithIdentifier:@"tologinwelcome" sender:self];
-    }
+    
+    
+    //进行网络请求，请求成功,有头像就加载头像，加载完成跳至登陆成功页面
+    LoginWebInterface *loginInterface = [[LoginWebInterface alloc] init];
+    NSDictionary *paramDic = [loginInterface inboxObject: @[self.phoneTF.text,[Encryption md5EncryptWithString:self.pwdTF.text]]];
+    __unsafe_unretained typeof(self) weakself = self;
+    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:loginInterface.url withparameter:paramDic WithReturnValeuBlock:^(id returnValue) {
+        NSMutableArray *result = [loginInterface unboxObject:returnValue];
+        if ([result[0] intValue] == 1) {
+            [weakself.view makeToast:@"登录成功" duration:2.0 position:CSToastPositionCenter];
+            //登录成功后保存user信息到userDefault
+            User *loginuser = result[1];
+            //给个默认性别
+            if (loginuser.sex == nil || [loginuser.sex isEqualToString:@""]) {
+                loginuser.sex = @"男";
+            }
+            
+            [OperateNSUserDefault saveUser:loginuser];
+            //手机号(先清除旧的，再添新的)
+            [OperateNSUserDefault removeUserDefaultWithKey:@"dn"];//清除旧的
+            [OperateNSUserDefault addUserDefaultWithKeyAndValue:@"dn" value:loginuser.dn];//添加新的
+            
+            [OperateNSUserDefault removeUserDefaultWithKey:@"headimg"];//清除旧的
+            if (loginuser.headimg != nil) {
+                [OperateNSUserDefault addUserDefaultWithKeyAndValue:@"headimg" value:loginuser.headimg];
+                //加载完头像进入登录成功页
+                UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage sd_animatedGIFNamed:@"loading_120"]];
+                weakself.HUD = [MBProgressHUD showHUDAddedTo:weakself.view animated:YES];
+                weakself.HUD.backgroundColor = [UIColor colorWithHexString:@"000000" alpha:0.2];
+                weakself.HUD.bezelView.backgroundColor = [UIColor colorWithHexString:@"ffffff" alpha:0.8];
+                //        HUD.bezelView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loading_bj"]];
+                //        HUD.bezelView.tintColor = [UIColor clearColor];
+                
+                weakself.HUD.bezelView.layer.cornerRadius = 16;
+                weakself.HUD.mode = MBProgressHUDModeCustomView;
+                //        HUD.mode = MBProgressHUDModeIndeterminate;
+                weakself.HUD.customView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+                weakself.HUD.customView = imageView;
+                weakself.HUD.margin = 5;
+                NSLog(@"HUD的margin:%f",self.HUD.margin);
+                //    HUD.delegate = self;
+                weakself.HUD.square = YES;
+                [weakself.HUD showAnimated:YES];
+                [weakself.headImgView sd_setImageWithURL:[NSURL URLWithString:loginuser.headimg] placeholderImage:defaultheadimage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    
+                    [weakself.HUD hideAnimated:YES];
+                    
+                    //进入登录成功页
+                    [weakself performSegueWithIdentifier:@"logintologinsuccess" sender:weakself];
+                }];
+            }else{
+                //进入登录成功页
+                [weakself performSegueWithIdentifier:@"logintologinsuccess" sender:weakself];
+            }
+            
+            
+        }else{
+            [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+        }
+    } WithErrorCodeBlock:^(id errorCode) {
+        [weakself.view makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+    } WithFailureBlock:^{
+        [weakself.view makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+    }];
+   
+    
     
     
     
@@ -191,8 +264,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"tologinwelcome"]) {
-        WelcomeBackViewController *welVC = segue.destinationViewController;
-        welVC.tempuserType = self.tempuserType;
+//        WelcomeBackViewController *welVC = segue.destinationViewController;
     }
 }
 

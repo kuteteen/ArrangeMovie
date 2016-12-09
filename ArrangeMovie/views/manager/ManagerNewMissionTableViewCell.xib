@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -31,12 +31,12 @@
                             <constraint firstAttribute="height" constant="61" id="ez8-4Q-pZ8"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="让子弹飞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ece-T9-Ei0">
-                        <rect key="frame" x="86" y="25" width="73" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="让子弹飞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ece-T9-Ei0">
+                        <rect key="frame" x="86" y="25" width="60" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="WBe-0U-WIE"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="15"/>
                         <color key="textColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -48,10 +48,10 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="251" image="theatres_index_time" translatesAutoresizingMaskIntoConstraints="NO" id="NPb-sV-j3L">
-                        <rect key="frame" x="86" y="72" width="14" height="14"/>
+                        <rect key="frame" x="86" y="73" width="15" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="CZc-97-P0o"/>
-                            <constraint firstAttribute="width" constant="14" id="RFo-RP-Iqr"/>
+                            <constraint firstAttribute="width" constant="15" id="RFo-RP-Iqr"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导演：姜文" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCz-Pz-75V">
@@ -59,7 +59,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="0FQ-X1-fLg"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
+                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="12"/>
                         <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -74,11 +74,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务时间:2016-10-25~2016-10-25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohu-Di-IMR">
-                        <rect key="frame" x="110" y="69" width="195" height="17"/>
+                        <rect key="frame" x="111" y="71" width="194" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="vqf-6V-rkZ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="13.5"/>
+                        <fontDescription key="fontDescription" name="DroidSansFallback" family="Droid Sans Fallback" pointSize="12"/>
                         <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -86,11 +86,11 @@
                 <constraints>
                     <constraint firstItem="IbY-WQ-xQR" firstAttribute="top" secondItem="ece-T9-Ei0" secondAttribute="bottom" constant="10" id="47Q-Y4-m0Q"/>
                     <constraint firstAttribute="trailing" secondItem="Ohu-Di-IMR" secondAttribute="trailing" constant="15" id="5Tk-0z-Ote"/>
-                    <constraint firstAttribute="bottom" secondItem="zch-0g-qWO" secondAttribute="bottom" constant="14.5" id="EPN-wf-cWA"/>
-                    <constraint firstAttribute="bottom" secondItem="Ohu-Di-IMR" secondAttribute="bottom" constant="14.5" id="KUp-L0-Mi6"/>
+                    <constraint firstAttribute="bottom" secondItem="zch-0g-qWO" secondAttribute="bottom" constant="14" id="EPN-wf-cWA"/>
+                    <constraint firstAttribute="bottom" secondItem="Ohu-Di-IMR" secondAttribute="bottom" constant="12" id="KUp-L0-Mi6"/>
                     <constraint firstAttribute="trailing" secondItem="F8X-0z-gfs" secondAttribute="trailing" constant="15" id="MTs-pc-CEq"/>
                     <constraint firstItem="qCz-Pz-75V" firstAttribute="top" secondItem="ece-T9-Ei0" secondAttribute="bottom" constant="10" id="Ntb-9R-seQ"/>
-                    <constraint firstAttribute="bottom" secondItem="NPb-sV-j3L" secondAttribute="bottom" constant="14.5" id="ROl-tk-nC8"/>
+                    <constraint firstAttribute="bottom" secondItem="NPb-sV-j3L" secondAttribute="bottom" constant="13" id="ROl-tk-nC8"/>
                     <constraint firstItem="NPb-sV-j3L" firstAttribute="leading" secondItem="IbY-WQ-xQR" secondAttribute="leading" id="Tmg-eh-3V1"/>
                     <constraint firstItem="ece-T9-Ei0" firstAttribute="top" secondItem="zch-0g-qWO" secondAttribute="top" id="W8c-yf-v5B"/>
                     <constraint firstItem="zch-0g-qWO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="XPL-OE-LYL"/>
@@ -98,11 +98,9 @@
                     <constraint firstItem="ece-T9-Ei0" firstAttribute="leading" secondItem="zch-0g-qWO" secondAttribute="trailing" constant="18" id="aKf-ty-GDc"/>
                     <constraint firstItem="F8X-0z-gfs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ece-T9-Ei0" secondAttribute="trailing" constant="8" id="cpS-15-lRr"/>
                     <constraint firstItem="IbY-WQ-xQR" firstAttribute="leading" secondItem="ece-T9-Ei0" secondAttribute="leading" id="d40-LX-fBI"/>
-                    <constraint firstItem="Ohu-Di-IMR" firstAttribute="top" secondItem="qCz-Pz-75V" secondAttribute="bottom" constant="3" id="daJ-vb-hsH"/>
                     <constraint firstAttribute="trailing" secondItem="qCz-Pz-75V" secondAttribute="trailing" constant="15" id="kRj-Fc-k3h"/>
                     <constraint firstItem="F8X-0z-gfs" firstAttribute="top" secondItem="ece-T9-Ei0" secondAttribute="top" id="sLz-tE-vh8"/>
                     <constraint firstItem="qCz-Pz-75V" firstAttribute="leading" secondItem="IbY-WQ-xQR" secondAttribute="trailing" constant="10" id="sWD-AG-bYZ"/>
-                    <constraint firstItem="NPb-sV-j3L" firstAttribute="top" secondItem="IbY-WQ-xQR" secondAttribute="bottom" constant="6" id="ywm-DQ-r74"/>
                     <constraint firstItem="Ohu-Di-IMR" firstAttribute="leading" secondItem="NPb-sV-j3L" secondAttribute="trailing" constant="10" id="zBV-cG-fnz"/>
                 </constraints>
             </tableViewCellContentView>

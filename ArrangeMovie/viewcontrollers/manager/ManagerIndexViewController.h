@@ -8,6 +8,6 @@
 
 #import "EMIBaseViewController.h"
 
-@interface ManagerIndexViewController : EMIBaseViewController
+@interface ManagerIndexViewController : EMIBaseViewController<UIViewControllerTransitioningDelegate>
 
 @end

@@ -12,7 +12,7 @@
 #import "EMIRootViewController.h"
 #import "ManagerIndexViewController.h"
 
-@interface LoginSuccessViewController ()<RESideMenuDelegate>
+@interface LoginSuccessViewController ()<RESideMenuDelegate,UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet EMIShadowImageView *headImgView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     //禁止返回
     self.navigationItem.backBarButtonItem = nil;
     self.navigationItem.leftBarButtonItem = nil;
@@ -39,89 +40,18 @@
     [UIView animateWithDuration:3.0f animations:^{
         self.headImgView.alpha = 1;
         CGRect headframe = self.headImgView.frame;
-        headframe.origin.y = 94*autoSizeScaleY;
+        headframe.origin.y = 92*autoSizeScaleY;
         self.headImgView.frame = headframe;
         
         self.nameLab.alpha = 1;
         CGRect nameframe = self.nameLab.frame;
-        nameframe.origin.y = 215*autoSizeScaleY;
+        nameframe.origin.y = 228*autoSizeScaleY;
         self.nameLab.frame = nameframe;
         
         self.bottomView.alpha = 1;
     }];
     
-    //停留5秒，跳至首页
-    double delayInSeconds = 4.0;
-    __block LoginSuccessViewController* bself = self;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        
-        if ([bself.tempuserType isEqualToString:@"0"]) {
-            UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
-            PFHomeViewController *viewController = [pfhome instantiateViewControllerWithIdentifier:@"pfhome"];
-            EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
-            UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
-            MeViewController *meVC = [me instantiateViewControllerWithIdentifier:@"me"];
-            EMINavigationController *meNav = [[EMINavigationController alloc] initWithRootViewController:meVC];
-            
-            
-            EMIRootViewController *sideMenuViewController = [[EMIRootViewController alloc] initWithContentViewController:nav leftMenuViewController:nil rightMenuViewController:meNav];
-            sideMenuViewController.backgroundImage = [UIImage imageNamed:@"all_bg"];
-            sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
-            sideMenuViewController.delegate = bself;
-            sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
-            sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
-            sideMenuViewController.contentViewShadowOpacity = 0.6;
-            sideMenuViewController.contentViewShadowRadius = 12;
-            sideMenuViewController.contentViewShadowEnabled = YES;
-            
-            
-            sideMenuViewController.scaleContentView = NO;
-            sideMenuViewController.scaleMenuView = NO;
-            sideMenuViewController.panGestureEnabled = YES;
-            sideMenuViewController.contentViewInPortraitOffsetCenterX = screenWidth;
-            
-            [bself presentViewController:sideMenuViewController animated:YES completion:nil];
-        }
-        if ([bself.tempuserType isEqualToString:@"1"]) {
-            UIStoryboard *manager = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
-            ManagerIndexViewController *managerIndexVC = [manager instantiateViewControllerWithIdentifier:@"manager"];
-            //假数据 用户
-            User *user = [[User alloc] init];
-            
-            user.name = @"冯小刚";
-            user.dn = @"1577470000";
-            user.usertype = 0;
-            user.sex = 1;
-            user.headimg = @"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580";
-            user.gradename = @"A级影院";
-            managerIndexVC.user = user;
-            EMINavigationController *managerNav = [[EMINavigationController alloc] initWithRootViewController:managerIndexVC];
-            
-            
-            UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
-            MeViewController *meVC = [me instantiateViewControllerWithIdentifier:@"me"];
-            EMINavigationController *meNav = [[EMINavigationController alloc] initWithRootViewController:meVC];
-            EMIRootViewController *sideMenuViewController = [[EMIRootViewController alloc] initWithContentViewController:managerNav
-                                                                                                  leftMenuViewController:nil
-                                                                                                 rightMenuViewController:meNav];
-            sideMenuViewController.backgroundImage = [UIImage imageNamed:@"all_bg"];
-            sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
-            sideMenuViewController.delegate = bself;
-            sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
-            sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
-            sideMenuViewController.contentViewShadowOpacity = 0.6;
-            sideMenuViewController.contentViewShadowRadius = 12;
-            sideMenuViewController.contentViewShadowEnabled = YES;
-            
-            
-            sideMenuViewController.scaleContentView = NO;
-            sideMenuViewController.scaleMenuView = NO;
-            sideMenuViewController.panGestureEnabled = YES;
-            sideMenuViewController.contentViewInPortraitOffsetCenterX = screenWidth;
-            [bself presentViewController:sideMenuViewController animated:YES completion:nil];
-        }
-    });
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,9 +61,51 @@
 
 
 - (void)setHead{
+    
+    self.nameLab.text = self.user.nickname;
+    
     //加载头像
-    //加载头像
-    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:@"http://static.cnbetacdn.com/topics/6b6702c2167e5a2.jpg"]];// placeholderImage:[UIImage imageNamed:@"default_head"]
+    if (self.headimg == nil) {
+        [self.headImgView setImage:defaultheadimage];// todo
+        
+        //使线程睡眠4秒，页面跳转
+        double delayInSeconds = 4.0;
+        __block LoginSuccessViewController* bself = self;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            
+            [bself jumpMethod];
+            
+            
+        });
+        
+        
+        
+    }else{
+        //有默认用户头像
+         __unsafe_unretained typeof(self) weakself = self;
+        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.headimg] placeholderImage:defaultheadimage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            
+            
+            //使线程睡眠4秒，页面跳转
+            double delayInSeconds = 4.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                
+                [weakself jumpMethod];
+                
+                
+            });
+        }];
+    }
+}
+
+- (void)jumpMethod{
+    [self performSegueWithIdentifier:@"loginsuccesstowelcomeback" sender:self];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    return NO;
 }
 /*
 #pragma mark - Navigation

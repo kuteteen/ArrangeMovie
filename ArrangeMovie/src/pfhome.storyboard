@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="DROIDSANS-BOLD_0.TTF">
+        <mutableArray key="DroidSans_Bold.ttf">
             <string>DroidSans-Bold</string>
         </mutableArray>
     </customFonts>
@@ -86,6 +86,7 @@
                 <tapGestureRecognizer id="hkJ-gE-eG2">
                     <connections>
                         <action selector="hideKeyBoard:" destination="gpQ-z6-JqU" id="uLi-0Z-6In"/>
+                        <outlet property="delegate" destination="gpQ-z6-JqU" id="pvN-jJ-XBH"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -147,7 +148,7 @@
         <!--Detail Un Do View Controller-->
         <scene sceneID="vN1-iU-qPu">
             <objects>
-                <viewController id="X3H-GA-rtq" customClass="AMDetailUnDoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="undoVC" id="X3H-GA-rtq" customClass="AMDetailUnDoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="47E-fF-OoT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,7 +163,7 @@
         <!--Detail Failed View Controller-->
         <scene sceneID="6B7-8a-JMp">
             <objects>
-                <viewController id="yoQ-7k-M8e" customClass="AMDetailFailedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="failedVC" id="yoQ-7k-M8e" customClass="AMDetailFailedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VeJ-5L-2e9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,7 +178,7 @@
         <!--Detail Done View Controller-->
         <scene sceneID="If7-fP-OK9">
             <objects>
-                <viewController id="4QR-X0-Tqi" customClass="AMDetailDoneViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="doneVC" id="4QR-X0-Tqi" customClass="AMDetailDoneViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nmN-Rs-ZO7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

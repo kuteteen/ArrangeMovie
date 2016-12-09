@@ -20,19 +20,6 @@
 #define iPhone6SPlus [[UIScreen mainScreen] bounds].size.width == 414.0f && [[UIScreen mainScreen] bounds].size.height == 736.0f
 
 
-//微信支付商户号
-#define MCH_ID  @"YOUR_MCH_ID"
-//开户邮件中的（公众账号APPID或者应用APPID）
-#define WX_AppID @"YOUR_WX_AppID"
-//安全校验码（MD5）密钥，商户平台登录账户和密码登录http://pay.weixin.qq.com 平台设置的“API密钥”，为了安全，请设置为以数字和字母组成的32字符串。
-#define WX_PartnerKey @"YOUR_WX_PartnerKey"
-//获取用户openid，可使用APPID对应的公众平台登录http://mp.weixin.qq.com 的开发者中心获取AppSecret。
-#define WX_AppSecret @"YOUR_WX_AppSecret"
-
-
-
-
-
 
 
 #define autoSizeScaleX [[UIScreen mainScreen] bounds].size.width/375.0f
@@ -41,6 +28,11 @@
 //微信支付的APP_ID
 #define WX_APP_ID @"wx241c56461cdb424f"
 
+//上传图片的地址
+#define imgUploadServerIP @"http://116.62.42.99/app/uploadfile.do"
+//#define imgUploadServerIP @"http://192.168.2.199:8080/movie/app/uploadfile.do"
+//默认头像
+#define defaultheadimage [UIImage imageNamed:@"default_head"]
 //Toast
 #import "UIView+Toast.h"
 //userDefault
@@ -51,5 +43,5 @@
 //color
 #import "UIColor+Hex.h"
 
-
+#import <AlipaySDK/AlipaySDK.h>
 #endif /* am_pch */

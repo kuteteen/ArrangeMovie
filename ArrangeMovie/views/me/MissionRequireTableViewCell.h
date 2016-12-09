@@ -10,5 +10,7 @@
 
 @interface MissionRequireTableViewCell : SCTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *requireLabel;
+@property (weak, nonatomic) IBOutlet UILabel *taskCountsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cinemaLevelLabel;
 
 @end

@@ -7,7 +7,16 @@
 //
 
 #import "SCTableViewCell.h"
+#import "OptDetail.h"
 
 @interface MePointRecordTableViewCell : SCTableViewCell
 
+@property (strong,nonatomic) OptDetail *optdetail;
+
+@property (weak, nonatomic) IBOutlet UILabel *pointTitle;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pointCountLabel;
+
+
+- (void)setViewValues:(OptDetail *)optdetail;
 @end

@@ -19,6 +19,8 @@
 #import "LFLUISegmentedControl.h"
 #import "WXApi.h"
 #import "WXApiManager.h"
+#import "PFHomeViewController.h"
+
 
 @interface AppDelegate ()<RESideMenuDelegate>
 
@@ -32,67 +34,38 @@
 
 
 
-
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];
     [self.window makeKeyAndVisible];
     
     
+    User *appuser = [User mj_objectWithKeyValues:(NSMutableDictionary *)([OperateNSUserDefault readUserDefaultWithKey:@"user"])];
+    if (appuser == nil) {
+        UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
+        LoginViewController *loginvc = [login instantiateViewControllerWithIdentifier:@"login"];
+        EMINavigationController *loginnav = [[EMINavigationController alloc] initWithRootViewController:loginvc];
+        [self.window setRootViewController:loginnav];
+    }else{
+        if (appuser.usertype == 0) {
+            UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
+            PFHomeViewController *pfhomevc = [pfhome instantiateViewControllerWithIdentifier:@"pfhome"];
+            EMINavigationController *pfhomenav = [[EMINavigationController alloc] initWithRootViewController:pfhomevc];
+            [self.window setRootViewController:pfhomenav];
+        }
+        if (appuser.usertype ==1) {
+            UIStoryboard *manager = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
+            ManagerIndexViewController *managervc = [manager instantiateViewControllerWithIdentifier:@"manager"];
+            EMINavigationController *managernav = [[EMINavigationController alloc] initWithRootViewController:managervc];
+            [self.window setRootViewController:managernav];
+        }
+    }
     
-    UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
-    LoginViewController *loginvc = [login instantiateViewControllerWithIdentifier:@"login"];
-    EMINavigationController *loginnav = [[EMINavigationController alloc] initWithRootViewController:loginvc];
-    [self.window setRootViewController:loginnav];
     
-//    
-//    UIStoryboard *manager = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
-//    ManagerIndexViewController *managerIndexVC = [manager instantiateViewControllerWithIdentifier:@"manager"];
-//    //假数据 用户
-//    User *user = [[User alloc] init];
-//    
-//    user.name = @"冯小刚";
-//    user.dn = @"1577470000";
-//    user.usertype = 0;
-//    user.sex = 1;
-//    user.headimg = @"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1476085888&di=001f4971799df4dd4200a308117f65b9&src=http://img.hb.aicdn.com/761f1bce319b745e663fed957606b4b5d167b9bff70a-nfBc9N_fw580";
-//    user.gradename = @"A级影院";
-//    managerIndexVC.user = user;
-//    EMINavigationController *managerNav = [[EMINavigationController alloc] initWithRootViewController:managerIndexVC];
-//    
-//    
-//    UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
-//    MeViewController *meVC = [me instantiateViewControllerWithIdentifier:@"me"];
-//    EMINavigationController *meNav = [[EMINavigationController alloc] initWithRootViewController:meVC];
-//    
-//    EMIRootViewController *sideMenuViewController = [[EMIRootViewController alloc] initWithContentViewController:managerNav
-//                                                                    leftMenuViewController:nil
-//                                                                   rightMenuViewController:meNav];
-//    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"all_bg"];
-//    sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
-//    sideMenuViewController.delegate = self;
-//    sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
-//    sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
-//    sideMenuViewController.contentViewShadowOpacity = 0.6;
-//    sideMenuViewController.contentViewShadowRadius = 12;
-//    sideMenuViewController.contentViewShadowEnabled = YES;
-//    
-//    
-//    sideMenuViewController.scaleContentView = NO;
-//    sideMenuViewController.scaleMenuView = NO;
-//    sideMenuViewController.panGestureEnabled = YES;
-//    sideMenuViewController.contentViewInPortraitOffsetCenterX = screenWidth;
+    
+   
+    
 
 
-//    UIImage *image = [UIImage imageNamed:@"navigation"];
-//    CGSize titleSize = loginnav.navigationBar.bounds.size;
-//    titleSize.height = titleSize.height+20;
-//    image = [self scaleToSize:image size:titleSize];
-//    [[UINavigationBar appearance] setBackgroundImage:image
-//                       forBarPosition:UIBarPositionAny
-//                           barMetrics:UIBarMetricsDefault];
-//    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-
-    [self.window setRootViewController:loginnav];
 
     
     //微信支付
@@ -111,11 +84,41 @@
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+    
+    if ([url.host isEqualToString:@"safepay"]) {
+        // 支付跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+        }];
+        
+        
+        return YES;
+    }else{
+        return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+    }
+    
+    
+    
+    
+    
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+    
+    
+    
+    
+    if ([url.host isEqualToString:@"safepay"]) {
+        // 支付跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+        }];
+        return YES;
+    }else{
+        //微信
+        return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+    }
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
