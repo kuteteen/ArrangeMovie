@@ -69,6 +69,8 @@
                 NSArray *result = [changepwdInterface unboxObject:returnValue];
                 if ([result[0] intValue] == 1) {
                     [weakself.view makeToast:@"修改成功" duration:2.0 position:CSToastPositionCenter];
+                    //密码存起来
+                    [OperateNSUserDefault addUserDefaultWithKeyAndValue:@"password" value:[Encryption md5EncryptWithString:weakself.pwdNewTextField.text]];
                     //返回上一页
                     [weakself.navigationController popViewControllerAnimated:YES];
                 }else{

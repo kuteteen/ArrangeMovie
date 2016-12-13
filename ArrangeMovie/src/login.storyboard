@@ -24,6 +24,7 @@
             <string>DroidSans-Bold</string>
             <string>DroidSans-Bold</string>
             <string>DroidSans-Bold</string>
+            <string>DroidSans-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -178,12 +179,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pfhome_topbg" id="s11-VB-Xox">
-                                <rect key="frame" x="0.0" y="64" width="375" height="143"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_head" id="etQ-Ye-W0B" customClass="EMIShadowImageView">
-                                <rect key="frame" x="129" y="89" width="118" height="118"/>
+                                <rect key="frame" x="10" y="137" width="113" height="113"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -191,12 +192,12 @@
                                 </connections>
                             </imageView>
                             <view contentMode="scaleToFill" id="KIY-rA-QVe">
-                                <rect key="frame" x="0.0" y="207" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="WGK-lB-ADj">
-                                <rect key="frame" x="17" y="261" width="341" height="260"/>
+                                <rect key="frame" x="17" y="250" width="341" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="sTE-Ic-cB5">
@@ -239,7 +240,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="checkTelPhone:" destination="u65-rD-WZ0" eventType="editingChanged" id="6d4-DY-4gM"/>
                                                     <action selector="checkTelphone:" destination="dNy-9w-QB9" eventType="editingChanged" id="ptj-lH-O1s"/>
                                                     <action selector="touchPhoneTF:" destination="dNy-9w-QB9" eventType="editingDidBegin" id="Wqo-RK-BTc"/>
                                                 </connections>
@@ -320,7 +320,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="checkPwd:" destination="dNy-9w-QB9" eventType="editingDidEnd" id="6G2-6s-UTg"/>
-                                                    <action selector="checkPwd:" destination="u65-rD-WZ0" eventType="editingDidEnd" id="L4J-gp-nbp"/>
                                                     <action selector="touchAnpwdTF:" destination="dNy-9w-QB9" eventType="editingDidBegin" id="4Co-1c-vMT"/>
                                                 </connections>
                                             </textField>
@@ -348,9 +347,40 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="9tT-VQ-7rw">
-                                <rect key="frame" x="0.0" y="255" width="375" height="2"/>
+                                <rect key="frame" x="0.0" y="115" width="375" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.80784313725490198" green="0.81960784313725488" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="yev-I9-N8e">
+                                <rect key="frame" x="136" y="185" width="222" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon---Username" id="sNL-5F-ncU">
+                                        <rect key="frame" x="10" y="21" width="23" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="fef-Ml-tWQ">
+                                        <rect key="frame" x="54" y="17" width="158" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="DroidSans-Bold" family="Droid Sans" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="touchNicknameTF:" destination="dNy-9w-QB9" eventType="editingDidBegin" id="AoS-QS-hcI"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" id="A2V-X4-m2l">
+                                        <rect key="frame" x="10" y="64" width="212" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -365,6 +395,9 @@
                         <outlet property="anpwdLineView" destination="sTE-Ic-cB5" id="Pvy-a8-kb1"/>
                         <outlet property="anpwdTF" destination="K8f-fQ-TAE" id="G4T-9Z-1Bw"/>
                         <outlet property="headImg" destination="etQ-Ye-W0B" id="aVL-Z7-QN7"/>
+                        <outlet property="nickNameImg" destination="sNL-5F-ncU" id="SEF-DW-ORK"/>
+                        <outlet property="nickNameLineView" destination="A2V-X4-m2l" id="tBs-0U-AqA"/>
+                        <outlet property="nickNameTF" destination="fef-Ml-tWQ" id="A26-Z9-MOq"/>
                         <outlet property="npwdImg" destination="zfy-cv-TaY" id="yQI-PC-6ii"/>
                         <outlet property="npwdLineView" destination="1Wk-oZ-Mgd" id="JSa-to-Rtu"/>
                         <outlet property="npwdTF" destination="Y1J-Qt-UXb" id="tRA-nG-g6u"/>
@@ -693,6 +726,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Icon---Username" width="23" height="23"/>
         <image name="forget_btn" width="702" height="109"/>
         <image name="login_btn" width="523" height="108"/>
         <image name="login_imput_-password" width="40" height="46"/>

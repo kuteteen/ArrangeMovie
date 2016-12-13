@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ArrangeMovie/AppDelegate.m"
-            timestampString = "502960415.517501"
+            timestampString = "503306290.484965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "-application:handleOpenURL:"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ArrangeMovie/AppDelegate.m"
-            timestampString = "502960418.081693"
+            timestampString = "503306290.484965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "-application:handleOpenURL:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ArrangeMovie/AppDelegate.m"
+            timestampString = "503306290.484965"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "-application:handleOpenURL:"
             landmarkType = "5">
             <Locations>
@@ -150,31 +166,61 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[AppDelegate application:handleOpenURL:]"
+                  symbolName = "__41-[AppDelegate application:handleOpenURL:]_block_invoke_2"
                   moduleName = "ArrangeMovie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenkai/Documents/%E5%85%AC%E5%8F%B8%E9%A1%B9%E7%9B%AE/ArrangeMovie/ArrangeMovie/AppDelegate.m"
-                  timestampString = "502961103.076929"
+                  timestampString = "503340355.206651"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "190">
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "978">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__41-[AppDelegate application:handleOpenURL:]_block_invoke"
+                  symbolName = "__copy_helper_block_"
                   moduleName = "ArrangeMovie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenkai/Documents/%E5%85%AC%E5%8F%B8%E9%A1%B9%E7%9B%AE/ArrangeMovie/ArrangeMovie/AppDelegate.m"
-                  timestampString = "502961103.077151"
+                  timestampString = "503340355.207018"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
-                  offsetFromSymbolStart = "36">
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_"
+                  moduleName = "ArrangeMovie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenkai/Documents/%E5%85%AC%E5%8F%B8%E9%A1%B9%E7%9B%AE/ArrangeMovie/ArrangeMovie/AppDelegate.m"
+                  timestampString = "503340355.207311"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "29">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__41-[AppDelegate application:handleOpenURL:]_block_invoke.109"
+                  moduleName = "ArrangeMovie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chenkai/Documents/%E5%85%AC%E5%8F%B8%E9%A1%B9%E7%9B%AE/ArrangeMovie/ArrangeMovie/AppDelegate.m"
+                  timestampString = "503340355.207589"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "52">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -186,59 +232,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ArrangeMovie/AppDelegate.m"
-            timestampString = "502960421.662402"
+            timestampString = "503306290.484965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "-application:openURL:sourceApplication:annotation:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ArrangeMovie/AppDelegate.m"
-            timestampString = "502960422.685751"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "-application:openURL:sourceApplication:annotation:"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "-application:handleOpenURL:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[AppDelegate application:openURL:sourceApplication:annotation:]"
+                  symbolName = "__41-[AppDelegate application:handleOpenURL:]_block_invoke.109"
                   moduleName = "ArrangeMovie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenkai/Documents/%E5%85%AC%E5%8F%B8%E9%A1%B9%E7%9B%AE/ArrangeMovie/ArrangeMovie/AppDelegate.m"
-                  timestampString = "502961103.080533"
+                  timestampString = "503340355.21047"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "226">
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "52">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__64-[AppDelegate application:openURL:sourceApplication:annotation:]_block_invoke"
+                  symbolName = "__41-[AppDelegate application:handleOpenURL:]_block_invoke_2.111"
                   moduleName = "ArrangeMovie"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/chenkai/Documents/%E5%85%AC%E5%8F%B8%E9%A1%B9%E7%9B%AE/ArrangeMovie/ArrangeMovie/AppDelegate.m"
-                  timestampString = "502961103.080738"
+                  timestampString = "503340355.210706"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
-                  offsetFromSymbolStart = "36">
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
          </BreakpointContent>

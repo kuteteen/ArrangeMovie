@@ -13,7 +13,7 @@
 @implementation PresentAnimation
 // 返回动画的时间
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext{
-    return 0.8;
+    return 0.5;
 }
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext{
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
@@ -27,7 +27,7 @@
 
     
     // 动画
-    [UIView animateWithDuration:0.8 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         fromVC.view.frame = CGRectMake(-screenWidth,0,screenWidth,screenHeight);
     } completion:^(BOOL finished) {
         //转场执行完成

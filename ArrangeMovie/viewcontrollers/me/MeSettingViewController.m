@@ -151,8 +151,8 @@
             //退出登录
             //先把存在NSUseDefault中的一些信息删除
             [OperateNSUserDefault removeUserDefaultWithKey:@"user"];
-            [OperateNSUserDefault removeUserDefaultWithKey:@"isFirstUse"];
-            
+//            [OperateNSUserDefault removeUserDefaultWithKey:@"isFirstUse"];
+            [OperateNSUserDefault removeUserDefaultWithKey:@"password"];
             UIStoryboard *login = [UIStoryboard storyboardWithName:@"login" bundle:nil];
             LoginViewController *loginvc = [login instantiateViewControllerWithIdentifier:@"login"];
             EMINavigationController *loginnav = [[EMINavigationController alloc] initWithRootViewController:loginvc];

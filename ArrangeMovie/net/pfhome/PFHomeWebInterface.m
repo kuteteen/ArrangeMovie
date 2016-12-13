@@ -41,12 +41,12 @@
     NSInteger success = [[result objectForKey:@"success"] integerValue];
     if (success==1) {
         [array addObject:@1];
-        [array addObject:[result objectForKey:@"canreceive"]];//可领取
-        [array addObject:[result objectForKey:@"received"]];//已领取
-        [array addObject:[result objectForKey:@"needpay"]];//需要支付
-        [array addObject:[result objectForKey:@"payed"]];//已支付 平台审核完成
-        [array addObject:[result objectForKey:@"needaudit"]];//待审核
-        [array addObject:[result objectForKey:@"audited"]];//已审核
+        [array addObject:@([[result objectForKey:@"canreceive"] longValue])];//可领取
+        [array addObject:@([[result objectForKey:@"received"] longValue])];//已领取
+        [array addObject:@([[result objectForKey:@"needpay"] longValue])];//需要支付
+        [array addObject:@([[result objectForKey:@"payed"] longValue])];//已支付 平台审核完成
+        [array addObject:@([[result objectForKey:@"needaudit"] longValue])];//待审核
+        [array addObject:@([[result objectForKey:@"audited"] longValue])];//已审核
         [array addObject:[result objectForKey:@"task"]];//所有任务，是个数组
     }else {
         [array addObject:@2];

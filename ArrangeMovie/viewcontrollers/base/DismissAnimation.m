@@ -13,7 +13,7 @@
 @implementation DismissAnimation
 // 返回动画的时间
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext{
-    return 0.8;
+    return 0.5;
 }
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext{
     MeViewController * fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
@@ -26,7 +26,7 @@
     fromVC.view.frame = CGRectMake(0, 0, screenWidth, screenHeight);
 
     // 动画
-    [UIView animateWithDuration:0.8 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         fromVC.view.frame = CGRectMake(screenWidth,0,screenWidth,screenHeight);
     } completion:^(BOOL finished) {
         [transitionContext completeTransition: ![transitionContext transitionWasCancelled]]; // 如果参数写成yes，当用户取消pop时，会继续执行动画，也就是让detailVC消失，设置成这个参数，会避免这样的错误

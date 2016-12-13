@@ -9,13 +9,14 @@
 #import "AlipayRequestHandler.h"
 #import "DataSigner.h"
 #import "SCHttpOperation.h"
+#import "PayOrderModel.h"
 
 
 @implementation AlipayRequestHandler
 #define privatekey @"MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAInn7BOaAU4zZfpERyaGFiKgeM/shtcl81HKLl136O3A+7ctTzjrNzO2czGPuuiCG1ubYUyEboq1KmNHOadbGgdzAgceYv3TJ8Gb6qtmybMiUdQYDiZHBLSe2fll0kun0GnAJZ1TLg9nCKTrbkStA31Q7SJfTDkvdvFMkLf0qdN9AgMBAAECgYBqklX4F+2mV0YZj6ZEeR6mB8kVNb5Gicdtj4chKEdTZO2hc1xjqjJwvjBrPp28jL9DneIlVbpvau2k5ygA0wBbVWhbVHRmNWHA6KnQSuxLVwfLlNKdr7Hlq5ClbiBLZYk2IQ9xkYY8tCNBeTJPRfwjHkyNhEJ8Q4WJS3u3B6dsKQJBAORtD5aH5NW2hjxuuzAeE/lROz95VPC5VcNNKvqlXvIOmGsuTlvGxyElg54BxrCmVwDMF0WQx2ifzDMksqo2xpMCQQCajZAoeaPIazSMCuuw4Tr/8T93P0T/PAcXNDPfX8mSE/fgq3mK0cstc/q2blwohk87zP6unPZFMtpn77u3x7evAkBtJZukLuzuHVgI+lQhSs36fJEV5FDs8XIEbxQRTgGPIeA8npS8j7/Im9dHIcwhzmmWLO8Vw3c1C94Ttf5VDPVXAkBhiPsz/+fzoGxOAMpTGyDPyuDhkYUqiihzZVdjHaEo1f81wyF2EQXnDm1nWehBDtnMBIepjJcCfqBEvY864QgzAkEAueXEYZKm95E0lMUO8l98Q9GHiCZs74bn+wIQnvlFlURERJg+Dtm4zgWdSCJoWG+11whCCatsTvwWj+7PaYG/MQ=="
 
 
-- (void)jumpToBizPay:(NSString *)userid price:(NSNumber *)price {
+- (void)jumpToBizPay:(NSNumber *)userid price:(NSNumber *)price usertype:(NSNumber *)usertype{
     
     
     __block NSString *returnStr = @"初始化";
@@ -24,7 +25,7 @@
     // 注意:参数配置请查看服务器端Demo
     // 更新时间：2015年11月20日
     //============================================================
-    NSString *urlString   = @"http://192.168.2.176:8080/movie/app/getPayParam.do";
+    NSString *urlString   = @"http://192.168.2.199:8080/movie/app/recharge.do";
     
     //请求参数
     //1.json
@@ -35,13 +36,18 @@
 //    id<DataSigner> signer = CreateRSADataSigner(privatekey);
 //    NSString *signedString = [signer signString:jsonStr];
 //    NSDictionary *param = @{@"json":jsonStr,@"sign":signedString,@"deviceno":@"EMITEST"};
-    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:urlString withparameter:nil WithReturnValeuBlock:^(id returnValue) {
+    NSDictionary *param = @{@"userid":@([userid intValue]),@"amount":@([price doubleValue]),@"usertype":@([usertype intValue]),@"paycode":@"alipayapp"};
+    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:urlString withparameter:param WithReturnValeuBlock:^(id returnValue) {
         if (returnValue) {
             NSMutableDictionary *dict = (NSMutableDictionary *)returnValue;
             if(dict != nil){
-                NSMutableString *retcode = [dict objectForKey:@"success"];
-                if (retcode.intValue == 1){
-                    NSMutableString *data = [dict objectForKey:@"data"];
+                if ([[dict objectForKey:@"success"] intValue] == 1){
+                    
+                    PayOrderModel *pmodel = [PayOrderModel sharedInstance];
+                    pmodel.chargeid = [[[dict objectForKey:@"data"] objectForKey:@"chargeid"] intValue];
+                    pmodel.orderno = [[dict objectForKey:@"data"] objectForKey:@"orderno"];
+                    
+                    NSMutableString *param = [[dict objectForKey:@"data"] objectForKey:@"param"];
                     
                     
                     
@@ -54,7 +60,7 @@
                                                //orderInfoEncoded, signedString]
                     
                     // NOTE: 调用支付结果开始支付
-                    [[AlipaySDK defaultService] payOrder:data fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+                    [[AlipaySDK defaultService] payOrder:param fromScheme:appScheme callback:^(NSDictionary *resultDic) {
                         NSLog(@"reslut = %@",resultDic);
                     }];
                     returnStr = @"";

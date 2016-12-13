@@ -20,6 +20,9 @@
 #import "WXApi.h"
 #import "WXApiManager.h"
 #import "PFHomeViewController.h"
+#import "PayOrderModel.h"
+#import "SCHttpOperation.h"
+#import "LoginWebInterface.h"
 
 
 @interface AppDelegate ()<RESideMenuDelegate>
@@ -32,7 +35,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-
+    sleep(2);
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor clearColor];
@@ -58,6 +61,8 @@
             EMINavigationController *managernav = [[EMINavigationController alloc] initWithRootViewController:managervc];
             [self.window setRootViewController:managernav];
         }
+        //隐形登录
+        [self login:appuser];
     }
     
     
@@ -89,6 +94,28 @@
         // 支付跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
+            PayOrderModel *pmodel = [PayOrderModel sharedInstance];
+            [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:@"http://116.62.42.99/app/appnotify.do" withparameter:@{@"chargeid":@(pmodel.chargeid),@"orderno":pmodel.orderno} WithReturnValeuBlock:^(id returnValue) {
+                
+                if ([[returnValue objectForKey:@"success"] intValue] == 1){
+                    int paystate = [[returnValue objectForKey:@"paystate"] intValue];
+                    if (paystate == 1) {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付结果" message:[returnValue objectForKey:@"成功"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                    if (paystate == 2) {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付结果" message:[returnValue objectForKey:@"失败"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                }else{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付结果" message:[returnValue objectForKey:@"msg"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+            } WithErrorCodeBlock:^(id errorCode) {
+                
+            } WithFailureBlock:^{
+                
+            }];
         }];
         
         
@@ -112,6 +139,28 @@
         // 支付跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
+            PayOrderModel *pmodel = [PayOrderModel sharedInstance];
+            [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:@"http://116.62.42.99/app/appnotify.do" withparameter:@{@"chargeid":@(pmodel.chargeid),@"orderno":pmodel.orderno} WithReturnValeuBlock:^(id returnValue) {
+                
+                if ([[returnValue objectForKey:@"success"] intValue] == 1){
+                    int paystate = [[returnValue objectForKey:@"paystate"] intValue];
+                    if (paystate == 1) {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付结果" message:[returnValue objectForKey:@"成功"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                    if (paystate == 2) {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付结果" message:[returnValue objectForKey:@"失败"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                }else{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付结果" message:[returnValue objectForKey:@"msg"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+            } WithErrorCodeBlock:^(id errorCode) {
+                
+            } WithFailureBlock:^{
+                
+            }];
         }];
         return YES;
     }else{
@@ -142,6 +191,65 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+//隐形登录
+- (void)login:(User *)login_appuser{
+    
+    //密码
+    NSString *password = [OperateNSUserDefault readUserDefaultWithKey:@"password"];
+    if (password == nil) {
+        return;
+    }
+    //进行网络请求，请求成功,有头像就加载头像，加载完成跳至登陆成功页面
+    LoginWebInterface *loginInterface = [[LoginWebInterface alloc] init];
+    NSDictionary *paramDic = [loginInterface inboxObject: @[login_appuser.dn,password]];
+    __unsafe_unretained typeof(self) weakself = self;
+    [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:loginInterface.url withparameter:paramDic WithReturnValeuBlock:^(id returnValue) {
+        NSMutableArray *result = [loginInterface unboxObject:returnValue];
+        if ([result[0] intValue] == 1) {
+            [weakself.window makeToast:@"加载成功" duration:2.0 position:CSToastPositionCenter];
+            //登录成功后保存user信息到userDefault
+            User *loginuser = result[1];
+            //给个默认性别
+            if (loginuser.sex == nil || [loginuser.sex isEqualToString:@""]) {
+                loginuser.sex = @"男";
+            }
+            
+            [OperateNSUserDefault saveUser:loginuser];
+            //手机号(先清除旧的，再添新的)
+            [OperateNSUserDefault removeUserDefaultWithKey:@"dn"];//清除旧的
+            [OperateNSUserDefault addUserDefaultWithKeyAndValue:@"dn" value:loginuser.dn];//添加新的
+            
+            [OperateNSUserDefault removeUserDefaultWithKey:@"headimg"];//清除旧的
+            if (loginuser.headimg != nil) {
+                [OperateNSUserDefault addUserDefaultWithKeyAndValue:@"headimg" value:loginuser.headimg];
+            }
+            
+            if (loginuser.usertype == 0) {
+                UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
+                PFHomeViewController *pfhomevc = [pfhome instantiateViewControllerWithIdentifier:@"pfhome"];
+                EMINavigationController *pfhomenav = [[EMINavigationController alloc] initWithRootViewController:pfhomevc];
+                [weakself.window setRootViewController:pfhomenav];
+            }
+            if (loginuser.usertype ==1) {
+                UIStoryboard *manager = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
+                ManagerIndexViewController *managervc = [manager instantiateViewControllerWithIdentifier:@"manager"];
+                EMINavigationController *managernav = [[EMINavigationController alloc] initWithRootViewController:managervc];
+                [weakself.window setRootViewController:managernav];
+            }
+            
+            
+        }else{
+            [weakself.window makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
+        }
+    } WithErrorCodeBlock:^(id errorCode) {
+        [weakself.window makeToast:@"请求出错" duration:2.0 position:CSToastPositionCenter];
+    } WithFailureBlock:^{
+        [weakself.window makeToast:@"网络异常" duration:2.0 position:CSToastPositionCenter];
+    }];
+}
+
+
 
 + (void)storyBoradAutoLay:(UIView *)allView
 {

@@ -526,7 +526,7 @@
                 [alter show];
             }
         } ;
-        [wxreq jumpToBizPay:@"132" price:[NSNumber numberWithDouble:[cztextField.text doubleValue]]];
+        [wxreq jumpToBizPay:[NSNumber numberWithInt:self.user.userid] price:[NSNumber numberWithDouble:[cztextField.text doubleValue]] usertype:[NSNumber numberWithInt:self.user.usertype]];//
         
     }else{
         //支付宝支付
@@ -538,7 +538,7 @@
                 [alter show];
             }
         } ;
-        [alireq jumpToBizPay:@"132" price:[NSNumber numberWithDouble:[cztextField.text doubleValue]]];
+        [alireq jumpToBizPay:[NSNumber numberWithInt:self.user.userid] price:[NSNumber numberWithDouble:[cztextField.text doubleValue]] usertype:[NSNumber numberWithInt:self.user.usertype]];
     }
     
 

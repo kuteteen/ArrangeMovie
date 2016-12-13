@@ -190,6 +190,11 @@
         NSMutableArray *result = [loginInterface unboxObject:returnValue];
         if ([result[0] intValue] == 1) {
             [weakself.view makeToast:@"登录成功" duration:2.0 position:CSToastPositionCenter];
+            //密码存起来
+            [OperateNSUserDefault addUserDefaultWithKeyAndValue:@"password" value:[Encryption md5EncryptWithString:weakself.pwdTF.text]];
+            
+            
+            
             //登录成功后保存user信息到userDefault
             User *loginuser = result[1];
             //给个默认性别

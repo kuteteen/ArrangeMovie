@@ -25,7 +25,9 @@
     
     //user
     self.user = [User mj_objectWithKeyValues:(NSMutableDictionary *)([OperateNSUserDefault readUserDefaultWithKey:@"user"])];
-    
+    if (self.user.nickname == nil) {
+        self.user.nickname = @"";
+    }
     self.headimg = [OperateNSUserDefault readUserDefaultWithKey:@"headimg"];
     
     self.dn = [OperateNSUserDefault readUserDefaultWithKey:@"dn"];

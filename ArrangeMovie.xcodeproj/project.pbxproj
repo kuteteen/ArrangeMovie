@@ -168,6 +168,8 @@
 		D648F7A91DF56A670031BBA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D648F7A81DF56A670031BBA5 /* Foundation.framework */; };
 		D648F7AB1DF56A750031BBA5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D648F7AA1DF56A750031BBA5 /* CFNetwork.framework */; };
 		D648F7AD1DF56A7D0031BBA5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D648F7AC1DF56A7D0031BBA5 /* CoreMotion.framework */; };
+		D664DD5F1DFF833400646BB1 /* PayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D664DD5E1DFF833400646BB1 /* PayOrderModel.m */; };
+		D664DD641DFF9B2D00646BB1 /* OuPresentAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D664DD631DFF9B2D00646BB1 /* OuPresentAnimation.m */; };
 		D68900901DEEA1E00052A64F /* MeDeleteTaskWebInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D689008F1DEEA1E00052A64F /* MeDeleteTaskWebInterface.m */; };
 		D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CC61DB45025004D6C8B /* PFHomeViewController.m */; };
 		D6950CCA1DB459BF004D6C8B /* LFLUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D6950CC91DB459BF004D6C8B /* LFLUISegmentedControl.m */; };
@@ -509,6 +511,10 @@
 		D648F7A81DF56A670031BBA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D648F7AA1DF56A750031BBA5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		D648F7AC1DF56A7D0031BBA5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		D664DD5D1DFF833400646BB1 /* PayOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayOrderModel.h; sourceTree = "<group>"; };
+		D664DD5E1DFF833400646BB1 /* PayOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayOrderModel.m; sourceTree = "<group>"; };
+		D664DD621DFF9B2D00646BB1 /* OuPresentAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OuPresentAnimation.h; path = viewcontrollers/login/OuPresentAnimation.h; sourceTree = "<group>"; };
+		D664DD631DFF9B2D00646BB1 /* OuPresentAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OuPresentAnimation.m; path = viewcontrollers/login/OuPresentAnimation.m; sourceTree = "<group>"; };
 		D689008E1DEEA1E00052A64F /* MeDeleteTaskWebInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeDeleteTaskWebInterface.h; path = me/MeDeleteTaskWebInterface.h; sourceTree = "<group>"; };
 		D689008F1DEEA1E00052A64F /* MeDeleteTaskWebInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeDeleteTaskWebInterface.m; path = me/MeDeleteTaskWebInterface.m; sourceTree = "<group>"; };
 		D6950CC51DB45025004D6C8B /* PFHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFHomeViewController.h; path = viewcontrollers/pfhome/PFHomeViewController.h; sourceTree = "<group>"; };
@@ -1171,6 +1177,8 @@
 				D61686751DD45929007EAA64 /* WelcomeBackViewController.m */,
 				D61686791DD55303007EAA64 /* LoginSuccessViewController.h */,
 				D616867A1DD55303007EAA64 /* LoginSuccessViewController.m */,
+				D664DD621DFF9B2D00646BB1 /* OuPresentAnimation.h */,
+				D664DD631DFF9B2D00646BB1 /* OuPresentAnimation.m */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -1211,6 +1219,8 @@
 				D6E525A71DE97B7700BAE978 /* NSData+Base64.m */,
 				D648F7991DF566B90031BBA5 /* AlipayRequestHandler.h */,
 				D648F79A1DF566B90031BBA5 /* AlipayRequestHandler.m */,
+				D664DD5D1DFF833400646BB1 /* PayOrderModel.h */,
+				D664DD5E1DFF833400646BB1 /* PayOrderModel.m */,
 			);
 			path = SDKExport;
 			sourceTree = "<group>";
@@ -1695,6 +1705,7 @@
 				A5AC117A1DABA57D00CBBE05 /* MeTableViewCell.m in Sources */,
 				C8EB79AA1DC07D4E005599BC /* OptDetail.m in Sources */,
 				C8610C071DD065C600E959E1 /* SetDefaultBankWebInterface.m in Sources */,
+				D664DD641DFF9B2D00646BB1 /* OuPresentAnimation.m in Sources */,
 				D637D9761DFA7AC50089FA09 /* ManagerDeleteTaskWebInterface.m in Sources */,
 				C8610BFB1DD05E3200E959E1 /* ChargeWebInterface.m in Sources */,
 				C87E40AE1DD2B14D00DD2018 /* MeMissionActorView.m in Sources */,
@@ -1714,6 +1725,7 @@
 				A5B85DDD1DAF310D000DD644 /* MeBankAddTableViewCell.m in Sources */,
 				D6950CC71DB45025004D6C8B /* PFHomeViewController.m in Sources */,
 				C8E6514A1DA9EAF100400ABC /* UIColor+Hex.m in Sources */,
+				D664DD5F1DFF833400646BB1 /* PayOrderModel.m in Sources */,
 				C8610BF21DD047F300E959E1 /* TaskDetailWebInterface.m in Sources */,
 				D64164C51DE4404B00E6CA6C /* WXApiManager.m in Sources */,
 				C83C79261DD163CD002EEAF3 /* OUNavAnimation.m in Sources */,

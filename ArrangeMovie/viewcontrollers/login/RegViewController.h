@@ -24,6 +24,11 @@
 @property (weak, nonatomic) IBOutlet EMIShadowImageView *headImg;
 
 @property (weak, nonatomic) IBOutlet UIView *segmentView;//滑动菜单父视图
+@property (weak, nonatomic) IBOutlet UIImageView *nickNameImg;
+@property (weak, nonatomic) IBOutlet UITextField *nickNameTF;
+@property (weak, nonatomic) IBOutlet UIView *nickNameLineView;
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *phoneImg;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 @property (weak, nonatomic) IBOutlet UIView *phoneLineView;

@@ -23,6 +23,9 @@
 #import "PresentAnimation.h"
 #import "MJRefreshGifHeader.h"
 #import "UIImage+GIF.h"
+#import "MeMissionViewController.h"
+#import "MePointViewController.h"
+#import "MeProfileViewController.h"
 
 @interface ManagerIndexViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate> {
     Task *selTask;
@@ -65,27 +68,30 @@
     
     // Do any additional setup after loading the view.
     
-}
-
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
     self.title = @"";
     
     self.array = [[NSArray alloc] init];
+    
+    
+    
+    [self initViews];
+    //动画代理
+    self.transitioningDelegate = self;
+    [self addScreenEdgePanGestureRecognizer:self.view edges:UIRectEdgeRight]; // 为self.view增加右侧的手势，用于push
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"theatres_index_view_task" highImageName:@"theatres_index_view_task" target:self action:@selector(toMyMission)];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"film_home_my" highImageName:@"film_home_my" target:self action:@selector(tomy)];
     
     
-    [self initViews];
+    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
     
-    //动画代理
-    self.transitioningDelegate = self;
-    [self addScreenEdgePanGestureRecognizer:self.view edges:UIRectEdgeRight]; // 为self.view增加右侧的手势，用于push
 }
 
 //跳转至我的
@@ -121,27 +127,36 @@
 
 // 手势的监听方法
 - (void)edgePanGesture:(UIScreenEdgePanGestureRecognizer *)edgePan{
-    CGFloat progress = fabs([edgePan translationInView:[UIApplication sharedApplication].keyWindow].x / [UIApplication sharedApplication].keyWindow.bounds.size.width);// 有两个手势，所以这里计算百分比使用的是 KeyWindow
-    
     if(edgePan.state == UIGestureRecognizerStateBegan){
-        self.percentDrivenTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
         if(edgePan.edges == UIRectEdgeRight){
             // present，避免重复，直接调用点击方法
             [self tomy];
         }else if(edgePan.edges == UIRectEdgeLeft){
-            [self dismissViewControllerAnimated:YES completion:^{
-            }];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
-    }else if(edgePan.state == UIGestureRecognizerStateChanged){
-        [self.percentDrivenTransition updateInteractiveTransition:progress];
-    }else if(edgePan.state == UIGestureRecognizerStateCancelled || edgePan.state == UIGestureRecognizerStateEnded){
-        if(progress > 0.5){
-            [_percentDrivenTransition finishInteractiveTransition];
-        }else{
-            [_percentDrivenTransition cancelInteractiveTransition];
-        }
-        _percentDrivenTransition = nil;
     }
+    
+//    CGFloat progress = fabs([edgePan translationInView:[UIApplication sharedApplication].keyWindow].x / [UIApplication sharedApplication].keyWindow.bounds.size.width);// 有两个手势，所以这里计算百分比使用的是 KeyWindow
+//    
+//    if(edgePan.state == UIGestureRecognizerStateBegan){
+//        self.percentDrivenTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
+//        if(edgePan.edges == UIRectEdgeRight){
+//            // present，避免重复，直接调用点击方法
+//            [self tomy];
+//        }else if(edgePan.edges == UIRectEdgeLeft){
+//            [self dismissViewControllerAnimated:YES completion:^{
+//            }];
+//        }
+//    }else if(edgePan.state == UIGestureRecognizerStateChanged){
+//        [self.percentDrivenTransition updateInteractiveTransition:progress];
+//    }else if(edgePan.state == UIGestureRecognizerStateCancelled || edgePan.state == UIGestureRecognizerStateEnded){
+//        if(progress > 0.5){
+//            [_percentDrivenTransition finishInteractiveTransition];
+//        }else{
+//            [_percentDrivenTransition cancelInteractiveTransition];
+//        }
+//        _percentDrivenTransition = nil;
+//    }
 }
 
 // 百分比present
@@ -183,6 +198,9 @@
     self.nameLab.textAlignment = NSTextAlignmentCenter;
     self.nameLab.font = [UIFont fontWithName:@"Droid Sans Fallback" size:16.0*autoSizeScaleY];
     self.nameLab.text = self.user.nickname;
+    if (self.user.nickname.length == 2) {
+        self.nameLab.text = [NSString stringWithFormat:@"%@    %@",[self.user.nickname substringToIndex:1],[self.user.nickname substringFromIndex:1]];
+    }
     self.nameLab.frame = CGRectMake(11*autoSizeScaleX, 172*autoSizeScaleY-self.nameLab.font.capHeight-8, 118*autoSizeScaleY, self.nameLab.font.capHeight+8);
     self.nameLab.textColor = [UIColor colorWithHexString:@"162271"];
     self.nameLab.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
@@ -231,6 +249,31 @@
 
 
 - (void)loadNewData:(MJRefreshGifHeader *)sender{
+    
+    CGFloat y = 0;
+    
+    //判断下拉刷新有没有加载
+    for (UIView *item in self.tableView.subviews) {
+        if ([item isKindOfClass:[MJRefreshGifHeader class]]) {
+            y = item.frame.size.height;
+            break;
+        }
+    }
+    [self setHead];
+    self.nameLab.text = self.user.nickname;
+    if (self.user.nickname.length == 2) {
+        self.nameLab.text = [NSString stringWithFormat:@"%@    %@",[self.user.nickname substringToIndex:1],[self.user.nickname substringFromIndex:1]];
+    }
+    
+    self.pointFirstLab.text = [[NSString stringWithFormat:@"%.0f",self.user.userpoints] substringToIndex:1];
+    CGSize pointFirstLabSize = [self.pointFirstLab boundingRectWithSize:CGSizeZero];
+    self.pointFirstLab.frame = CGRectMake(152*autoSizeScaleX, 89*autoSizeScaleY-self.pointFirstLab.font.capHeight-4.5+y, pointFirstLabSize.width, self.pointFirstLab.font.capHeight+4.5);
+    
+    self.pointOtherLab.text = [NSString stringWithFormat:@"%.0f",self.user.userpoints].length == 1 ? @"" : [[NSString stringWithFormat:@"%.0f",self.user.userpoints] substringFromIndex:1];
+    CGSize pointOtherLabSize = [self.pointOtherLab boundingRectWithSize:CGSizeZero];
+    self.pointOtherLab.frame = CGRectMake(177*autoSizeScaleX, 89*autoSizeScaleY-self.pointOtherLab.font.capHeight-3+y, pointOtherLabSize.width, self.pointOtherLab.font.capHeight+3);
+    
+    
     ManagerTaskWebInterface *homeInterface = [[ManagerTaskWebInterface alloc] init];
     __unsafe_unretained typeof(self) weakself = self;
     NSDictionary *param = [homeInterface inboxObject:@[@(self.user.userid),@(0),@(self.user.usertype)]];//首页展示的都是新任务
@@ -463,6 +506,8 @@
     
     //给labels集中布局，（在赋值之后）
     [self layoutLabs];
+    
+    [self createGesture];
 }
 
 
@@ -605,5 +650,56 @@
    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"me" bundle:nil];
     MeViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"me"];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+
+//创建手势，头像跳至修改个人资料，积分跳至我的积分，其他跳至任务历史
+- (void)createGesture{
+    
+    self.topView.userInteractionEnabled = YES;
+    self.headImgView.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totap1:)];
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totap2:)];
+    UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totap3:)];
+    UITapGestureRecognizer *tap4 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totap3:)];
+    UITapGestureRecognizer *tap5 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totap3:)];
+    
+    [self.headImgView addGestureRecognizer:tap1];
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(152*autoSizeScaleX, 22*autoSizeScaleY, 100*autoSizeScaleX, 77*autoSizeScaleY)];
+    view1.backgroundColor = [UIColor clearColor];
+    [view1 addGestureRecognizer:tap2];
+    [self.topView addSubview:view1];
+    view1.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
+    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(268*autoSizeScaleX,22*autoSizeScaleY, 100*autoSizeScaleX, 77*autoSizeScaleY)];
+    view2.backgroundColor = [UIColor clearColor];
+    [view2 addGestureRecognizer:tap3];
+    [self.topView addSubview:view2];
+    view2.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
+    UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(152*autoSizeScaleX, 106.5*autoSizeScaleY, 100*autoSizeScaleX, 77*autoSizeScaleY)];
+    view3.backgroundColor = [UIColor clearColor];
+    [view3 addGestureRecognizer:tap4];
+    [self.topView addSubview:view3];
+    view3.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
+    UIView *view4 = [[UIView alloc] initWithFrame:CGRectMake(268*autoSizeScaleX,106.5*autoSizeScaleY, 100*autoSizeScaleX, 77*autoSizeScaleY)];
+    view4.backgroundColor = [UIColor clearColor];
+    [view4 addGestureRecognizer:tap5];
+    [self.topView addSubview:view4];
+    view4.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;//距离底部距离不变
+}
+
+- (void)totap1:(UITapGestureRecognizer *)sender{
+    UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
+    MeProfileViewController *profileVC = [me instantiateViewControllerWithIdentifier:@"meprofile"];
+    [self.navigationController pushViewController:profileVC animated:YES];
+}
+
+- (void)totap2:(UITapGestureRecognizer *)sender{
+    UIStoryboard *me = [UIStoryboard storyboardWithName:@"me" bundle:nil];
+    MePointViewController *pointVC = [me instantiateViewControllerWithIdentifier:@"mepoint"];
+    [self.navigationController pushViewController:pointVC animated:YES];
+}
+- (void)totap3:(UITapGestureRecognizer *)sender{
+   [self performSegueWithIdentifier:@"tomanagermission" sender:nil];
 }
 @end

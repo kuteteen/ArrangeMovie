@@ -8,6 +8,6 @@
 
 #import "EMIBaseViewController.h"
 
-@interface LoginSuccessViewController : EMIBaseViewController
+@interface LoginSuccessViewController : EMIBaseViewController<UIViewControllerTransitioningDelegate>
 
 @end

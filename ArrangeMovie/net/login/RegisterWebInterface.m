@@ -33,6 +33,7 @@
                 [dict setObject:array[1] forKey:@"usertype"];
                 [dict setObject:array[2] forKey:@"code"];
                 [dict setObject:array[3] forKey:@"password"];
+                [dict setObject:array[4] forKey:@"nickname"];
             } @catch (NSException *exception) {
                 NSLog(@"%@",exception);
             } @finally {
@@ -46,6 +47,7 @@
                 [dict setObject:array[2] forKey:@"code"];
                 [dict setObject:array[3] forKey:@"password"];
                 [dict setObject:array[4] forKey:@"headimg"];
+                [dict setObject:array[5] forKey:@"nickname"];
             } @catch (NSException *exception) {
                 NSLog(@"%@",exception);
             } @finally {

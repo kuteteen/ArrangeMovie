@@ -13,6 +13,6 @@
 
 @property(nonatomic,strong) void(^ wxreturnBlock)(NSString *returnStr);
 
-- (void)jumpToBizPay:(NSString *)userid price:(NSNumber *)price;
+- (void)jumpToBizPay:(NSNumber *)userid price:(NSNumber *)price usertype:(NSNumber *)usertype;
 
 @end

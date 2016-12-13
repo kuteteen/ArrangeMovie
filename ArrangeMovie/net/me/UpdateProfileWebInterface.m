@@ -29,8 +29,11 @@
             [dict setObject:array[1] forKey:@"nickname"];
             [dict setObject:array[2] forKey:@"name"];
             [dict setObject:array[3] forKey:@"sex"];
-            [dict setObject:array[4] forKey:@"headimg"];
             [dict setObject:array[5] forKey:@"usertype"];
+            if (![array[4] hasPrefix:@"http"]) {
+                [dict setObject:array[4] forKey:@"headimg"];
+            }
+            
         } @catch (NSException *exception) {
             NSLog(@"%@",exception);
         } @finally {

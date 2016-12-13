@@ -184,7 +184,6 @@
     
     //原本设置过头像，可以不再设置
     if (image == nil && self.headimg != nil) {
-        //直接请求注册接口
         __unsafe_unretained typeof(self) weakself = self;
         UpdateProfileWebInterface *webInterface = [[UpdateProfileWebInterface alloc] init];
         NSDictionary *param = [webInterface inboxObject:@[@(self.user.userid),self.NickNameTextField.text,self.nameTextField.text,self.user.sex,self.headimg,@(self.user.usertype)]];

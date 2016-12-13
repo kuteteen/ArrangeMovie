@@ -16,7 +16,7 @@
                             //headimg Nsstring  头像地址       user已有，单独再存为了重新登录时有个默认用户      登陆了新的用户
                             //dn     NSstring   用户手机号     user已有，单独再存为了重新登录时有个默认用户       登陆了新的用户
                             //isFirstUse NSString  是否第一次使用(0或nil(没设置过为nil)是，1不是)  决定首页的引导图是否显示      退出登录时
-
+                            //password  NSString(MD5加密）  登录，修改密码，退出登录
 @implementation OperateNSUserDefault
 
 //返回[NSUserDefaults standardUserDefaults]
@@ -34,8 +34,16 @@
     [userDic setObject:user.dn forKey:@"dn"];
     
     [userDic setObject:@(user.usertype) forKey:@"usertype"];
+    @try {
+        
+       [userDic setObject:user.nickname forKey:@"nickname"];
+        
+    } @catch (NSException *exception) {
+        
+    } @finally {
+        
+    }
     
-    [userDic setObject:user.nickname forKey:@"nickname"];
     
     [userDic setObject:user.name forKey:@"name"];
     

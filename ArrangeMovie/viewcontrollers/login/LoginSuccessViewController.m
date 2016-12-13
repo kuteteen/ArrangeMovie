@@ -11,6 +11,7 @@
 #import "EMINavigationController.h"
 #import "EMIRootViewController.h"
 #import "ManagerIndexViewController.h"
+#import "OuPresentAnimation.h"
 
 @interface LoginSuccessViewController ()<RESideMenuDelegate,UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet EMIShadowImageView *headImgView;
@@ -24,6 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.transitioningDelegate = self;
+    
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     //禁止返回
     self.navigationItem.backBarButtonItem = nil;
@@ -37,7 +41,7 @@
     [self setHead];
     
     //动画改变视图透明度和位置
-    [UIView animateWithDuration:3.0f animations:^{
+    [UIView animateWithDuration:2.0f animations:^{
         self.headImgView.alpha = 1;
         CGRect headframe = self.headImgView.frame;
         headframe.origin.y = 92*autoSizeScaleY;
@@ -88,7 +92,7 @@
             
             
             //使线程睡眠4秒，页面跳转
-            double delayInSeconds = 4.0;
+            double delayInSeconds = 2;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 
@@ -101,11 +105,68 @@
 }
 
 - (void)jumpMethod{
-    [self performSegueWithIdentifier:@"loginsuccesstowelcomeback" sender:self];
+//    [self performSegueWithIdentifier:@"loginsuccesstowelcomeback" sender:self];
+    
+    if (self.user.usertype == 0) {
+        UIStoryboard *pfhome = [UIStoryboard storyboardWithName:@"pfhome" bundle:nil];
+        PFHomeViewController *viewController = [pfhome instantiateViewControllerWithIdentifier:@"pfhome"];
+        EMINavigationController *nav = [[EMINavigationController alloc] initWithRootViewController:viewController];
+        nav.transitioningDelegate = self;
+        [self presentViewController:nav animated:YES completion:nil];
+    }
+    if (self.user.usertype == 1) {
+        UIStoryboard *manager = [UIStoryboard storyboardWithName:@"manager" bundle:nil];
+        ManagerIndexViewController *managerIndexVC = [manager instantiateViewControllerWithIdentifier:@"manager"];
+        EMINavigationController *managerNav = [[EMINavigationController alloc] initWithRootViewController:managerIndexVC];
+        managerNav.transitioningDelegate = self;
+        [self presentViewController:managerNav animated:YES completion:nil];
+    }
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
     return NO;
+}
+
+// present动画
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source{
+    OuPresentAnimation *animation = [[OuPresentAnimation alloc] init];
+    animation.imageRect = self.headImgView.frame;
+    
+    
+    // 1.加载原图
+    UIImage *oldImage = self.headImgView.image;
+    
+    CGFloat imageWidth = self.headImgView.frame.size.width + 2 * 1;
+    
+    CGFloat imageHeight = self.headImgView.frame.size.width + 2 * 1;
+    
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(imageWidth, imageHeight), NO, 0.0);
+    
+    UIGraphicsGetCurrentContext();
+    
+    CGFloat radius = self.headImgView.frame.size.width/2;
+    
+    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(imageWidth * 0.5, imageHeight * 0.5) radius:radius startAngle:0 endAngle:M_PI * 2 clockwise:YES];
+    
+    bezierPath.lineWidth = 1;
+    
+    [bezierPath stroke];
+    
+    [bezierPath addClip];
+    
+    [oldImage drawInRect:CGRectMake(1, 1, self.headImgView.frame.size.width, self.headImgView.frame.size.width)];
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    
+    
+    
+    animation.image = newImage;
+    animation.desRect = CGRectMake(11*autoSizeScaleX,64+22*autoSizeScaleY,118*autoSizeScaleY,118*autoSizeScaleY);
+    return animation;
+    
 }
 /*
 #pragma mark - Navigation

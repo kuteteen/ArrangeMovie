@@ -47,10 +47,10 @@
     self.headImg.frame = CGRectMake(self.headImg.frame.origin.x, self.headImg.frame.origin.y, self.headImg.frame.size.height, self.headImg.frame.size.height);
     self.headImg.layer.masksToBounds = YES;
     self.headImg.layer.cornerRadius = self.headImg.frame.size.height/2;
-    self.tfArrays = [[NSMutableArray alloc] initWithArray:@[self.phoneTF,self.yzmTF,self.npwdTF,self.anpwdTF]];
-    self.imgArrays = [[NSMutableArray alloc] initWithArray:@[self.phoneImg,self.yzmImg,self.npwdImg,self.anpwdImg]];
-    self.lineArrays = [[NSMutableArray alloc] initWithArray:@[self.phoneLineView,self.yzmLineView,self.npwdLineView,self.anpwdLineView]];
-    self.imgnameArrays = [[NSMutableArray alloc] initWithArray:@[@"login_input_tel",@"register_verification_code",@"login_imput_-password",@"login_imput_-password"]];
+    self.tfArrays = [[NSMutableArray alloc] initWithArray:@[self.nickNameTF,self.phoneTF,self.yzmTF,self.npwdTF,self.anpwdTF]];
+    self.imgArrays = [[NSMutableArray alloc] initWithArray:@[self.nickNameImg,self.phoneImg,self.yzmImg,self.npwdImg,self.anpwdImg]];
+    self.lineArrays = [[NSMutableArray alloc] initWithArray:@[self.nickNameLineView,self.phoneLineView,self.yzmLineView,self.npwdLineView,self.anpwdLineView]];
+    self.imgnameArrays = [[NSMutableArray alloc] initWithArray:@[@"Icon---Username",@"login_input_tel",@"register_verification_code",@"login_imput_-password",@"login_imput_-password"]];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -76,7 +76,10 @@
     //    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     //    CGFloat height = keyboardFrame.origin.y;
     CGRect frame = self.view.frame;
-    frame.origin.y = -self.segmentView.frame.origin.y+64;
+    if ([self.npwdTF isFirstResponder]||[self.anpwdTF isFirstResponder]) {
+        frame.origin.y = -CGRectGetMaxY(self.headImg.frame)+64;
+    }
+    
     self.view.frame = frame;
 }
 
@@ -168,6 +171,9 @@
 }
 //隐藏键盘
 - (IBAction)hideKeyBoard:(UITapGestureRecognizer *)sender {
+    if ([self.nickNameTF isFirstResponder]) {
+        [self.nickNameTF resignFirstResponder];
+    }
     if ([self.phoneTF isFirstResponder]) {
         [self.phoneTF resignFirstResponder];
     }
@@ -240,26 +246,34 @@
         //直接请求注册接口
         __unsafe_unretained typeof(self) weakself = self;
         RegisterWebInterface *regInterface = [[RegisterWebInterface alloc] init];
-        NSDictionary *param = [regInterface inboxObject:@[self.phoneTF.text,@(self.usertype),self.yzmTF.text,[Encryption md5EncryptWithString:self.npwdTF.text]]];
+        NSDictionary *param = [regInterface inboxObject:@[self.phoneTF.text,@(self.usertype),self.yzmTF.text,[Encryption md5EncryptWithString:self.npwdTF.text],self.nickNameTF.text]];
         [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:regInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
             NSMutableArray *result = [regInterface unboxObject:returnValue];
             if ([result[0] intValue] == 1) {
                 [weakself.view makeToast:@"注册成功" duration:2.0 position:CSToastPositionCenter];
-                //注册成功后 回到登录页，自己去登
                 
-                if (weakself.usertype == 0) {
-                    //片方返回登录页
-                    [weakself.navigationController popViewControllerAnimated:YES];
-                }
+                //使线程睡眠4秒，页面跳转
+                double delayInSeconds = 2.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    //注册成功后 回到登录页，自己去登
+                    
+                    if (weakself.usertype == 0) {
+                        //片方返回登录页
+                        [weakself.navigationController popViewControllerAnimated:YES];
+                    }
+                    
+                    //                //院线经理跳至认证院线经理
+                    //                if (weakself.usertype == 1) {
+                    //                    [weakself performSegueWithIdentifier:@"toLoginAuthVC" sender:weakself];
+                    //                }
+                    if (weakself.usertype == 1) {
+                        //院线经理返回登录页
+                        [weakself.navigationController popViewControllerAnimated:YES];
+                    }
+                    
+                });
                 
-//                //院线经理跳至认证院线经理
-//                if (weakself.usertype == 1) {
-//                    [weakself performSegueWithIdentifier:@"toLoginAuthVC" sender:weakself];
-//                }
-                if (weakself.usertype == 1) {
-                    //院线经理返回登录页
-                    [weakself.navigationController popViewControllerAnimated:YES];
-                }
                 
             }else{
                 [weakself.view makeToast:result[1] duration:2.0 position:CSToastPositionCenter];
@@ -287,26 +301,34 @@
         //头像加载成功，再去请求注册接口
         __unsafe_unretained typeof(self) weakself = self;
         RegisterWebInterface *regInterface = [[RegisterWebInterface alloc] init];
-        NSDictionary *param = [regInterface inboxObject:@[self.phoneTF.text,@(self.usertype),self.yzmTF.text,[Encryption md5EncryptWithString:self.npwdTF.text],resultimg[0]]];
+        NSDictionary *param = [regInterface inboxObject:@[self.phoneTF.text,@(self.usertype),self.yzmTF.text,[Encryption md5EncryptWithString:self.npwdTF.text],resultimg[0],self.nickNameTF.text]];
         [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:regInterface.url withparameter:param WithReturnValeuBlock:^(id returnValue) {
             NSMutableArray *result = [regInterface unboxObject:returnValue];
             if ([result[0] intValue] == 1) {
                 [weakself.view makeToast:@"注册成功" duration:2.0 position:CSToastPositionCenter];
-                //注册成功后 回到登录页，自己去登
                 
-                if (weakself.usertype == 0) {
-                    //片方返回登录页
-                    [weakself.navigationController popViewControllerAnimated:YES];
-                }
+                //使线程睡眠4秒，页面跳转
+                double delayInSeconds = 2.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    //注册成功后 回到登录页，自己去登
+                    
+                    if (weakself.usertype == 0) {
+                        //片方返回登录页
+                        [weakself.navigationController popViewControllerAnimated:YES];
+                    }
+                    
+                    //                //院线经理跳至认证院线经理
+                    //                if (weakself.usertype == 1) {
+                    //                    [weakself performSegueWithIdentifier:@"toLoginAuthVC" sender:weakself];
+                    //                }
+                    if (weakself.usertype == 1) {
+                        //院线经理返回登录页
+                        [weakself.navigationController popViewControllerAnimated:YES];
+                    }
+                });
                 
-//                //院线经理跳至认证院线经理
-//                if (weakself.usertype == 1) {
-//                    [weakself performSegueWithIdentifier:@"toLoginAuthVC" sender:weakself];
-//                }
-                if (weakself.usertype == 1) {
-                    //院线经理返回登录页
-                    [weakself.navigationController popViewControllerAnimated:YES];
-                }
+                
                     
                     
                     
@@ -323,18 +345,21 @@
         }];
     }];
 }
-
-- (IBAction)touchPhoneTF:(UITextField *)sender {
+- (IBAction)touchNicknameTF:(UITextField *)sender {
     [self changeHighLighted:0];
 }
-- (IBAction)touchYzmTF:(UITextField *)sender {
+
+- (IBAction)touchPhoneTF:(UITextField *)sender {
     [self changeHighLighted:1];
 }
-- (IBAction)touchNpwdTF:(UITextField *)sender {
+- (IBAction)touchYzmTF:(UITextField *)sender {
     [self changeHighLighted:2];
 }
-- (IBAction)touchAnpwdTF:(UITextField *)sender {
+- (IBAction)touchNpwdTF:(UITextField *)sender {
     [self changeHighLighted:3];
+}
+- (IBAction)touchAnpwdTF:(UITextField *)sender {
+    [self changeHighLighted:4];
 }
 
 //检测手机号是否合法
@@ -359,7 +384,10 @@
 }
 //立即注册
 - (IBAction)registerClicked:(UIButton *)sender {
-    
+    if ([self.nickNameTF.text isEqualToString:@""]) {
+        [self.view makeToast:@"请输入昵称" duration:1.5 position:CSToastPositionCenter];
+        return;
+    }
     
     if (![self.anpwdTF.text isEqualToString:self.npwdTF.text]) {
         [self.view makeToast:@"两次输入密码不一致" duration:1.5 position:CSToastPositionCenter];

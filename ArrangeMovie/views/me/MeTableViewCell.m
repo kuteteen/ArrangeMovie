@@ -35,7 +35,7 @@
     
     NSString *imgname;
     if([title isEqualToString:@"我的资料"]){
-        imgname = @"Icon---Username_click";
+        imgname = @"Icon---Username_clicked";
     }else if([title isEqualToString:@"任务历史"]){
         imgname = @"my_task";
     }else if([title isEqualToString:@"我的积分"]){
