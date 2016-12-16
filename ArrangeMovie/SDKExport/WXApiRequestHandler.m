@@ -42,7 +42,7 @@
 //    id<DataSigner> signer = CreateRSADataSigner(privatekey);
 //    NSString *signedString = [signer signString:jsonStr];
 //    NSDictionary *param = @{@"json":jsonStr,@"sign":signedString,@"deviceno":@"EMITEST"};
-    NSDictionary *param = @{@"userid":@([userid intValue]),@"amount":@([price doubleValue]),@"usertype":@([usertype intValue]),@"paycode":@"wechatapp"};
+    NSDictionary *param = @{@"userid":@([userid intValue]),@"price":@([price doubleValue]),@"usertype":@([usertype intValue]),@"paycode":@"wechatapp"};
         [SCHttpOperation requestWithMethod:RequestMethodTypePost withURL:urlString withparameter:param WithReturnValeuBlock:^(id returnValue) {
             if (returnValue) {
                 NSMutableDictionary *dict = (NSMutableDictionary *)returnValue;

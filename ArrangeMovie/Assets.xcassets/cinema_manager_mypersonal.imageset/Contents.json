@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "iphone",
-      "filename" : "register _btn.png",
+      "filename" : "cinema_manager_my_ personal.png",
       "scale" : "1x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "register _btn-1.png",
+      "filename" : "cinema_manager_my_ personal-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "register _btn-2.png",
+      "filename" : "cinema_manager_my_ personal-2.png",
       "scale" : "3x"
     }
   ],

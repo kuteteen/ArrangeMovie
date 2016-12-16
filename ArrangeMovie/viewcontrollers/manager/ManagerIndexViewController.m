@@ -54,6 +54,8 @@
 
 @property(nonatomic,strong)UIImageView *leadaddView;//引导图片
 @property(nonatomic,strong)UIImageView *leadmyView;//引导图片
+@property(nonatomic,strong)UIImageView *leadmypersonalView;//引导图片
+@property(nonatomic,strong)UIImageView *leadtaskView;//引导图片
 @property(nonatomic,strong)UITapGestureRecognizer *removeLeadGes;//清除引导图片的手势
 
 
@@ -127,36 +129,36 @@
 
 // 手势的监听方法
 - (void)edgePanGesture:(UIScreenEdgePanGestureRecognizer *)edgePan{
-    if(edgePan.state == UIGestureRecognizerStateBegan){
-        if(edgePan.edges == UIRectEdgeRight){
-            // present，避免重复，直接调用点击方法
-            [self tomy];
-        }else if(edgePan.edges == UIRectEdgeLeft){
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
-    }
-    
-//    CGFloat progress = fabs([edgePan translationInView:[UIApplication sharedApplication].keyWindow].x / [UIApplication sharedApplication].keyWindow.bounds.size.width);// 有两个手势，所以这里计算百分比使用的是 KeyWindow
-//    
 //    if(edgePan.state == UIGestureRecognizerStateBegan){
-//        self.percentDrivenTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
 //        if(edgePan.edges == UIRectEdgeRight){
 //            // present，避免重复，直接调用点击方法
 //            [self tomy];
 //        }else if(edgePan.edges == UIRectEdgeLeft){
-//            [self dismissViewControllerAnimated:YES completion:^{
-//            }];
+//            [self dismissViewControllerAnimated:YES completion:nil];
 //        }
-//    }else if(edgePan.state == UIGestureRecognizerStateChanged){
-//        [self.percentDrivenTransition updateInteractiveTransition:progress];
-//    }else if(edgePan.state == UIGestureRecognizerStateCancelled || edgePan.state == UIGestureRecognizerStateEnded){
-//        if(progress > 0.5){
-//            [_percentDrivenTransition finishInteractiveTransition];
-//        }else{
-//            [_percentDrivenTransition cancelInteractiveTransition];
-//        }
-//        _percentDrivenTransition = nil;
 //    }
+    
+    CGFloat progress = fabs([edgePan translationInView:[UIApplication sharedApplication].keyWindow].x / [UIApplication sharedApplication].keyWindow.bounds.size.width);// 有两个手势，所以这里计算百分比使用的是 KeyWindow
+    
+    if(edgePan.state == UIGestureRecognizerStateBegan){
+        self.percentDrivenTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
+        if(edgePan.edges == UIRectEdgeRight){
+            // present，避免重复，直接调用点击方法
+            [self tomy];
+        }else if(edgePan.edges == UIRectEdgeLeft){
+            [self dismissViewControllerAnimated:YES completion:^{
+            }];
+        }
+    }else if(edgePan.state == UIGestureRecognizerStateChanged){
+        [self.percentDrivenTransition updateInteractiveTransition:progress];
+    }else if(edgePan.state == UIGestureRecognizerStateCancelled || edgePan.state == UIGestureRecognizerStateEnded){
+        if(progress > 0.5){
+            [_percentDrivenTransition finishInteractiveTransition];
+        }else{
+            [_percentDrivenTransition cancelInteractiveTransition];
+        }
+        _percentDrivenTransition = nil;
+    }
 }
 
 // 百分比present
@@ -318,17 +320,31 @@
     //首先，隐藏navigation
     [self.navigationController setNavigationBarHidden:YES];
     
+    self.leadtaskView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    self.leadtaskView.tag = 0;
+    self.leadtaskView.image = [UIImage imageNamed:@"cinema_manager_lead_task"];
+    self.leadtaskView.userInteractionEnabled = YES;
+    [self.view addSubview:self.leadtaskView];
+    
+    self.leadmypersonalView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    self.leadmypersonalView.tag = 1;
+    self.leadmypersonalView.image = [UIImage imageNamed:@"cinema_manager_mypersonal"];
+    self.leadmypersonalView.userInteractionEnabled = YES;
+    [self.view addSubview:self.leadmypersonalView];
+    
     self.leadmyView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
-    self.leadmyView.tag = 0;
+    self.leadmyView.tag =2;
     self.leadmyView.image = [UIImage imageNamed:@"cinema_manager_my_new"];
     self.leadmyView.userInteractionEnabled = YES;
     [self.view addSubview:self.leadmyView];
     
     self.leadaddView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
-    self.leadaddView.tag = 1;
+    self.leadaddView.tag = 3;
     self.leadaddView.image = [UIImage imageNamed:@"cinema_manager_task_new"];
     self.leadaddView.userInteractionEnabled = YES;
     [self.view addSubview:self.leadaddView];
+    
+    
     
     self.removeLeadGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeLead:)];
     [self.leadaddView addGestureRecognizer:self.removeLeadGes];
@@ -338,15 +354,29 @@
 //清除引导相关视图
 - (void)removeLead:(UITapGestureRecognizer *)sender{
     //点击leadaddView
-    if (sender.view.tag == 1) {
+    if (sender.view.tag == 3) {
         [self.leadaddView removeFromSuperview];
         [self.leadaddView removeGestureRecognizer:self.removeLeadGes];
         [self.leadmyView addGestureRecognizer:self.removeLeadGes];
         return;
     }
-    //点击leadaddView
-    if (sender.view.tag == 0) {
+    //点击leadmyView
+    if (sender.view.tag == 2) {
         [self.leadmyView removeFromSuperview];
+        [self.leadmyView removeGestureRecognizer:self.removeLeadGes];
+        [self.leadmypersonalView addGestureRecognizer:self.removeLeadGes];
+        return;
+    }
+    //点击leadmypersonalView
+    if (sender.view.tag == 1) {
+        [self.leadmypersonalView removeFromSuperview];
+        [self.leadmypersonalView removeGestureRecognizer:self.removeLeadGes];
+        [self.leadtaskView addGestureRecognizer:self.removeLeadGes];
+        return;
+    }
+    //点击leadtaskView
+    if (sender.view.tag == 0) {
+        [self.leadtaskView removeFromSuperview];
         [self.navigationController setNavigationBarHidden:NO];
         [self setupRefresh];
         return;

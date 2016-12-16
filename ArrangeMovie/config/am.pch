@@ -26,7 +26,7 @@
 #define autoSizeScaleY [[UIScreen mainScreen] bounds].size.height/667.0f
 
 //微信支付的APP_ID
-#define WX_APP_ID @"wx241c56461cdb424f"
+#define WX_APP_ID @"wx83f146226df4032b"
 
 //上传图片的地址
 #define imgUploadServerIP @"http://116.62.42.99/app/uploadfile.do"

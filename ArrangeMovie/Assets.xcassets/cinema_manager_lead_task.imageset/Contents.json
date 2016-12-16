@@ -2,16 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "receive_task _btn.png",
+      "filename" : "cinema_manager_task.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "receive_task _btn-1.png",
+      "filename" : "cinema_manager_task-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "cinema_manager_task-2.png",
       "scale" : "3x"
     }
   ],

@@ -145,10 +145,10 @@
     self.chargeBtn = [[UIButton alloc] initWithFrame:CGRectMake(32*autoSizeScaleX, 64+(15+118+20+14+25)*autoSizeScaleY, 310*autoSizeScaleX/2, 60*autoSizeScaleY)];
     [self.chargeBtn setBackgroundImage:[UIImage imageNamed:@"integral_btn_left"] forState:UIControlStateNormal];
     if(self.user.usertype==0){
-        [self.chargeBtn setTitle:@"积分充值" forState:UIControlStateNormal];
+        [self.chargeBtn setTitle:@"积分兑换" forState:UIControlStateNormal];
         [self.chargeBtn addTarget:self action:@selector(toCharge:) forControlEvents:UIControlEventTouchUpInside];
     }else{
-        [self.chargeBtn setTitle:@"积分提现" forState:UIControlStateNormal];
+        [self.chargeBtn setTitle:@"积分回购" forState:UIControlStateNormal];
         [self.chargeBtn addTarget:self action:@selector(toWithdraw:) forControlEvents:UIControlEventTouchUpInside];
     }
     [self.topView addSubview:self.chargeBtn];
@@ -157,10 +157,10 @@
     [self.getBackbtn setBackgroundImage:[UIImage imageNamed:@"integral_btn_right"] forState:UIControlStateNormal];
     
     if(self.user.usertype==0){
-        [self.getBackbtn setTitle:@"积分提现" forState:UIControlStateNormal];
+        [self.getBackbtn setTitle:@"积分回购" forState:UIControlStateNormal];
         [self.getBackbtn addTarget:self action:@selector(toWithdraw:) forControlEvents:UIControlEventTouchUpInside];
     }else{
-        [self.getBackbtn setTitle:@"提现说明" forState:UIControlStateNormal];
+        [self.getBackbtn setTitle:@"回购说明" forState:UIControlStateNormal];
         [self.getBackbtn addTarget:self action:@selector(withdraw:) forControlEvents:UIControlEventTouchUpInside];
     }
     [self.topView addSubview:self.getBackbtn];
